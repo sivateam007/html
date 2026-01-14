@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Table Sizes - Jassif Team</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .content-section p, 
+        .content-section li,
+        .content-section h3,
+        .content-section h4 {
+            color: #333 !important;
+        }
+        
+        .tip-box p,
+        .tip-box li,
+        .tip-box h4 {
+            color: white !important;
+        }
+        
+        .exercise-box p,
+        .exercise-box h4 {
+            color: white !important;
+        }
+        
+        .logo-icon {
+            animation: none !important;
+        }
+        
+        .logo-image {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+            display: block;
+            border: 2px solid white;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            animation: none !important;
+        }
+        
+        .code-example {
+            background-color: #2d2d2d;
+            color: #f8f8f2;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+            overflow-x: auto;
+        }
+        
+        .table-demo {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+        }
+        
+        .table-demo th, .table-demo td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        
+        .demo-container {
+            margin: 2rem 0;
+            padding: 1.5rem;
+            background: #f8f9fa;
+            border-radius: 8px;
+            border-left: 4px solid var(--git-color);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <div class="logo-icon">
+                    <img src="logo.jpg" alt="Jassif Team Logo" class="logo-image">
+                </div>
+                <h1>Jassif Team <span>Institution</span></h1>
+            </div>
+        </div>
+    </header>
+
+    <!-- Top Navigation Tabs -->
+    <div class="nav-tabs">
+        <a href="HTML%20Table%20Borders.html" class="nav-tab prev">
+            <i class="fas fa-arrow-left"></i>
+            <span>पिछला</span>
+        </a>
+        <a href="HTML%20Table%20Headers.html" class="nav-tab next">
+            <span>अगला</span>
+            <i class="fas fa-arrow-right"></i>
+        </a>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h2>HTML Table Sizes</h2>
+            <p>HTML அட்டவணை அளவுகள்</p>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="container">
+        <!-- Introduction -->
+        <section class="content-section" id="introduction">
+            <h2>HTML அட்டவணை அளவுகள்</h2>
+            
+            <p>HTML அட்டவணைகள் ஒவ்வொரு நெடுவரிசை, வரிசை அல்லது முழு அட்டவணைக்கும் வெவ்வேறு அளவுகளைக் கொண்டிருக்கலாம்.</p>
+            
+            <div class="demo-container">
+                <table class="table-demo" style="width: 100%;">
+                    <tr style="height: 50px;">
+                        <th style="width: 40%;">நெடுவரிசை 1 (40%)</th>
+                        <th style="width: 30%;">நெடுவரிசை 2 (30%)</th>
+                        <th style="width: 30%;">நெடுவரிசை 3 (30%)</th>
+                    </tr>
+                    <tr style="height: 100px;">
+                        <td>வரிசை 1 (100px உயரம்)</td>
+                        <td>தரவு</td>
+                        <td>தரவு</td>
+                    </tr>
+                    <tr style="height: 60px;">
+                        <td>வரிசை 2 (60px உயரம்)</td>
+                        <td>தரவு</td>
+                        <td>தரவு</td>
+                    </tr>
+                </table>
+            </div>
+            
+            <p>ஒரு அட்டவணை, வரிசை அல்லது நெடுவரிசையின் அளவைக் குறிப்பிட width அல்லது height பண்புகளுடன் style பண்புக்கூறைப் பயன்படுத்தவும்.</p>
+        </section>
+
+        <!-- HTML Table Width -->
+        <section class="content-section" id="table-width">
+            <h2>HTML அட்டவணை அகலம்</h2>
+            
+            <p>அட்டவணையின் அகலத்தை அமைக்க, &lt;table&gt; உறுப்புக்கு style பண்புக்கூறைச் சேர்க்கவும்:</p>
+            
+            <div class="code-example">
+                <h3>எடுத்துக்காட்டு</h3>
+                <p>அட்டவணையின் அகலத்தை 100% என அமைக்கவும்:</p>
+                <pre><code>&lt;table style="width:100%"&gt;
+  &lt;tr&gt;
+    &lt;th&gt;Firstname&lt;/th&gt;
+    &lt;th&gt;Lastname&lt;/th&gt;
+    &lt;th&gt;Age&lt;/th&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;Jill&lt;/td&gt;
+    &lt;td&gt;Smith&lt;/td&gt;
+    &lt;td&gt;50&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;Eve&lt;/td&gt;
+    &lt;td&gt;Jackson&lt;/td&gt;
+    &lt;td&gt;94&lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;</code></pre>
+            </div>
+            
+            <div class="tip-box">
+                <h4><span class="tip-icon">📝</span> குறிப்பு:</h4>
+                <p>அகலத்திற்கான அளவு அலகாக சதவீதத்தைப் பயன்படுத்துவது என்பது இந்த உறுப்பு அதன் பெற்றோர் உறுப்புடன் ஒப்பிடும்போது எவ்வளவு அகலமாக இருக்கும் என்பதாகும், இந்த விஷயத்தில் அது &lt;body&gt; உறுப்பாகும்.</p>
+            </div>
+        </section>
+
+        <!-- HTML Table Column Width -->
+        <section class="content-section" id="column-width">
+            <h2>HTML அட்டவணை நெடுவரிசை அகலம்</h2>
+            
+            <p>ஒரு குறிப்பிட்ட நெடுவரிசையின் அளவை அமைக்க, &lt;th&gt; அல்லது &lt;td&gt; உறுப்பில் style பண்புக்கூறைச் சேர்க்கவும்:</p>
+            
+            <div class="code-example">
+                <h3>எடுத்துக்காட்டு</h3>
+                <p>முதல் நெடுவரிசையின் அகலத்தை 70% என அமைக்கவும்:</p>
+                <pre><code>&lt;table style="width:100%"&gt;
+  &lt;tr&gt;
+    &lt;th style="width:70%"&gt;Firstname&lt;/th&gt;
+    &lt;th&gt;Lastname&lt;/th&gt;
+    &lt;th&gt;Age&lt;/th&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;Jill&lt;/td&gt;
+    &lt;td&gt;Smith&lt;/td&gt;
+    &lt;td&gt;50&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;Eve&lt;/td&gt;
+    &lt;td&gt;Jackson&lt;/td&gt;
+    &lt;td&gt;94&lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;</code></pre>
+            </div>
+            
+            <div class="demo-container">
+                <table style="width: 100%; border-collapse: collapse;">
+                    <tr>
+                        <th style="width: 70%; border: 1px solid #ddd; padding: 8px; background-color: var(--git-color); color: white;">Firstname (70%)</th>
+                        <th style="border: 1px solid #ddd; padding: 8px; background-color: var(--git-color); color: white;">Lastname</th>
+                        <th style="border: 1px solid #ddd; padding: 8px; background-color: var(--git-color); color: white;">Age</th>
+                    </tr>
+                    <tr>
+                        <td style="border: 1px solid #ddd; padding: 8px;">Jill</td>
+                        <td style="border: 1px solid #ddd; padding: 8px;">Smith</td>
+                        <td style="border: 1px solid #ddd; padding: 8px;">50</td>
+                    </tr>
+                </table>
+            </div>
+        </section>
+
+        <!-- HTML Table Row Height -->
+        <section class="content-section" id="row-height">
+            <h2>HTML அட்டவணை வரிசை உயரம்</h2>
+            
+            <p>ஒரு குறிப்பிட்ட வரிசையின் உயரத்தை அமைக்க, அட்டவணை வரிசை உறுப்பில் style பண்புக்கூறைச் சேர்க்கவும்:</p>
+            
+            <div class="code-example">
+                <h3>எடுத்துக்காட்டு</h3>
+                <p>இரண்டாவது வரிசையின் உயரத்தை 200 பிக்சல்களாக அமைக்கவும்:</p>
+                <pre><code>&lt;table style="width:100%"&gt;
+  &lt;tr&gt;
+    &lt;th&gt;Firstname&lt;/th&gt;
+    &lt;th&gt;Lastname&lt;/th&gt;
+    &lt;th&gt;Age&lt;/th&gt;
+  &lt;/tr&gt;
+  &lt;tr style="height:200px"&gt;
+    &lt;td&gt;Jill&lt;/td&gt;
+    &lt;td&gt;Smith&lt;/td&gt;
+    &lt;td&gt;50&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;Eve&lt;/td&gt;
+    &lt;td&gt;Jackson&lt;/td&gt;
+    &lt;td&gt;94&lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;</code></pre>
+            </div>
+            
+            <div class="demo-container">
+                <table style="width: 100%; border-collapse: collapse;">
+                    <tr>
+                        <th style="border: 1px solid #ddd; padding: 8px; background-color: var(--git-color); color: white;">Firstname</th>
+                        <th style="border: 1px solid #ddd; padding: 8px; background-color: var(--git-color); color: white;">Lastname</th>
+                        <th style="border: 1px solid #ddd; padding: 8px; background-color: var(--git-color); color: white;">Age</th>
+                    </tr>
+                    <tr style="height: 200px;">
+                        <td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">Jill<br><small>(200px உயரம்)</small></td>
+                        <td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">Smith</td>
+                        <td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">50</td>
+                    </tr>
+                    <tr>
+                        <td style="border: 1px solid #ddd; padding: 8px;">Eve</td>
+                        <td style="border: 1px solid #ddd; padding: 8px;">Jackson</td>
+                        <td style="border: 1px solid #ddd; padding: 8px;">94</td>
+                    </tr>
+                </table>
+            </div>
+        </section>
+
+        <!-- Exercise Section -->
+        <section class="content-section" id="exercises">
+            <h2>अभ्यास</h2>
+            
+            <div class="exercise-box">
+                <h4><span class="exercise-icon">❓</span> அட்டவணையின் அகலத்தை பாணியமைப்பதற்கான சரியான CSS பண்பு எது?</h4>
+                
+                <div class="options-grid">
+                    <div class="option-card" data-correct="false">
+                        <div class="option-content">
+                            <div class="option-text">size</div>
+                            <div class="option-feedback incorrect">✗ தவறு! size என்பது அட்டவணை அகலத்திற்கான CSS பண்பு அல்ல</div>
+                        </div>
+                    </div>
+                    
+                    <div class="option-card" data-correct="false">
+                        <div class="option-content">
+                            <div class="option-text">table-size</div>
+                            <div class="option-feedback incorrect">✗ தவறு! table-size என்பது செல்லுபடியாகும் CSS பண்பு அல்ல</div>
+                        </div>
+                    </div>
+                    
+                    <div class="option-card" data-correct="true">
+                        <div class="option-content">
+                            <div class="option-text">width</div>
+                            <div class="option-feedback correct">✓ சரி! width பண்பு அட்டவணையின் அகலத்தை அமைக்கப் பயன்படுகிறது</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Bottom Navigation -->
+        <div class="bottom-nav">
+            <a href="HTML%20Table%20Borders.html" class="nav-tab prev">
+                <i class="fas fa-arrow-left"></i>
+                <span>पिछला</span>
+            </a>
+            <a href="HTML%20Table%20Headers.html" class="nav-tab next">
+                <span>अगला</span>
+                <i class="fas fa-arrow-right"></i>
+            </a>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-column">
+                <h3>Jassif Team Institution</h3>
+                <p>Leading educational institution providing quality programming education in Hindi.</p>
+            </div>
+            <div class="footer-column">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#introduction">HTML அட்டவணை அளவுகள்</a></li>
+                    <li><a href="#table-width">அட்டவணை அகலம்</a></li>
+                    <li><a href="#column-width">நெடுவரிசை அகலம்</a></li>
+                    <li><a href="#row-height">வரிசை உயரம்</a></li>
+                    <li><a href="#exercises">अभ्यासகள்</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Contact</h3>
+                <ul>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="#">Location & Hours</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Follow Us</h3>
+                <ul>
+                    <li><a href="#"><i class="fab fa-facebook"></i> Facebook</a></li>
+                    <li><a href="#"><i class="fab fa-instagram"></i> Instagram</a></li>
+                    <li><a href="#"><i class="fab fa-youtube"></i> YouTube</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2023 Jassif Team Institution. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Add smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Exercise interaction
+        document.querySelectorAll('.option-card').forEach(card => {
+            card.addEventListener('click', function() {
+                // Show feedback for all options
+                document.querySelectorAll('.option-card').forEach(c => {
+                    c.querySelector('.option-feedback').style.display = 'block';
+                });
+            });
+        });
+    </script>
+
+    <!-- Home Button -->
+    <a href="index.html" class="home-icon">
+        <i class="fas fa-home"></i>
+    </a>
+</body>
+</html>

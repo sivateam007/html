@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Tables - Jassif Team</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .content-section p, 
+        .content-section li,
+        .content-section h3,
+        .content-section h4 {
+            color: #333 !important;
+        }
+        
+        .tip-box p,
+        .tip-box li,
+        .tip-box h4 {
+            color: white !important;
+        }
+        
+        .exercise-box p,
+        .exercise-box h4 {
+            color: white !important;
+        }
+        
+        .logo-icon {
+            animation: none !important;
+        }
+        
+        .logo-image {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+            display: block;
+            border: 2px solid white;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            animation: none !important;
+        }
+        
+        .code-example {
+            background-color: #2d2d2d;
+            color: #f8f8f2;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+            overflow-x: auto;
+        }
+        
+        .table-demo {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+        }
+        
+        .table-demo th, .table-demo td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        
+        .table-demo th {
+            background-color: var(--git-color);
+            color: white;
+        }
+        
+        .table-demo tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <div class="logo-icon">
+                    <img src="logo.jpg" alt="Jassif Team Logo" class="logo-image">
+                </div>
+                <h1>Jassif Team <span>Institution</span></h1>
+            </div>
+        </div>
+    </header>
+
+    <!-- Top Navigation Tabs -->
+    <div class="nav-tabs">
+        <a href="HTML%20Page%20Title.html" class="nav-tab prev">
+            <i class="fas fa-arrow-left"></i>
+            <span>पिछला</span>
+        </a>
+        <a href="HTML%20Table%20Borders.html" class="nav-tab next">
+            <span>अगला</span>
+            <i class="fas fa-arrow-right"></i>
+        </a>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h2>HTML Tables</h2>
+            <p>HTML அட்டவணைகள்</p>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="container">
+        <!-- Introduction -->
+        <section class="content-section" id="introduction">
+            <h2>HTML அட்டவணைகள்</h2>
+            
+            <p>HTML அட்டவணைகள் வலை மேம்பாட்டாளர்கள் தரவுகளை வரிசைகள் மற்றும் நெடுவரிசைகளில் ஏற்பாடு செய்ய அனுமதிக்கின்றன.</p>
+            
+            <table class="table-demo">
+                <tr>
+                    <th>நிறுவனம்</th>
+                    <th>தொடர்பு</th>
+                    <th>நாடு</th>
+                </tr>
+                <tr>
+                    <td>Alfreds Futterkiste</td>
+                    <td>Maria Anders</td>
+                    <td>Germany</td>
+                </tr>
+                <tr>
+                    <td>Centro comercial Moctezuma</td>
+                    <td>Francisco Chang</td>
+                    <td>Mexico</td>
+                </tr>
+                <tr>
+                    <td>Ernst Handel</td>
+                    <td>Roland Mendel</td>
+                    <td>Austria</td>
+                </tr>
+                <tr>
+                    <td>Island Trading</td>
+                    <td>Helen Bennett</td>
+                    <td>UK</td>
+                </tr>
+                <tr>
+                    <td>Laughing Bacchus Winecellars</td>
+                    <td>Yoshi Tannamuri</td>
+                    <td>Canada</td>
+                </tr>
+                <tr>
+                    <td>Magazzini Alimentari Riuniti</td>
+                    <td>Giovanni Rovelli</td>
+                    <td>Italy</td>
+                </tr>
+            </table>
+        </section>
+
+        <!-- Define an HTML Table -->
+        <section class="content-section" id="define-table">
+            <h2>HTML அட்டவணையை வரையறுத்தல்</h2>
+            
+            <p>HTML இல் உள்ள ஒரு அட்டவணையில் வரிசைகள் மற்றும் நெடுவரிசைகளுக்குள் அட்டவணை கலங்கள் உள்ளன.</p>
+            
+            <h3>எடுத்துக்காட்டு</h3>
+            <p>ஒரு எளிய HTML அட்டவணை:</p>
+            
+            <div class="code-example">
+                <pre><code>&lt;table&gt;
+  &lt;tr&gt;
+    &lt;th&gt;Company&lt;/th&gt;
+    &lt;th&gt;Contact&lt;/th&gt;
+    &lt;th&gt;Country&lt;/th&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;Alfreds Futterkiste&lt;/td&gt;
+    &lt;td&gt;Maria Anders&lt;/td&gt;
+    &lt;td&gt;Germany&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;Centro comercial Moctezuma&lt;/td&gt;
+    &lt;td&gt;Francisco Chang&lt;/td&gt;
+    &lt;td&gt;Mexico&lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;</code></pre>
+            </div>
+        </section>
+
+        <!-- Table Cells -->
+        <section class="content-section" id="table-cells">
+            <h2>அட்டவணை கலங்கள்</h2>
+            
+            <p>ஒவ்வொரு அட்டவணை கலமும் &lt;td&gt; மற்றும் &lt;/td&gt; குறிச்சொல்லால் வரையறுக்கப்படுகிறது.</p>
+            
+            <p>td என்பது table data (அட்டவணை தரவு) என்பதைக் குறிக்கிறது.</p>
+            
+            <p>&lt;td&gt; மற்றும் &lt;/td&gt; க்கு இடையே உள்ள அனைத்தும் ஒரு அட்டவணை கலத்தின் உள்ளடக்கமாகும்.</p>
+            
+            <div class="code-example">
+                <h3>எடுத்துக்காட்டு</h3>
+                <pre><code>&lt;table&gt;
+  &lt;tr&gt;
+    &lt;td&gt;Emil&lt;/td&gt;
+    &lt;td&gt;Tobias&lt;/td&gt;
+    &lt;td&gt;Linus&lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;</code></pre>
+            </div>
+            
+            <div class="tip-box">
+                <h4><span class="tip-icon">📝</span> குறிப்பு:</h4>
+                <p>ஒரு அட்டவணை கலத்தில் அனைத்து வகையான HTML உறுப்புகளும் இருக்கலாம்: உரை, படங்கள், பட்டியல்கள், இணைப்புகள், பிற அட்டவணைகள், முதலியன.</p>
+            </div>
+        </section>
+
+        <!-- Table Rows -->
+        <section class="content-section" id="table-rows">
+            <h2>அட்டவணை வரிசைகள்</h2>
+            
+            <p>ஒவ்வொரு அட்டவணை வரிசையும் &lt;tr&gt; உடன் தொடங்கி &lt;/tr&gt; குறிச்சொல்லுடன் முடிகிறது.</p>
+            
+            <p>tr என்பது table row (அட்டவணை வரிசை) என்பதைக் குறிக்கிறது.</p>
+            
+            <div class="code-example">
+                <h3>எடுத்துக்காட்டு</h3>
+                <pre><code>&lt;table&gt;
+  &lt;tr&gt;
+    &lt;td&gt;Emil&lt;/td&gt;
+    &lt;td&gt;Tobias&lt;/td&gt;
+    &lt;td&gt;Linus&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;16&lt;/td&gt;
+    &lt;td&gt;14&lt;/td&gt;
+    &lt;td&gt;10&lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;</code></pre>
+            </div>
+            
+            <p>ஒரு அட்டவணையில் உங்களுக்குத் தேவையான அளவுக்கு வரிசைகள் இருக்கலாம்; ஒவ்வொரு வரிசையிலும் உள்ள கலங்களின் எண்ணிக்கை ஒரே மாதிரியாக இருப்பதை உறுதிப்படுத்தவும்.</p>
+            
+            <div class="tip-box">
+                <h4><span class="tip-icon">📝</span> குறிப்பு:</h4>
+                <p>ஒரு வரிசையில் மற்றொரு வரிசையை விட குறைவான அல்லது அதிகமான கலங்கள் இருக்கும் நேரங்கள் உள்ளன. இது பற்றி நீங்கள் பின்னர் ஒரு அத்தியாயத்தில் கற்றுக்கொள்வீர்கள்.</p>
+            </div>
+        </section>
+
+        <!-- Table Headers -->
+        <section class="content-section" id="table-headers">
+            <h2>அட்டவணை தலைப்பு கலங்கள்</h2>
+            
+            <p>சில நேரங்களில் உங்கள் கலங்கள் அட்டவணை தலைப்பு கலங்களாக இருக்க வேண்டும். அந்தச் சந்தர்ப்பங்களில் &lt;td&gt; குறிச்சொல்லுக்குப் பதிலாக &lt;th&gt; குறிச்சொல்லைப் பயன்படுத்தவும்:</p>
+            
+            <p>th என்பது table header (அட்டவணை தலைப்பு) என்பதைக் குறிக்கிறது.</p>
+            
+            <div class="code-example">
+                <h3>எடுத்துக்காட்டு</h3>
+                <p>முதல் வரிசை அட்டவணை தலைப்பு கலங்களாக இருக்கட்டும்:</p>
+                <pre><code>&lt;table&gt;
+  &lt;tr&gt;
+    &lt;th&gt;Person 1&lt;/th&gt;
+    &lt;th&gt;Person 2&lt;/th&gt;
+    &lt;th&gt;Person 3&lt;/th&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;Emil&lt;/td&gt;
+    &lt;td&gt;Tobias&lt;/td&gt;
+    &lt;td&gt;Linus&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;16&lt;/td&gt;
+    &lt;td&gt;14&lt;/td&gt;
+    &lt;td&gt;10&lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;</code></pre>
+            </div>
+            
+            <p>இயல்புநிலையாக, &lt;th&gt; உறுப்புகளில் உள்ள உரை தடித்ததாகவும் மையத்திலும் இருக்கும், ஆனால் நீங்கள் அதை CSS உடன் மாற்றலாம்.</p>
+        </section>
+
+        <!-- Exercise Section -->
+        <section class="content-section" id="exercises">
+            <h2>अभ्यास</h2>
+            
+            <div class="exercise-box">
+                <h4><span class="exercise-icon">❓</span> HTML இல் ஒரு அட்டவணை-கலத்திற்கான சரியான குறிச்சொல் பெயர் எது?</h4>
+                
+                <div class="options-grid">
+                    <div class="option-card" data-correct="false">
+                        <div class="option-content">
+                            <div class="option-text">&lt;tc&gt;</div>
+                            <div class="option-feedback incorrect">✗ தவறு!</div>
+                        </div>
+                    </div>
+                    
+                    <div class="option-card" data-correct="true">
+                        <div class="option-content">
+                            <div class="option-text">&lt;td&gt;</div>
+                            <div class="option-feedback correct">✓ சரி! &lt;td&gt; என்பது அட்டவணை கலத்திற்கான குறிச்சொல்</div>
+                        </div>
+                    </div>
+                    
+                    <div class="option-card" data-correct="false">
+                        <div class="option-content">
+                            <div class="option-text">&lt;tr&gt;</div>
+                            <div class="option-feedback incorrect">✗ தவறு! &lt;tr&gt; என்பது அட்டவணை வரிசைக்கான குறிச்சொல்</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- HTML Table Tags -->
+        <section class="content-section" id="html-table-tags">
+            <h2>HTML அட்டவணை குறிச்சொற்கள்</h2>
+            
+            <div class="comparison-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>குறிச்சொல்</th>
+                            <th>விளக்கம்</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>&lt;table&gt;</td>
+                            <td>ஒரு அட்டவணையை வரையறுக்கிறது</td>
+                        </tr>
+                        <tr>
+                            <td>&lt;th&gt;</td>
+                            <td>அட்டவணையில் ஒரு தலைப்பு கலத்தை வரையறுக்கிறது</td>
+                        </tr>
+                        <tr>
+                            <td>&lt;tr&gt;</td>
+                            <td>அட்டவணையில் ஒரு வரிசையை வரையறுக்கிறது</td>
+                        </tr>
+                        <tr>
+                            <td>&lt;td&gt;</td>
+                            <td>அட்டவணையில் ஒரு கலத்தை வரையறுக்கிறது</td>
+                        </tr>
+                        <tr>
+                            <td>&lt;caption&gt;</td>
+                            <td>அட்டவணை தலைப்பை வரையறுக்கிறது</td>
+                        </tr>
+                        <tr>
+                            <td>&lt;colgroup&gt;</td>
+                            <td>வடிவமைப்பிற்காக அட்டவணையில் ஒன்று அல்லது அதற்கு மேற்பட்ட நெடுவரிசைகளின் குழுவைக் குறிப்பிடுகிறது</td>
+                        </tr>
+                        <tr>
+                            <td>&lt;col&gt;</td>
+                            <td>&lt;colgroup&gt; உறுப்புக்குள் ஒவ்வொரு நெடுவரிசைக்கும் நெடுவரிசை பண்புகளைக் குறிப்பிடுகிறது</td>
+                        </tr>
+                        <tr>
+                            <td>&lt;thead&gt;</td>
+                            <td>அட்டவணையில் தலைப்பு உள்ளடக்கத்தை தொகுக்கிறது</td>
+                        </tr>
+                        <tr>
+                            <td>&lt;tbody&gt;</td>
+                            <td>அட்டவணையில் உடல் உள்ளடக்கத்தை தொகுக்கிறது</td>
+                        </tr>
+                        <tr>
+                            <td>&lt;tfoot&gt;</td>
+                            <td>அட்டவணையில் அடிக்குறிப்பு உள்ளடக்கத்தை தொகுக்கிறது</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <p>அனைத்து கிடைக்கக்கூடிய HTML குறிச்சொற்களின் முழுமையான பட்டியலுக்கு, எங்கள் HTML குறிச்சொல் குறிப்பைப் பார்வையிடவும்.</p>
+        </section>
+
+        <!-- Bottom Navigation -->
+        <div class="bottom-nav">
+            <a href="HTML%20Page%20Title.html" class="nav-tab prev">
+                <i class="fas fa-arrow-left"></i>
+                <span>पिछला</span>
+            </a>
+            <a href="HTML%20Table%20Borders.html" class="nav-tab next">
+                <span>अगला</span>
+                <i class="fas fa-arrow-right"></i>
+            </a>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-column">
+                <h3>Jassif Team Institution</h3>
+                <p>Leading educational institution providing quality programming education in Hindi.</p>
+            </div>
+            <div class="footer-column">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#introduction">HTML அட்டவணைகள்</a></li>
+                    <li><a href="#define-table">அட்டவணையை வரையறுத்தல்</a></li>
+                    <li><a href="#table-cells">அட்டவணை கலங்கள்</a></li>
+                    <li><a href="#table-rows">அட்டவணை வரிசைகள்</a></li>
+                    <li><a href="#table-headers">அட்டவணை தலைப்பு கலங்கள்</a></li>
+                    <li><a href="#exercises">अभ्यासகள்</a></li>
+                    <li><a href="#html-table-tags">HTML அட்டவணை குறிச்சொற்கள்</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Contact</h3>
+                <ul>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="#">Location & Hours</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Follow Us</h3>
+                <ul>
+                    <li><a href="#"><i class="fab fa-facebook"></i> Facebook</a></li>
+                    <li><a href="#"><i class="fab fa-instagram"></i> Instagram</a></li>
+                    <li><a href="#"><i class="fab fa-youtube"></i> YouTube</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2023 Jassif Team Institution. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Add smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Exercise interaction
+        document.querySelectorAll('.option-card').forEach(card => {
+            card.addEventListener('click', function() {
+                // Show feedback for all options
+                document.querySelectorAll('.option-card').forEach(c => {
+                    c.querySelector('.option-feedback').style.display = 'block';
+                });
+            });
+        });
+    </script>
+
+    <!-- Home Button -->
+    <a href="index.html" class="home-icon">
+        <i class="fas fa-home"></i>
+    </a>
+</body>
+</html>

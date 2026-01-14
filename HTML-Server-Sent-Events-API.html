@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Server-Sent Events API - Jassif Team</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .content-section p, 
+        .content-section li,
+        .content-section h3,
+        .content-section h4,
+        .comparison-card p {
+            color: #333 !important;
+        }
+        
+        .tip-box p,
+        .tip-box li,
+        .tip-box h4 {
+            color: white !important;
+        }
+        
+        .warning-box p,
+        .warning-box li,
+        .warning-box h4 {
+            color: white !important;
+        }
+        
+        .exercise-box p,
+        .exercise-box h4 {
+            color: white !important;
+        }
+        
+        /* Stable logo styling - NO ANIMATIONS */
+        .logo-icon {
+            animation: none !important; /* Remove pulse animation */
+        }
+        
+        .logo-image {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+            display: block;
+            border: 2px solid white;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            animation: none !important; /* Ensure no animations */
+        }
+        
+        .sse-icon {
+            font-size: 2rem;
+            color: var(--git-color);
+            margin-right: 10px;
+        }
+        
+        .sse-demo {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin: 1.5rem 0;
+            border-left: 4px solid var(--git-color);
+        }
+        
+        .demo-btn {
+            padding: 10px 20px;
+            background: var(--git-color);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: 500;
+            margin: 0.5rem;
+        }
+        
+        .demo-btn:hover {
+            background: #e74c3c;
+            transform: translateY(-2px);
+        }
+        
+        .demo-btn.stop {
+            background: #dc3545;
+        }
+        
+        .demo-btn.stop:hover {
+            background: #c82333;
+        }
+        
+        .demo-result {
+            margin-top: 1rem;
+            padding: 1rem;
+            background: white;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+            min-height: 100px;
+            max-height: 200px;
+            overflow-y: auto;
+            font-family: monospace;
+            font-size: 0.9rem;
+        }
+        
+        .event-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+        
+        .event-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            border-left: 4px solid var(--git-color);
+        }
+        
+        .event-name {
+            font-family: monospace;
+            background: #f0f0f0;
+            padding: 4px 8px;
+            border-radius: 4px;
+            margin-bottom: 0.5rem;
+            display: inline-block;
+        }
+        
+        .browser-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        
+        .browser-table th {
+            background: var(--git-color);
+            color: white;
+            padding: 1rem;
+            text-align: center;
+        }
+        
+        .browser-table td {
+            padding: 0.8rem;
+            text-align: center;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        
+        .browser-table .version {
+            color: var(--git-color);
+            font-weight: bold;
+        }
+        
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .comparison-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        
+        .comparison-card.sse {
+            border-left: 4px solid #3498db;
+        }
+        
+        .comparison-card.ajax {
+            border-left: 4px solid #e74c3c;
+        }
+        
+        .comparison-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .comparison-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid #f0f0f0;
+        }
+        
+        .comparison-header i {
+            font-size: 1.5rem;
+        }
+        
+        .comparison-header.sse i {
+            color: #3498db;
+        }
+        
+        .comparison-header.ajax i {
+            color: #e74c3c;
+        }
+        
+        .comparison-header h4 {
+            margin: 0;
+            color: var(--dark);
+        }
+        
+        .status-indicator {
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            margin-right: 8px;
+        }
+        
+        .status-connected {
+            background: #28a745;
+            animation: pulse 2s infinite;
+        }
+        
+        .status-disconnected {
+            background: #dc3545;
+        }
+        
+        @keyframes pulse {
+            0% { opacity: 1; }
+            50% { opacity: 0.5; }
+            100% { opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <div class="logo-icon">
+                    <img src="logo.jpg" alt="Jassif Team Logo" class="logo-image">
+                </div>
+                <h1>Jassif Team <span>Institution</span></h1>
+            </div>
+        </div>
+    </header>
+
+    <!-- Top Navigation Tabs -->
+    <div class="nav-tabs">
+        <a href="HTML Web Workers API.html" class="nav-tab prev">
+            <i class="fas fa-arrow-left"></i>
+            <span>पिछला</span>
+        </a>
+        <a href="HTML Examples.html" class="nav-tab next">
+            <span>अगला</span>
+            <i class="fas fa-arrow-right"></i>
+        </a>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h2>HTML Server-Sent Events API</h2>
+            <p>சர்வரிலிருந்து வலைப்பக்கத்திற்கு செய்திகளை தள்ளுதல்</p>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="container">
+        <!-- Introduction -->
+        <section class="content-section" id="introduction">
+            <h2><i class="fas fa-broadcast-tower sse-icon"></i>HTML Server-Sent Events API</h2>
+            
+            <p>Server-Sent Events (SSE) API HTTP இணைப்பு மூலம் சர்வரிலிருந்து வலைப்பக்கத்திற்கு செய்திகள்/புதுப்பிப்புகளை தள்ள அனுமதிக்கிறது.</p>
+        </section>
+
+        <!-- Server-Sent Events - One Way Messaging -->
+        <section class="content-section" id="one-way-messaging">
+            <h2><i class="fas fa-exchange-alt sse-icon"></i>சர்வர்-அனுப்பிய நிகழ்வுகள் - ஒரு வழி செய்தியனுப்புதல்</h2>
+            
+            <p>ஒரு சர்வர்-அனுப்பிய நிகழ்வு என்பது ஒரு வலைப்பக்கம் சர்வரிலிருந்து தானாகவே செய்திகள்/புதுப்பிப்புகளைப் பெறும் போது ஆகும்.</p>
+            
+            <p>பொதுவாக, ஒரு வலைப்பக்கம் சர்வரிலிருந்து தரவைக் கோர வேண்டும், ஆனால் சர்வர்-அனுப்பிய நிகழ்வுகளுடன், புதுப்பிப்புகள் தானாகவே தள்ளப்படுகின்றன.</p>
+            
+            <p>எடுத்துக்காட்டுகள்: Facebook/Twitter புதுப்பிப்புகள், பங்குச் சந்தை புதுப்பிப்புகள், செய்தி ஊட்டங்கள், விளையாட்டு முடிவுகள் போன்றவை.</p>
+        </section>
+
+        <!-- Browser Support -->
+        <section class="content-section" id="browser-support">
+            <h2><i class="fas fa-globe sse-icon"></i>உலாவி ஆதரவு</h2>
+            
+            <p>அட்டவணையில் உள்ள எண்கள் சர்வர்-அனுப்பிய நிகழ்வுகள் API ஐ முழுமையாக ஆதரிக்கும் முதல் உலாவி பதிப்பைக் குறிக்கின்றன.</p>
+            
+            <table class="browser-table">
+                <thead>
+                    <tr>
+                        <th>API</th>
+                        <th>Chrome</th>
+                        <th>Edge</th>
+                        <th>Firefox</th>
+                        <th>Safari</th>
+                        <th>Opera</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>SSE</td>
+                        <td class="version">6.0</td>
+                        <td class="version">79.0</td>
+                        <td class="version">6.0</td>
+                        <td class="version">5.0</td>
+                        <td class="version">11.5</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Receive Server-Sent Event Notifications -->
+        <section class="content-section" id="receive-notifications">
+            <h2><i class="fas fa-bell sse-icon"></i>சர்வர்-அனுப்பிய நிகழ்வு அறிவிப்புகளைப் பெறுதல்</h2>
+            
+            <p>EventSource பொருள் சர்வர்-அனுப்பிய நிகழ்வு அறிவிப்புகளைப் பெற பயன்படுகிறது:</p>
+            
+            <div class="code-example">
+                <h3>எடுத்துக்காட்டு</h3>
+                <pre><code>&lt;script&gt;
+const x = document.getElementById("result");
+// உலாவி SSE ஆதரவை சரிபார்க்கவும்
+if(typeof(EventSource) !== "undefined") {
+  var source = new EventSource("demo_sse.php");
+  source.onmessage = function(event) {
+    x.innerHTML += event.data + "&lt;br&gt;";
+  };
+} else {
+  x.innerHTML = "Sorry, no support for server-sent events.";
+}
+&lt;/script&gt;</code></pre>
+            </div>
+            
+            <h3>எடுத்துக்காட்டு விளக்கம்:</h3>
+            
+            <ol>
+                <li>ஒரு புதிய EventSource பொருளை உருவாக்கி, புதுப்பிப்புகளை அனுப்பும் பக்கத்தின் URL ஐக் குறிப்பிடவும் (இந்த எடுத்துக்காட்டில் "demo_sse.php")</li>
+                <li>ஒரு புதுப்பிப்பு பெறப்படும் ஒவ்வொரு முறையும், <code>onmessage</code> நிகழ்வு ஏற்படுகிறது</li>
+                <li><code>onmessage</code> நிகழ்வு ஏற்படும் போது, பெறப்பட்ட தரவை <code>id="result"</code> உள்ள உறுப்பில் வைக்கவும்</li>
+            </ol>
+        </section>
+
+        <!-- Check Browser Support -->
+        <section class="content-section" id="check-support">
+            <h2><i class="fas fa-vial sse-icon"></i>உலாவி ஆதரவை சரிபார்க்கவும்</h2>
+            
+            <p>மேலே உள்ள எடுத்துக்காட்டில் சர்வர்-அனுப்பிய நிகழ்வுகளுக்கான உலாவி ஆதரவைச் சரிபார்க்க சில கூடுதல் குறியீட்டு வரிகள் இருந்தன:</p>
+            
+            <div class="code-example">
+                <h3>எடுத்துக்காட்டு</h3>
+                <pre><code>if(typeof(EventSource) !== "undefined") {
+  // ஆம்! சர்வர்-அனுப்பிய நிகழ்வுகள் ஆதரவு!
+  // சில குறியீடு.....
+} else {
+  // மன்னிக்கவும்! சர்வர்-அனுப்பிய நிகழ்வுகள் ஆதரவு இல்லை..
+}</code></pre>
+            </div>
+        </section>
+
+        <!-- Server-Side Code Example -->
+        <section class="content-section" id="server-side">
+            <h2><i class="fas fa-server sse-icon"></i>சர்வர்-பக்க குறியீடு எடுத்துக்காட்டு</h2>
+            
+            <p>மேலே உள்ள எடுத்துக்காட்டு வேலை செய்ய, நீங்கள் தரவு புதுப்பிப்புகளை அனுப்பக்கூடிய சர்வர் தேவை (PHP அல்லது ASP போன்றவை).</p>
+            
+            <p>சர்வர்-பக்க நிகழ்வு ஸ்ட்ரீம் தொடரியல் எளிமையானது. "Content-Type" தலைப்பை "text/event-stream" ஆக அமைக்கவும். இப்போது நீங்கள் நிகழ்வு ஸ்ட்ரீம்களை அனுப்பத் தொடங்கலாம்.</p>
+            
+            <div class="code-example">
+                <h3>PHP இல் குறியீடு (demo_sse.php):</h3>
+                <pre><code>&lt;?php
+header('Content-Type: text/event-stream');
+header('Cache-Control: no-cache');
+
+$time = date('r');
+echo "data: The server time is: {$time}\\n\\n";
+flush();
+?&gt;</code></pre>
+            </div>
+            
+            <div class="code-example">
+                <h3>ASP (VB) இல் குறியீடு (demo_sse.asp):</h3>
+                <pre><code>&lt;%
+Response.ContentType = "text/event-stream"
+Response.Expires = -1
+Response.Write("data: The server time is: " & now())
+Response.Flush()
+%&gt;</code></pre>
+            </div>
+            
+            <h3>குறியீடு விளக்கம்:</h3>
+            
+            <ol>
+                <li>"Content-Type" தலைப்பை "text/event-stream" ஆக அமைக்கவும்</li>
+                <li>பக்கம் கேச் செய்யக்கூடாது என்பதைக் குறிப்பிடவும்</li>
+                <li>அனுப்ப வேண்டிய தரவை வெளியிடவும் (எப்போதும் "data: " உடன் தொடங்கவும்)</li>
+                <li>வெளியீட்டு தரவை வலைப்பக்கத்திற்குத் தள்ளவும்</li>
+            </ol>
+        </section>
+
+        <!-- The EventSource Object -->
+        <section class="content-section" id="eventsource-object">
+            <h2><i class="fas fa-cube sse-icon"></i>EventSource பொருள்</h2>
+            
+            <p>மேலே உள்ள எடுத்துக்காட்டுகளில் செய்திகளைப் பெற <code>onmessage</code> நிகழ்வைப் பயன்படுத்தினோம். ஆனால் பிற நிகழ்வுகளும் கிடைக்கின்றன:</p>
+            
+            <div class="event-grid">
+                <div class="event-card">
+                    <div class="event-name">onopen</div>
+                    <p>சர்வருடன் இணைப்பு திறக்கப்படும் போது</p>
+                </div>
+                
+                <div class="event-card">
+                    <div class="event-name">onmessage</div>
+                    <p>ஒரு செய்தி பெறப்படும் போது</p>
+                </div>
+                
+                <div class="event-card">
+                    <div class="event-name">onerror</div>
+                    <p>ஒரு பிழை ஏற்படும் போது</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SSE vs AJAX Polling -->
+        <section class="content-section" id="sse-vs-ajax">
+            <h2><i class="fas fa-balance-scale sse-icon"></i>SSE vs AJAX Polling</h2>
+            
+            <div class="comparison-grid">
+                <div class="comparison-card sse">
+                    <div class="comparison-header sse">
+                        <i class="fas fa-broadcast-tower"></i>
+                        <h4>Server-Sent Events</h4>
+                    </div>
+                    <ul>
+                        <li>ஒரு வழி தொடர்பு (சர்வர் → கிளையன்)</li>
+                        <li>தொடர்ச்சியான HTTP இணைப்பு</li>
+                        <li>தானாக புதுப்பிப்புகள்</li>
+                        <li>குறைந்த தாமதம்</li>
+                        <li>குறைந்த பேண்ட்விட்த் பயன்பாடு</li>
+                        <li>மீண்டும் இணைப்பு தானாக</li>
+                    </ul>
+                </div>
+                
+                <div class="comparison-card ajax">
+                    <div class="comparison-header ajax">
+                        <i class="fas fa-sync-alt"></i>
+                        <h4>AJAX Polling</h4>
+                    </div>
+                    <ul>
+                        <li>இரு வழி தொடர்பு</li>
+                        <li>தனி கோரிக்கைகள்</li>
+                        <li>தொடர்ச்சியான கோரிக்கைகள் தேவை</li>
+                        <li>அதிக தாமதம்</li>
+                        <li>அதிக பேண்ட்விட்த் பயன்பாடு</li>
+                        <li>கையேடு மீண்டும் இணைப்பு</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Interactive Demo -->
+        <section class="content-section" id="interactive-demo">
+            <h2><i class="fas fa-play-circle sse-icon"></i>ஊடாடும் நடைமுறை</h2>
+            
+            <div class="sse-demo">
+                <h3><i class="fas fa-broadcast-tower"></i> சர்வர்-அனுப்பிய நிகழ்வுகள் நடைமுறை</h3>
+                
+                <div id="demoStatus">
+                    <span class="status-indicator status-disconnected"></span>
+                    சர்வருடன் இணைக்கப்படவில்லை
+                </div>
+                
+                <p>கீழே உள்ள பொத்தானைக் கிளிக் செய்து சர்வருடன் இணைக்கவும். சர்வர் இணைப்பு நிலை மற்றும் டைம்ஸ்டாம்ப்கள் காட்டப்படும்.</p>
+                
+                <button class="demo-btn" onclick="startSSEDemo()">
+                    <i class="fas fa-plug"></i> சர்வருடன் இணைக்கவும்
+                </button>
+                <button class="demo-btn stop" onclick="stopSSEDemo()">
+                    <i class="fas fa-plug"></i> இணைப்பை மூடு
+                </button>
+                
+                <div class="demo-result" id="sseResult">
+                    சர்வர் செய்திகள் இங்கே காட்டப்படும்...
+                </div>
+                
+                <div class="tip-box">
+                    <h4><i class="fas fa-lightbulb tip-icon"></i>செயற்கை சர்வர்:</h4>
+                    <p>இந்த நடைமுறையில், நாங்கள் ஒரு செயற்கை சர்வரைப் பயன்படுத்துகிறோம், இது ஒவ்வொரு 2 வினாடிகளுக்கும் முன்னோக்கி நகரும் டைம்ஸ்டாம்ப்களை அனுப்புகிறது. உண்மையான பயன்பாட்டில், இது உண்மையான சர்வருக்குப் பதிலாக இருக்கும்.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Exercise -->
+        <section class="content-section" id="exercise">
+            <h2><i class="fas fa-dumbbell sse-icon"></i>अभ्यास</h2>
+            
+            <div class="exercise-box">
+                <h4><span class="exercise-icon">❓</span> சர்வர்-அனுப்பிய நிகழ்வுகளுக்கான சரியான "Content-Type" தலைப்பு எது?</h4>
+                
+                <div class="options-grid">
+                    <div class="option-card" data-correct="false">
+                        <div class="option-content">
+                            <div class="option-text">application/json</div>
+                            <div class="option-feedback incorrect">✗ தவறு! application/json AJAX கோரிக்கைகளுக்குப் பயன்படுத்தப்படுகிறது, SSE க்கு அல்ல</div>
+                        </div>
+                    </div>
+                    
+                    <div class="option-card" data-correct="true">
+                        <div class="option-content">
+                            <div class="option-text">text/event-stream</div>
+                            <div class="option-feedback correct">✓ சரி! text/event-stream சர்வர்-அனுப்பிய நிகழ்வுகளுக்கான சரியான Content-Type ஆகும்</div>
+                        </div>
+                    </div>
+                    
+                    <div class="option-card" data-correct="false">
+                        <div class="option-content">
+                            <div class="option-text">text/html</div>
+                            <div class="option-feedback incorrect">✗ தவறு! text/html HTML பக்கங்களுக்குப் பயன்படுத்தப்படுகிறது, SSE க்கு அல்ல</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Bottom Navigation -->
+        <div class="bottom-nav">
+            <a href="HTML Web Workers API.html" class="nav-tab prev">
+                <i class="fas fa-arrow-left"></i>
+                <span>पिछला</span>
+            </a>
+            <a href="HTML Examples.html" class="nav-tab next">
+                <span>अगला</span>
+                <i class="fas fa-arrow-right"></i>
+            </a>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-column">
+                <h3>Jassif Team Institution</h3>
+                <p>Leading educational institution providing quality programming education in Hindi.</p>
+            </div>
+            <div class="footer-column">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#introduction">Server-Sent Events API</a></li>
+                    <li><a href="#one-way-messaging">ஒரு வழி செய்தியனுப்புதல்</a></li>
+                    <li><a href="#browser-support">உலாவி ஆதரவு</a></li>
+                    <li><a href="#receive-notifications">அறிவிப்புகளைப் பெறுதல்</a></li>
+                    <li><a href="#server-side">சர்வர்-பக்க குறியீடு</a></li>
+                    <li><a href="#eventsource-object">EventSource பொருள்</a></li>
+                    <li><a href="#sse-vs-ajax">SSE vs AJAX</a></li>
+                    <li><a href="#exercise">अभ्यास</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Contact</h3>
+                <ul>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="#">Location & Hours</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Follow Us</h3>
+                <ul>
+                    <li><a href="#"><i class="fab fa-facebook"></i> Facebook</a></li>
+                    <li><a href="#"><i class="fab fa-instagram"></i> Instagram</a></li>
+                    <li><a href="#"><i class="fab fa-youtube"></i> YouTube</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2023 Jassif Team Institution. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Add smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Add scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animation = 'fadeInUp 0.8s ease-out forwards';
+                }
+            });
+        }, observerOptions);
+        
+        // Observe all content sections for animation
+        document.querySelectorAll('.content-section').forEach(section => {
+            observer.observe(section);
+        });
+
+        // Exercise interaction
+        document.querySelectorAll('.option-card').forEach(card => {
+            card.addEventListener('click', function() {
+                // Show feedback for all options
+                document.querySelectorAll('.option-card').forEach(c => {
+                    c.querySelector('.option-feedback').style.display = 'block';
+                });
+            });
+        });
+
+        // SSE Demo Variables
+        let sseSource = null;
+        let eventCounter = 0;
+
+        // Test SSE Support
+        function testSSESupport() {
+            const resultElement = document.getElementById("supportResult");
+            if (typeof(EventSource) !== "undefined") {
+                resultElement.innerHTML = 
+                    "<span style='color: #28a745;'><i class='fas fa-check-circle'></i> உங்கள் உலாவி SSE ஐ ஆதரிக்கிறது!</span><br>" +
+                    "நீங்கள் சர்வர்-அனுப்பிய நிகழ்வுகளைப் பெறலாம்.";
+            } else {
+                resultElement.innerHTML = 
+                    "<span style='color: #dc3545;'><i class='fas fa-times-circle'></i> மன்னிக்கவும், உங்கள் உலாவி SSE ஐ ஆதரிக்கவில்லை.</span>";
+            }
+        }
+
+        // Start SSE Demo
+        function startSSEDemo() {
+            const statusElement = document.getElementById("demoStatus");
+            const resultElement = document.getElementById("sseResult");
+            
+            if (typeof(EventSource) !== "undefined") {
+                if (sseSource) {
+                    resultElement.innerHTML += "⚠️ SSE மூலம் ஏற்கனவே இணைக்கப்பட்டுள்ளது.<br>";
+                    return;
+                }
+                
+                // Update status
+                statusElement.innerHTML = 
+                    '<span class="status-indicator status-connected"></span>' +
+                    'சர்வருடன் இணைக்கப்பட்டது...';
+                
+                // Create a mock SSE endpoint using a blob
+                const mockSSECode = `
+                    let counter = 0;
+                    
+                    // Simulate server sending events every 2 seconds
+                    function sendEvent() {
+                        counter++;
+                        const now = new Date();
+                        const timestamp = now.toLocaleTimeString();
+                        const message = \`data: [\${timestamp}] SSE செய்தி #\${counter}\\n\\n\`;
+                        postMessage(message);
+                        
+                        if (counter < 10) { // Limit to 10 messages for demo
+                            setTimeout(sendEvent, 2000);
+                        } else {
+                            postMessage("data: [சர்வர்] செயற்கை SSE ஸ்ட்ரீம் முடிந்தது\\n\\n");
+                            close();
+                        }
+                    }
+                    
+                    // Start sending events
+                    setTimeout(sendEvent, 1000);
+                    
+                    // Send initial connection message
+                    postMessage("data: [சர்வர்] இணைப்பு நிறுவப்பட்டது\\n\\n");
+                `;
+                
+                // Create a worker that simulates SSE
+                const blob = new Blob([mockSSECode], { type: 'application/javascript' });
+                const workerURL = URL.createObjectURL(blob);
+                const worker = new Worker(workerURL);
+                
+                // Create a mock EventSource that uses the worker
+                sseSource = {
+                    worker: worker,
+                    onmessage: null,
+                    onopen: null,
+                    onerror: null,
+                    close: function() {
+                        if (this.worker) {
+                            this.worker.terminate();
+                            this.worker = null;
+                        }
+                        sseSource = null;
+                    }
+                };
+                
+                // Handle messages from the worker
+                worker.onmessage = function(event) {
+                    if (sseSource && sseSource.onmessage) {
+                        // Create a mock event object
+                        const mockEvent = {
+                            data: event.data.replace('data: ', '')
+                        };
+                        sseSource.onmessage(mockEvent);
+                    }
+                };
+                
+                // Set up event handlers
+                sseSource.onopen = function() {
+                    resultElement.innerHTML += 
+                        '✅ <span style="color: #28a745;">சர்வருடன் இணைப்பு நிறுவப்பட்டது</span><br>' +
+                        '⏳ சர்வர் செய்திகளுக்காக காத்திருக்கிறது...<br>';
+                };
+                
+                sseSource.onmessage = function(event) {
+                    eventCounter++;
+                    resultElement.innerHTML += 
+                        '📨 <span style="color: #3498db;">' + event.data.trim() + '</span><br>';
+                    
+                    // Auto-scroll to bottom
+                    resultElement.scrollTop = resultElement.scrollHeight;
+                    
+                    // Update connection status after first message
+                    if (eventCounter === 1) {
+                        statusElement.innerHTML = 
+                            '<span class="status-indicator status-connected"></span>' +
+                            'சர்வருடன் இணைக்கப்பட்டது - செய்திகள் பெறப்படுகின்றன';
+                    }
+                };
+                
+                sseSource.onerror = function() {
+                    statusElement.innerHTML = 
+                        '<span class="status-indicator status-disconnected"></span>' +
+                        'சர்வர் இணைப்பு பிழை';
+                    resultElement.innerHTML += 
+                        '❌ <span style="color: #dc3545;">சர்வர் இணைப்பில் பிழை</span><br>';
+                };
+                
+                // Simulate connection opening
+                setTimeout(() => {
+                    if (sseSource && sseSource.onopen) {
+                        sseSource.onopen();
+                    }
+                }, 500);
+                
+            } else {
+                resultElement.innerHTML = 
+                    '❌ <span style="color: #dc3545;">மன்னிக்கவும்! உங்கள் உலாவி SSE ஐ ஆதரிக்கவில்லை.</span><br>';
+                statusElement.innerHTML = 
+                    '<span class="status-indicator status-disconnected"></span>' +
+                    'SSE ஆதரிக்கப்படவில்லை';
+            }
+        }
+
+        // Stop SSE Demo
+        function stopSSEDemo() {
+            const statusElement = document.getElementById("demoStatus");
+            const resultElement = document.getElementById("sseResult");
+            
+            if (sseSource) {
+                sseSource.close();
+                statusElement.innerHTML = 
+                    '<span class="status-indicator status-disconnected"></span>' +
+                    'சர்வருடன் இணைக்கப்படவில்லை';
+                resultElement.innerHTML += 
+                    '🛑 <span style="color: #6c757d;">SSE இணைப்பு மூடப்பட்டது</span><br>';
+                eventCounter = 0;
+            } else {
+                resultElement.innerHTML += 
+                    'ℹ️ <span style="color: #ffc107;">SSE இணைப்பு ஏற்கனவே மூடப்பட்டுள்ளது</span><br>';
+            }
+        }
+
+        // Clean up on page unload
+        window.addEventListener('beforeunload', function() {
+            if (sseSource) {
+                sseSource.close();
+            }
+        });
+    </script>
+
+    <!-- Home Button -->
+    <a href="index.html" class="home-icon">
+        <i class="fas fa-home"></i>
+    </a>
+</body>
+</html>

@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Uniform Resource Locators - Jassif Team</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .content-section p, 
+        .content-section li,
+        .content-section h3,
+        .content-section h4,
+        .comparison-card p {
+            color: #333 !important;
+        }
+        
+        .tip-box p,
+        .tip-box li,
+        .tip-box h4 {
+            color: white !important;
+        }
+        
+        .warning-box p,
+        .warning-box li,
+        .warning-box h4 {
+            color: white !important;
+        }
+        
+        .exercise-box p,
+        .exercise-box h4 {
+            color: white !important;
+        }
+        
+        .logo-icon {
+            animation: none !important;
+        }
+        
+        .logo-image {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+            display: block;
+            border: 2px solid white;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            animation: none !important;
+        }
+        
+        .url-syntax {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin: 1.5rem 0;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            border-left: 4px solid var(--git-color);
+        }
+        
+        .url-syntax h4 {
+            color: var(--git-color);
+            margin-bottom: 1rem;
+        }
+        
+        .url-example {
+            font-family: 'Courier New', monospace;
+            background: #2d2d2d;
+            color: #f8f8f2;
+            padding: 1rem;
+            border-radius: 5px;
+            margin: 1rem 0;
+            overflow-x: auto;
+            text-align: center;
+            font-size: 1.1rem;
+        }
+        
+        .schemes-table {
+            margin: 2rem 0;
+            overflow-x: auto;
+        }
+        
+        .schemes-table table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        
+        .schemes-table th {
+            background: var(--git-color);
+            color: white;
+            padding: 1rem;
+            text-align: left;
+            font-weight: 600;
+        }
+        
+        .schemes-table td {
+            padding: 1rem;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        
+        .schemes-table tr:last-child td {
+            border-bottom: none;
+        }
+        
+        .encoding-table {
+            margin: 2rem 0;
+            overflow-x: auto;
+        }
+        
+        .encoding-table table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        
+        .encoding-table th {
+            background: var(--git-color);
+            color: white;
+            padding: 1rem;
+            text-align: center;
+            font-weight: 600;
+        }
+        
+        .encoding-table td {
+            padding: 1rem;
+            border-bottom: 1px solid #f0f0f0;
+            text-align: center;
+            font-family: 'Courier New', monospace;
+        }
+        
+        .encoding-table tr:last-child td {
+            border-bottom: none;
+        }
+        
+        .url-demo {
+            background: #f8f9fa;
+            padding: 2rem;
+            border-radius: 10px;
+            margin: 2rem 0;
+            border: 2px solid var(--git-color);
+            text-align: center;
+        }
+        
+        .url-input {
+            padding: 10px;
+            width: 300px;
+            border: 2px solid var(--git-color);
+            border-radius: 5px;
+            margin: 10px;
+            font-size: 1rem;
+        }
+        
+        .submit-btn {
+            padding: 10px 20px;
+            background: var(--git-color);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background 0.3s;
+        }
+        
+        .submit-btn:hover {
+            background: #e74c3c;
+        }
+        
+        .url-breakdown {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 1.5rem 0;
+        }
+        
+        .url-part {
+            text-align: center;
+            padding: 1rem;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            flex: 1;
+            min-width: 150px;
+        }
+        
+        .url-part h5 {
+            color: var(--git-color);
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+        }
+        
+        .url-part p {
+            font-family: 'Courier New', monospace;
+            font-weight: bold;
+        }
+        
+        .code-example pre {
+            background: #2d2d2d;
+            color: #f8f8f2;
+            padding: 1.5rem;
+            border-radius: 8px;
+            overflow-x: auto;
+            font-family: 'Courier New', monospace;
+            line-height: 1.5;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <div class="logo-icon">
+                    <img src="logo.jpg" alt="Jassif Team Logo" class="logo-image">
+                </div>
+                <h1>Jassif Team <span>Institution</span></h1>
+            </div>
+        </div>
+    </header>
+
+    <!-- Top Navigation Tabs -->
+    <div class="nav-tabs">
+        <a href="HTML%20Encoding%20(Character%20Sets).html" class="nav-tab prev">
+            <i class="fas fa-arrow-left"></i>
+            <span>पिछला</span>
+        </a>
+        <a href="HTML%20Versus%20XHTML.html" class="nav-tab next">
+            <span>अगला</span>
+            <i class="fas fa-arrow-right"></i>
+        </a>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h2>HTML Uniform Resource Locators</h2>
+            <p>URLகள் மற்றும் வலை முகவரிகளைப் புரிந்துகொள்ளுதல்</p>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="container">
+        <!-- Introduction -->
+        <section class="content-section" id="introduction">
+            <h2>HTML Uniform Resource Locators</h2>
+            
+            <p>A URL is another word for a web address.</p>
+            
+            <p>A URL can be composed of words (e.g. jassifteam.com), or an Internet Protocol (IP) address (e.g. 192.68.20.50).</p>
+            
+            <p>Most people enter the name when surfing, because names are easier to remember than numbers.</p>
+        </section>
+
+        <!-- URL - Uniform Resource Locator -->
+        <section class="content-section" id="url-explanation">
+            <h2>URL - Uniform Resource Locator</h2>
+            
+            <p>Web browsers request pages from web servers by using a URL.</p>
+            
+            <p>A Uniform Resource Locator (URL) is used to address a document (or other data) on the web.</p>
+            
+            <p>A web address like https://www.jassifteam.com/html/default.asp follows these syntax rules:</p>
+            
+            <div class="url-syntax">
+                <h4>scheme://prefix.domain:port/path/filename</h4>
+                <div class="url-example">
+                    https://www.jassifteam.com:443/html/tutorial.html
+                </div>
+            </div>
+            
+            <div class="url-breakdown">
+                <div class="url-part">
+                    <h5>scheme</h5>
+                    <p>https</p>
+                    <small>defines the type of Internet service (most common is http or https)</small>
+                </div>
+                
+                <div class="url-part">
+                    <h5>prefix</h5>
+                    <p>www</p>
+                    <small>defines a domain prefix (default for http is www)</small>
+                </div>
+                
+                <div class="url-part">
+                    <h5>domain</h5>
+                    <p>jassifteam.com</p>
+                    <small>defines the Internet domain name (like jassifteam.com)</small>
+                </div>
+                
+                <div class="url-part">
+                    <h5>port</h5>
+                    <p>443</p>
+                    <small>defines the port number at the host (default for http is 80)</small>
+                </div>
+                
+                <div class="url-part">
+                    <h5>path</h5>
+                    <p>/html/</p>
+                    <small>defines a path at the server (If omitted: the root directory of the site)</small>
+                </div>
+                
+                <div class="url-part">
+                    <h5>filename</h5>
+                    <p>tutorial.html</p>
+                    <small>defines the name of a document or resource</small>
+                </div>
+            </div>
+        </section>
+
+        <!-- Common URL Schemes -->
+        <section class="content-section" id="url-schemes">
+            <h2>Common URL Schemes</h2>
+            
+            <p>The table below lists some common schemes:</p>
+            
+            <div class="schemes-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Scheme</th>
+                            <th>Short for</th>
+                            <th>Used for</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>http</td>
+                            <td>HyperText Transfer Protocol</td>
+                            <td>Common web pages. Not encrypted</td>
+                        </tr>
+                        <tr>
+                            <td>https</td>
+                            <td>Secure HyperText Transfer Protocol</td>
+                            <td>Secure web pages. Encrypted</td>
+                        </tr>
+                        <tr>
+                            <td>ftp</td>
+                            <td>File Transfer Protocol</td>
+                            <td>Downloading or uploading files</td>
+                        </tr>
+                        <tr>
+                            <td>file</td>
+                            <td></td>
+                            <td>A file on your computer</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- URL Encoding -->
+        <section class="content-section" id="url-encoding">
+            <h2>URL Encoding</h2>
+            
+            <p>URLs can only be sent over the Internet using the ASCII character-set. If a URL contains characters outside the ASCII set, the URL has to be converted.</p>
+            
+            <p>URL encoding converts non-ASCII characters into a format that can be transmitted over the Internet.</p>
+            
+            <p>URL encoding replaces non-ASCII characters with a "%" followed by hexadecimal digits.</p>
+            
+            <p>URLs cannot contain spaces. URL encoding normally replaces a space with a plus (+) sign, or %20.</p>
+        </section>
+
+        <!-- Try It Yourself -->
+        <section class="content-section" id="try-it">
+            <h2>Try It Yourself</h2>
+            
+            <div class="url-demo">
+                <h4>Hello Günter</h4>
+                <p>If you click "Submit", the browser will URL encode the input before it is sent to the server.</p>
+                <p>A page at the server will display the received input.</p>
+                <p>Try some other input and click Submit again.</p>
+                
+                <div style="margin: 1.5rem 0;">
+                    <input type="text" id="urlInput" class="url-input" value="Hello Günter" placeholder="Enter text to encode">
+                    <button id="submitBtn" class="submit-btn">Submit</button>
+                </div>
+                
+                <div id="urlResult" style="margin-top: 1rem; padding: 1rem; background: white; border-radius: 5px; display: none;">
+                    <p>Encoded URL: <code id="encodedUrl"></code></p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ASCII Encoding Examples -->
+        <section class="content-section" id="ascii-encoding">
+            <h2>ASCII Encoding Examples</h2>
+            
+            <p>Your browser will encode input, according to the character-set used in your page.</p>
+            
+            <p>The default character-set in HTML5 is UTF-8.</p>
+            
+            <div class="encoding-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Character</th>
+                            <th>From Windows-1252</th>
+                            <th>From UTF-8</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>€</td>
+                            <td>%80</td>
+                            <td>%E2%82%AC</td>
+                        </tr>
+                        <tr>
+                            <td>£</td>
+                            <td>%A3</td>
+                            <td>%C2%A3</td>
+                        </tr>
+                        <tr>
+                            <td>©</td>
+                            <td>%A9</td>
+                            <td>%C2%A9</td>
+                        </tr>
+                        <tr>
+                            <td>®</td>
+                            <td>%AE</td>
+                            <td>%C2%AE</td>
+                        </tr>
+                        <tr>
+                            <td>À</td>
+                            <td>%C0</td>
+                            <td>%C3%80</td>
+                        </tr>
+                        <tr>
+                            <td>Á</td>
+                            <td>%C1</td>
+                            <td>%C3%81</td>
+                        </tr>
+                        <tr>
+                            <td>Â</td>
+                            <td>%C2</td>
+                            <td>%C3%82</td>
+                        </tr>
+                        <tr>
+                            <td>Ã</td>
+                            <td>%C3</td>
+                            <td>%C3%83</td>
+                        </tr>
+                        <tr>
+                            <td>Ä</td>
+                            <td>%C4</td>
+                            <td>%C3%84</td>
+                        </tr>
+                        <tr>
+                            <td>Å</td>
+                            <td>%C5</td>
+                            <td>%C3%85</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <div class="tip-box">
+                <h4><i class="fas fa-book tip-icon"></i> For a complete reference of all URL encodings:</h4>
+                <p>visit our URL Encoding Reference.</p>
+            </div>
+        </section>
+
+        <!-- Bottom Navigation -->
+        <div class="bottom-nav">
+            <a href="HTML%20Encoding%20(Character%20Sets).html" class="nav-tab prev">
+                <i class="fas fa-arrow-left"></i>
+                <span>पिछला</span>
+            </a>
+            <a href="HTML%20Versus%20XHTML.html" class="nav-tab next">
+                <span>अगला</span>
+                <i class="fas fa-arrow-right"></i>
+            </a>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-column">
+                <h3>Jassif Team Institution</h3>
+                <p>Leading educational institution providing quality programming education in Hindi.</p>
+            </div>
+            <div class="footer-column">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#introduction">URL Introduction</a></li>
+                    <li><a href="#url-explanation">URL Explanation</a></li>
+                    <li><a href="#url-schemes">URL Schemes</a></li>
+                    <li><a href="#url-encoding">URL Encoding</a></li>
+                    <li><a href="#ascii-encoding">ASCII Encoding</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Contact</h3>
+                <ul>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="#">Location & Hours</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Follow Us</h3>
+                <ul>
+                    <li><a href="#"><i class="fab fa-facebook"></i> Facebook</a></li>
+                    <li><a href="#"><i class="fab fa-instagram"></i> Instagram</a></li>
+                    <li><a href="#"><i class="fab fa-youtube"></i> YouTube</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2023 Jassif Team Institution. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Add smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Add scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animation = 'fadeInUp 0.8s ease-out forwards';
+                }
+            });
+        }, observerOptions);
+        
+        // Observe all content sections for animation
+        document.querySelectorAll('.content-section').forEach(section => {
+            observer.observe(section);
+        });
+
+        // URL Encoding Demo
+        document.getElementById('submitBtn').addEventListener('click', function() {
+            const input = document.getElementById('urlInput').value;
+            const encoded = encodeURIComponent(input);
+            const resultDiv = document.getElementById('urlResult');
+            const encodedUrlSpan = document.getElementById('encodedUrl');
+            
+            // Show special characters in URL encoding
+            let displayText = encoded;
+            
+            // Highlight space encoding
+            displayText = displayText.replace(/%20/g, '<span style="color:#e74c3c">%20</span>');
+            displayText = displayText.replace(/\+/g, '<span style="color:#e74c3c">+</span>');
+            
+            // Highlight other special encodings
+            displayText = displayText.replace(/%C3%BC/g, '<span style="color:#3498db">%C3%BC</span>'); // ü
+            displayText = displayText.replace(/%C3%A4/g, '<span style="color:#3498db">%C3%A4</span>'); // ä
+            displayText = displayText.replace(/%C3%B6/g, '<span style="color:#3498db">%C3%B6</span>'); // ö
+            displayText = displayText.replace(/%C3%9F/g, '<span style="color:#3498db">%C3%9F</span>'); // ß
+            
+            encodedUrlSpan.innerHTML = displayText;
+            resultDiv.style.display = 'block';
+            
+            // Show alert with explanation
+            const hasSpecialChars = /[^\w\s]/.test(input);
+            const hasSpaces = /\s/.test(input);
+            
+            let message = `Input: "${input}"\nEncoded: ${encoded}\n\n`;
+            
+            if (hasSpaces) {
+                message += "• Spaces converted to %20\n";
+            }
+            
+            if (hasSpecialChars) {
+                message += "• Special characters encoded with %\n";
+            }
+            
+            if (!hasSpaces && !hasSpecialChars) {
+                message += "• No encoding needed for ASCII characters\n";
+            }
+            
+            alert(message);
+        });
+        
+        // Enter key support for input
+        document.getElementById('urlInput').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                document.getElementById('submitBtn').click();
+            }
+        });
+        
+        // Add copy functionality to encoding table
+        document.querySelectorAll('.encoding-table td:nth-child(2), .encoding-table td:nth-child(3)').forEach(cell => {
+            cell.style.cursor = 'pointer';
+            cell.title = 'Click to copy encoding';
+            
+            cell.addEventListener('click', function() {
+                const text = this.textContent;
+                navigator.clipboard.writeText(text).then(() => {
+                    const originalText = this.textContent;
+                    this.textContent = 'Copied!';
+                    this.style.background = '#e8f5e9';
+                    
+                    setTimeout(() => {
+                        this.textContent = originalText;
+                        this.style.background = '';
+                    }, 1000);
+                });
+            });
+        });
+        
+        // Interactive URL breakdown
+        const urlParts = document.querySelectorAll('.url-part p');
+        urlParts.forEach(part => {
+            part.style.cursor = 'pointer';
+            part.title = 'Click to learn more';
+            
+            part.addEventListener('click', function() {
+                const partName = this.parentElement.querySelector('h5').textContent;
+                const partValue = this.textContent;
+                
+                let explanation = '';
+                switch(partName) {
+                    case 'scheme':
+                        explanation = `Scheme: ${partValue}\nDetermines the protocol used (HTTP, HTTPS, FTP, etc.)`;
+                        break;
+                    case 'prefix':
+                        explanation = `Prefix: ${partValue}\nUsually 'www' but can be other subdomains`;
+                        break;
+                    case 'domain':
+                        explanation = `Domain: ${partValue}\nThe website's registered name`;
+                        break;
+                    case 'port':
+                        explanation = `Port: ${partValue}\nNetwork port (80 for HTTP, 443 for HTTPS)`;
+                        break;
+                    case 'path':
+                        explanation = `Path: ${partValue}\nDirectory structure on the server`;
+                        break;
+                    case 'filename':
+                        explanation = `Filename: ${partValue}\nThe specific resource being requested`;
+                        break;
+                }
+                
+                alert(explanation);
+            });
+        });
+    </script>
+
+    <!-- Home Button -->
+    <a href="index.html" class="home-icon">
+        <i class="fas fa-home"></i>
+    </a>
+</body>
+</html>

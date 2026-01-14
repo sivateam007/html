@@ -1,0 +1,765 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Versus XHTML - Jassif Team</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .content-section p, 
+        .content-section li,
+        .content-section h3,
+        .content-section h4,
+        .comparison-card p {
+            color: #333 !important;
+        }
+        
+        .tip-box p,
+        .tip-box li,
+        .tip-box h4 {
+            color: white !important;
+        }
+        
+        .warning-box p,
+        .warning-box li,
+        .warning-box h4 {
+            color: white !important;
+        }
+        
+        .exercise-box p,
+        .exercise-box h4 {
+            color: white !important;
+        }
+        
+        .logo-icon {
+            animation: none !important;
+        }
+        
+        .logo-image {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+            display: block;
+            border: 2px solid white;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            animation: none !important;
+        }
+        
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .comparison-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+            border-left: 4px solid var(--git-color);
+        }
+        
+        .comparison-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .comparison-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid #f0f0f0;
+        }
+        
+        .comparison-header i {
+            font-size: 1.5rem;
+            color: var(--git-color);
+        }
+        
+        .comparison-header h4 {
+            margin: 0;
+            color: var(--dark);
+        }
+        
+        .code-comparison {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .code-column h4 {
+            text-align: center;
+            margin-bottom: 0.8rem;
+            color: var(--git-color);
+            font-size: 1.1rem;
+            padding: 0.5rem;
+            border-radius: 5px;
+        }
+        
+        .correct-code h4 {
+            background-color: rgba(40, 167, 69, 0.1);
+            border-left: 4px solid #28a745;
+        }
+        
+        .wrong-code h4 {
+            background-color: rgba(220, 53, 69, 0.1);
+            border-left: 4px solid #dc3545;
+        }
+        
+        .code-example pre {
+            background: #2d2d2d;
+            color: #f8f8f2;
+            padding: 1.5rem;
+            border-radius: 8px;
+            overflow-x: auto;
+            font-family: 'Courier New', monospace;
+            line-height: 1.5;
+        }
+        
+        .rules-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+        
+        .rule-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            padding: 1rem;
+            border-radius: 8px;
+            background: white;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        
+        .rule-item:hover {
+            transform: translateX(5px);
+        }
+        
+        .rule-item i {
+            margin-top: 0.2rem;
+            flex-shrink: 0;
+            font-size: 1.2rem;
+            color: var(--git-color);
+        }
+        
+        .xhtml-doctype {
+            background: #e3f2fd;
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin: 1.5rem 0;
+            border-left: 4px solid #2196f3;
+        }
+        
+        .validator-box {
+            background: white;
+            border: 3px solid var(--git-color);
+            padding: 2rem;
+            margin: 2rem 0;
+            border-radius: 10px;
+            text-align: center;
+        }
+        
+        .validator-input {
+            padding: 10px;
+            width: 80%;
+            max-width: 500px;
+            border: 2px solid var(--git-color);
+            border-radius: 5px;
+            margin: 15px 0;
+            font-size: 1rem;
+        }
+        
+        .validator-btn {
+            padding: 10px 20px;
+            background: var(--git-color);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background 0.3s;
+        }
+        
+        .validator-btn:hover {
+            background: #e74c3c;
+        }
+        
+        @media (max-width: 768px) {
+            .code-comparison {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <div class="logo-icon">
+                    <img src="logo.jpg" alt="Jassif Team Logo" class="logo-image">
+                </div>
+                <h1>Jassif Team <span>Institution</span></h1>
+            </div>
+        </div>
+    </header>
+
+    <!-- Top Navigation Tabs -->
+    <div class="nav-tabs">
+        <a href="HTML%20Uniform%20Resource%20Locators.html" class="nav-tab prev">
+            <i class="fas fa-arrow-left"></i>
+            <span>पिछला</span>
+        </a>
+        <a href="HTML%20Forms.html" class="nav-tab next">
+            <span>अगला</span>
+            <i class="fas fa-arrow-right"></i>
+        </a>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h2>HTML Versus XHTML</h2>
+            <p>HTML மற்றும் XHTML இடையேயான வேறுபாடுகள்</p>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="container">
+        <!-- What is XHTML? -->
+        <section class="content-section" id="what-is-xhtml">
+            <h2>What is XHTML?</h2>
+            
+            <div class="comparison-grid">
+                <div class="comparison-card">
+                    <div class="comparison-header">
+                        <i class="fas fa-code"></i>
+                        <h4>XHTML Stands For</h4>
+                    </div>
+                    <p>EXtensible HyperText Markup Language</p>
+                </div>
+                
+                <div class="comparison-card">
+                    <div class="comparison-header">
+                        <i class="fas fa-file-code"></i>
+                        <h4>Stricter Version</h4>
+                    </div>
+                    <p>XHTML is a stricter, more XML-based version of HTML</p>
+                </div>
+                
+                <div class="comparison-card">
+                    <div class="comparison-header">
+                        <i class="fas fa-cogs"></i>
+                        <h4>XML Application</h4>
+                    </div>
+                    <p>XHTML is HTML defined as an XML application</p>
+                </div>
+                
+                <div class="comparison-card">
+                    <div class="comparison-header">
+                        <i class="fas fa-globe"></i>
+                        <h4>Browser Support</h4>
+                    </div>
+                    <p>XHTML is supported by all major browsers</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Why XHTML? -->
+        <section class="content-section" id="why-xhtml">
+            <h2>Why XHTML?</h2>
+            
+            <p>XML is a markup language where all documents must be marked up correctly (be "well-formed").</p>
+            
+            <p>XHTML was developed to make HTML more extensible and flexible to work with other data formats (such as XML). In addition, browsers ignore errors in HTML pages, and try to display the website even if it has some errors in the markup. So XHTML comes with a much stricter error handling.</p>
+            
+            <div class="tip-box">
+                <h4><i class="fas fa-book tip-icon"></i> Learn More:</h4>
+                <p>If you want to study XML, please read our XML Tutorial.</p>
+            </div>
+        </section>
+
+        <!-- The Most Important Differences from HTML -->
+        <section class="content-section" id="differences">
+            <h2>The Most Important Differences from HTML</h2>
+            
+            <div class="rules-list">
+                <div class="rule-item">
+                    <i class="fas fa-check-circle"></i>
+                    <div>
+                        <strong>&lt;!DOCTYPE&gt; is mandatory</strong>
+                        <p>XHTML ஆவணத்தில் &lt;!DOCTYPE&gt; அறிவிப்பு கட்டாயமாகும்</p>
+                    </div>
+                </div>
+                
+                <div class="rule-item">
+                    <i class="fas fa-check-circle"></i>
+                    <div>
+                        <strong>The xmlns attribute in &lt;html&gt; is mandatory</strong>
+                        <p>&lt;html&gt; குறிச்சொல்லில் xmlns பண்புக்கூறு கட்டாயமாகும்</p>
+                    </div>
+                </div>
+                
+                <div class="rule-item">
+                    <i class="fas fa-check-circle"></i>
+                    <div>
+                        <strong>&lt;html&gt;, &lt;head&gt;, &lt;title&gt;, and &lt;body&gt; are mandatory</strong>
+                        <p>இந்த அடிப்படை கூறுகள் எல்லாம் கட்டாயமாகும்</p>
+                    </div>
+                </div>
+                
+                <div class="rule-item">
+                    <i class="fas fa-check-circle"></i>
+                    <div>
+                        <strong>Elements must always be properly nested</strong>
+                        <p>கூறுகள் எப்போதும் சரியாக கூடு அமைக்கப்பட வேண்டும்</p>
+                    </div>
+                </div>
+                
+                <div class="rule-item">
+                    <i class="fas fa-check-circle"></i>
+                    <div>
+                        <strong>Elements must always be closed</strong>
+                        <p>கூறுகள் எப்போதும் மூடப்பட வேண்டும்</p>
+                    </div>
+                </div>
+                
+                <div class="rule-item">
+                    <i class="fas fa-check-circle"></i>
+                    <div>
+                        <strong>Elements must always be in lowercase</strong>
+                        <p>கூறுகள் எப்போதும் சிறிய எழுத்துகளில் இருக்க வேண்டும்</p>
+                    </div>
+                </div>
+                
+                <div class="rule-item">
+                    <i class="fas fa-check-circle"></i>
+                    <div>
+                        <strong>Attribute names must always be in lowercase</strong>
+                        <p>பண்புக்கூறு பெயர்கள் எப்போதும் சிறிய எழுத்துகளில் இருக்க வேண்டும்</p>
+                    </div>
+                </div>
+                
+                <div class="rule-item">
+                    <i class="fas fa-check-circle"></i>
+                    <div>
+                        <strong>Attribute values must always be quoted</strong>
+                        <p>பண்புக்கூறு மதிப்புகள் எப்போதும் மேற்கோள் காட்டப்பட வேண்டும்</p>
+                    </div>
+                </div>
+                
+                <div class="rule-item">
+                    <i class="fas fa-check-circle"></i>
+                    <div>
+                        <strong>Attribute minimization is forbidden</strong>
+                        <p>பண்புக்கூறு சுருக்கம் தடைசெய்யப்பட்டுள்ளது</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- XHTML - <!DOCTYPE ....> Is Mandatory -->
+        <section class="content-section" id="doctype">
+            <h2>XHTML - &lt;!DOCTYPE ....&gt; Is Mandatory</h2>
+            
+            <p>An XHTML document must have an XHTML &lt;!DOCTYPE&gt; declaration.</p>
+            
+            <p>The &lt;html&gt;, &lt;head&gt;, &lt;title&gt;, and &lt;body&gt; elements must also be present, and the xmlns attribute in &lt;html&gt; must specify the xml namespace for the document.</p>
+            
+            <div class="xhtml-doctype">
+                <h4>Example</h4>
+                <p>Here is an XHTML document with a minimum of required tags:</p>
+                
+                <div class="code-example">
+                    <pre><code>&lt;!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd"&gt;
+&lt;html xmlns="http://www.w3.org/1999/xhtml"&gt;
+&lt;head&gt;
+  &lt;title&gt;Title of document&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+  some content here...
+
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- XHTML Elements Must be Properly Nested -->
+        <section class="content-section" id="proper-nesting">
+            <h2>XHTML Elements Must be Properly Nested</h2>
+            
+            <p>In XHTML, elements must always be properly nested within each other, like this:</p>
+            
+            <div class="code-comparison">
+                <div class="code-column correct-code">
+                    <h4>Correct:</h4>
+                    <div class="code-example">
+                        <pre><code>&lt;b&gt;&lt;i&gt;Some text&lt;/i&gt;&lt;/b&gt;</code></pre>
+                    </div>
+                </div>
+                
+                <div class="code-column wrong-code">
+                    <h4>Wrong:</h4>
+                    <div class="code-example">
+                        <pre><code>&lt;b&gt;&lt;i&gt;Some text&lt;/b&gt;&lt;/i&gt;</code></pre>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- XHTML Elements Must Always be Closed -->
+        <section class="content-section" id="closing-elements">
+            <h2>XHTML Elements Must Always be Closed</h2>
+            
+            <p>In XHTML, elements must always be closed, like this:</p>
+            
+            <div class="code-comparison">
+                <div class="code-column correct-code">
+                    <h4>Correct:</h4>
+                    <div class="code-example">
+                        <pre><code>&lt;p&gt;This is a paragraph&lt;/p&gt;
+&lt;p&gt;This is another paragraph&lt;/p&gt;</code></pre>
+                    </div>
+                </div>
+                
+                <div class="code-column wrong-code">
+                    <h4>Wrong:</h4>
+                    <div class="code-example">
+                        <pre><code>&lt;p&gt;This is a paragraph
+&lt;p&gt;This is another paragraph</code></pre>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- XHTML Empty Elements Must Always be Closed -->
+        <section class="content-section" id="closing-empty">
+            <h2>XHTML Empty Elements Must Always be Closed</h2>
+            
+            <p>In XHTML, empty elements must always be closed, like this:</p>
+            
+            <div class="code-comparison">
+                <div class="code-column correct-code">
+                    <h4>Correct:</h4>
+                    <div class="code-example">
+                        <pre><code>A break: &lt;br /&gt;
+A horizontal rule: &lt;hr /&gt;
+An image: &lt;img src="happy.gif" alt="Happy face" /&gt;</code></pre>
+                    </div>
+                </div>
+                
+                <div class="code-column wrong-code">
+                    <h4>Wrong:</h4>
+                    <div class="code-example">
+                        <pre><code>A break: &lt;br&gt;
+A horizontal rule: &lt;hr&gt;
+An image: &lt;img src="happy.gif" alt="Happy face"&gt;</code></pre>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- XHTML Elements Must be in Lowercase -->
+        <section class="content-section" id="lowercase-elements">
+            <h2>XHTML Elements Must be in Lowercase</h2>
+            
+            <p>In XHTML, element names must always be in lowercase, like this:</p>
+            
+            <div class="code-comparison">
+                <div class="code-column correct-code">
+                    <h4>Correct:</h4>
+                    <div class="code-example">
+                        <pre><code>&lt;body&gt;
+&lt;p&gt;This is a paragraph&lt;/p&gt;
+&lt;/body&gt;</code></pre>
+                    </div>
+                </div>
+                
+                <div class="code-column wrong-code">
+                    <h4>Wrong:</h4>
+                    <div class="code-example">
+                        <pre><code>&lt;BODY&gt;
+&lt;P&gt;This is a paragraph&lt;/P&gt;
+&lt;/BODY&gt;</code></pre>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- XHTML Attribute Names Must be in Lowercase -->
+        <section class="content-section" id="lowercase-attributes">
+            <h2>XHTML Attribute Names Must be in Lowercase</h2>
+            
+            <p>In XHTML, attribute names must always be in lowercase, like this:</p>
+            
+            <div class="code-comparison">
+                <div class="code-column correct-code">
+                    <h4>Correct:</h4>
+                    <div class="code-example">
+                        <pre><code>&lt;a href="https://www.jassifteam.com/html/"&gt;Visit our HTML tutorial&lt;/a&gt;</code></pre>
+                    </div>
+                </div>
+                
+                <div class="code-column wrong-code">
+                    <h4>Wrong:</h4>
+                    <div class="code-example">
+                        <pre><code>&lt;a HREF="https://www.jassifteam.com/html/"&gt;Visit our HTML tutorial&lt;/a&gt;</code></pre>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- XHTML Attribute Values Must be Quoted -->
+        <section class="content-section" id="quoted-attributes">
+            <h2>XHTML Attribute Values Must be Quoted</h2>
+            
+            <p>In XHTML, attribute values must always be quoted, like this:</p>
+            
+            <div class="code-comparison">
+                <div class="code-column correct-code">
+                    <h4>Correct:</h4>
+                    <div class="code-example">
+                        <pre><code>&lt;a href="https://www.jassifteam.com/html/"&gt;Visit our HTML tutorial&lt;/a&gt;</code></pre>
+                    </div>
+                </div>
+                
+                <div class="code-column wrong-code">
+                    <h4>Wrong:</h4>
+                    <div class="code-example">
+                        <pre><code>&lt;a href=https://www.jassifteam.com/html/&gt;Visit our HTML tutorial&lt;/a&gt;</code></pre>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- XHTML Attribute Minimization is Forbidden -->
+        <section class="content-section" id="attribute-minimization">
+            <h2>XHTML Attribute Minimization is Forbidden</h2>
+            
+            <p>In XHTML, attribute minimization is forbidden:</p>
+            
+            <div class="code-comparison">
+                <div class="code-column correct-code">
+                    <h4>Correct:</h4>
+                    <div class="code-example">
+                        <pre><code>&lt;input type="checkbox" name="vehicle" value="car" checked="checked" /&gt;
+&lt;input type="text" name="lastname" disabled="disabled" /&gt;</code></pre>
+                    </div>
+                </div>
+                
+                <div class="code-column wrong-code">
+                    <h4>Wrong:</h4>
+                    <div class="code-example">
+                        <pre><code>&lt;input type="checkbox" name="vehicle" value="car" checked /&gt;
+&lt;input type="text" name="lastname" disabled /&gt;</code></pre>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Validate HTML With The W3C Validator -->
+        <section class="content-section" id="validator">
+            <h2>Validate HTML With The W3C Validator</h2>
+            
+            <p>Put your web address in the box below:</p>
+            
+            <div class="validator-box">
+                <input type="text" id="validatorInput" class="validator-input" placeholder="Enter URL to validate" value="https://www.jassifteam.com/html/html_validate.html">
+                <br>
+                <button id="validatorBtn" class="validator-btn">Validate URL</button>
+                
+                <div id="validatorResult" style="margin-top: 1.5rem; padding: 1rem; background: #f8f9fa; border-radius: 5px; display: none;">
+                    <h4>Validation Result</h4>
+                    <p id="resultText"></p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Bottom Navigation -->
+        <div class="bottom-nav">
+            <a href="HTML%20Uniform%20Resource%20Locators.html" class="nav-tab prev">
+                <i class="fas fa-arrow-left"></i>
+                <span>पिछला</span>
+            </a>
+            <a href="HTML%20Forms.html" class="nav-tab next">
+                <span>अगला</span>
+                <i class="fas fa-arrow-right"></i>
+            </a>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-column">
+                <h3>Jassif Team Institution</h3>
+                <p>Leading educational institution providing quality programming education in Hindi.</p>
+            </div>
+            <div class="footer-column">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#what-is-xhtml">What is XHTML?</a></li>
+                    <li><a href="#differences">Differences from HTML</a></li>
+                    <li><a href="#proper-nesting">Proper Nesting</a></li>
+                    <li><a href="#closing-elements">Closing Elements</a></li>
+                    <li><a href="#validator">HTML Validator</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Contact</h3>
+                <ul>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="#">Location & Hours</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Follow Us</h3>
+                <ul>
+                    <li><a href="#"><i class="fab fa-facebook"></i> Facebook</a></li>
+                    <li><a href="#"><i class="fab fa-instagram"></i> Instagram</a></li>
+                    <li><a href="#"><i class="fab fa-youtube"></i> YouTube</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2023 Jassif Team Institution. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Add smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Add scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animation = 'fadeInUp 0.8s ease-out forwards';
+                }
+            });
+        }, observerOptions);
+        
+        // Observe all content sections for animation
+        document.querySelectorAll('.content-section').forEach(section => {
+            observer.observe(section);
+        });
+
+        // Validator functionality
+        document.getElementById('validatorBtn').addEventListener('click', function() {
+            const url = document.getElementById('validatorInput').value.trim();
+            const resultDiv = document.getElementById('validatorResult');
+            const resultText = document.getElementById('resultText');
+            
+            if (!url) {
+                alert('Please enter a URL to validate.');
+                return;
+            }
+            
+            // Simple validation simulation
+            resultDiv.style.display = 'block';
+            
+            // Simulate different validation results
+            const isValidURL = url.startsWith('http://') || url.startsWith('https://');
+            const isXHTML = url.includes('xhtml') || url.includes('XHTML');
+            
+            if (!isValidURL) {
+                resultText.innerHTML = '❌ <strong>Invalid URL format.</strong><br>URL should start with http:// or https://';
+                resultDiv.style.background = '#ffebee';
+                resultDiv.style.border = '1px solid #ffcdd2';
+            } else if (isXHTML) {
+                resultText.innerHTML = '✅ <strong>XHTML Validation Successful!</strong><br>This URL appears to be an XHTML document. All XHTML rules would be checked here.';
+                resultDiv.style.background = '#e8f5e9';
+                resultDiv.style.border = '1px solid #c8e6c9';
+            } else {
+                resultText.innerHTML = '⚠️ <strong>Standard HTML Validation</strong><br>This appears to be a regular HTML document. For XHTML validation, ensure your document follows all XHTML rules listed above.';
+                resultDiv.style.background = '#fff3e0';
+                resultDiv.style.border = '1px solid #ffcc80';
+            }
+            
+            // Show alert with validation info
+            setTimeout(() => {
+                alert(`URL submitted for validation: ${url}\n\nNote: This is a demonstration. In a real scenario, this would connect to the W3C Validator API to check your document's compliance with XHTML standards.`);
+            }, 500);
+        });
+        
+        // Enter key support for validator
+        document.getElementById('validatorInput').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                document.getElementById('validatorBtn').click();
+            }
+        });
+        
+        // Interactive code comparison highlighting
+        document.querySelectorAll('.code-comparison .code-example').forEach(codeBlock => {
+            const code = codeBlock.textContent;
+            
+            // Highlight specific XHTML syntax
+            let highlightedCode = code
+                .replace(/&lt;br \/&gt;/g, '<span style="color:#4CAF50">&lt;br /&gt;</span>')
+                .replace(/&lt;hr \/&gt;/g, '<span style="color:#4CAF50">&lt;hr /&gt;</span>')
+                .replace(/&lt;img.*? \/&gt;/g, '<span style="color:#4CAF50">$&</span>')
+                .replace(/checked="checked"/g, '<span style="color:#2196F3">checked="checked"</span>')
+                .replace(/disabled="disabled"/g, '<span style="color:#2196F3">disabled="disabled"</span>')
+                .replace(/&lt;\/[^&]+&gt;/g, '<span style="color:#E91E63">$&</span>'); // Closing tags
+            
+            codeBlock.innerHTML = highlightedCode;
+        });
+        
+        // Copy code functionality
+        document.querySelectorAll('.code-example pre').forEach(codeBlock => {
+            codeBlock.style.cursor = 'pointer';
+            codeBlock.title = 'Click to copy code';
+            
+            codeBlock.addEventListener('click', function() {
+                const code = this.textContent;
+                navigator.clipboard.writeText(code).then(() => {
+                    const originalHTML = this.innerHTML;
+                    this.innerHTML = '<span style="color:#4CAF50">Code copied to clipboard!</span>';
+                    
+                    setTimeout(() => {
+                        this.innerHTML = originalHTML;
+                    }, 1000);
+                });
+            });
+        });
+    </script>
+
+    <!-- Home Button -->
+    <a href="index.html" class="home-icon">
+        <i class="fas fa-home"></i>
+    </a>
+</body>
+</html>

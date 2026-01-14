@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Using Emojis in HTML - Jassif Team</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .content-section p, 
+        .content-section li,
+        .content-section h3,
+        .content-section h4,
+        .comparison-card p {
+            color: #333 !important;
+        }
+        
+        .tip-box p,
+        .tip-box li,
+        .tip-box h4 {
+            color: white !important;
+        }
+        
+        .warning-box p,
+        .warning-box li,
+        .warning-box h4 {
+            color: white !important;
+        }
+        
+        .exercise-box p,
+        .exercise-box h4 {
+            color: white !important;
+        }
+        
+        .logo-icon {
+            animation: none !important;
+        }
+        
+        .logo-image {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+            display: block;
+            border: 2px solid white;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            animation: none !important;
+        }
+        
+        .emoji-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+            gap: 15px;
+            margin: 1.5rem 0;
+            padding: 1.5rem;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+        
+        .emoji-item {
+            text-align: center;
+            padding: 15px;
+            border: 1px solid #eee;
+            border-radius: 8px;
+            font-size: 2rem;
+            transition: all 0.3s;
+            background: #f8f9fa;
+        }
+        
+        .emoji-item:hover {
+            background: #e9ecef;
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .emoji-code {
+            font-family: 'Courier New', monospace;
+            font-size: 0.8rem;
+            color: #666;
+            margin-top: 5px;
+            display: block;
+        }
+        
+        .emoji-category {
+            margin: 2.5rem 0 1rem 0;
+            padding-bottom: 0.5rem;
+            border-bottom: 3px solid var(--git-color);
+            color: var(--dark);
+            font-size: 1.5rem;
+        }
+        
+        .code-example pre {
+            background: #2d2d2d;
+            color: #f8f8f2;
+            padding: 1.5rem;
+            border-radius: 8px;
+            overflow-x: auto;
+            font-family: 'Courier New', monospace;
+            line-height: 1.5;
+        }
+        
+        .emoji-demo-large {
+            text-align: center;
+            padding: 2rem;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            border-radius: 10px;
+            margin: 2rem 0;
+        }
+        
+        .emoji-large {
+            font-size: 4rem;
+            margin: 1rem 0;
+        }
+        
+        .emoji-table {
+            margin: 2rem 0;
+            overflow-x: auto;
+        }
+        
+        .emoji-table table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        
+        .emoji-table th {
+            background: var(--git-color);
+            color: white;
+            padding: 1rem;
+            text-align: left;
+            font-weight: 600;
+        }
+        
+        .emoji-table td {
+            padding: 1rem;
+            border-bottom: 1px solid #f0f0f0;
+            font-size: 1.5rem;
+            text-align: center;
+        }
+        
+        .emoji-table tr:last-child td {
+            border-bottom: none;
+        }
+        
+        .charset-demo {
+            background: #e3f2fd;
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin: 1.5rem 0;
+            border-left: 4px solid #2196f3;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <div class="logo-icon">
+                    <img src="logo.jpg" alt="Jassif Team Logo" class="logo-image">
+                </div>
+                <h1>Jassif Team <span>Institution</span></h1>
+            </div>
+        </div>
+    </header>
+
+    <!-- Top Navigation Tabs -->
+    <div class="nav-tabs">
+        <a href="HTML%20Symbols.html" class="nav-tab prev">
+            <i class="fas fa-arrow-left"></i>
+            <span>पिछला</span>
+        </a>
+        <a href="HTML%20Encoding%20(Character%20Sets).html" class="nav-tab next">
+            <span>अगला</span>
+            <i class="fas fa-arrow-right"></i>
+        </a>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h2>Using Emojis in HTML</h2>
+            <p>HTML இல் எமோஜிகளைப் பயன்படுத்துதல்</p>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="container">
+        <!-- What are Emojis? -->
+        <section class="content-section" id="what-are-emojis">
+            <h2>What are Emojis?</h2>
+            
+            <p>Emojis look like images, but they are not.</p>
+            
+            <p>Emojis are letters (characters) from the UTF-8 (Unicode) character set:</p>
+            
+            <div class="emoji-demo-large">
+                <div class="emoji-large">😄 😍 💗</div>
+                <p>UTF-8 covers almost all of the characters and symbols in the world.</p>
+            </div>
+            
+            <div class="emoji-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Emoji</th>
+                            <th>Value</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>🗻</td>
+                            <td>&amp;#128507;</td>
+                        </tr>
+                        <tr>
+                            <td>🗼</td>
+                            <td>&amp;#128508;</td>
+                        </tr>
+                        <tr>
+                            <td>🗽</td>
+                            <td>&amp;#128509;</td>
+                        </tr>
+                        <tr>
+                            <td>🗾</td>
+                            <td>&amp;#128510;</td>
+                        </tr>
+                        <tr>
+                            <td>🗿</td>
+                            <td>&amp;#128511;</td>
+                        </tr>
+                        <tr>
+                            <td>😀</td>
+                            <td>&amp;#128512;</td>
+                        </tr>
+                        <tr>
+                            <td>😁</td>
+                            <td>&amp;#128513;</td>
+                        </tr>
+                        <tr>
+                            <td>😂</td>
+                            <td>&amp;#128514;</td>
+                        </tr>
+                        <tr>
+                            <td>😃</td>
+                            <td>&amp;#128515;</td>
+                        </tr>
+                        <tr>
+                            <td>😄</td>
+                            <td>&amp;#128516;</td>
+                        </tr>
+                        <tr>
+                            <td>😅</td>
+                            <td>&amp;#128517;</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- HTML Emojis Examples -->
+        <section class="content-section" id="emoji-examples">
+            <h2>HTML Emojis Examples</h2>
+            
+            <h3 class="emoji-category">Smileys</h3>
+            <div class="emoji-grid">
+                <div class="emoji-item">😀<span class="emoji-code">&amp;#128512;</span></div>
+                <div class="emoji-item">😂<span class="emoji-code">&amp;#128514;</span></div>
+                <div class="emoji-item">😊<span class="emoji-code">&amp;#128522;</span></div>
+                <div class="emoji-item">😎<span class="emoji-code">&amp;#128526;</span></div>
+                <div class="emoji-item">😜<span class="emoji-code">&amp;#128540;</span></div>
+            </div>
+            
+            <h3 class="emoji-category">Hands</h3>
+            <div class="emoji-grid">
+                <div class="emoji-item">✌<span class="emoji-code">&amp;#9996;</span></div>
+                <div class="emoji-item">✊<span class="emoji-code">&amp;#9994;</span></div>
+                <div class="emoji-item">☝<span class="emoji-code">&amp;#9757;</span></div>
+                <div class="emoji-item">✋<span class="emoji-code">&amp;#9995;</span></div>
+                <div class="emoji-item">👌<span class="emoji-code">&amp;#128076;</span></div>
+            </div>
+            
+            <h3 class="emoji-category">People</h3>
+            <div class="emoji-grid">
+                <div class="emoji-item">👮<span class="emoji-code">&amp;#128110;</span></div>
+                <div class="emoji-item">🧕<span class="emoji-code">&amp;#129333;</span></div>
+                <div class="emoji-item">👦<span class="emoji-code">&amp;#128102;</span></div>
+                <div class="emoji-item">💏<span class="emoji-code">&amp;#128143;</span></div>
+                <div class="emoji-item">🤴<span class="emoji-code">&amp;#129332;</span></div>
+            </div>
+            
+            <h3 class="emoji-category">Office</h3>
+            <div class="emoji-grid">
+                <div class="emoji-item">📈<span class="emoji-code">&amp;#128200;</span></div>
+                <div class="emoji-item">💻<span class="emoji-code">&amp;#128187;</span></div>
+                <div class="emoji-item">📌<span class="emoji-code">&amp;#128204;</span></div>
+                <div class="emoji-item">📆<span class="emoji-code">&amp;#128198;</span></div>
+                <div class="emoji-item">📒<span class="emoji-code">&amp;#128210;</span></div>
+            </div>
+            
+            <h3 class="emoji-category">Places</h3>
+            <div class="emoji-grid">
+                <div class="emoji-item">⛺<span class="emoji-code">&amp;#9962;</span></div>
+                <div class="emoji-item">🌋<span class="emoji-code">&amp;#127755;</span></div>
+                <div class="emoji-item">🗽<span class="emoji-code">&amp;#128509;</span></div>
+                <div class="emoji-item">🗿<span class="emoji-code">&amp;#128511;</span></div>
+                <div class="emoji-item">🏢<span class="emoji-code">&amp;#127970;</span></div>
+            </div>
+            
+            <h3 class="emoji-category">Transport</h3>
+            <div class="emoji-grid">
+                <div class="emoji-item">🚈<span class="emoji-code">&amp;#128648;</span></div>
+                <div class="emoji-item">🚗<span class="emoji-code">&amp;#128663;</span></div>
+                <div class="emoji-item">🚢<span class="emoji-code">&amp;#128674;</span></div>
+                <div class="emoji-item">🚌<span class="emoji-code">&amp;#128652;</span></div>
+                <div class="emoji-item">🚀<span class="emoji-code">&amp;#128640;</span></div>
+            </div>
+            
+            <h3 class="emoji-category">Animals</h3>
+            <div class="emoji-grid">
+                <div class="emoji-item">🐴<span class="emoji-code">&amp;#128052;</span></div>
+                <div class="emoji-item">🐕<span class="emoji-code">&amp;#128021;</span></div>
+                <div class="emoji-item">🐘<span class="emoji-code">&amp;#128024;</span></div>
+                <div class="emoji-item">🐻<span class="emoji-code">&amp;#128059;</span></div>
+                <div class="emoji-item">🐞<span class="emoji-code">&amp;#128030;</span></div>
+            </div>
+            
+            <h3 class="emoji-category">Food</h3>
+            <div class="emoji-grid">
+                <div class="emoji-item">☕<span class="emoji-code">&amp;#9749;</span></div>
+                <div class="emoji-item">🌭<span class="emoji-code">&amp;#127789;</span></div>
+                <div class="emoji-item">🍞<span class="emoji-code">&amp;#127838;</span></div>
+                <div class="emoji-item">🍩<span class="emoji-code">&amp;#127849;</span></div>
+                <div class="emoji-item">🍣<span class="emoji-code">&amp;#127843;</span></div>
+            </div>
+            
+            <h3 class="emoji-category">Plants</h3>
+            <div class="emoji-grid">
+                <div class="emoji-item">🌴<span class="emoji-code">&amp;#127796;</span></div>
+                <div class="emoji-item">🌳<span class="emoji-code">&amp;#127795;</span></div>
+                <div class="emoji-item">🌼<span class="emoji-code">&amp;#127804;</span></div>
+                <div class="emoji-item">🍁<span class="emoji-code">&amp;#127809;</span></div>
+                <div class="emoji-item">🥑<span class="emoji-code">&amp;#129361;</span></div>
+            </div>
+            
+            <h3 class="emoji-category">Fruits</h3>
+            <div class="emoji-grid">
+                <div class="emoji-item">🍇<span class="emoji-code">&amp;#127815;</span></div>
+                <div class="emoji-item">🍊<span class="emoji-code">&amp;#127818;</span></div>
+                <div class="emoji-item">🍏<span class="emoji-code">&amp;#127823;</span></div>
+                <div class="emoji-item">🥝<span class="emoji-code">&amp;#129373;</span></div>
+                <div class="emoji-item">🥥<span class="emoji-code">&amp;#129365;</span></div>
+            </div>
+            
+            <h3 class="emoji-category">Sports</h3>
+            <div class="emoji-grid">
+                <div class="emoji-item">⚽<span class="emoji-code">&amp;#9917;</span></div>
+                <div class="emoji-item">🏆<span class="emoji-code">&amp;#127942;</span></div>
+                <div class="emoji-item">🤿<span class="emoji-code">&amp;#129343;</span></div>
+                <div class="emoji-item">🏋<span class="emoji-code">&amp;#127947;</span></div>
+                <div class="emoji-item">⛳<span class="emoji-code">&amp;#9971;</span></div>
+            </div>
+            
+            <h3 class="emoji-category">Earth & Sky</h3>
+            <div class="emoji-grid">
+                <div class="emoji-item">🌐<span class="emoji-code">&amp;#127760;</span></div>
+                <div class="emoji-item">🌍<span class="emoji-code">&amp;#127757;</span></div>
+                <div class="emoji-item">🌖<span class="emoji-code">&amp;#127766;</span></div>
+                <div class="emoji-item">🌟<span class="emoji-code">&amp;#127775;</span></div>
+                <div class="emoji-item">🌞<span class="emoji-code">&amp;#127774;</span></div>
+            </div>
+            
+            <h3 class="emoji-category">Weather</h3>
+            <div class="emoji-grid">
+                <div class="emoji-item">⛅<span class="emoji-code">&amp;#9925;</span></div>
+                <div class="emoji-item">☔<span class="emoji-code">&amp;#9748;</span></div>
+                <div class="emoji-item">🌈<span class="emoji-code">&amp;#127752;</span></div>
+                <div class="emoji-item">🌂<span class="emoji-code">&amp;#127746;</span></div>
+                <div class="emoji-item">⛄<span class="emoji-code">&amp;#9924;</span></div>
+            </div>
+            
+            <h3 class="emoji-category">Clothing</h3>
+            <div class="emoji-grid">
+                <div class="emoji-item">👚<span class="emoji-code">&amp;#128082;</span></div>
+                <div class="emoji-item">👕<span class="emoji-code">&amp;#128085;</span></div>
+                <div class="emoji-item">🎩<span class="emoji-code">&amp;#127913;</span></div>
+                <div class="emoji-item">👜<span class="emoji-code">&amp;#128092;</span></div>
+                <div class="emoji-item">👠<span class="emoji-code">&amp;#128096;</span></div>
+            </div>
+            
+            <h3 class="emoji-category">Audio/Video</h3>
+            <div class="emoji-grid">
+                <div class="emoji-item">🎥<span class="emoji-code">&amp;#127917;</span></div>
+                <div class="emoji-item">🎵<span class="emoji-code">&amp;#127925;</span></div>
+                <div class="emoji-item">🎹<span class="emoji-code">&amp;#127929;</span></div>
+                <div class="emoji-item">🔊<span class="emoji-code">&amp;#128266;</span></div>
+                <div class="emoji-item">📺<span class="emoji-code">&amp;#128250;</span></div>
+            </div>
+            
+            <h3 class="emoji-category">Celebration</h3>
+            <div class="emoji-grid">
+                <div class="emoji-item">🎁<span class="emoji-code">&amp;#127873;</span></div>
+                <div class="emoji-item">🎃<span class="emoji-code">&amp;#127875;</span></div>
+                <div class="emoji-item">🎈<span class="emoji-code">&amp;#127880;</span></div>
+                <div class="emoji-item">🎓<span class="emoji-code">&amp;#127891;</span></div>
+                <div class="emoji-item">🎂<span class="emoji-code">&amp;#127874;</span></div>
+            </div>
+            
+            <h3 class="emoji-category">Entertainment</h3>
+            <div class="emoji-grid">
+                <div class="emoji-item">🎨<span class="emoji-code">&amp;#127912;</span></div>
+                <div class="emoji-item">🎪<span class="emoji-code">&amp;#127914;</span></div>
+                <div class="emoji-item">🎭<span class="emoji-code">&amp;#127917;</span></div>
+                <div class="emoji-item">🎡<span class="emoji-code">&amp;#127904;</span></div>
+                <div class="emoji-item">🎢<span class="emoji-code">&amp;#127906;</span></div>
+            </div>
+            
+            <h3 class="emoji-category">Symbols</h3>
+            <div class="emoji-grid">
+                <div class="emoji-item">💡<span class="emoji-code">&amp;#128161;</span></div>
+                <div class="emoji-item">💰<span class="emoji-code">&amp;#128176;</span></div>
+                <div class="emoji-item">🔐<span class="emoji-code">&amp;#128272;</span></div>
+                <div class="emoji-item">🔞<span class="emoji-code">&amp;#128286;</span></div>
+                <div class="emoji-item">🔔<span class="emoji-code">&amp;#128276;</span></div>
+            </div>
+            
+            <div class="tip-box">
+                <h4><i class="fas fa-book tip-icon"></i> Learn More:</h4>
+                <p>Full HTML Emoji Reference</p>
+            </div>
+        </section>
+
+        <!-- The HTML charset Attribute -->
+        <section class="content-section" id="charset-attribute">
+            <h2>The HTML charset Attribute</h2>
+            
+            <p>To display an HTML page correctly, a web browser must know the character set used in the page.</p>
+            
+            <p>This is specified in the &lt;meta&gt; tag:</p>
+            
+            <div class="code-example">
+                <pre><code>&lt;meta charset="UTF-8"&gt;</code></pre>
+            </div>
+            
+            <p>If not specified, UTF-8 is the default character set in HTML.</p>
+        </section>
+
+        <!-- UTF-8 Characters -->
+        <section class="content-section" id="utf8-characters">
+            <h2>UTF-8 Characters</h2>
+            
+            <p>Many UTF-8 characters cannot be typed on a keyboard, but they can always be displayed using numbers (called entity numbers):</p>
+            
+            <div class="charset-demo">
+                <p>A is 65</p>
+                <p>B is 66</p>
+                <p>C is 67</p>
+            </div>
+            
+            <div class="code-example">
+                <h3>Example</h3>
+                <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;meta charset="UTF-8"&gt;
+&lt;body&gt;
+
+&lt;p&gt;I will display A B C&lt;/p&gt;
+&lt;p&gt;I will display &amp;#65; &amp;#66; &amp;#67;&lt;/p&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+            </div>
+            
+            <h3>Example Explained</h3>
+            <p>The &lt;meta charset="UTF-8"&gt; element defines the character set.</p>
+            <p>The characters A, B, and C, are displayed by the numbers 65, 66, and 67.</p>
+            <p>To let the browser understand that you are displaying a character, you must start the entity number with &amp;# and end it with ; (semicolon).</p>
+        </section>
+
+        <!-- Emoji Characters -->
+        <section class="content-section" id="emoji-characters">
+            <h2>Emoji Characters</h2>
+            
+            <p>Emojis are also characters from the UTF-8 alphabet:</p>
+            
+            <div class="charset-demo">
+                <p>😄 is 128516</p>
+                <p>😍 is 128525</p>
+                <p>💗 is 128151</p>
+            </div>
+            
+            <div class="code-example">
+                <h3>Example</h3>
+                <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;meta charset="UTF-8"&gt;
+&lt;body&gt;
+
+&lt;h1&gt;My First Emoji&lt;/h1&gt;
+
+&lt;p&gt;&amp;#128512;&lt;/p&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+            </div>
+            
+            <p>Since Emojis are characters, they can be copied, displayed, and sized just like any other character in HTML.</p>
+            
+            <div class="code-example">
+                <h3>Example</h3>
+                <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;meta charset="UTF-8"&gt;
+&lt;body&gt;
+
+&lt;h1&gt;Sized Emojis&lt;/h1&gt;
+
+&lt;p style="font-size:48px"&gt;
+&amp;#128512; &amp;#128516; &amp;#128525; &amp;#128151;
+&lt;/p&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+            </div>
+        </section>
+
+        <!-- Bottom Navigation -->
+        <div class="bottom-nav">
+            <a href="HTML%20Symbols.html" class="nav-tab prev">
+                <i class="fas fa-arrow-left"></i>
+                <span>पिछला</span>
+            </a>
+            <a href="HTML%20Encoding%20(Character%20Sets).html" class="nav-tab next">
+                <span>अगला</span>
+                <i class="fas fa-arrow-right"></i>
+            </a>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-column">
+                <h3>Jassif Team Institution</h3>
+                <p>Leading educational institution providing quality programming education in Hindi.</p>
+            </div>
+            <div class="footer-column">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#what-are-emojis">What are Emojis?</a></li>
+                    <li><a href="#emoji-examples">Emoji Examples</a></li>
+                    <li><a href="#charset-attribute">Charset Attribute</a></li>
+                    <li><a href="#utf8-characters">UTF-8 Characters</a></li>
+                    <li><a href="#emoji-characters">Emoji Characters</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Contact</h3>
+                <ul>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="#">Location & Hours</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Follow Us</h3>
+                <ul>
+                    <li><a href="#"><i class="fab fa-facebook"></i> Facebook</a></li>
+                    <li><a href="#"><i class="fab fa-instagram"></i> Instagram</a></li>
+                    <li><a href="#"><i class="fab fa-youtube"></i> YouTube</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2023 Jassif Team Institution. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Add smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Add scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animation = 'fadeInUp 0.8s ease-out forwards';
+                }
+            });
+        }, observerOptions);
+        
+        // Observe all content sections for animation
+        document.querySelectorAll('.content-section').forEach(section => {
+            observer.observe(section);
+        });
+        
+        // Add copy functionality to emoji items
+        document.querySelectorAll('.emoji-item').forEach(item => {
+            item.style.cursor = 'pointer';
+            item.title = 'Click to copy emoji';
+            
+            item.addEventListener('click', function() {
+                const emoji = this.textContent.split('\n')[0];
+                const code = this.querySelector('.emoji-code').textContent;
+                
+                // Copy the emoji character
+                navigator.clipboard.writeText(emoji).then(() => {
+                    const originalContent = this.innerHTML;
+                    this.innerHTML = 'Copied!';
+                    this.style.background = '#e8f5e9';
+                    
+                    setTimeout(() => {
+                        this.innerHTML = originalContent;
+                        this.style.background = '';
+                    }, 1000);
+                });
+            });
+        });
+        
+        // Add copy functionality to table cells
+        document.querySelectorAll('.emoji-table td:first-child').forEach(cell => {
+            cell.style.cursor = 'pointer';
+            cell.title = 'Click to copy emoji';
+            
+            cell.addEventListener('click', function() {
+                const emoji = this.textContent;
+                navigator.clipboard.writeText(emoji).then(() => {
+                    const originalText = this.textContent;
+                    this.textContent = 'Copied!';
+                    this.style.background = '#e8f5e9';
+                    
+                    setTimeout(() => {
+                        this.textContent = originalText;
+                        this.style.background = '';
+                    }, 1000);
+                });
+            });
+        });
+    </script>
+
+    <!-- Home Button -->
+    <a href="index.html" class="home-icon">
+        <i class="fas fa-home"></i>
+    </a>
+</body>
+</html>
