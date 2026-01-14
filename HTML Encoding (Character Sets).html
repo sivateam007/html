@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Encoding (Character Sets) - Jassif Team</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .content-section p, 
+        .content-section li,
+        .content-section h3,
+        .content-section h4,
+        .comparison-card p {
+            color: #333 !important;
+        }
+        
+        .tip-box p,
+        .tip-box li,
+        .tip-box h4 {
+            color: white !important;
+        }
+        
+        .warning-box p,
+        .warning-box li,
+        .warning-box h4 {
+            color: white !important;
+        }
+        
+        .exercise-box p,
+        .exercise-box h4 {
+            color: white !important;
+        }
+        
+        .logo-icon {
+            animation: none !important;
+        }
+        
+        .logo-image {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+            display: block;
+            border: 2px solid white;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            animation: none !important;
+        }
+        
+        .charset-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 1.5rem 0;
+        }
+        
+        .charset-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            border-left: 4px solid var(--git-color);
+        }
+        
+        .charset-card h4 {
+            color: var(--git-color);
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #f0f0f0;
+        }
+        
+        .charset-example {
+            font-family: 'Courier New', monospace;
+            background: #f8f9fa;
+            padding: 1rem;
+            border-radius: 5px;
+            margin: 1rem 0;
+            overflow-x: auto;
+        }
+        
+        .code-example pre {
+            background: #2d2d2d;
+            color: #f8f8f2;
+            padding: 1.5rem;
+            border-radius: 8px;
+            overflow-x: auto;
+            font-family: 'Courier New', monospace;
+            line-height: 1.5;
+        }
+        
+        .unicode-image-container {
+            text-align: center;
+            margin: 2rem 0;
+            padding: 1rem;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+        
+        .unicode-image-container img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            border: 2px solid var(--git-color);
+        }
+        
+        .image-caption {
+            margin-top: 0.5rem;
+            font-style: italic;
+            color: #666;
+        }
+        
+        .character-demo {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin: 1.5rem 0;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+        
+        .character-category {
+            margin: 2rem 0 1rem 0;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--git-color);
+            color: var(--dark);
+        }
+        
+        .character-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(60px, 1fr));
+            gap: 10px;
+            padding: 1rem;
+            background: #f8f9fa;
+            border-radius: 8px;
+        }
+        
+        .character-item {
+            text-align: center;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background: white;
+            font-size: 1.2rem;
+        }
+        
+        .character-range {
+            font-family: 'Courier New', monospace;
+            color: #666;
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <div class="logo-icon">
+                    <img src="logo.jpg" alt="Jassif Team Logo" class="logo-image">
+                </div>
+                <h1>Jassif Team <span>Institution</span></h1>
+            </div>
+        </div>
+    </header>
+
+    <!-- Top Navigation Tabs -->
+    <div class="nav-tabs">
+        <a href="Using%20Emojis%20in%20HTML.html" class="nav-tab prev">
+            <i class="fas fa-arrow-left"></i>
+            <span>पिछला</span>
+        </a>
+        <a href="HTML%20Uniform%20Resource%20Locators.html" class="nav-tab next">
+            <span>अगला</span>
+            <i class="fas fa-arrow-right"></i>
+        </a>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h2>HTML Encoding (Character Sets)</h2>
+            <p>HTML எழுத்துத் தொகுப்புகள் மற்றும் குறியீட்டு முறைகள்</p>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="container">
+        <!-- The HTML charset Attribute -->
+        <section class="content-section" id="charset-attribute">
+            <h2>The HTML charset Attribute</h2>
+            
+            <p>To display an HTML page correctly, a web browser must know which character set to use.</p>
+            
+            <p>The character set is specified in the &lt;meta&gt; tag:</p>
+            
+            <div class="code-example">
+                <pre><code>&lt;meta charset="UTF-8"&gt;</code></pre>
+            </div>
+            
+            <p>The HTML specification encourages web developers to use the UTF-8 character set.</p>
+            
+            <p>UTF-8 covers almost all of the characters and symbols in the world!</p>
+            
+            <!-- Image added as requested -->
+            <div class="unicode-image-container">
+                <img src="img22.png" alt="UTF-8 Character Set Coverage">
+                <p class="image-caption">UTF-8 covers almost all of the characters and symbols in the world!</p>
+            </div>
+            
+            <p>Unicode Web growth</p>
+            
+            <div class="tip-box">
+                <h4><i class="fas fa-book tip-icon"></i> Learn More:</h4>
+                <p>Full UTF-8 Reference</p>
+            </div>
+        </section>
+
+        <!-- The ASCII Character Set -->
+        <section class="content-section" id="ascii-charset">
+            <h2>The ASCII Character Set</h2>
+            
+            <p>ASCII was the first character encoding standard for the web.</p>
+            
+            <p>It defined 128 different latin characters that could be used on the internet:</p>
+            
+            <div class="character-demo">
+                <div class="character-grid">
+                    <div class="character-item">A</div>
+                    <div class="character-item">B</div>
+                    <div class="character-item">C</div>
+                    <div class="character-item">D</div>
+                    <div class="character-item">E</div>
+                    <div class="character-item">F</div>
+                    <div class="character-item">G</div>
+                    <div class="character-item">H</div>
+                    <div class="character-item">I</div>
+                    <div class="character-item">J</div>
+                </div>
+                <div class="character-range">English letters (a-z and A-Z)</div>
+                
+                <div style="margin-top: 1rem;">
+                    <div class="character-grid">
+                        <div class="character-item">0</div>
+                        <div class="character-item">1</div>
+                        <div class="character-item">2</div>
+                        <div class="character-item">3</div>
+                        <div class="character-item">4</div>
+                        <div class="character-item">5</div>
+                        <div class="character-item">6</div>
+                        <div class="character-item">7</div>
+                        <div class="character-item">8</div>
+                        <div class="character-item">9</div>
+                    </div>
+                    <div class="character-range">Numbers (0-9)</div>
+                </div>
+                
+                <div style="margin-top: 1rem;">
+                    <div class="character-grid">
+                        <div class="character-item">!</div>
+                        <div class="character-item">$</div>
+                        <div class="character-item">+</div>
+                        <div class="character-item">-</div>
+                        <div class="character-item">(</div>
+                        <div class="character-item">)</div>
+                        <div class="character-item">@</div>
+                        <div class="character-item"><</div>
+                        <div class="character-item">></div>
+                        <div class="character-item">.</div>
+                        <div class="character-item">#</div>
+                        <div class="character-item">?</div>
+                    </div>
+                    <div class="character-range">Some special characters: ! $ + - ( ) @ < > . # ?</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- The ANSI Character Set -->
+        <section class="content-section" id="ansi-charset">
+            <h2>The ANSI Character Set</h2>
+            
+            <p>ANSI (Windows-1252) was the first Windows character set:</p>
+            
+            <div class="charset-grid">
+                <div class="charset-card">
+                    <h4>Identical to ASCII</h4>
+                    <p>for the first 127 characters</p>
+                </div>
+                
+                <div class="charset-card">
+                    <h4>Special characters</h4>
+                    <p>from 128 to 159</p>
+                </div>
+                
+                <div class="charset-card">
+                    <h4>Identical to UTF-8</h4>
+                    <p>from 160 to 255</p>
+                </div>
+            </div>
+            
+            <div class="charset-example">
+                &lt;meta charset="Windows-1252"&gt;
+            </div>
+        </section>
+
+        <!-- The ISO-8859-1 Character Set -->
+        <section class="content-section" id="iso-charset">
+            <h2>The ISO-8859-1 Character Set</h2>
+            
+            <p>The default character set for HTML 4 was ISO-8859-1.</p>
+            
+            <p>It supported 256 characters:</p>
+            
+            <div class="charset-grid">
+                <div class="charset-card">
+                    <h4>Identical to ASCII</h4>
+                    <p>for the first 127 characters</p>
+                </div>
+                
+                <div class="charset-card">
+                    <h4>Does not use</h4>
+                    <p>the characters from 128 to 159</p>
+                </div>
+                
+                <div class="charset-card">
+                    <h4>Identical to ANSI and UTF-8</h4>
+                    <p>from 160 to 255</p>
+                </div>
+            </div>
+            
+            <h3>HTML 4 Example</h3>
+            <div class="code-example">
+                <pre><code>&lt;meta http-equiv="Content-Type" content="text/html;charset=ISO-8859-1"&gt;</code></pre>
+            </div>
+            
+            <h3>HTML 5 Example</h3>
+            <div class="code-example">
+                <pre><code>&lt;meta charset="ISO-8859-1"&gt;</code></pre>
+            </div>
+        </section>
+
+        <!-- The UTF-8 Character Set -->
+        <section class="content-section" id="utf8-charset">
+            <h2>The UTF-8 Character Set</h2>
+            
+            <div class="charset-grid">
+                <div class="charset-card">
+                    <h4>Identical to ASCII</h4>
+                    <p>for the values from 0 to 127</p>
+                </div>
+                
+                <div class="charset-card">
+                    <h4>Does not use</h4>
+                    <p>the characters from 128 to 159</p>
+                </div>
+                
+                <div class="charset-card">
+                    <h4>Identical to ANSI and 8859-1</h4>
+                    <p>from 160 to 255</p>
+                </div>
+                
+                <div class="charset-card">
+                    <h4>Continues from</h4>
+                    <p>the value 256 to 10 000 characters</p>
+                </div>
+            </div>
+            
+            <div class="code-example">
+                <pre><code>&lt;meta charset="UTF-8"&gt;</code></pre>
+            </div>
+            
+            <div class="tip-box">
+                <h4><i class="fas fa-book tip-icon"></i> Learn More:</h4>
+                <p>Full UTF-8 Reference</p>
+            </div>
+        </section>
+
+        <!-- HTML UTF-8 Characters -->
+        <section class="content-section" id="utf8-characters">
+            <h2>HTML UTF-8 Characters</h2>
+            
+            <h3 class="character-category">Basic Latin</h3>
+            <div class="character-demo">
+                <div class="character-grid">
+                    <div class="character-item">A</div>
+                    <div class="character-item">B</div>
+                    <div class="character-item">C</div>
+                    <div class="character-item">D</div>
+                    <div class="character-item">a</div>
+                    <div class="character-item">b</div>
+                    <div class="character-item">c</div>
+                    <div class="character-item">d</div>
+                    <div class="character-item">0</div>
+                    <div class="character-item">1</div>
+                    <div class="character-item">2</div>
+                    <div class="character-item">3</div>
+                    <div class="character-item">?</div>
+                    <div class="character-item">#</div>
+                    <div class="character-item">$</div>
+                    <div class="character-item">%</div>
+                </div>
+                <div class="character-range">ABCD abcd 0123 ?#$%</div>
+            </div>
+            
+            <h3 class="character-category">Latin Extended A</h3>
+            <div class="character-demo">
+                <div class="character-grid">
+                    <div class="character-item">Ā</div>
+                    <div class="character-item">Ă</div>
+                    <div class="character-item">Ą</div>
+                    <div class="character-item">Ć</div>
+                    <div class="character-item">Ĉ</div>
+                    <div class="character-item">Ċ</div>
+                    <div class="character-item">Ē</div>
+                    <div class="character-item">Ĕ</div>
+                    <div class="character-item">Ė</div>
+                    <div class="character-item">Ę</div>
+                </div>
+                <div class="character-range">ĀĂĄ ĆĈĊ ĒĔĖĘ</div>
+            </div>
+            
+            <h3 class="character-category">Latin Extended B</h3>
+            <div class="character-demo">
+                <div class="character-grid">
+                    <div class="character-item">ƀ</div>
+                    <div class="character-item">Ɓ</div>
+                    <div class="character-item">Ƃ</div>
+                    <div class="character-item">ƃ</div>
+                    <div class="character-item">Ƅ</div>
+                    <div class="character-item">ƅ</div>
+                    <div class="character-item">Ɔ</div>
+                    <div class="character-item">Ƈ</div>
+                    <div class="character-item">ƈ</div>
+                    <div class="character-item">Ɖ</div>
+                    <div class="character-item">Ɗ</div>
+                    <div class="character-item">Ƌ</div>
+                    <div class="character-item">ƌ</div>
+                </div>
+                <div class="character-range">ƀƁƂƃƄƅ ƆƇƈ ƉƊƋƌ</div>
+            </div>
+            
+            <h3 class="character-category">Latin Extended C</h3>
+            <div class="character-demo">
+                <div class="character-grid">
+                    <div class="character-item">Ⱡ</div>
+                    <div class="character-item">ⱡ</div>
+                    <div class="character-item">Ɫ</div>
+                    <div class="character-item">Ᵽ</div>
+                    <div class="character-item">Ɽ</div>
+                    <div class="character-item">ⱥ</div>
+                    <div class="character-item">ⱦ</div>
+                    <div class="character-item">Ⱨ</div>
+                    <div class="character-item">ⱨ</div>
+                    <div class="character-item">Ⱪ</div>
+                </div>
+                <div class="character-range">ⱠⱡⱢ ⱣⱤ ⱥⱦ ⱧⱨⱩ</div>
+            </div>
+            
+            <h3 class="character-category">Latin Extended D</h3>
+            <div class="character-demo">
+                <div class="character-grid">
+                    <div class="character-item">Ꜧ</div>
+                    <div class="character-item">ꜧ</div>
+                    <div class="character-item">Ꜩ</div>
+                    <div class="character-item">ꜩ</div>
+                    <div class="character-item">Ꜫ</div>
+                    <div class="character-item">ꜫ</div>
+                    <div class="character-item">Ꜭ</div>
+                    <div class="character-item">ꜭ</div>
+                    <div class="character-item">Ꜯ</div>
+                    <div class="character-item">ꜯ</div>
+                </div>
+                <div class="character-range">Ꜧꜧ ꜨꜩꜪꜫ ꜬꜭꜮꜯ</div>
+            </div>
+            
+            <h3 class="character-category">Latin Extended E</h3>
+            <div class="character-demo">
+                <div class="character-grid">
+                    <div class="character-item">ꬰ</div>
+                    <div class="character-item">ꬱ</div>
+                    <div class="character-item">ꬲ</div>
+                    <div class="character-item">ꬳ</div>
+                    <div class="character-item">ꬴ</div>
+                    <div class="character-item">ꬵ</div>
+                    <div class="character-item">ꬶ</div>
+                    <div class="character-item">ꬷ</div>
+                    <div class="character-item">ꬸ</div>
+                    <div class="character-item">ꬹ</div>
+                </div>
+                <div class="character-range">ꬰꬱ ꬲꬳꬴ ꬵꬶ ꬷꬸꬹ</div>
+            </div>
+            
+            <h3 class="character-category">IPA Extentions</h3>
+            <div class="character-demo">
+                <div class="character-grid">
+                    <div class="character-item">ɖ</div>
+                    <div class="character-item">ɜ</div>
+                    <div class="character-item">ɣ</div>
+                    <div class="character-item">ɘ</div>
+                    <div class="character-item">ɫ</div>
+                    <div class="character-item">ɛ</div>
+                    <div class="character-item">ɱ</div>
+                    <div class="character-item">ɷ</div>
+                    <div class="character-item">ɞ</div>
+                </div>
+                <div class="character-range">ɖɜɣ ɘɫɛ ɱɷɞ</div>
+            </div>
+            
+            <h3 class="character-category">Spacing Modifiers</h3>
+            <div class="character-demo">
+                <div class="character-grid">
+                    <div class="character-item">pʰ</div>
+                    <div class="character-item">pʱ</div>
+                    <div class="character-item">pʲ</div>
+                    <div class="character-item">pʳ</div>
+                </div>
+                <div class="character-range">pʰ pʱ pʲ pʳ</div>
+            </div>
+            
+            <h3 class="character-category">Diacritical Marks</h3>
+            <div class="character-demo">
+                <div class="character-grid">
+                    <div class="character-item">à</div>
+                    <div class="character-item">á</div>
+                    <div class="character-item">â</div>
+                    <div class="character-item">ã</div>
+                    <div class="character-item">è</div>
+                    <div class="character-item">é</div>
+                    <div class="character-item">ê</div>
+                    <div class="character-item">ẽ</div>
+                    <div class="character-item">ò</div>
+                    <div class="character-item">ó</div>
+                    <div class="character-item">ô</div>
+                    <div class="character-item">õ</div>
+                </div>
+                <div class="character-range">àáâã èéêẽ òóôõ</div>
+            </div>
+            
+            <h3 class="character-category">General Punctuation</h3>
+            <div class="character-demo">
+                <div class="character-grid">
+                    <div class="character-item">‰</div>
+                    <div class="character-item">‱</div>
+                    <div class="character-item">⁒</div>
+                    <div class="character-item">‼</div>
+                    <div class="character-item">⁇</div>
+                    <div class="character-item">⁈</div>
+                    <div class="character-item">⁉</div>
+                    <div class="character-item">⁎</div>
+                    <div class="character-item">⁑</div>
+                    <div class="character-item">⁂</div>
+                </div>
+                <div class="character-range">‰ ‱ ⁒ ‼ ⁇ ⁈ ⁉ ⁎ ⁑ ⁂</div>
+            </div>
+            
+            <h3 class="character-category">Super and Subscript</h3>
+            <div class="character-demo">
+                <div class="character-grid">
+                    <div class="character-item">C⁰</div>
+                    <div class="character-item">Cⁱ</div>
+                    <div class="character-item">C⁴</div>
+                    <div class="character-item">C⁵</div>
+                    <div class="character-item">C₆</div>
+                    <div class="character-item">C₇</div>
+                    <div class="character-item">C₈</div>
+                </div>
+                <div class="character-range">C⁰ Cⁱ C⁴ C⁵ C₆ C₇ C₈</div>
+            </div>
+            
+            <h3 class="character-category">Braille</h3>
+            <div class="character-demo">
+                <div class="character-grid">
+                    <div class="character-item">⠓</div>
+                    <div class="character-item">⠑</div>
+                    <div class="character-item">⠇</div>
+                    <div class="character-item">⠇</div>
+                    <div class="character-item">⠕</div>
+                    <div class="character-item">⠺</div>
+                    <div class="character-item">⠕</div>
+                    <div class="character-item">⠗</div>
+                    <div class="character-item">⠇</div>
+                    <div class="character-item">⠙</div>
+                </div>
+                <div class="character-range">⠓⠑⠇⠇⠕ ⠺⠕⠗⠇⠙</div>
+            </div>
+        </section>
+
+        <!-- Bottom Navigation -->
+        <div class="bottom-nav">
+            <a href="Using%20Emojis%20in%20HTML.html" class="nav-tab prev">
+                <i class="fas fa-arrow-left"></i>
+                <span>पिछला</span>
+            </a>
+            <a href="HTML%20Uniform%20Resource%20Locators.html" class="nav-tab next">
+                <span>अगला</span>
+                <i class="fas fa-arrow-right"></i>
+            </a>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-column">
+                <h3>Jassif Team Institution</h3>
+                <p>Leading educational institution providing quality programming education in Hindi.</p>
+            </div>
+            <div class="footer-column">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#charset-attribute">Charset Attribute</a></li>
+                    <li><a href="#ascii-charset">ASCII Character Set</a></li>
+                    <li><a href="#ansi-charset">ANSI Character Set</a></li>
+                    <li><a href="#iso-charset">ISO-8859-1 Character Set</a></li>
+                    <li><a href="#utf8-charset">UTF-8 Character Set</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Contact</h3>
+                <ul>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="#">Location & Hours</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Follow Us</h3>
+                <ul>
+                    <li><a href="#"><i class="fab fa-facebook"></i> Facebook</a></li>
+                    <li><a href="#"><i class="fab fa-instagram"></i> Instagram</a></li>
+                    <li><a href="#"><i class="fab fa-youtube"></i> YouTube</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2023 Jassif Team Institution. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Add smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Add scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animation = 'fadeInUp 0.8s ease-out forwards';
+                }
+            });
+        }, observerOptions);
+        
+        // Observe all content sections for animation
+        document.querySelectorAll('.content-section').forEach(section => {
+            observer.observe(section);
+        });
+        
+        // Add copy functionality to character items
+        document.querySelectorAll('.character-item').forEach(item => {
+            item.style.cursor = 'pointer';
+            item.title = 'Click to copy character';
+            
+            item.addEventListener('click', function() {
+                const character = this.textContent;
+                navigator.clipboard.writeText(character).then(() => {
+                    const originalContent = this.textContent;
+                    this.textContent = 'Copied!';
+                    this.style.background = '#e8f5e9';
+                    
+                    setTimeout(() => {
+                        this.textContent = originalContent;
+                        this.style.background = '';
+                    }, 1000);
+                });
+            });
+        });
+        
+        // Image fallback
+        const unicodeImage = document.querySelector('.unicode-image-container img');
+        if(unicodeImage) {
+            unicodeImage.onerror = function() {
+                this.src = 'https://via.placeholder.com/800x400/3498db/ffffff?text=UTF-8+Character+Set+Coverage';
+                this.alt = 'UTF-8 Character Set Coverage - Placeholder Image';
+            };
+        }
+    </script>
+
+    <!-- Home Button -->
+    <a href="index.html" class="home-icon">
+        <i class="fas fa-home"></i>
+    </a>
+</body>
+</html>

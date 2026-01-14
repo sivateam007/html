@@ -1,0 +1,886 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Responsive Web Design - Jassif Team</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .content-section p, 
+        .content-section li,
+        .content-section h3,
+        .content-section h4,
+        .comparison-card p {
+            color: #333 !important;
+        }
+        
+        .tip-box p,
+        .tip-box li,
+        .tip-box h4 {
+            color: white !important;
+        }
+        
+        .warning-box p,
+        .warning-box li,
+        .warning-box h4 {
+            color: white !important;
+        }
+        
+        .exercise-box p,
+        .exercise-box h4 {
+            color: white !important;
+        }
+        
+        /* Stable logo styling - NO ANIMATIONS */
+        .logo-icon {
+            animation: none !important;
+        }
+        
+        .logo-image {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+            display: block;
+            border: 2px solid white;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            animation: none !important;
+        }
+        
+        .responsive-image-container {
+            margin: 2rem 0;
+            text-align: center;
+        }
+        
+        .responsive-image-container img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            border: 2px solid var(--git-color);
+        }
+        
+        .image-caption {
+            margin-top: 0.5rem;
+            font-style: italic;
+            color: #666;
+        }
+        
+        .viewport-comparison {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .viewport-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            text-align: center;
+            border: 2px solid var(--git-color);
+        }
+        
+        .viewport-card h4 {
+            color: var(--git-color);
+            margin-bottom: 1rem;
+        }
+        
+        .code-example pre {
+            background: #2d2d2d;
+            color: #f8f8f2;
+            padding: 1.5rem;
+            border-radius: 8px;
+            overflow-x: auto;
+            font-family: 'Courier New', monospace;
+            line-height: 1.5;
+        }
+        
+        .content-section ul {
+            margin-left: 2rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .content-section li {
+            margin-bottom: 0.8rem;
+            padding-left: 1rem;
+        }
+        
+        .content-section li:before {
+            content: '•';
+            color: var(--git-color);
+            font-weight: bold;
+            display: inline-block;
+            width: 1em;
+            margin-left: -1em;
+        }
+        
+        .demo-box {
+            background: #f8f9fa;
+            border: 2px dashed var(--git-color);
+            padding: 2rem;
+            margin: 2rem 0;
+            border-radius: 10px;
+            text-align: center;
+        }
+        
+        .demo-title {
+            color: var(--git-color);
+            margin-bottom: 1rem;
+        }
+        
+        .demo-content {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .demo-column {
+            background: white;
+            padding: 1rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            min-width: 200px;
+        }
+        
+        .demo-column h4 {
+            color: var(--dark);
+            margin-bottom: 0.5rem;
+        }
+        
+        .w3css-demo {
+            background: linear-gradient(135deg, #4CAF50, #2E7D32);
+            color: white;
+            padding: 2rem;
+            border-radius: 10px;
+            margin: 2rem 0;
+        }
+        
+        .w3css-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+        
+        .w3css-column {
+            flex: 1;
+            min-width: 250px;
+            background: rgba(255,255,255,0.1);
+            padding: 1.5rem;
+            border-radius: 8px;
+            backdrop-filter: blur(10px);
+        }
+        
+        /* Media query for responsive demo */
+        @media screen and (max-width: 800px) {
+            .demo-content {
+                flex-direction: column;
+            }
+            
+            .demo-column {
+                width: 100%;
+            }
+            
+            .w3css-row {
+                flex-direction: column;
+            }
+        }
+        
+        .live-demo-box {
+            background: white;
+            border: 3px solid var(--git-color);
+            padding: 2rem;
+            margin: 2rem 0;
+            border-radius: 10px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .live-demo-box:before {
+            content: 'LIVE DEMO';
+            position: absolute;
+            top: 10px;
+            right: -30px;
+            background: var(--git-color);
+            color: white;
+            padding: 5px 40px;
+            transform: rotate(45deg);
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+        
+        .responsive-text-demo {
+            font-size: 10vw;
+            color: var(--git-color);
+            margin: 1rem 0;
+            transition: font-size 0.3s ease;
+        }
+        
+        .vmin-demo {
+            width: 50vmin;
+            height: 50vmin;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            margin: 2rem auto;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <div class="logo-icon">
+                    <img src="logo.jpg" alt="Jassif Team Logo" class="logo-image">
+                </div>
+                <h1>Jassif Team <span>Institution</span></h1>
+            </div>
+        </div>
+    </header>
+
+    <!-- Top Navigation Tabs -->
+    <div class="nav-tabs">
+        <a href="HTML%20Layout%20Elements%20and%20Techniques.html" class="nav-tab prev">
+            <i class="fas fa-arrow-left"></i>
+            <span>पिछला</span>
+        </a>
+        <a href="HTML%20Computer%20Code%20Elements.html" class="nav-tab next">
+            <span>अगला</span>
+            <i class="fas fa-arrow-right"></i>
+        </a>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h2>HTML Responsive Web Design</h2>
+            <p>அனைத்து சாதனங்களிலும் நன்றாகத் தோற்றமளிக்கும் வலைத்தளங்களை உருவாக்குதல்</p>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="container">
+        <!-- Introduction -->
+        <section class="content-section" id="introduction">
+            <h2>HTML Responsive Web Design</h2>
+            
+            <p>Responsive web design is about creating web pages that look good on all devices!</p>
+            
+            <p>A responsive web design will automatically adjust for different screen sizes and viewports[citation:1].</p>
+            
+            <!-- Image added as requested -->
+            <div class="responsive-image-container">
+                <img src="img17.png" alt="Responsive Web Design Illustration">
+                <p class="image-caption">A responsive web design will automatically adjust for different screen sizes and viewports</p>
+            </div>
+        </section>
+
+        <!-- What is Responsive Web Design -->
+        <section class="content-section" id="what-is-rwd">
+            <h2>Responsive Web Design</h2>
+            <h3>What is Responsive Web Design?</h3>
+            
+            <p>Responsive Web Design is about using HTML and CSS to automatically resize, hide, shrink, or enlarge, a website, to make it look good on all devices (desktops, tablets, and phones):</p>
+        </section>
+
+        <!-- Setting The Viewport -->
+        <section class="content-section" id="setting-viewport">
+            <h2>Setting The Viewport</h2>
+            
+            <p>To create a responsive website, add the following &lt;meta&gt; tag to all your web pages:</p>
+            
+            <div class="code-example">
+                <h3>Example</h3>
+                <pre><code>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</code></pre>
+            </div>
+            
+            <p>This will set the viewport of your page, which will give the browser instructions on how to control the page's dimensions and scaling[citation:2].</p>
+            
+            <p>Here is an example of a web page without the viewport meta tag, and the same web page with the viewport meta tag:</p>
+            
+            <!-- Image added as requested -->
+            <div class="responsive-image-container">
+                <img src="img16.png" alt="Viewport Meta Tag Comparison">
+                <p class="image-caption">Here is an example of a web page without the viewport meta tag, and the same web page with the viewport meta tag</p>
+            </div>
+            
+            <div class="viewport-comparison">
+                <div class="viewport-card">
+                    <h4>Without the viewport meta tag:</h4>
+                    <p>பார்வைப்பகுதி மெட்டா குறிச்சொல் இல்லாமல் सामग्री சரியாக அளவிடப்படாது</p>
+                </div>
+                
+                <div class="viewport-card">
+                    <h4>With the viewport meta tag:</h4>
+                    <p>பார்வைப்பகுதி மெட்டா குறிச்சொல்லுடன் सामग्री சாதன அகலத்திற்கு ஏற்ப சரியாக அளவிடப்படுகிறது</p>
+                </div>
+            </div>
+            
+            <div class="tip-box">
+                <h4><i class="fas fa-mobile-alt tip-icon"></i> Tip:</h4>
+                <p>If you are browsing this page on a phone or a tablet, you can click on the two links above to see the difference.</p>
+            </div>
+        </section>
+
+        <!-- Responsive Images -->
+        <section class="content-section" id="responsive-images">
+            <h2>Responsive Images</h2>
+            
+            <p>Responsive images are images that scale nicely to fit any browser size.</p>
+            
+            <h3>Using the width Property</h3>
+            <p>If the CSS width property is set to 100%, the image will be responsive and scale up and down:</p>
+            
+            <!-- Image added as requested -->
+            <div class="responsive-image-container">
+                <img src="img19.png" alt="Image with width: 100%">
+                <p class="image-caption">If the CSS width property is set to 100%, the image will be responsive and scale up and down</p>
+            </div>
+            
+            <div class="code-example">
+                <h3>Example</h3>
+                <pre><code>&lt;img src="img_girl.jpg" style="width:100%;"&gt;</code></pre>
+            </div>
+            
+            <p>Notice that in the example above, the image can be scaled up to be larger than its original size. A better solution, in many cases, will be to use the max-width property instead.</p>
+            
+            <h3>Using the max-width Property</h3>
+            <p>If the max-width property is set to 100%, the image will scale down if it has to, but never scale up to be larger than its original size:</p>
+            
+            <!-- Image added as requested -->
+            <div class="responsive-image-container">
+                <img src="img20.png" alt="Image with max-width: 100%">
+                <p class="image-caption">If the max-width property is set to 100%, the image will scale down if it has to, but never scale up to be larger than its original size</p>
+            </div>
+            
+            <div class="code-example">
+                <h3>Example</h3>
+                <pre><code>&lt;img src="img_girl.jpg" style="max-width:100%;height:auto;"&gt;</code></pre>
+            </div>
+        </section>
+
+        <!-- Show Different Images Depending on Browser Width -->
+        <section class="content-section" id="picture-element">
+            <h2>Show Different Images Depending on Browser Width</h2>
+            
+            <p>The HTML &lt;picture&gt; element allows you to define different images for different browser window sizes.</p>
+            
+            <p>Resize the browser window to see how the image below changes depending on the width:</p>
+            
+            <!-- Image added as requested -->
+            <div class="responsive-image-container">
+                <img src="img21.png" alt="Picture Element Example">
+                <p class="image-caption">Resize the browser window to see how the image below changes depending on the width</p>
+            </div>
+            
+            <div class="demo-box">
+                <h3 class="demo-title">Flowers</h3>
+                <div style="text-align: center; margin: 1rem 0;">
+                    <div style="width: 100%; max-width: 600px; margin: 0 auto; background: linear-gradient(135deg, #ff9a9e, #fad0c4); padding: 2rem; border-radius: 10px;">
+                        <p style="color: #333; font-style: italic;">[Image changes based on screen width]</p>
+                        <p style="color: #666; font-size: 0.9rem;">Small flower image on mobile, large flower image on desktop</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="code-example">
+                <h3>Example</h3>
+                <pre><code>&lt;picture&gt;
+  &lt;source srcset="img_smallflower.jpg" media="(max-width: 600px)"&gt;
+  &lt;source srcset="img_flowers.jpg" media="(max-width: 1500px)"&gt;
+  &lt;source srcset="flowers.jpg"&gt;
+  &lt;img src="img_smallflower.jpg" alt="Flowers"&gt;
+&lt;/picture&gt;</code></pre>
+            </div>
+        </section>
+
+        <!-- Responsive Text Size -->
+        <section class="content-section" id="responsive-text">
+            <h2>Responsive Text Size</h2>
+            
+            <p>The text size can be set with a "vw" unit, which means the "viewport width"[citation:1][citation:4].</p>
+            
+            <p>That way the text size will follow the size of the browser window:</p>
+            
+            <div class="live-demo-box">
+                <h3 class="demo-title">Hello World</h3>
+                <div class="responsive-text-demo">Hello World</div>
+                <p>Resize the browser window to see how the text size scales.</p>
+            </div>
+            
+            <div class="code-example">
+                <h3>Example</h3>
+                <pre><code>&lt;h1 style="font-size:10vw"&gt;Hello World&lt;/h1&gt;</code></pre>
+            </div>
+            
+            <p>Viewport is the browser window size. 1vw = 1% of viewport width. If the viewport is 50cm wide, 1vw is 0.5cm[citation:1].</p>
+            
+            <div class="tip-box">
+                <h4><i class="fas fa-info-circle tip-icon"></i> Understanding Viewport Units:</h4>
+                <p>The "vw" unit is one of several viewport-based units in CSS. Other units include vh (viewport height), vmin (1% of viewport's smaller dimension), and vmax (1% of viewport's larger dimension)[citation:4][citation:8]. These units are essential for creating truly responsive designs.</p>
+            </div>
+        </section>
+
+        <!-- Media Queries -->
+        <section class="content-section" id="media-queries">
+            <h2>Media Queries</h2>
+            
+            <p>In addition to resize text and images, it is also common to use media queries in responsive web pages.</p>
+            
+            <p>With media queries you can define completely different styles for different browser sizes.</p>
+            
+            <p>Example: resize the browser window to see that the three div elements below will display horizontally on large screens and stack vertically on small screens:</p>
+            
+            <div class="demo-box">
+                <div class="demo-content">
+                    <div class="demo-column">
+                        <h4>Left Menu</h4>
+                        <p>Content for left menu</p>
+                    </div>
+                    
+                    <div class="demo-column" style="background: #e3f2fd;">
+                        <h4>Main Content</h4>
+                        <p>Main content area</p>
+                    </div>
+                    
+                    <div class="demo-column">
+                        <h4>Right Content</h4>
+                        <p>Right sidebar content</p>
+                    </div>
+                </div>
+                <p style="margin-top: 1rem; font-size: 0.9rem; color: #666;">Resize browser to see columns stack on small screens</p>
+            </div>
+            
+            <div class="code-example">
+                <h3>Example</h3>
+                <pre><code>&lt;style&gt;
+.left, .right {
+  float: left;
+  width: 20%; /* The width is 20%, by default */
+}
+
+.main {
+  float: left;
+  width: 60%; /* The width is 60%, by default */
+}
+
+/* Use a media query to add a breakpoint at 800px: */
+@media screen and (max-width: 800px) {
+  .left, .main, .right {
+    width: 100%; /* The width is 100%, when the viewport is 800px or smaller */
+  }
+}
+&lt;/style&gt;</code></pre>
+            </div>
+            
+            <div class="tip-box">
+                <h4><i class="fas fa-book tip-icon"></i> Tip:</h4>
+                <p>To learn more about Media Queries and Responsive Web Design, read our RWD Tutorial.</p>
+            </div>
+        </section>
+
+        <!-- Responsive Web Page - Full Example -->
+        <section class="content-section" id="full-example">
+            <h2>Responsive Web Page - Full Example</h2>
+            
+            <p>A responsive web page should look good on large desktop screens and on small mobile phones.</p>
+            
+            <div class="tip-box">
+                <h4><i class="fas fa-lightbulb tip-icon"></i> Ever heard about Jassif Team Spaces?</h4>
+                <p>Here you can create your website from scratch or use a template.</p>
+                <p style="color: #ffd700; font-weight: bold;">* no credit card required</p>
+            </div>
+        </section>
+
+        <!-- Responsive Web Design - Frameworks -->
+        <section class="content-section" id="frameworks">
+            <h2>Responsive Web Design - Frameworks</h2>
+            
+            <p>All popular CSS Frameworks offer responsive design.</p>
+            
+            <p>They are free, and easy to use.</p>
+            
+            <h3>W3.CSS</h3>
+            <p>W3.CSS is a modern CSS framework with support for desktop, tablet, and mobile design by default.</p>
+            
+            <p>W3.CSS is smaller and faster than similar CSS frameworks.</p>
+            
+            <p>W3.CSS is designed to be independent of jQuery or any other JavaScript library.</p>
+            
+            <div class="w3css-demo">
+                <h3 style="color: white; text-align: center;">W3.CSS Demo</h3>
+                <p style="text-align: center; margin-bottom: 1rem;">Resize the page to see the responsiveness!</p>
+                
+                <div class="w3css-row">
+                    <div class="w3css-column">
+                        <h4>London</h4>
+                        <p>London is the capital city of England.</p>
+                        <p>It is the most populous city in the United Kingdom, with a metropolitan area of over 13 million inhabitants.</p>
+                    </div>
+                    
+                    <div class="w3css-column">
+                        <h4>Paris</h4>
+                        <p>Paris is the capital of France.</p>
+                        <p>The Paris area is one of the largest population centers in Europe, with more than 12 million inhabitants.</p>
+                    </div>
+                    
+                    <div class="w3css-column">
+                        <h4>Tokyo</h4>
+                        <p>Tokyo is the capital of Japan.</p>
+                        <p>It is the center of the Greater Tokyo Area, and the most populous metropolitan area in the world.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="code-example">
+                <h3>Example</h3>
+                <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;title&gt;W3.CSS&lt;/title&gt;
+&lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;
+&lt;link rel="stylesheet" href="https://www.jassifteam.com/w3css/4/w3.css"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;div class="w3-container w3-green"&gt;
+  &lt;h1&gt;Jassif Team Demo&lt;/h1&gt;
+  &lt;p&gt;Resize this responsive page!&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;div class="w3-row-padding"&gt;
+  &lt;div class="w3-third"&gt;
+    &lt;h2&gt;London&lt;/h2&gt;
+    &lt;p&gt;London is the capital city of England.&lt;/p&gt;
+    &lt;p&gt;It is the most populous city in the United Kingdom,
+    with a metropolitan area of over 13 million inhabitants.&lt;/p&gt;
+  &lt;/div&gt;
+
+  &lt;div class="w3-third"&gt;
+    &lt;h2&gt;Paris&lt;/h2&gt;
+    &lt;p&gt;Paris is the capital of France.&lt;/p&gt;
+    &lt;p&gt;The Paris area is one of the largest population centers in Europe,
+    with more than 12 million inhabitants.&lt;/p&gt;
+  &lt;/div&gt;
+
+  &lt;div class="w3-third"&gt;
+    &lt;h2&gt;Tokyo&lt;/h2&gt;
+    &lt;p&gt;Tokyo is the capital of Japan.&lt;/p&gt;
+    &lt;p&gt;It is the center of the Greater Tokyo Area,
+    and the most populous metropolitan area in the world.&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+            </div>
+            
+            <p>To learn more about W3.CSS, read our W3.CSS Tutorial.</p>
+            
+            <h3>Bootstrap</h3>
+            <p>Another popular CSS framework is Bootstrap:</p>
+            
+            <div class="code-example">
+                <h3>Example</h3>
+                <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+&lt;title&gt;Bootstrap 5 Example&lt;/title&gt;
+&lt;meta charset="utf-8"&gt;
+&lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;
+&lt;link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"&gt;
+&lt;script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;div class="container-fluid p-5 bg-primary text-white text-center"&gt;
+  &lt;h1&gt;My First Bootstrap Page&lt;/h1&gt;
+  &lt;p&gt;Resize this responsive page to see the effect!&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;div class="container mt-5"&gt;
+  &lt;div class="row"&gt;
+    &lt;div class="col-sm-4"&gt;
+      &lt;h3&gt;Column 1&lt;/h3&gt;
+      &lt;p&gt;Lorem ipsum...&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;div class="col-sm-4"&gt;
+      &lt;h3&gt;Column 2&lt;/h3&gt;
+      &lt;p&gt;Lorem ipsum...&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;div class="col-sm-4"&gt;
+      &lt;h3&gt;Column 3&lt;/h3&gt;
+      &lt;p&gt;Lorem ipsum...&lt;/p&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+            
+            <p>To learn more about Bootstrap, go to our Bootstrap Tutorial.</p>
+        </section>
+
+        <!-- Exercise Section -->
+        <section class="content-section" id="exercise">
+            <h2>Exercise</h2>
+            
+            <div class="exercise-box">
+                <h4><i class="fas fa-question-circle exercise-icon"></i> There is a CSS font size unit that sizes text in percent of the viewport, what unit is that?</h4>
+                
+                <div class="options-grid">
+                    <div class="option-card" data-correct="false">
+                        <div class="option-content">
+                            <div class="option-text">px</div>
+                            <div class="option-feedback correct">✓ Correct! But px is an absolute unit, not relative to viewport</div>
+                        </div>
+                    </div>
+                    
+                    <div class="option-card" data-correct="false">
+                        <div class="option-content">
+                            <div class="option-text">em</div>
+                            <div class="option-feedback correct">✓ Correct! But em is relative to parent font size, not viewport</div>
+                        </div>
+                    </div>
+                    
+                    <div class="option-card" data-correct="true">
+                        <div class="option-content">
+                            <div class="option-text">vw</div>
+                            <div class="option-feedback incorrect">✗ Incorrect! Actually, vw is the correct answer. It stands for "viewport width" and represents 1% of the viewport width[citation:1][citation:4].</div>
+                        </div>
+                    </div>
+                    
+                    <div class="option-card" data-correct="false">
+                        <div class="option-content">
+                            <div class="option-text">vp</div>
+                            <div class="option-feedback correct">✓ Correct! But vp is not a valid CSS unit</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="tip-box">
+                <h4><i class="fas fa-graduation-cap tip-icon"></i> Learning Check:</h4>
+                <p>The correct answer is <strong>vw</strong> (viewport width). This unit represents 1% of the viewport's width. Other viewport-based units include vh (viewport height), vmin (1% of viewport's smaller dimension), and vmax (1% of viewport's larger dimension)[citation:4][citation:8]. These units are essential for creating truly responsive typography and layouts.</p>
+            </div>
+            
+            <!-- Additional viewport units demo -->
+            <div class="demo-box">
+                <h3 class="demo-title">Viewport Units Demo</h3>
+                <p>Try resizing your browser window to see how different viewport units behave:</p>
+                
+                <div class="vmin-demo">
+                    This box is 50vmin × 50vmin<br>
+                    (50% of the smaller viewport dimension)
+                </div>
+                
+                <p style="text-align: center; margin-top: 1rem;">
+                    <small>vmin = 1% of viewport's smaller dimension (width or height)<br>
+                    vmax = 1% of viewport's larger dimension[citation:8]</small>
+                </p>
+            </div>
+        </section>
+
+        <!-- Bottom Navigation -->
+        <div class="bottom-nav">
+            <a href="HTML%20Layout%20Elements%20and%20Techniques.html" class="nav-tab prev">
+                <i class="fas fa-arrow-left"></i>
+                <span>पिछला</span>
+            </a>
+            <a href="HTML%20Computer%20Code%20Elements.html" class="nav-tab next">
+                <span>अगला</span>
+                <i class="fas fa-arrow-right"></i>
+            </a>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-column">
+                <h3>Jassif Team Institution</h3>
+                <p>Leading educational institution providing quality programming education in Hindi.</p>
+            </div>
+            <div class="footer-column">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#introduction">HTML Responsive Design</a></li>
+                    <li><a href="#setting-viewport">Setting Viewport</a></li>
+                    <li><a href="#responsive-images">Responsive Images</a></li>
+                    <li><a href="#responsive-text">Responsive Text</a></li>
+                    <li><a href="#exercise">Exercise</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Contact</h3>
+                <ul>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="#">Location & Hours</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Follow Us</h3>
+                <ul>
+                    <li><a href="#"><i class="fab fa-facebook"></i> Facebook</a></li>
+                    <li><a href="#"><i class="fab fa-instagram"></i> Instagram</a></li>
+                    <li><a href="#"><i class="fab fa-youtube"></i> YouTube</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2023 Jassif Team Institution. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Add smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Add scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animation = 'fadeInUp 0.8s ease-out forwards';
+                }
+            });
+        }, observerOptions);
+        
+        // Observe all content sections for animation
+        document.querySelectorAll('.content-section').forEach(section => {
+            observer.observe(section);
+        });
+
+        // Exercise interaction
+        document.querySelectorAll('.option-card').forEach(card => {
+            card.addEventListener('click', function() {
+                const isCorrect = this.getAttribute('data-correct') === 'true';
+                
+                // Show feedback for all options
+                document.querySelectorAll('.option-card').forEach(c => {
+                    const feedback = c.querySelector('.option-feedback');
+                    feedback.style.display = 'block';
+                    
+                    // Highlight correct/wrong answers
+                    if(c.getAttribute('data-correct') === 'true') {
+                        c.style.borderColor = '#28a745';
+                        c.style.background = 'rgba(40, 167, 69, 0.1)';
+                    } else {
+                        c.style.borderColor = '#dc3545';
+                        c.style.background = 'rgba(220, 53, 69, 0.1)';
+                    }
+                });
+                
+                // Show alert message
+                if(isCorrect) {
+                    alert('🎉 Correct! The "vw" unit sizes text as a percentage of the viewport width. 1vw = 1% of viewport width[citation:1].');
+                } else {
+                    alert('❌ Incorrect! The correct answer is "vw" (viewport width). This unit represents 1% of the viewport width[citation:4].');
+                }
+            });
+        });
+        
+        // Update responsive text size based on viewport
+        function updateResponsiveText() {
+            const vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0);
+            const demoText = document.querySelector('.responsive-text-demo');
+            if(demoText) {
+                // Calculate font size based on viewport width
+                const baseSize = 10; // 10vw as in the example
+                const calculatedSize = (vw * baseSize) / 100;
+                
+                // Limit minimum and maximum font sizes
+                const minSize = 20;
+                const maxSize = 100;
+                const finalSize = Math.max(minSize, Math.min(calculatedSize, maxSize));
+                
+                demoText.style.fontSize = `${finalSize}px`;
+            }
+        }
+        
+        // Update on resize
+        window.addEventListener('resize', updateResponsiveText);
+        updateResponsiveText(); // Initial call
+        
+        // Update vmin demo box
+        function updateVminDemo() {
+            const vminBox = document.querySelector('.vmin-demo');
+            if(vminBox) {
+                const vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0);
+                const vh = Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0);
+                const vmin = Math.min(vw, vh);
+                const size = (vmin * 50) / 100;
+                
+                vminBox.innerHTML = `This box is 50vmin × 50vmin<br>(${Math.round(size)}px based on current viewport)`;
+            }
+        }
+        
+        window.addEventListener('resize', updateVminDemo);
+        updateVminDemo();
+        
+        // Image fallback handling
+        document.querySelectorAll('.responsive-image-container img').forEach(img => {
+            img.onerror = function() {
+                const altText = this.alt || 'Responsive Design Image';
+                this.src = `https://via.placeholder.com/800x400/3498db/ffffff?text=${encodeURIComponent(altText)}`;
+            };
+        });
+        
+        // Interactive media query demo
+        const demoColumns = document.querySelectorAll('.demo-column');
+        function updateMediaQueryDemo() {
+            const width = window.innerWidth;
+            
+            demoColumns.forEach((column, index) => {
+                if(width <= 800) {
+                    // Stack vertically on small screens
+                    column.style.width = '100%';
+                    column.style.marginBottom = '1rem';
+                    column.style.transition = 'all 0.3s ease';
+                } else {
+                    // Display horizontally on large screens
+                    column.style.width = '';
+                    column.style.marginBottom = '';
+                }
+            });
+        }
+        
+        window.addEventListener('resize', updateMediaQueryDemo);
+        updateMediaQueryDemo();
+    </script>
+
+    <!-- Home Button -->
+    <a href="index.html" class="home-icon">
+        <i class="fas fa-home"></i>
+    </a>
+</body>
+</html>

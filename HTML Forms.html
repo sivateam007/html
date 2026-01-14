@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+
+<html lang="hi">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>HTML Forms - Jassif Team</title>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<link href="style.css" rel="stylesheet"/>
+<style>
+        .content-section p, 
+        .content-section li,
+        .content-section h3,
+        .content-section h4,
+        .comparison-card p {
+            color: #333 !important;
+        }
+        
+        .tip-box p,
+        .tip-box li,
+        .tip-box h4 {
+            color: white !important;
+        }
+        
+        .warning-box p,
+        .warning-box li,
+        .warning-box h4 {
+            color: white !important;
+        }
+        
+        .exercise-box p,
+        .exercise-box h4 {
+            color: white !important;
+        }
+        
+        /* Stable logo styling - NO ANIMATIONS */
+        .logo-icon {
+            animation: none !important; /* Remove pulse animation */
+        }
+        
+        .logo-image {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+            display: block;
+            border: 2px solid white;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            animation: none !important; /* Ensure no animations */
+        }
+    </style>
+</head>
+<body>
+<!-- Header -->
+<header>
+<div class="header-container">
+<div class="logo">
+<div class="logo-icon">
+<img alt="Jassif Team Logo" class="logo-image" src="logo.jpg"/>
+</div>
+<h1>Jassif Team <span>Institution</span></h1>
+</div>
+</div>
+</header>
+<!-- Top Navigation Tabs -->
+<div class="nav-tabs">
+<a class="nav-tab prev" href="HTML Versus XHTML.html">
+<i class="fas fa-arrow-left"></i>
+<span>पिछला</span>
+</a>
+<a class="nav-tab next" href="HTML Form Attributes.html">
+<span>अगला</span>
+<i class="fas fa-arrow-right"></i>
+</a>
+</div>
+<!-- Hero Section -->
+<section class="hero" id="home">
+<div class="hero-content">
+<h2>HTML Forms</h2>
+<p>HTML फॉर्म सीखें</p>
+</div>
+</section>
+<!-- Main Content -->
+<main class="container">
+<!-- HTML Forms Introduction -->
+<section class="content-section" id="introduction">
+<h2>HTML प्रपत्र</h2>
+<p>उपयोगकर्ता इनपुट एकत्र करने के लिए HTML फॉर्म का उपयोग किया जाता है। उपयोगकर्ता इनपुट को अक्सर प्रसंस्करण के लिए सर्वर पर भेजा जाता है।</p>
+<h3>उदाहरण</h3>
+<div class="code-example">
+<pre><code><span class="command-input">&lt;form&gt;</span>
+  <span class="command-input">&lt;label for="fname"&gt;First name:&lt;/label&gt;&lt;br&gt;</span>
+  <span class="command-input">&lt;input type="text" id="fname" name="fname"&gt;&lt;br&gt;</span>
+  <span class="command-input">&lt;label for="lname"&gt;Last name:&lt;/label&gt;&lt;br&gt;</span>
+  <span class="command-input">&lt;input type="text" id="lname" name="lname"&gt;</span>
+<span class="command-input">&lt;/form&gt;</span></code></pre>
+</div>
+</section>
+<!-- The <form> Element -->
+<section class="content-section" id="form-element">
+<h2>&lt;रूप&gt;तत्व</h2>
+<p>HTML &lt;form&gt; तत्व का उपयोग उपयोगकर्ता इनपुट के लिए HTML फॉर्म बनाने के लिए किया जाता है:</p>
+<div class="code-example">
+<pre><code><span class="command-input">&lt;form&gt;</span>
+<span class="command-output">  .</span>
+<span class="command-output">  form elements</span>
+<span class="command-output">  .</span>
+<span class="command-input">&lt;/form&gt;</span></code></pre>
+</div>
+<p>&lt;form&gt; तत्व विभिन्न प्रकार के इनपुट तत्वों के लिए एक कंटेनर है, जैसे: टेक्स्ट फ़ील्ड, चेकबॉक्स, रेडियो बटन, सबमिट बटन इत्यादि।</p>
+<div class="tip-box">
+<h4><span class="tip-icon">💡</span>बख्शीश:</h4>
+<p>इस अध्याय में सभी विभिन्न रूप तत्वों को शामिल किया गया है:<strong>HTML Form Elements</strong>.</p>
+</div>
+</section>
+<!-- The <input> Element -->
+<section class="content-section" id="input-element">
+<h2>&lt;इनपुट&gt; तत्व</h2>
+<p>HTML &lt;इनपुट&gt; तत्व सबसे अधिक उपयोग किया जाने वाला फॉर्म तत्व है।</p>
+<p>एक &lt;इनपुट&gt; तत्व को प्रकार विशेषता के आधार पर कई तरीकों से प्रदर्शित किया जा सकता है।</p>
+<div class="comparison-table">
+<table>
+<thead>
+<tr>
+<th>प्रकार</th>
+<th>स्पष्टीकरण</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>&lt;input type="text"&gt;</td>
+<td>एकल पंक्ति पाठ इनपुट फ़ील्ड प्रदर्शित करता है</td>
+</tr>
+<tr>
+<td>&lt;input type="radio"&gt;</td>
+<td>एक रेडियो बटन दिखाता है (कई विकल्पों में से एक का चयन करने के लिए)</td>
+</tr>
+<tr>
+<td>&lt;input type="checkbox"&gt;</td>
+<td>एक चेकबॉक्स दिखाता है (एकाधिक विकल्पों में से शून्य या अधिक का चयन करने के लिए)</td>
+</tr>
+<tr>
+<td>&lt;input type="submit"&gt;</td>
+<td>सबमिट बटन दिखाता है (फ़ॉर्म सबमिट करने के लिए)</td>
+</tr>
+<tr>
+<td>&lt;input type="button"&gt;</td>
+<td>एक क्लिक करने योग्य बटन प्रदर्शित करता है</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="warning-box">
+<h4><span class="warning-icon">⚠️</span>महत्वपूर्ण:</h4>
+<p>इस अध्याय में सभी विभिन्न इनपुट प्रकार शामिल हैं:<strong>HTML Input Types</strong>.</p>
+</div>
+</section>
+<!-- Text Fields -->
+<section class="content-section" id="text-fields">
+<h2>पाठ फ़ील्ड</h2>
+<p>&lt;इनपुट प्रकार = "टेक्स्ट"&gt; टेक्स्ट इनपुट के लिए सिंगल लाइन इनपुट फ़ील्ड को परिभाषित करता है।</p>
+<h3>उदाहरण</h3>
+<p>पाठ के लिए इनपुट फ़ील्ड वाला एक फ़ॉर्म:</p>
+<div class="code-example">
+<pre><code><span class="command-input">&lt;form&gt;</span>
+  <span class="command-input">&lt;label for="fname"&gt;First name:&lt;/label&gt;&lt;br&gt;</span>
+  <span class="command-input">&lt;input type="text" id="fname" name="fname"&gt;&lt;br&gt;</span>
+  <span class="command-input">&lt;label for="lname"&gt;Last name:&lt;/label&gt;&lt;br&gt;</span>
+  <span class="command-input">&lt;input type="text" id="lname" name="lname"&gt;</span>
+<span class="command-input">&lt;/form&gt;</span></code></pre>
+</div>
+<div class="tip-box">
+<h4><span class="tip-icon">📝</span>टिप्पणी:</h4>
+<p>स्वरूप ही अज्ञात है. साथ ही, ध्यान दें कि इनपुट फ़ील्ड की डिफ़ॉल्ट चौड़ाई 20 अक्षर है।</p>
+</div>
+</section>
+<!-- The <label> Element -->
+<section class="content-section" id="label-element">
+<h2>&lt;लेबल&gt; तत्व</h2>
+<p>उपरोक्त उदाहरण में &lt;लेबल&gt; तत्व के उपयोग पर ध्यान दें।</p>
+<p>&lt;लेबल&gt; टैग कई फॉर्म तत्वों के लिए एक लेबल को परिभाषित करता है।</p>
+<p>&lt;लेबल&gt; तत्व स्क्रीन रीडर उपयोगकर्ताओं के लिए उपयोगी है क्योंकि जब उपयोगकर्ता इनपुट तत्व पर ध्यान केंद्रित करता है तो स्क्रीन रीडर लेबल को ज़ोर से पढ़ता है।</p>
+<div class="tip-box">
+<h4><span class="tip-icon">🎯</span>लाभ:</h4>
+<p>&lt;लेबल&gt; तत्व उन उपयोगकर्ताओं की भी मदद करता है जिन्हें बहुत छोटे क्षेत्रों (जैसे रेडियो बटन या चेकबॉक्स) पर क्लिक करने में परेशानी होती है - क्योंकि जब उपयोगकर्ता &lt;लेबल&gt; तत्व के अंदर टेक्स्ट पर क्लिक करता है, तो यह रेडियो बटन/चेकबॉक्स को बदल देता है।</p>
+</div>
+<p>उन्हें एक साथ जोड़ने के लिए &lt;लेबल&gt; टैग की विशेषता &lt;इनपुट&gt; तत्व की आईडी विशेषता के बराबर होनी चाहिए।</p>
+</section>
+<!-- Radio Buttons -->
+<section class="content-section" id="radio-buttons">
+<h2>रेडियो के बटन</h2>
+<p>&lt;इनपुट प्रकार = "रेडियो"&gt; एक रेडियो बटन को परिभाषित करता है।</p>
+<p>रेडियो बटन उपयोगकर्ता को सीमित संख्या में विकल्पों में से एक का चयन करने की अनुमति देते हैं।</p>
+<h3>उदाहरण</h3>
+<div class="code-example">
+<pre><code><span class="command-input">&lt;p&gt;Choose your favorite Web language:&lt;/p&gt;</span>
+
+<span class="command-input">&lt;form&gt;</span>
+  <span class="command-input">&lt;input type="radio" id="html" name="fav_language" value="HTML"&gt;</span>
+  <span class="command-input">&lt;label for="html"&gt;HTML&lt;/label&gt;&lt;br&gt;</span>
+  <span class="command-input">&lt;input type="radio" id="css" name="fav_language" value="CSS"&gt;</span>
+  <span class="command-input">&lt;label for="css"&gt;CSS&lt;/label&gt;&lt;br&gt;</span>
+  <span class="command-input">&lt;input type="radio" id="javascript" name="fav_language" value="JavaScript"&gt;</span>
+  <span class="command-input">&lt;label for="javascript"&gt;JavaScript&lt;/label&gt;</span>
+<span class="command-input">&lt;/form&gt;</span></code></pre>
+</div>
+</section>
+<!-- Checkboxes -->
+<section class="content-section" id="checkboxes">
+<h2>बक्सों को चेक करें</h2>
+<p>&lt;इनपुट प्रकार = "चेकबॉक्स"&gt; एक चेकबॉक्स को परिभाषित करता है।</p>
+<p>चेक बॉक्स उपयोगकर्ता को सीमित संख्या में विकल्पों में से शून्य या अधिक विकल्प चुनने की अनुमति देते हैं।</p>
+<h3>उदाहरण</h3>
+<div class="code-example">
+<pre><code><span class="command-input">&lt;form&gt;</span>
+  <span class="command-input">&lt;input type="checkbox" id="vehicle1" name="vehicle1" value="Bike"&gt;</span>
+  <span class="command-input">&lt;label for="vehicle1"&gt; I have a bike&lt;/label&gt;&lt;br&gt;</span>
+  <span class="command-input">&lt;input type="checkbox" id="vehicle2" name="vehicle2" value="Car"&gt;</span>
+  <span class="command-input">&lt;label for="vehicle2"&gt; I have a car&lt;/label&gt;&lt;br&gt;</span>
+  <span class="command-input">&lt;input type="checkbox" id="vehicle3" name="vehicle3" value="Boat"&gt;</span>
+  <span class="command-input">&lt;label for="vehicle3"&gt; I have a boat&lt;/label&gt;</span>
+<span class="command-input">&lt;/form&gt;</span></code></pre>
+</div>
+</section>
+<!-- The Submit Button -->
+<section class="content-section" id="submit-button">
+<h2>सबमिट बटन</h2>
+<p>&lt;इनपुट प्रकार = "सबमिट"&gt; फॉर्म-हैंडलर पर फॉर्म डेटा सबमिट करने के लिए एक बटन को परिभाषित करता है।</p>
+<p>फॉर्म-हैंडलर आमतौर पर सर्वर पर एक फ़ाइल होती है जिसमें इनपुट डेटा को संसाधित करने के लिए एक स्क्रिप्ट होती है।</p>
+<p>प्रपत्र-हैंडलर प्रपत्र की क्रिया विशेषता में निर्दिष्ट है।</p>
+<h3>उदाहरण</h3>
+<div class="code-example">
+<pre><code><span class="command-input">&lt;form action="/action_page.php"&gt;</span>
+  <span class="command-input">&lt;label for="fname"&gt;First name:&lt;/label&gt;&lt;br&gt;</span>
+  <span class="command-input">&lt;input type="text" id="fname" name="fname" value="John"&gt;&lt;br&gt;</span>
+  <span class="command-input">&lt;label for="lname"&gt;Last name:&lt;/label&gt;&lt;br&gt;</span>
+  <span class="command-input">&lt;input type="text" id="lname" name="lname" value="Doe"&gt;&lt;br&gt;&lt;br&gt;</span>
+  <span class="command-input">&lt;input type="submit" value="Submit"&gt;</span>
+<span class="command-input">&lt;/form&gt;</span></code></pre>
+</div>
+</section>
+<!-- The Name Attribute for <input> -->
+<section class="content-section" id="name-attribute">
+<h2>&lt;इनपुट&gt; के लिए नाम विशेषता</h2>
+<p>ध्यान दें कि सबमिट करने के लिए प्रत्येक इनपुट फ़ील्ड में एक नाम विशेषता होनी चाहिए।</p>
+<p>यदि नाम विशेषता छोड़ दी जाती है, तो इनपुट फ़ील्ड का मान कभी भी पारित नहीं किया जाता है।</p>
+<h3>उदाहरण</h3>
+<p>यह उदाहरण "प्रथम नाम" इनपुट फ़ील्ड का मान सबमिट नहीं करता है:</p>
+<div class="code-example">
+<pre><code><span class="command-input">&lt;form action="/action_page.php"&gt;</span>
+  <span class="command-input">&lt;label for="fname"&gt;First name:&lt;/label&gt;&lt;br&gt;</span>
+  <span class="command-input">&lt;input type="text" id="fname" value="John"&gt;&lt;br&gt;&lt;br&gt;</span>
+  <span class="command-input">&lt;input type="submit" value="Submit"&gt;</span>
+<span class="command-input">&lt;/form&gt;</span></code></pre>
+</div>
+<div class="warning-box">
+<h4><span class="warning-icon">❗</span>मुख्य निर्देश:</h4>
+<p>प्रपत्र डेटा को सफलतापूर्वक सबमिट करने के लिए सभी इनपुट तत्वों में नाम विशेषता जोड़ना सुनिश्चित करें।</p>
+</div>
+</section>
+<!-- Exercise Section -->
+<section class="content-section" id="exercises">
+<h2>अभ्यास</h2>
+<div class="exercise-box">
+<h4><span class="exercise-icon">❓</span>किसी फॉर्म को परिभाषित करने के लिए सही HTML तत्व कौन सा है?</h4>
+<div class="options-grid">
+<div class="option-card" data-correct="false">
+<div class="option-content">
+<div class="option-text">&lt;schema&gt;</div>
+<div class="option-feedback incorrect">✗ ग़लत! &lt;schema&gt; एक वैध HTML फॉर्म तत्व नहीं है</div>
+</div>
+</div>
+<div class="option-card" data-correct="false">
+<div class="option-content">
+<div class="option-text">&lt;ff&gt;</div>
+<div class="option-feedback incorrect">✗ ग़लत! &lt;ff&gt; एक मान्य HTML टैग नहीं है</div>
+</div>
+</div>
+<div class="option-card" data-correct="true">
+<div class="option-content">
+<div class="option-text">&lt;form&gt;</div>
+<div class="option-feedback correct">✓ ठीक है! HTML में फॉर्म बनाने के लिए &lt;form&gt; टैग का उपयोग किया जाता है</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Bottom Navigation -->
+<div class="bottom-nav">
+<a class="nav-tab prev" href="HTML Versus XHTML.html">
+<i class="fas fa-arrow-left"></i>
+<span>पिछला</span>
+</a>
+<a class="nav-tab next" href="HTML Form Attributes.html">
+<span>अगला</span>
+<i class="fas fa-arrow-right"></i>
+</a>
+</div>
+</main>
+<!-- Footer -->
+<footer>
+<div class="footer-content">
+<div class="footer-column">
+<h3>Jassif Team Institution</h3>
+<p>Leading educational institution providing quality programming education in Hindi.</p>
+</div>
+<div class="footer-column">
+<h3>Quick Links</h3>
+<ul>
+<li><a href="#introduction">HTML प्रपत्र</a></li>
+<li><a href="#form-element">&lt;रूप&gt;तत्व</a></li>
+<li><a href="#input-element">&lt;इनपुट&gt; तत्व</a></li>
+<li><a href="#text-fields">पाठ फ़ील्ड</a></li>
+<li><a href="#label-element">&lt;लेबल&gt; तत्व</a></li>
+<li><a href="#radio-buttons">रेडियो के बटन</a></li>
+<li><a href="#checkboxes">बक्सों को चेक करें</a></li>
+<li><a href="#submit-button">सबमिट बटन</a></li>
+<li><a href="#name-attribute">नाम विशेषता</a></li>
+<li><a href="#exercises">अभ्यास</a></li>
+</ul>
+</div>
+<div class="footer-column">
+<h3>Contact</h3>
+<ul>
+<li><a href="#">About Us</a></li>
+<li><a href="#">Contact Us</a></li>
+<li><a href="#">Location &amp; Hours</a></li>
+</ul>
+</div>
+<div class="footer-column">
+<h3>Follow Us</h3>
+<ul>
+<li><a href="#"><i class="fab fa-facebook"></i> Facebook</a></li>
+<li><a href="#"><i class="fab fa-instagram"></i> Instagram</a></li>
+<li><a href="#"><i class="fab fa-youtube"></i> YouTube</a></li>
+</ul>
+</div>
+</div>
+<div class="copyright">
+<p>© 2023 Jassif Team Institution. All rights reserved.</p>
+</div>
+</footer>
+<script>
+        // Add smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Add scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animation = 'fadeInUp 0.8s ease-out forwards';
+                }
+            });
+        }, observerOptions);
+        
+        // Observe all content sections for animation
+        document.querySelectorAll('.content-section').forEach(section => {
+            observer.observe(section);
+        });
+
+        // Exercise interaction
+        document.querySelectorAll('.option-card').forEach(card => {
+            card.addEventListener('click', function() {
+                // Show feedback for all options
+                document.querySelectorAll('.option-card').forEach(c => {
+                    c.querySelector('.option-feedback').style.display = 'block';
+                });
+            });
+        });
+    </script>
+<!-- Home Button -->
+<a class="home-icon" href="index.html">
+<i class="fas fa-home"></i>
+</a>
+</body>
+</html>

@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+
+<html lang="hi">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>HTML Block and Inline Elements - Jassif Team</title>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<link href="style.css" rel="stylesheet"/>
+<style>
+        .content-section p, 
+        .content-section li,
+        .content-section h3,
+        .content-section h4,
+        .comparison-card p {
+            color: #333 !important;
+        }
+        
+        .tip-box p,
+        .tip-box li,
+        .tip-box h4 {
+            color: white !important;
+        }
+        
+        .warning-box p,
+        .warning-box li,
+        .warning-box h4 {
+            color: white !important;
+        }
+        
+        .exercise-box p,
+        .exercise-box h4 {
+            color: white !important;
+        }
+        
+        /* Stable logo styling - NO ANIMATIONS */
+        .logo-icon {
+            animation: none !important; /* Remove pulse animation */
+        }
+        
+        .logo-image {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+            display: block;
+            border: 2px solid white;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            animation: none !important; /* Ensure no animations */
+        }
+        
+        .element-icon {
+            font-size: 2rem;
+            color: var(--git-color);
+            margin-right: 10px;
+        }
+        
+        .demo-container {
+            display: flex;
+            gap: 1rem;
+            margin: 2rem 0;
+            flex-wrap: wrap;
+        }
+        
+        .demo-block {
+            padding: 1rem;
+            border: 2px solid #3498db;
+            border-radius: 5px;
+            background: #e8f4ff;
+            text-align: center;
+            flex: 1;
+            min-width: 150px;
+        }
+        
+        .demo-inline {
+            padding: 0.5rem;
+            border: 2px solid #e74c3c;
+            border-radius: 3px;
+            background: #ffe8e8;
+            text-align: center;
+            display: inline-block;
+            margin: 0.2rem;
+        }
+        
+        .element-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+        
+        .element-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        
+        .element-card.block {
+            border-left: 4px solid #3498db;
+        }
+        
+        .element-card.inline {
+            border-left: 4px solid #e74c3c;
+        }
+        
+        .element-tag {
+            font-family: monospace;
+            background: #f0f0f0;
+            padding: 4px 8px;
+            border-radius: 4px;
+            margin-bottom: 0.5rem;
+            display: inline-block;
+        }
+        
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .comparison-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        
+        .comparison-card.block {
+            border-left: 4px solid #3498db;
+        }
+        
+        .comparison-card.inline {
+            border-left: 4px solid #e74c3c;
+        }
+        
+        .comparison-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .comparison-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid #f0f0f0;
+        }
+        
+        .comparison-header i {
+            font-size: 1.5rem;
+        }
+        
+        .comparison-header.block i {
+            color: #3498db;
+        }
+        
+        .comparison-header.inline i {
+            color: #e74c3c;
+        }
+        
+        .comparison-header h4 {
+            margin: 0;
+            color: var(--dark);
+        }
+        
+        .example-box {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+            border-left: 4px solid var(--git-color);
+        }
+        
+        .element-visual {
+            display: inline-block;
+            padding: 5px 10px;
+            margin: 2px;
+            font-family: monospace;
+            font-size: 0.9rem;
+            border-radius: 3px;
+        }
+        
+        .visual-block {
+            background: #3498db;
+            color: white;
+            width: 100%;
+            margin-bottom: 5px;
+        }
+        
+        .visual-inline {
+            background: #e74c3c;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+<!-- Header -->
+<header>
+<div class="header-container">
+<div class="logo">
+<div class="logo-icon">
+<img alt="Jassif Team Logo" class="logo-image" src="logo.jpg"/>
+</div>
+<h1>Jassif Team <span>Institution</span></h1>
+</div>
+</div>
+</header>
+<!-- Top Navigation Tabs -->
+<div class="nav-tabs">
+<a class="nav-tab prev" href="HTML Other Lists.html">
+<i class="fas fa-arrow-left"></i>
+<span>पिछला</span>
+</a>
+<a class="nav-tab next" href="HTML Div Element.html">
+<span>अगला</span>
+<i class="fas fa-arrow-right"></i>
+</a>
+</div>
+<!-- Hero Section -->
+<section class="hero" id="home">
+<div class="hero-content">
+<h2>HTML Block and Inline Elements</h2>
+<p>ब्लॉक और इनलाइन तत्व</p>
+</div>
+</section>
+<!-- Main Content -->
+<main class="container">
+<!-- Introduction -->
+<section class="content-section" id="introduction">
+<h2><i class="fas fa-layer-group element-icon"></i>HTML Block and Inline Elements</h2>
+<p>प्रत्येक HTML तत्व का एक डिफ़ॉल्ट प्रदर्शन मान होता है, यह इस बात पर निर्भर करता है कि तत्व किस प्रकार का है।</p>
+<p>दो सबसे सामान्य प्रदर्शन मान वॉल्यूम और इनलाइन हैं।</p>
+<div class="demo-container">
+<div class="demo-block">
+<strong>ब्लॉक तत्व</strong><br/>एक नई लाइन पर शुरू होता है<br/>पूरी चौड़ाई घेर लेता है</div>
+<div style="display: inline-block;">
+<span class="demo-inline">
+<strong>आंतरिक कर तत्व</strong>
+</span>
+<span class="demo-inline">नई लाइन पर प्रारंभ नहीं होता</span>
+<span class="demo-inline">केवल अपेक्षित चौड़ाई लेता है</span>
+</div>
+</div>
+</section>
+<!-- Block-level Elements -->
+<section class="content-section" id="block-elements">
+<h2><i class="fas fa-square element-icon"></i>ब्लॉक-स्तरीय तत्व</h2>
+<p>एक ब्लॉक-स्तरीय तत्व हमेशा एक नई लाइन पर शुरू होता है, और ब्राउज़र तत्व के पहले और बाद में स्वचालित रूप से कुछ स्थान (एक मार्जिन) जोड़ते हैं।</p>
+<p>एक ब्लॉक-स्तरीय तत्व हमेशा पूरी उपलब्ध चौड़ाई लेता है (जितना संभव हो सके बाएं और दाएं तरफ फैलता है)।</p>
+<p>आमतौर पर उपयोग किए जाने वाले दो ब्लॉक तत्व हैं:<code>&lt;p&gt;</code>और<code>&lt;div&gt;</code>.</p>
+<p><code>&lt;p&gt;</code>तत्व HTML दस्तावेज़ में एक पैराग्राफ को परिभाषित करता है।</p>
+<p><code>&lt;div&gt;</code>एक तत्व HTML दस्तावेज़ में एक अनुभाग या सेक्शन को परिभाषित करता है।</p>
+<p><code>&lt;p&gt;</code>तत्व एक ब्लॉक-स्तरीय तत्व है।</p>
+<p><code>&lt;div&gt;</code>तत्व एक ब्लॉक-स्तरीय तत्व है।</p>
+<div class="code-example">
+<h3>उदाहरण</h3>
+<pre><code>&lt;p&gt;Hello World&lt;/p&gt;
+&lt;div&gt;Hello World&lt;/div&gt;</code></pre>
+</div>
+<p>यहां HTML में ब्लॉक-स्तरीय तत्व हैं:</p>
+<div class="element-grid">
+<div class="element-card block">
+<div class="element-tag">&lt;address&gt;</div>
+<p>पते की जानकारी</p>
+</div>
+<div class="element-card block">
+<div class="element-tag">&lt;article&gt;</div>
+<p>लेख सामग्री</p>
+</div>
+<div class="element-card block">
+<div class="element-tag">&lt;aside&gt;</div>
+<p>पृष्ठ सामग्री</p>
+</div>
+<div class="element-card block">
+<div class="element-tag">&lt;div&gt;</div>
+<p>प्रभाग/क्षेत्र</p>
+</div>
+<div class="element-card block">
+<div class="element-tag">&lt;footer&gt;</div>
+<p>पेज फ़ुटर</p>
+</div>
+<div class="element-card block">
+<div class="element-tag">&lt;h1&gt;-&lt;h6&gt;</div>
+<p>विषय</p>
+</div>
+<div class="element-card block">
+<div class="element-tag">&lt;header&gt;</div>
+<p>पृष्ठ शीर्षक</p>
+</div>
+<div class="element-card block">
+<div class="element-tag">&lt;p&gt;</div>
+<p>अनुच्छेद</p>
+</div>
+<div class="element-card block">
+<div class="element-tag">&lt;section&gt;</div>
+<p>संप्रदाय</p>
+</div>
+<div class="element-card block">
+<div class="element-tag">&lt;table&gt;</div>
+<p>अनुसूची</p>
+</div>
+</div>
+</section>
+<!-- Inline Elements -->
+<section class="content-section" id="inline-elements">
+<h2><i class="fas fa-minus element-icon"></i>आंतरिक रेखा तत्व</h2>
+<p>एक इनलाइन तत्व एक नई लाइन पर प्रारंभ नहीं होता है।</p>
+<p>एक इनलाइन तत्व केवल आवश्यक चौड़ाई लेता है।</p>
+<p>यह एक पैराग्राफ में से एक है<code>&lt;span&gt;</code>अंग.</p>
+<div class="code-example">
+<h3>उदाहरण</h3>
+<pre><code>&lt;span&gt;Hello World&lt;/span&gt;</code></pre>
+</div>
+<p>यहाँ HTML में इनलाइन तत्व हैं:</p>
+<div class="element-grid">
+<div class="element-card inline">
+<div class="element-tag">&lt;a&gt;</div>
+<p>कनेक्शन</p>
+</div>
+<div class="element-card inline">
+<div class="element-tag">&lt;b&gt;</div>
+<p>मोटा पाठ्यांश</p>
+</div>
+<div class="element-card inline">
+<div class="element-tag">&lt;br&gt;</div>
+<p>कर भंग</p>
+</div>
+<div class="element-card inline">
+<div class="element-tag">&lt;button&gt;</div>
+<p>बटन</p>
+</div>
+<div class="element-card inline">
+<div class="element-tag">&lt;code&gt;</div>
+<p>कोड</p>
+</div>
+<div class="element-card inline">
+<div class="element-tag">&lt;em&gt;</div>
+<p>इटैलिकाइज़्ड पाठ</p>
+</div>
+<div class="element-card inline">
+<div class="element-tag">&lt;i&gt;</div>
+<p>इटैलिकाइज़्ड पाठ</p>
+</div>
+<div class="element-card inline">
+<div class="element-tag">&lt;img&gt;</div>
+<p>चित्र</p>
+</div>
+<div class="element-card inline">
+<div class="element-tag">&lt;input&gt;</div>
+<p>इनपुट</p>
+</div>
+<div class="element-card inline">
+<div class="element-tag">&lt;span&gt;</div>
+<p>अंतर्देशीय राजस्व प्रभाग</p>
+</div>
+<div class="element-card inline">
+<div class="element-tag">&lt;strong&gt;</div>
+<p>सशक्त पाठ</p>
+</div>
+<div class="element-card inline">
+<div class="element-tag">&lt;textarea&gt;</div>
+<p>बड़ा पाठ क्षेत्र</p>
+</div>
+</div>
+<div class="warning-box">
+<h4><i class="fas fa-exclamation-triangle warning-icon"></i>टिप्पणी:</h4>
+<p>किसी इनलाइन तत्व में ब्लॉक-स्तरीय तत्व नहीं हो सकता!</p>
+</div>
+</section>
+<!-- Comparison -->
+<section class="content-section" id="comparison">
+<h2><i class="fas fa-balance-scale element-icon"></i>वॉल्यूम बनाम आंतरिक रेखा</h2>
+<div class="comparison-grid">
+<div class="comparison-card block">
+<div class="comparison-header block">
+<i class="fas fa-square"></i>
+<h4>ब्लॉक तत्व</h4>
+</div>
+<ul>
+<li>एक नई लाइन पर प्रारंभ करें</li>
+<li>पूरी चौड़ाई ले लो</li>
+<li>अग्रणी और अनुगामी किनारों से मिलकर बनता है</li>
+<li>अन्य मॉड्यूल में तत्व हो सकते हैं</li>
+<li>एक आंतरिक पंक्ति में तत्व हो सकते हैं</li>
+<li>उदाहरण: &lt;div&gt;, &lt;p&gt;, &lt;h1&gt;-&lt;h6&gt;</li>
+</ul>
+<div class="example-box">
+<h5>विशिष्ट ब्लॉक संरचना:</h5>
+<div class="element-visual visual-block">&lt;div&gt;खंड 1&lt;/div&gt;</div>
+<div class="element-visual visual-block">&lt;div&gt;खंड 2&lt;/div&gt;</div>
+<div class="element-visual visual-block">&lt;div&gt;खंड 3&lt;/div&gt;</div>
+</div>
+</div>
+<div class="comparison-card inline">
+<div class="comparison-header inline">
+<i class="fas fa-minus"></i>
+<h4>आंतरिक रेखा तत्व</h4>
+</div>
+<ul>
+<li>नई लाइन पर प्रारंभ नहीं होता</li>
+<li>केवल अपेक्षित चौड़ाई लेता है</li>
+<li>लाइन अंदर होगी</li>
+<li>केवल अन्य आंतरिक रेखा तत्व ही शामिल हो सकते हैं</li>
+<li>मॉड्यूल तत्व शामिल नहीं हो सकते</li>
+<li>उदाहरण: &lt;span&gt;, &lt;a&gt;, &lt;img&gt;, &lt;strong&gt;</li>
+</ul>
+<div class="example-box">
+<h5>विशिष्ट आंतरिक कर संरचना:</h5>
+<p>
+<span class="element-visual visual-inline">&lt;span&gt;सबलाइन 1&lt;/span&gt;</span>
+<span class="element-visual visual-inline">&lt;span&gt;सबलाइन 2&lt;/span&gt;</span>
+<span class="element-visual visual-inline">&lt;span&gt;सबलाइन 3&lt;/span&gt;</span>उसी पंक्ति में!</p>
+</div>
+</div>
+</div>
+</section>
+<!-- The <div> Element -->
+<section class="content-section" id="div-element">
+<h2><i class="fas fa-th element-icon"></i><code>&lt;div&gt;</code>अंग</h2>
+<p><code>&lt;div&gt;</code>तत्व का उपयोग अक्सर अन्य HTML तत्वों के लिए कंटेनर के रूप में किया जाता है।</p>
+<p><code>&lt;div&gt;</code>तत्व में कोई आवश्यक विशेषताएँ नहीं हैं, लेकिन शैली, वर्ग और आईडी सामान्य हैं।</p>
+<p>जब सीएसएस के साथ संयोजन में प्रयोग किया जाता है,<code>&lt;div&gt;</code>तत्व का उपयोग सामग्री ब्लॉक को सजाने के लिए किया जा सकता है:</p>
+<div class="code-example">
+<h3>उदाहरण</h3>
+<pre><code>&lt;div style="background-color:black;color:white;padding:20px;"&gt;
+  &lt;h2&gt;London&lt;/h2&gt;
+  &lt;p&gt;London is the capital city of England. It is the most populous city in the United Kingdom, with a metropolitan area of over 13 million inhabitants.&lt;/p&gt;
+&lt;/div&gt;</code></pre>
+</div>
+<div class="example-box" style="background-color:black;color:white;padding:20px;">
+<h2>London</h2>
+<p>London is the capital city of England. It is the most populous city in the United Kingdom, with a metropolitan area of over 13 million inhabitants.</p>
+</div>
+<p>अगले अध्याय में<code>&lt;div&gt;</code>आप तत्व के बारे में और अधिक जानेंगे।</p>
+</section>
+<!-- The <span> Element -->
+<section class="content-section" id="span-element">
+<h2><i class="fas fa-i-cursor element-icon"></i><code>&lt;span&gt;</code>अंग</h2>
+<p><code>&lt;span&gt;</code>एक तत्व एक इनलाइन कंटेनर है जिसका उपयोग पाठ के एक अनुभाग या दस्तावेज़ के एक अनुभाग को दर्शाने के लिए किया जाता है।</p>
+<p><code>&lt;span&gt;</code>तत्व में कोई आवश्यक विशेषताएँ नहीं हैं, लेकिन शैली, वर्ग और आईडी सामान्य हैं।</p>
+<p>जब सीएसएस के साथ संयोजन में प्रयोग किया जाता है,<code>&lt;span&gt;</code>तत्व का उपयोग पाठ के कुछ हिस्सों को सजाने के लिए किया जा सकता है:</p>
+<div class="code-example">
+<h3>उदाहरण</h3>
+<pre><code>&lt;p&gt;My mother has &lt;span style="color:blue;font-weight:bold;"&gt;blue&lt;/span&gt; eyes and my father has &lt;span style="color:darkolivegreen;font-weight:bold;"&gt;dark green&lt;/span&gt; eyes.&lt;/p&gt;</code></pre>
+</div>
+<div class="example-box">
+<p>My mother has <span style="color:blue;font-weight:bold;">blue</span> eyes and my father has <span style="color:darkolivegreen;font-weight:bold;">dark green</span> eyes.</p>
+</div>
+</section>
+<!-- Chapter Summary -->
+<section class="content-section" id="summary">
+<h2><i class="fas fa-clipboard-list element-icon"></i>अध्याय का सारांश</h2>
+<ul>
+<li>एक ब्लॉक-स्तरीय तत्व हमेशा एक नई लाइन पर शुरू होता है और पूरी उपलब्ध चौड़ाई लेता है</li>
+<li>एक इनलाइन तत्व एक नई लाइन पर शुरू नहीं होता है और केवल आवश्यक चौड़ाई लेता है</li>
+<li><code>&lt;div&gt;</code>तत्व एक ब्लॉक-स्तरीय तत्व है और इसे अक्सर अन्य HTML तत्वों के लिए कंटेनर के रूप में उपयोग किया जाता है</li>
+<li><code>&lt;span&gt;</code>एक तत्व एक इनलाइन कंटेनर है जिसका उपयोग पाठ के एक अनुभाग या दस्तावेज़ के एक अनुभाग को दर्शाने के लिए किया जाता है</li>
+</ul>
+</section>
+<!-- Exercise -->
+<section class="content-section" id="exercise">
+<h2><i class="fas fa-dumbbell element-icon"></i>अभ्यास</h2>
+<div class="exercise-box">
+<h4><span class="exercise-icon">❓</span>किस प्रकार के तत्व पूरी उपलब्ध चौड़ाई लेते हैं?</h4>
+<div class="options-grid">
+<div class="option-card" data-correct="true">
+<div class="option-content">
+<div class="option-text">ब्लॉक तत्व</div>
+<div class="option-feedback correct">✓ ठीक है! ब्लॉक तत्व हमेशा पूरी उपलब्ध चौड़ाई लेते हैं</div>
+</div>
+</div>
+<div class="option-card" data-correct="false">
+<div class="option-content">
+<div class="option-text">आंतरिक रेखा तत्व</div>
+<div class="option-feedback incorrect">✗ ग़लत! इनलाइन तत्व केवल आवश्यक चौड़ाई लेते हैं</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- HTML Tags -->
+<section class="content-section" id="html-tags">
+<h2><i class="fas fa-tags element-icon"></i>एचटीएमएल टैग</h2>
+<div class="comparison-grid">
+<div class="comparison-card block">
+<div class="comparison-header block">
+<i class="fas fa-tag"></i>
+<h4>&lt;div&gt; टैग</h4>
+</div>
+<p><strong>विवरण:</strong>किसी दस्तावेज़ (अनुभाग-स्तर) में एक अनुभाग को परिभाषित करता है।</p>
+<p><strong>आवेदन पत्र:</strong>सामग्री ब्लॉक को संपीड़ित करने के लिए</p>
+<p><strong>उदाहरण:</strong> <code>&lt;div class="container"&gt;...&lt;/div&gt;</code></p>
+</div>
+<div class="comparison-card inline">
+<div class="comparison-header inline">
+<i class="fas fa-tag"></i>
+<h4>&lt;span&gt; टैग</h4>
+</div>
+<p><strong>विवरण:</strong>किसी दस्तावेज़ (इनलाइन) में एक अनुभाग को परिभाषित करता है।</p>
+<p><strong>आवेदन पत्र:</strong>पाठ क्षेत्रों को चिह्नित करने के लिए</p>
+<p><strong>उदाहरण:</strong> <code>&lt;span style="color:red"&gt;...&lt;/span&gt;</code></p>
+</div>
+</div>
+<div class="tip-box">
+<h4><i class="fas fa-external-link-alt tip-icon"></i>पूर्ण HTML टैग संदर्भ:</h4>
+<p>सभी उपलब्ध HTML टैग्स की पूरी सूची के लिए, हमारी jassif टीम HTML टैग संदर्भ पर जाएँ।</p>
+</div>
+</section>
+<!-- Bottom Navigation -->
+<div class="bottom-nav">
+<a class="nav-tab prev" href="HTML Other Lists.html">
+<i class="fas fa-arrow-left"></i>
+<span>पिछला</span>
+</a>
+<a class="nav-tab next" href="HTML Div Element.html">
+<span>अगला</span>
+<i class="fas fa-arrow-right"></i>
+</a>
+</div>
+</main>
+<!-- Footer -->
+<footer>
+<div class="footer-content">
+<div class="footer-column">
+<h3>Jassif Team Institution</h3>
+<p>Leading educational institution providing quality programming education in Hindi.</p>
+</div>
+<div class="footer-column">
+<h3>Quick Links</h3>
+<ul>
+<li><a href="#introduction">Block and Inline Elements</a></li>
+<li><a href="#block-elements">ब्लॉक तत्व</a></li>
+<li><a href="#inline-elements">आंतरिक रेखा तत्व</a></li>
+<li><a href="#comparison">वॉल्यूम बनाम आंतरिक रेखा</a></li>
+<li><a href="#div-element">&lt;div&gt; तत्व</a></li>
+<li><a href="#span-element">&lt;span&gt; तत्व</a></li>
+<li><a href="#html-tags">एचटीएमएल टैग</a></li>
+<li><a href="#exercise">अभ्यास</a></li>
+</ul>
+</div>
+<div class="footer-column">
+<h3>Contact</h3>
+<ul>
+<li><a href="#">About Us</a></li>
+<li><a href="#">Contact Us</a></li>
+<li><a href="#">Location &amp; Hours</a></li>
+</ul>
+</div>
+<div class="footer-column">
+<h3>Follow Us</h3>
+<ul>
+<li><a href="#"><i class="fab fa-facebook"></i> Facebook</a></li>
+<li><a href="#"><i class="fab fa-instagram"></i> Instagram</a></li>
+<li><a href="#"><i class="fab fa-youtube"></i> YouTube</a></li>
+</ul>
+</div>
+</div>
+<div class="copyright">
+<p>© 2023 Jassif Team Institution. All rights reserved.</p>
+</div>
+</footer>
+<script>
+        // Add smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Add scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animation = 'fadeInUp 0.8s ease-out forwards';
+                }
+            });
+        }, observerOptions);
+        
+        // Observe all content sections for animation
+        document.querySelectorAll('.content-section').forEach(section => {
+            observer.observe(section);
+        });
+
+        // Exercise interaction
+        document.querySelectorAll('.option-card').forEach(card => {
+            card.addEventListener('click', function() {
+                // Show feedback for all options
+                document.querySelectorAll('.option-card').forEach(c => {
+                    c.querySelector('.option-feedback').style.display = 'block';
+                });
+            });
+        });
+    </script>
+<!-- Home Button -->
+<a class="home-icon" href="index.html">
+<i class="fas fa-home"></i>
+</a>
+</body>
+</html>

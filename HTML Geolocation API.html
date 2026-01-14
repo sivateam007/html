@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+
+<html lang="hi">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>HTML Geolocation API - Jassif Team</title>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<link href="style.css" rel="stylesheet"/>
+<style>
+        .content-section p, 
+        .content-section li,
+        .content-section h3,
+        .content-section h4,
+        .comparison-card p {
+            color: #333 !important;
+        }
+        
+        .tip-box p,
+        .tip-box li,
+        .tip-box h4 {
+            color: white !important;
+        }
+        
+        .warning-box p,
+        .warning-box li,
+        .warning-box h4 {
+            color: white !important;
+        }
+        
+        .exercise-box p,
+        .exercise-box h4 {
+            color: white !important;
+        }
+        
+        /* Stable logo styling - NO ANIMATIONS */
+        .logo-icon {
+            animation: none !important; /* Remove pulse animation */
+        }
+        
+        .logo-image {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+            display: block;
+            border: 2px solid white;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            animation: none !important; /* Ensure no animations */
+        }
+        
+        .geo-icon {
+            font-size: 2rem;
+            color: var(--git-color);
+            margin-right: 10px;
+        }
+        
+        .property-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        
+        .property-table th {
+            background: var(--git-color);
+            color: white;
+            padding: 1rem;
+            text-align: left;
+        }
+        
+        .property-table td {
+            padding: 0.8rem;
+            border-bottom: 1px solid #f0f0f0;
+            vertical-align: top;
+        }
+        
+        .property-table .always {
+            color: #28a745;
+            font-weight: bold;
+        }
+        
+        .property-table .conditional {
+            color: #ffc107;
+            font-weight: bold;
+        }
+        
+        .geo-demo {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin: 1.5rem 0;
+            border-left: 4px solid var(--git-color);
+        }
+        
+        .demo-btn {
+            padding: 10px 20px;
+            background: var(--git-color);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: 500;
+        }
+        
+        .demo-btn:hover {
+            background: #e74c3c;
+            transform: translateY(-2px);
+        }
+        
+        .demo-result {
+            margin-top: 1rem;
+            padding: 1rem;
+            background: white;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+            min-height: 60px;
+        }
+        
+        .browser-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        
+        .browser-table th {
+            background: var(--git-color);
+            color: white;
+            padding: 1rem;
+            text-align: center;
+        }
+        
+        .browser-table td {
+            padding: 0.8rem;
+            text-align: center;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        
+        .browser-table .version {
+            color: var(--git-color);
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+<!-- Header -->
+<header>
+<div class="header-container">
+<div class="logo">
+<div class="logo-icon">
+<img alt="Jassif Team Logo" class="logo-image" src="logo.jpg"/>
+</div>
+<h1>Jassif Team <span>Institution</span></h1>
+</div>
+</div>
+</header>
+<!-- Top Navigation Tabs -->
+<div class="nav-tabs">
+<a class="nav-tab prev" href="HTML - What is a Web API.html">
+<i class="fas fa-arrow-left"></i>
+<span>पिछला</span>
+</a>
+<a class="nav-tab next" href="HTML Drag and Drop API.html">
+<span>अगला</span>
+<i class="fas fa-arrow-right"></i>
+</a>
+</div>
+<!-- Hero Section -->
+<section class="hero" id="home">
+<div class="hero-content">
+<h2>HTML Geolocation API</h2>
+<p>उपयोगकर्ता का वर्तमान स्थान प्राप्त करना</p>
+</div>
+</section>
+<!-- Main Content -->
+<main class="container">
+<!-- Introduction -->
+<section class="content-section" id="introduction">
+<h2><i class="fas fa-map-marker-alt geo-icon"></i>HTML Geolocation API</h2>
+<p>जियोलोकेशन एपीआई का उपयोग उपयोगकर्ता की वर्तमान स्थिति जानने के लिए किया जाता है।</p>
+<div class="tip-box">
+<h4><i class="fas fa-lightbulb tip-icon"></i>टिप्पणी:</h4>
+<p>जियोलोकेशन एपीआई केवल HTTPS जैसे सुरक्षित वातावरण में उपलब्ध है।</p>
+</div>
+<div class="tip-box">
+<h4><i class="fas fa-mobile-alt tip-icon"></i>बख्शीश:</h4>
+<p>जियोलोकेशन एपीआई जीपीएस वाले उपकरणों के लिए अधिक सटीक है, उदाहरण के लिए स्मार्टफोन या स्मार्टवॉच।</p>
+</div>
+</section>
+<!-- Locate the User's Position -->
+<section class="content-section" id="locate-user">
+<h2><i class="fas fa-location-arrow geo-icon"></i>उपयोगकर्ता के स्थान का पता लगाना</h2>
+<p>जियोलोकेशन एपीआई का उपयोग उपयोगकर्ता के वर्तमान स्थान तक पहुंचने के लिए किया जाता है।</p>
+<p>चूंकि यह गोपनीयता से समझौता कर सकता है, इसलिए स्थान तब तक उपलब्ध नहीं होता जब तक उपयोगकर्ता इसे अधिकृत नहीं करता।</p>
+</section>
+<!-- Browser Support -->
+<section class="content-section" id="browser-support">
+<h2><i class="fas fa-globe geo-icon"></i>ब्राउज़र समर्थन</h2>
+<p>तालिका में संख्याएँ पहले ब्राउज़र संस्करण का प्रतिनिधित्व करती हैं जो जियोलोकेशन का पूरी तरह से समर्थन करता है।</p>
+<table class="browser-table">
+<thead>
+<tr>
+<th>API</th>
+<th>Chrome</th>
+<th>Edge</th>
+<th>Firefox</th>
+<th>Safari</th>
+<th>Opera</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Geolocation</td>
+<td class="version">5.0</td>
+<td class="version">12.0</td>
+<td class="version">3.5</td>
+<td class="version">5.0</td>
+<td class="version">10.6</td>
+</tr>
+</tbody>
+</table>
+</section>
+<!-- Using HTML Geolocation API -->
+<section class="content-section" id="using-api">
+<h2><i class="fas fa-code geo-icon"></i>HTML जियोलोकेशन एपीआई का उपयोग करना</h2>
+<p>Geolocation API <code>navigator.geolocation</code>को कॉल द्वारा एक्सेस किया जाता है, यह उपयोगकर्ता से ब्राउज़र को उपयोगकर्ता के स्थान डेटा तक पहुंचने की अनुमति देने के लिए कहेगा। यदि उपयोगकर्ता स्वीकार करता है, तो ब्राउज़र इस जानकारी तक पहुंचने के लिए डिवाइस पर उपलब्ध सर्वोत्तम कार्यक्षमता (उदाहरण के लिए जीपीएस) की तलाश करेगा।</p>
+<p><code>getCurrentPosition()</code>उपयोगकर्ता के वर्तमान स्थान को वापस करने के लिए विधि का उपयोग किया जाता है।</p>
+<p>नीचे दिया गया उदाहरण उपयोगकर्ता के वर्तमान स्थान का अक्षांश और देशांतर लौटाता है:</p>
+<div class="code-example">
+<h3>उदाहरण</h3>
+<pre><code>&lt;script&gt;
+const x = document.getElementById("demo");
+
+function getLocation() {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(success, error);
+  } else {
+    x.innerHTML = "Geolocation is not supported by this browser.";
+  }
+}
+
+function success(position) {
+  x.innerHTML = "Latitude: " + position.coords.latitude +
+  "&lt;br&gt;Longitude: " + position.coords.longitude;
+}
+
+function error() {
+  alert("Sorry, no position available.");
+}
+&lt;/script&gt;</code></pre>
+</div>
+<h3>उदाहरण विवरण:</h3>
+<ol>
+<li>जांचें कि क्या जियोलोकेशन समर्थित है</li>
+<li>यदि जियोलोकेशन समर्थित है,<code>getCurrentPosition()</code>विधि चलाएँ. अन्यथा, उपयोगकर्ता को एक संदेश प्रदर्शित करें</li>
+<li><code>success()</code>फ़ंक्शन उपयोगकर्ता के स्थान को अक्षांश और देशांतर में आउटपुट करता है</li>
+<li><code>error()</code>समारोह<code>getCurrentPosition()</code>ब्राउज़र में एक टेक्स्ट चेतावनी देते हुए एक त्रुटि आती है</li>
+</ol>
+</section>
+<!-- Error Handling and Rejections -->
+<section class="content-section" id="error-handling">
+<h2><i class="fas fa-exclamation-circle geo-icon"></i>त्रुटि प्रबंधन और अस्वीकरण</h2>
+<p><code>getCurrentPosition()</code>विधि का दूसरा पैरामीटर त्रुटियों को संभालने के लिए उपयोग किया जाता है। यदि उपयोगकर्ता का स्थान प्राप्त करने में विफल रहता है तो निष्पादित करने के लिए फ़ंक्शन निर्दिष्ट करता है।</p>
+<p>यहां अधिक विशिष्ट त्रुटि प्रबंधन का एक उदाहरण दिया गया है:</p>
+<div class="code-example">
+<h3>उदाहरण</h3>
+<pre><code>function error(error) {
+  switch(error.code) {
+    case error.PERMISSION_DENIED:
+      x.innerHTML = "User denied the request for Geolocation."
+      break;
+    case error.POSITION_UNAVAILABLE:
+      x.innerHTML = "Location information is unavailable."
+      break;
+    case error.TIMEOUT:
+      x.innerHTML = "The request to get user location timed out."
+      break;
+    case error.UNKNOWN_ERROR:
+      x.innerHTML = "An unknown error occurred."
+      break;
+  }
+}</code></pre>
+</div>
+</section>
+<!-- Location-specific Information -->
+<section class="content-section" id="location-specific">
+<h2><i class="fas fa-info-circle geo-icon"></i>स्थान-विशिष्ट जानकारी</h2>
+<p>स्थान-विशिष्ट जानकारी के लिए जियोलोकेशन भी बहुत उपयोगी है, उदाहरण के लिए:</p>
+<ul>
+<li>नवीनतम स्थानीय जानकारी</li>
+<li>उपयोगकर्ता के निकट आकर्षण दिखा रहा है</li>
+<li>जीपीएस (जीपीएस)</li>
+</ul>
+</section>
+<!-- The getCurrentPosition() Method - Return Data -->
+<section class="content-section" id="return-data">
+<h2><i class="fas fa-database geo-icon"></i><code>getCurrentPosition()</code>कार्यप्रणाली - डेटा की प्रस्तुति</h2>
+<p><code>getCurrentPosition()</code>विधि सफल होने पर किसी ऑब्जेक्ट को वापस कर देती है। अक्षांश, देशांतर और परिशुद्धता गुण हमेशा प्रदान किए जाते हैं। यदि उपलब्ध हो तो अन्य संपत्तियाँ प्रदान की जाती हैं:</p>
+<table class="property-table">
+<thead>
+<tr>
+<th>प्रवृत्ति</th>
+<th>डेटा उपलब्ध कराया गया</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>coords.latitude</code></td>
+<td>दशमलव संख्या के रूप में अक्षांश<span class="always">(हमेशा प्रदान किया गया)</span></td>
+</tr>
+<tr>
+<td><code>coords.longitude</code></td>
+<td>दशमलव संख्या के रूप में देशांतर<span class="always">(हमेशा प्रदान किया गया)</span></td>
+</tr>
+<tr>
+<td><code>coords.accuracy</code></td>
+<td>स्थान सटीकता<span class="always">(हमेशा प्रदान किया गया)</span></td>
+</tr>
+<tr>
+<td><code>coords.altitude</code></td>
+<td>औसत समुद्र तल से ऊंचाई मीटर में<span class="conditional">(उपलब्धता का विषय)</span></td>
+</tr>
+<tr>
+<td><code>coords.altitudeAccuracy</code></td>
+<td>स्थान की ऊंचाई सटीकता<span class="conditional">(उपलब्धता का विषय)</span></td>
+</tr>
+<tr>
+<td><code>coords.heading</code></td>
+<td>उत्तर से दक्षिणावर्त डिग्री में बढ़ रहा है<span class="conditional">(उपलब्धता का विषय)</span></td>
+</tr>
+<tr>
+<td><code>coords.speed</code></td>
+<td>गति मीटर प्रति सेकंड में<span class="conditional">(उपलब्धता का विषय)</span></td>
+</tr>
+<tr>
+<td><code>timestamp</code></td>
+<td>प्रतिक्रिया की तिथि/समय<span class="conditional">(उपलब्धता का विषय)</span></td>
+</tr>
+</tbody>
+</table>
+</section>
+<!-- Geolocation Object - Other interesting Methods -->
+<section class="content-section" id="other-methods">
+<h2><i class="fas fa-cogs geo-icon"></i>जिओलोकेशन ऑब्जेक्ट - अन्य दिलचस्प तरीके</h2>
+<p>जियोलोकेशन ऑब्जेक्ट में अन्य दिलचस्प तरीके भी हैं:</p>
+<ul>
+<li><code>watchPosition()</code>- उपयोगकर्ता का वर्तमान स्थान प्रदान करता है और उपयोगकर्ता के चलते समय अद्यतन स्थान प्रदान करता रहता है (जैसे कार में जीपीएस)।</li>
+<li><code>clearWatch()</code> - <code>watchPosition()</code>विधि को रोकता है.</li>
+</ul>
+<div class="code-example">
+<h3>उदाहरण</h3>
+<pre><code>&lt;script&gt;
+const x = document.getElementById("demo");
+
+function getLocation() {
+  if (navigator.geolocation) {
+    navigator.geolocation.watchPosition(success, error);
+  } else {
+    x.innerHTML = "Geolocation is not supported by this browser.";
+  }
+}
+
+function success(position) {
+  x.innerHTML = "Latitude: " + position.coords.latitude +
+  "&lt;br&gt;Longitude: " + position.coords.longitude;
+}
+
+function error(error) {
+  switch(error.code) {
+    case error.PERMISSION_DENIED:
+      x.innerHTML = "User denied the request for Geolocation."
+      break;
+    case error.POSITION_UNAVAILABLE:
+      x.innerHTML = "Location information is unavailable."
+      break;
+    case error.TIMEOUT:
+      x.innerHTML = "The request to get user location timed out."
+      break;
+    case error.UNKNOWN_ERROR:
+      x.innerHTML = "An unknown error occurred."
+      break;
+  }
+}
+&lt;/script&gt;</code></pre>
+</div>
+</section>
+<!-- Interactive Demo -->
+<section class="content-section" id="demo">
+<h2><i class="fas fa-play-circle geo-icon"></i>इंटरैक्टिव अभ्यास</h2>
+<div class="geo-demo">
+<h3>जियोलोकेशन एपीआई कार्यान्वयन</h3>
+<p>अपना वर्तमान स्थान प्राप्त करने के लिए बटन पर क्लिक करें। आपका ब्राउज़र अनुमति मांगेगा.</p>
+<button class="demo-btn" onclick="getGeolocation()">
+<i class="fas fa-map-marker-alt"></i> मेरा स्थान प्राप्त करें
+                </button>
+<div class="demo-result" id="geoResult">यहां स्थान परिणाम प्रदर्शित होते हैं...</div>
+</div>
+<div class="warning-box">
+<h4><i class="fas fa-exclamation-triangle warning-icon"></i>ध्यान:</h4>
+<p>इस एपीआई के लिए उपयोगकर्ता की अनुमति की आवश्यकता है। यदि उपयोगकर्ता को अनुमति से वंचित कर दिया जाता है, तो स्थान डेटा उपलब्ध नहीं होगा। केवल HTTPS कनेक्शन पर काम करता है।</p>
+</div>
+</section>
+<!-- Exercise -->
+<section class="content-section" id="exercise">
+<h2><i class="fas fa-dumbbell geo-icon"></i>अभ्यास</h2>
+<div class="exercise-box">
+<h4><span class="exercise-icon">❓</span>जियोलोकेशन एपीआई का उपयोग करते समय उपयोगकर्ता की गोपनीयता के लिए निम्नलिखित में से कौन सा चरण सबसे महत्वपूर्ण है?</h4>
+<div class="options-grid">
+<div class="option-card" data-correct="true">
+<div class="option-content">
+<div class="option-text">उपयोगकर्ता की अनुमति मांगें</div>
+<div class="option-feedback correct">✓ ठीक है! क्योंकि जियोलोकेशन एपीआई उपयोगकर्ता के स्थान डेटा तक पहुंचता है, इसलिए उपयोगकर्ता से अनुमति मांगना गोपनीयता के लिए आवश्यक और महत्वपूर्ण है</div>
+</div>
+</div>
+<div class="option-card" data-correct="false">
+<div class="option-content">
+<div class="option-text">त्रुटि संदेश दिखाएँ</div>
+<div class="option-feedback incorrect">✗ ग़लत! त्रुटि संदेश दिखाना महत्वपूर्ण है, लेकिन गोपनीयता के लिए मौलिक है उपयोगकर्ता की अनुमति मांगना</div>
+</div>
+</div>
+<div class="option-card" data-correct="false">
+<div class="option-content">
+<div class="option-text">उपयोक्तानाम सहेजें</div>
+<div class="option-feedback incorrect">✗ ग़लत! उपयोगकर्ता नाम संग्रहीत करना सीधे तौर पर जियोलोकेशन एपीआई से संबंधित नहीं है</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Bottom Navigation -->
+<div class="bottom-nav">
+<a class="nav-tab prev" href="HTML - What is a Web API.html">
+<i class="fas fa-arrow-left"></i>
+<span>पिछला</span>
+</a>
+<a class="nav-tab next" href="HTML Drag and Drop API.html">
+<span>अगला</span>
+<i class="fas fa-arrow-right"></i>
+</a>
+</div>
+</main>
+<!-- Footer -->
+<footer>
+<div class="footer-content">
+<div class="footer-column">
+<h3>Jassif Team Institution</h3>
+<p>Leading educational institution providing quality programming education in Hindi.</p>
+</div>
+<div class="footer-column">
+<h3>Quick Links</h3>
+<ul>
+<li><a href="#introduction">Geolocation API</a></li>
+<li><a href="#locate-user">स्थान का पता लगाना</a></li>
+<li><a href="#browser-support">ब्राउज़र समर्थन</a></li>
+<li><a href="#using-api">एपीआई उपयोग</a></li>
+<li><a href="#error-handling">त्रुटि प्रबंधन</a></li>
+<li><a href="#return-data">डेटा का प्रावधान</a></li>
+<li><a href="#other-methods">तरीकों</a></li>
+<li><a href="#exercise">अभ्यास</a></li>
+</ul>
+</div>
+<div class="footer-column">
+<h3>Contact</h3>
+<ul>
+<li><a href="#">About Us</a></li>
+<li><a href="#">Contact Us</a></li>
+<li><a href="#">Location &amp; Hours</a></li>
+</ul>
+</div>
+<div class="footer-column">
+<h3>Follow Us</h3>
+<ul>
+<li><a href="#"><i class="fab fa-facebook"></i> Facebook</a></li>
+<li><a href="#"><i class="fab fa-instagram"></i> Instagram</a></li>
+<li><a href="#"><i class="fab fa-youtube"></i> YouTube</a></li>
+</ul>
+</div>
+</div>
+<div class="copyright">
+<p>© 2023 Jassif Team Institution. All rights reserved.</p>
+</div>
+</footer>
+<script>
+        // Add smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Add scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animation = 'fadeInUp 0.8s ease-out forwards';
+                }
+            });
+        }, observerOptions);
+        
+        // Observe all content sections for animation
+        document.querySelectorAll('.content-section').forEach(section => {
+            observer.observe(section);
+        });
+
+        // Exercise interaction
+        document.querySelectorAll('.option-card').forEach(card => {
+            card.addEventListener('click', function() {
+                // Show feedback for all options
+                document.querySelectorAll('.option-card').forEach(c => {
+                    c.querySelector('.option-feedback').style.display = 'block';
+                });
+            });
+        });
+
+        // Geolocation Demo Function
+        function getGeolocation() {
+            const resultElement = document.getElementById("geoResult");
+            
+            // Check if Geolocation is supported
+            if (navigator.geolocation) {
+                resultElement.innerHTML = "இருப்பிடத்தைப் பெறுகிறது...<br><i class='fas fa-spinner fa-spin'></i>";
+                
+                // Request permission and get location
+                navigator.geolocation.getCurrentPosition(
+                    function(position) {
+                        // Success callback
+                        const lat = position.coords.latitude;
+                        const lon = position.coords.longitude;
+                        const accuracy = position.coords.accuracy;
+                        
+                        resultElement.innerHTML = 
+                            "<strong>அட்சரேகை:</strong> " + lat.toFixed(6) + "°<br>" +
+                            "<strong>தீர்க்கரேகை:</strong> " + lon.toFixed(6) + "°<br>" +
+                            "<strong>துல்லியம்:</strong> ±" + Math.round(accuracy) + " மீட்டர்கள்<br>" +
+                            "<span style='color: #28a745;'><i class='fas fa-check-circle'></i> இருப்பிடம் வெற்றிகரமாகப் பெறப்பட்டது</span>";
+                    },
+                    function(error) {
+                        // Error callback
+                        switch(error.code) {
+                            case error.PERMISSION_DENIED:
+                                resultElement.innerHTML = 
+                                    "<span style='color: #dc3545;'><i class='fas fa-times-circle'></i> பயனர் Geolocation கோரிக்கையை மறுத்தார்.</span><br>" +
+                                    "இருப்பிட அனுமதியை வழங்கவும்.";
+                                break;
+                            case error.POSITION_UNAVAILABLE:
+                                resultElement.innerHTML = 
+                                    "<span style='color: #dc3545;'><i class='fas fa-times-circle'></i> स्थान जानकारी उपलब्ध नहीं है।</span>";
+                                break;
+                            case error.TIMEOUT:
+                                resultElement.innerHTML = 
+                                    "<span style='color: #dc3545;'><i class='fas fa-times-circle'></i> स्थान अनुरोध समय समाप्त हो गया।</span>";
+                                break;
+                            case error.UNKNOWN_ERROR:
+                                resultElement.innerHTML = 
+                                    "<span style='color: #dc3545;'><i class='fas fa-times-circle'></i> एक अज्ञात त्रुटि हुई।</span>";
+                                break;
+                        }
+                    },
+                    {
+                        enableHighAccuracy: true,
+                        timeout: 10000,
+                        maximumAge: 0
+                    }
+                );
+            } else {
+                // Geolocation not supported
+                resultElement.innerHTML = 
+                    "<span style='color: #dc3545;'><i class='fas fa-times-circle'></i> Geolocation API உங்கள் உலாவியில் ஆதரிக்கப்படவில்லை.</span>";
+            }
+        }
+    </script>
+<!-- Home Button -->
+<a class="home-icon" href="index.html">
+<i class="fas fa-home"></i>
+</a>
+</body>
+</html>

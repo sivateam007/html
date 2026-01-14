@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+
+<html lang="hi">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>HTML Drag and Drop API - Jassif Team</title>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<link href="style.css" rel="stylesheet"/>
+<style>
+        .content-section p, 
+        .content-section li,
+        .content-section h3,
+        .content-section h4,
+        .comparison-card p {
+            color: #333 !important;
+        }
+        
+        .tip-box p,
+        .tip-box li,
+        .tip-box h4 {
+            color: white !important;
+        }
+        
+        .warning-box p,
+        .warning-box li,
+        .warning-box h4 {
+            color: white !important;
+        }
+        
+        .exercise-box p,
+        .exercise-box h4 {
+            color: white !important;
+        }
+        
+        /* Stable logo styling - NO ANIMATIONS */
+        .logo-icon {
+            animation: none !important; /* Remove pulse animation */
+        }
+        
+        .logo-image {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+            display: block;
+            border: 2px solid white;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            animation: none !important; /* Ensure no animations */
+        }
+        
+        .drag-icon {
+            font-size: 2rem;
+            color: var(--git-color);
+            margin-right: 10px;
+        }
+        
+        .drag-demo-container {
+            display: flex;
+            gap: 2rem;
+            margin: 2rem 0;
+            flex-wrap: wrap;
+        }
+        
+        .drop-zone {
+            width: 200px;
+            height: 200px;
+            border: 3px dashed var(--git-color);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #f8f9fa;
+            transition: all 0.3s;
+        }
+        
+        .drop-zone.dragover {
+            background: #e8f4ff;
+            border-color: #3498db;
+            transform: scale(1.05);
+        }
+        
+        .drop-zone.active {
+            border-style: solid;
+            background: #e8f4ff;
+        }
+        
+        .draggable-item {
+            padding: 20px;
+            background: linear-gradient(135deg, var(--git-color), #e74c3c);
+            color: white;
+            border-radius: 8px;
+            cursor: grab;
+            user-select: none;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            transition: transform 0.3s;
+        }
+        
+        .draggable-item:active {
+            cursor: grabbing;
+            transform: scale(0.95);
+        }
+        
+        .draggable-item.dragging {
+            opacity: 0.5;
+        }
+        
+        .browser-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        
+        .browser-table th {
+            background: var(--git-color);
+            color: white;
+            padding: 1rem;
+            text-align: center;
+        }
+        
+        .browser-table td {
+            padding: 0.8rem;
+            text-align: center;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        
+        .browser-table .version {
+            color: var(--git-color);
+            font-weight: bold;
+        }
+        
+        .event-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+        
+        .event-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            border-left: 4px solid var(--git-color);
+        }
+        
+        .event-name {
+            font-family: monospace;
+            background: #f0f0f0;
+            padding: 4px 8px;
+            border-radius: 4px;
+            margin-bottom: 0.5rem;
+            display: inline-block;
+        }
+        
+        .demo-instruction {
+            background: #e8f4ff;
+            padding: 1rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+            border-left: 4px solid #3498db;
+        }
+    </style>
+</head>
+<body>
+<!-- Header -->
+<header>
+<div class="header-container">
+<div class="logo">
+<div class="logo-icon">
+<img alt="Jassif Team Logo" class="logo-image" src="logo.jpg"/>
+</div>
+<h1>Jassif Team <span>Institution</span></h1>
+</div>
+</div>
+</header>
+<!-- Top Navigation Tabs -->
+<div class="nav-tabs">
+<a class="nav-tab prev" href="HTML Geolocation API.html">
+<i class="fas fa-arrow-left"></i>
+<span>पिछला</span>
+</a>
+<a class="nav-tab next" href="HTML Web Storage API.html">
+<span>अगला</span>
+<i class="fas fa-arrow-right"></i>
+</a>
+</div>
+<!-- Hero Section -->
+<section class="hero" id="home">
+<div class="hero-content">
+<h2>HTML Drag and Drop API</h2>
+<p>तत्वों को खींचना और गिराना</p>
+</div>
+</section>
+<!-- Main Content -->
+<main class="container">
+<!-- Introduction -->
+<section class="content-section" id="introduction">
+<h2><i class="fas fa-arrows-alt drag-icon"></i>HTML Drag and Drop API</h2>
+<p>HTML ड्रैग एंड ड्रॉप एपीआई आपको किसी तत्व को खींचने और छोड़ने की अनुमति देता है।</p>
+<div class="demo-instruction">
+<h4><i class="fas fa-play-circle"></i>प्रक्रिया:</h4>
+<p>नीचे दी गई जैसिफ़ टीम छवि को दूसरे आयत में खींचें और छोड़ें।</p>
+</div>
+</section>
+<!-- Drag and Drop Overview -->
+<section class="content-section" id="overview">
+<h2><i class="fas fa-hand-rock drag-icon"></i>खींचें और छोड़ें</h2>
+<p>ड्रैग एंड ड्रॉप सबसे आम विशेषता है। यह तब होता है जब आप किसी वस्तु को "पकड़" लेते हैं और उसे किसी अन्य स्थान पर खींचते हैं।</p>
+</section>
+<!-- Browser Support -->
+<section class="content-section" id="browser-support">
+<h2><i class="fas fa-globe drag-icon"></i>ब्राउज़र समर्थन</h2>
+<p>तालिका में संख्याएँ पहले ब्राउज़र संस्करण का प्रतिनिधित्व करती हैं जो ड्रैग और ड्रॉप का पूरी तरह से समर्थन करता है।</p>
+<table class="browser-table">
+<thead>
+<tr>
+<th>API</th>
+<th>Chrome</th>
+<th>Edge</th>
+<th>Firefox</th>
+<th>Safari</th>
+<th>Opera</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Drag and Drop</td>
+<td class="version">4.0</td>
+<td class="version">9.0</td>
+<td class="version">3.5</td>
+<td class="version">6.0</td>
+<td class="version">12.0</td>
+</tr>
+</tbody>
+</table>
+</section>
+<!-- HTML Drag and Drop API Example -->
+<section class="content-section" id="api-example">
+<h2><i class="fas fa-code drag-icon"></i>HTML ड्रैग एंड ड्रॉप एपीआई उदाहरण</h2>
+<p>नीचे दिया गया उदाहरण एक सरल ड्रैग और ड्रॉप उदाहरण है:</p>
+<div class="code-example">
+<h3>उदाहरण</h3>
+<pre><code>&lt;!DOCTYPE HTML&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;script&gt;
+function dragstartHandler(ev) {
+  ev.dataTransfer.setData("text", ev.target.id);
+}
+
+function dragoverHandler(ev) {
+  ev.preventDefault();
+}
+
+function dropHandler(ev) {
+  ev.preventDefault();
+  const data = ev.dataTransfer.getData("text");
+  ev.target.appendChild(document.getElementById(data));
+}
+&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;div id="div1" ondrop="dropHandler(event)" ondragover="dragoverHandler(event)"&gt;&lt;/div&gt;
+
+&lt;img id="img1" src="img_logo.gif" draggable="true" ondragstart="dragstartHandler(event)" width="336" height="69"&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+</div>
+<p>यह जटिल लग सकता है, लेकिन आइए ड्रैग एंड ड्रॉप इवेंट के विभिन्न हिस्सों को देखें।</p>
+</section>
+<!-- Make an Element Draggable -->
+<section class="content-section" id="make-draggable">
+<h2><i class="fas fa-hand-point-up drag-icon"></i>किसी तत्व को खींचने योग्य बनाना</h2>
+<p>पहला: किसी तत्व को खींचने योग्य बनाने के लिए,<code>draggable</code>गुण<code>true</code>करने के लिए सेट:</p>
+<div class="code-example">
+<h3>उदाहरण</h3>
+<pre><code>&lt;img id="img1" draggable="true"&gt;</code></pre>
+</div>
+<p>या:</p>
+<div class="code-example">
+<h3>उदाहरण</h3>
+<pre><code>&lt;p id="p1" draggable="true"&gt;இழுக்கக்கூடிய உரை&lt;/p&gt;</code></pre>
+</div>
+</section>
+<!-- What to Drag - ondragstart and setData() -->
+<section class="content-section" id="what-to-drag">
+<h2><i class="fas fa-database drag-icon"></i>क्या खींचें - ऑनड्रैगस्टार्ट और सेटडेटा()</h2>
+<p>फिर, निर्दिष्ट करें कि तत्व खींचे जाने पर क्या होना चाहिए।</p>
+<p>उपरोक्त उदाहरण में,<code>&lt;img&gt;</code>अंग का<code>ondragstart</code>विशेषता एक फ़ंक्शन है (<code>dragstartHandler(ev)</code>) कॉल, जो निर्दिष्ट करता है कि कौन सा डेटा निकालना है।</p>
+<p><code>dataTransfer.setData()</code>विधि निकाले जाने वाले डेटा का डेटा प्रकार और मान निर्धारित करती है:</p>
+<div class="code-example">
+<h3>उदाहरण</h3>
+<pre><code>function dragstartHandler(ev) {
+  ev.dataTransfer.setData("text", ev.target.id);
+}</code></pre>
+</div>
+<p>इस मामले में, डेटा प्रकार "टेक्स्ट" है और मान ड्रैग करने योग्य तत्व की आईडी ("img1") है।</p>
+</section>
+<!-- Where to Drop - ondragover -->
+<section class="content-section" id="where-to-drop">
+<h2><i class="fas fa-map-marker-alt drag-icon"></i>कहां छोड़ें - ऑनड्रैगओवर</h2>
+<p><code>&lt;div&gt;</code>अंग का<code>ondragover</code>विशेषता एक फ़ंक्शन है (<code>dragoverHandler(ev)</code>) कॉल, जो निर्दिष्ट करती हैं कि खींचा गया डेटा कहां छोड़ा जा सकता है।</p>
+<p>डिफ़ॉल्ट रूप से, डेटा/तत्वों को अन्य तत्वों में नहीं छोड़ा जा सकता है। रिलीज़ की अनुमति देने के लिए, हमें तत्व की डिफ़ॉल्ट हैंडलिंग को प्रतिबंधित करना होगा।</p>
+<p>यह है<code>ondragover</code>घटना के लिए<code>preventDefault()</code>यह विधि को कॉल करके किया जाता है:</p>
+<div class="code-example">
+<h3>उदाहरण</h3>
+<pre><code>function dragoverHandler(ev) {
+  ev.preventDefault();
+}</code></pre>
+</div>
+</section>
+<!-- Do the Drop - ondrop -->
+<section class="content-section" id="do-drop">
+<h2><i class="fas fa-check-circle drag-icon"></i>ऑनड्रॉप - ऑनड्रॉप</h2>
+<p>जब खींचा गया डेटा गिरा दिया जाता है, a<code>drop</code>घटना घटती है.</p>
+<p>उपरोक्त उदाहरण में,<code>&lt;div&gt;</code>अंग का<code>ondrop</code>गुण<code>dropHandler(event)</code>फ़ंक्शन को कॉल करना:</p>
+<div class="code-example">
+<h3>उदाहरण</h3>
+<pre><code>function dropHandler(ev) {
+  ev.preventDefault();
+  const data = ev.dataTransfer.getData("text");
+  ev.target.appendChild(document.getElementById(data));
+}</code></pre>
+</div>
+<h3>कोड विवरण:</h3>
+<ol>
+<li>ब्राउज़र द्वारा डेटा की डिफ़ॉल्ट हैंडलिंग को रोकने के लिए<code>preventDefault()</code>कॉल करें (यदि डिफ़ॉल्ट छोड़ दिया जाए तो लिंक के रूप में खुलता है)</li>
+<li><code>dataTransfer.getData()</code>विधि से डेटा प्राप्त करें. इस बार<code>setData()</code>विधि किसी भी डेटा सेट को उसी प्रकार पर लौटा देगी</li>
+<li>खींचा जाने वाला डेटा खींचे गए तत्व की आईडी ("img1") है</li>
+<li>खींचे गए तत्व को गिराए गए तत्व से जोड़ें</li>
+</ol>
+</section>
+<!-- Drag and Drop Events -->
+<section class="content-section" id="events">
+<h2><i class="fas fa-calendar-alt drag-icon"></i>घटनाओं को खींचें</h2>
+<div class="event-grid">
+<div class="event-card">
+<div class="event-name">dragstart</div>
+<p>जब तत्व खींचने लगता है</p>
+</div>
+<div class="event-card">
+<div class="event-name">drag</div>
+<p>जब तत्व खींचा जाता है</p>
+</div>
+<div class="event-card">
+<div class="event-name">dragenter</div>
+<p>जब खींचा हुआ तत्व जाल में प्रवेश करता है</p>
+</div>
+<div class="event-card">
+<div class="event-name">dragover</div>
+<p>जब खींचा गया तत्व जाल के ऊपर हो</p>
+</div>
+<div class="event-card">
+<div class="event-name">dragleave</div>
+<p>जब खींचा गया तत्व जाल छोड़ देता है</p>
+</div>
+<div class="event-card">
+<div class="event-name">drop</div>
+<p>जब खींचा गया तत्व छोड़ा जाता है</p>
+</div>
+<div class="event-card">
+<div class="event-name">dragend</div>
+<p>जब ड्रैग ऑपरेशन समाप्त हो जाए</p>
+</div>
+</div>
+</section>
+<!-- Interactive Demo -->
+<section class="content-section" id="interactive-demo">
+<h2><i class="fas fa-gamepad drag-icon"></i>इंटरैक्टिव अभ्यास</h2>
+<div class="demo-instruction">
+<h4><i class="fas fa-info-circle"></i>निर्देश:</h4>
+<p>नीचे दिए गए "खींचें और छोड़ें तत्व" को "लक्ष्य क्षेत्र" में खींचें और छोड़ें।</p>
+</div>
+<div class="drag-demo-container">
+<div class="drop-zone" id="sourceZone">
+<div class="draggable-item" draggable="true" id="draggableElement">
+<i class="fas fa-arrows-alt"></i><br/>तत्व खींचें और छोड़ें</div>
+</div>
+<div style="display: flex; align-items: center;">
+<i class="fas fa-arrow-right fa-2x" style="color: var(--git-color);"></i>
+</div>
+<div class="drop-zone" id="targetZone">लक्ष्य क्षेत्र</div>
+</div>
+<div class="tip-box">
+<h4><i class="fas fa-lightbulb tip-icon"></i>व्यावहारिक नोट:</h4>
+<p>खींचने योग्य तत्व को स्रोत क्षेत्र में वापस ले जाया जा सकता है। पूरी प्रक्रिया की निगरानी की जाती है.</p>
+</div>
+</section>
+<!-- More Examples -->
+<section class="content-section" id="more-examples">
+<h2><i class="fas fa-list-alt drag-icon"></i>और ज्यादा उदाहरण</h2>
+<div class="code-example">
+<h3>उदाहरण: &lt;h1&gt; तत्व को &lt;div&gt; तत्व पर खींचें और छोड़ें</h3>
+<pre><code>&lt;script&gt;
+function dragstartHandler(ev) {
+  ev.dataTransfer.setData("text", ev.target.id);
+}
+
+function dragoverHandler(ev) {
+  ev.preventDefault();
+}
+
+function dropHandler(ev) {
+  ev.preventDefault();
+  const data = ev.dataTransfer.getData("text");
+  ev.target.appendChild(document.getElementById(data));
+}
+&lt;/script&gt;
+
+&lt;div id="div1" ondrop="dropHandler(event)" ondragover="dragoverHandler(event)"&gt;&lt;/div&gt;
+
+&lt;h1 id="h1" draggable="true" ondragstart="dragstartHandler(event)"&gt;JassifTeam.com&lt;/h1&gt;</code></pre>
+</div>
+<div class="code-example">
+<h3>उदाहरण: &lt;a&gt; तत्व को &lt;div&gt; तत्व पर खींचना और छोड़ना</h3>
+<pre><code>&lt;script&gt;
+function dragstartHandler(ev) {
+  ev.dataTransfer.setData("text", ev.target.id);
+}
+
+function dragoverHandler(ev) {
+  ev.preventDefault();
+}
+
+function dropHandler(ev) {
+  ev.preventDefault();
+  const data = ev.dataTransfer.getData("text");
+  ev.target.appendChild(document.getElementById(data));
+}
+&lt;/script&gt;
+
+&lt;div id="div1" ondrop="dropHandler(event)" ondragover="dragoverHandler(event)"&gt;&lt;/div&gt;
+
+&lt;a id="link1" href="https://jassifteam.com" draggable="true" ondragstart="dragstartHandler(event)"&gt;JassifTeam.com&lt;/a&gt;</code></pre>
+</div>
+</section>
+<!-- Exercise -->
+<section class="content-section" id="exercise">
+<h2><i class="fas fa-dumbbell drag-icon"></i>अभ्यास</h2>
+<div class="exercise-box">
+<h4><span class="exercise-icon">❓</span>किसी तत्व को खींचने योग्य बनाने के लिए निम्नलिखित में से किस विशेषता का उपयोग किया जाता है?</h4>
+<div class="options-grid">
+<div class="option-card" data-correct="false">
+<div class="option-content">
+<div class="option-text">movable="true"</div>
+<div class="option-feedback incorrect">✗ ग़लत! "चलने योग्य" एक मान्य HTML विशेषता नहीं है</div>
+</div>
+</div>
+<div class="option-card" data-correct="true">
+<div class="option-content">
+<div class="option-text">draggable="true"</div>
+<div class="option-feedback correct">✓ ठीक है! ड्रैगगेबल = "ट्रू" का उपयोग किसी तत्व को ड्रैग करने योग्य बनाने के लिए किया जाता है</div>
+</div>
+</div>
+<div class="option-card" data-correct="false">
+<div class="option-content">
+<div class="option-text">drag="enabled"</div>
+<div class="option-feedback incorrect">✗ ग़लत! "खींचें" एक मान्य HTML विशेषता नहीं है</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Bottom Navigation -->
+<div class="bottom-nav">
+<a class="nav-tab prev" href="HTML Geolocation API.html">
+<i class="fas fa-arrow-left"></i>
+<span>पिछला</span>
+</a>
+<a class="nav-tab next" href="HTML Web Storage API.html">
+<span>अगला</span>
+<i class="fas fa-arrow-right"></i>
+</a>
+</div>
+</main>
+<!-- Footer -->
+<footer>
+<div class="footer-content">
+<div class="footer-column">
+<h3>Jassif Team Institution</h3>
+<p>Leading educational institution providing quality programming education in Hindi.</p>
+</div>
+<div class="footer-column">
+<h3>Quick Links</h3>
+<ul>
+<li><a href="#introduction">Drag and Drop API</a></li>
+<li><a href="#overview">खींचें और छोड़ें</a></li>
+<li><a href="#browser-support">ब्राउज़र समर्थन</a></li>
+<li><a href="#make-draggable">तत्व को खींचने योग्य बनाएं</a></li>
+<li><a href="#what-to-drag">क्या खींचना है</a></li>
+<li><a href="#where-to-drop">कहाँ छोड़ें</a></li>
+<li><a href="#do-drop">मुक्ति</a></li>
+<li><a href="#events">घटनाएँ</a></li>
+<li><a href="#exercise">अभ्यास</a></li>
+</ul>
+</div>
+<div class="footer-column">
+<h3>Contact</h3>
+<ul>
+<li><a href="#">About Us</a></li>
+<li><a href="#">Contact Us</a></li>
+<li><a href="#">Location &amp; Hours</a></li>
+</ul>
+</div>
+<div class="footer-column">
+<h3>Follow Us</h3>
+<ul>
+<li><a href="#"><i class="fab fa-facebook"></i> Facebook</a></li>
+<li><a href="#"><i class="fab fa-instagram"></i> Instagram</a></li>
+<li><a href="#"><i class="fab fa-youtube"></i> YouTube</a></li>
+</ul>
+</div>
+</div>
+<div class="copyright">
+<p>© 2023 Jassif Team Institution. All rights reserved.</p>
+</div>
+</footer>
+<script>
+        // Add smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Add scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animation = 'fadeInUp 0.8s ease-out forwards';
+                }
+            });
+        }, observerOptions);
+        
+        // Observe all content sections for animation
+        document.querySelectorAll('.content-section').forEach(section => {
+            observer.observe(section);
+        });
+
+        // Exercise interaction
+        document.querySelectorAll('.option-card').forEach(card => {
+            card.addEventListener('click', function() {
+                // Show feedback for all options
+                document.querySelectorAll('.option-card').forEach(c => {
+                    c.querySelector('.option-feedback').style.display = 'block';
+                });
+            });
+        });
+
+        // Drag and Drop Demo
+        const draggableElement = document.getElementById('draggableElement');
+        const targetZone = document.getElementById('targetZone');
+        const sourceZone = document.getElementById('sourceZone');
+
+        // Make both zones drop targets
+        [targetZone, sourceZone].forEach(zone => {
+            zone.addEventListener('dragover', function(e) {
+                e.preventDefault();
+                this.classList.add('dragover');
+            });
+
+            zone.addEventListener('dragleave', function(e) {
+                this.classList.remove('dragover');
+            });
+
+            zone.addEventListener('drop', function(e) {
+                e.preventDefault();
+                this.classList.remove('dragover');
+                
+                // Move the draggable element to this zone
+                if (e.target === this) {
+                    this.appendChild(draggableElement);
+                    this.classList.add('active');
+                    
+                    // Update instruction
+                    if (this.id === 'targetZone') {
+                        document.querySelector('.demo-instruction h4').innerHTML = 
+                            '<i class="fas fa-check-circle"></i> வெற்றி! இப்போது மூல பகுதிக்குத் திரும்ப கொண்டு செல்லலாம்.';
+                    } else {
+                        document.querySelector('.demo-instruction h4').innerHTML = 
+                            '<i class="fas fa-info-circle"></i> வழிமுறைகள்: மீண்டும் இலக்கு பகுதிக்குள் இழுத்து விடவும்.';
+                    }
+                }
+            });
+        });
+
+        // Draggable element events
+        draggableElement.addEventListener('dragstart', function(e) {
+            e.dataTransfer.setData('text/plain', this.id);
+            this.classList.add('dragging');
+            
+            // Set drag image (optional)
+            // e.dataTransfer.setDragImage(this, 0, 0);
+        });
+
+        draggableElement.addEventListener('dragend', function(e) {
+            this.classList.remove('dragging');
+        });
+    </script>
+<!-- Home Button -->
+<a class="home-icon" href="index.html">
+<i class="fas fa-home"></i>
+</a>
+</body>
+</html>

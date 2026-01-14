@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+
+<html lang="hi">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>HTML Background Images - Jassif Team</title>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<link href="style.css" rel="stylesheet"/>
+<style>
+        .content-section p, 
+        .content-section li,
+        .content-section h3,
+        .content-section h4 {
+            color: #333 !important;
+        }
+        
+        .tip-box p,
+        .tip-box li,
+        .tip-box h4 {
+            color: white !important;
+        }
+        
+        .exercise-box p,
+        .exercise-box h4 {
+            color: white !important;
+        }
+        
+        .logo-icon {
+            animation: none !important;
+        }
+        
+        .logo-image {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+            display: block;
+            border: 2px solid white;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            animation: none !important;
+        }
+        
+        .code-example {
+            background-color: #2d2d2d;
+            color: #f8f8f2;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+            overflow-x: auto;
+        }
+    </style>
+</head>
+<body>
+<!-- Header -->
+<header>
+<div class="header-container">
+<div class="logo">
+<div class="logo-icon">
+<img alt="Jassif Team Logo" class="logo-image" src="logo.jpg"/>
+</div>
+<h1>Jassif Team <span>Institution</span></h1>
+</div>
+</div>
+</header>
+<!-- Top Navigation Tabs -->
+<div class="nav-tabs">
+<a class="nav-tab prev" href="HTML%20Image%20Maps.html">
+<i class="fas fa-arrow-left"></i>
+<span>पिछला</span>
+</a>
+<a class="nav-tab next" href="HTML%20picture%20Element.html">
+<span>अगला</span>
+<i class="fas fa-arrow-right"></i>
+</a>
+</div>
+<!-- Hero Section -->
+<section class="hero" id="home">
+<div class="hero-content">
+<h2>HTML Background Images</h2>
+<p>HTML पृष्ठभूमि छवियां</p>
+</div>
+</section>
+<!-- Main Content -->
+<main class="container">
+<!-- Background Image on an HTML element -->
+<section class="content-section" id="background-element">
+<h2>HTML तत्व में पृष्ठभूमि छवि</h2>
+<p>किसी HTML तत्व में पृष्ठभूमि छवि जोड़ने के लिए, HTML शैली विशेषता और CSS पृष्ठभूमि-छवि विशेषता का उपयोग करें:</p>
+<h3>उदाहरण</h3>
+<p>&lt;p&gt; तत्व में एक पृष्ठभूमि छवि जोड़ें:</p>
+<div class="code-example">
+<pre><code>&lt;p style="background-image: url('img_girl.jpg');"&gt;</code></pre>
+</div>
+<p>आप &lt;head&gt; अनुभाग में &lt;style&gt; तत्व में एक पृष्ठभूमि छवि भी निर्दिष्ट कर सकते हैं:</p>
+<div class="code-example">
+<h3>उदाहरण</h3>
+<pre><code>&lt;style&gt;
+p {
+  background-image: url('img_girl.jpg');
+}
+&lt;/style&gt;</code></pre>
+</div>
+<div class="image-map-container">
+<img alt="Background Image Example" class="image-map-preview" src="img12.png"/>
+</div>
+</section>
+<!-- Background Image on a Page -->
+<section class="content-section" id="background-page">
+<h2>पृष्ठ पर पृष्ठभूमि छवि</h2>
+<p>यदि आप पूरे पृष्ठ के लिए पृष्ठभूमि छवि चाहते हैं, तो &lt;body&gt; तत्व में पृष्ठभूमि छवि निर्दिष्ट करें:</p>
+<div class="code-example">
+<h3>उदाहरण</h3>
+<pre><code>&lt;style&gt;
+body {
+  background-image: url('img_girl.jpg');
+}
+&lt;/style&gt;</code></pre>
+</div>
+</section>
+<!-- Background Repeat -->
+<section class="content-section" id="background-repeat">
+<h2>पृष्ठभूमि छवि को दोहराते हुए</h2>
+<p>यदि पृष्ठभूमि छवि तत्व से छोटी है, तो छवि स्वचालित रूप से क्षैतिज और लंबवत रूप से दोहराई जाएगी जब तक कि यह तत्व के अंत तक नहीं पहुंच जाती:</p>
+<div class="code-example">
+<h3>उदाहरण</h3>
+<pre><code>&lt;style&gt;
+body {
+  background-image: url('example_img_girl.jpg');
+}
+&lt;/style&gt;</code></pre>
+</div>
+<p>बैकग्राउंड छवि को दोहराने से रोकने के लिए, बैकग्राउंड-रिपीट विशेषता को नो-रिपीट पर सेट करें:</p>
+<div class="code-example">
+<h3>उदाहरण</h3>
+<pre><code>&lt;style&gt;
+body {
+  background-image: url('example_img_girl.jpg');
+  background-repeat: no-repeat;
+}
+&lt;/style&gt;</code></pre>
+</div>
+<div class="image-map-container">
+<img alt="Background Repeat Example" class="image-map-preview" src="img13.png"/>
+</div>
+</section>
+<!-- Background Cover -->
+<section class="content-section" id="background-cover">
+<h2>पृष्ठभूमि छवि पर फैलाएं</h2>
+<p>यदि आप चाहते हैं कि पृष्ठभूमि छवि पूरे तत्व को कवर करे, तो आप पृष्ठभूमि-आकार गुण को कवर करने के लिए सेट कर सकते हैं।</p>
+<p>साथ ही, यह सुनिश्चित करने के लिए कि पूरा तत्व हमेशा कवर किया गया है, बैकग्राउंड-अटैचमेंट विशेषता को फिक्स्ड पर सेट करें:</p>
+<div class="code-example">
+<h3>उदाहरण</h3>
+<pre><code>&lt;style&gt;
+body {
+  background-image: url('img_girl.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+&lt;/style&gt;</code></pre>
+</div>
+</section>
+<!-- Background Stretch -->
+<section class="content-section" id="background-stretch">
+<h2>पृष्ठभूमि छवि का विस्तार</h2>
+<p>यदि आप चाहते हैं कि पृष्ठभूमि छवि पूरे तत्व में फिट होने के लिए खिंच जाए, तो आप पृष्ठभूमि-आकार की संपत्ति को 100% 100% पर सेट कर सकते हैं:</p>
+<div class="code-example">
+<h3>उदाहरण</h3>
+<pre><code>&lt;style&gt;
+body {
+  background-image: url('img_girl.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: 100% 100%;
+}
+&lt;/style&gt;</code></pre>
+</div>
+</section>
+<!-- Exercise Section -->
+<section class="content-section" id="exercises">
+<h2>अभ्यास</h2>
+<div class="exercise-box">
+<h4><span class="exercise-icon">❓</span>पृष्ठभूमि छवियों को परिभाषित करने के लिए सही सीएसएस संपत्ति क्या है?</h4>
+<div class="options-grid">
+<div class="option-card" data-correct="false">
+<div class="option-content">
+<div class="option-text">बीजी विशेषता</div>
+<div class="option-feedback incorrect">✗ ग़लत!</div>
+</div>
+</div>
+<div class="option-card" data-correct="false">
+<div class="option-content">
+<div class="option-text">छवि विशेषता</div>
+<div class="option-feedback incorrect">✗ ग़लत!</div>
+</div>
+</div>
+<div class="option-card" data-correct="true">
+<div class="option-content">
+<div class="option-text">पृष्ठभूमि-छवि संपत्ति</div>
+<div class="option-feedback correct">✓ ठीक है!</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Learn More CSS -->
+<section class="content-section" id="learn-more">
+<h2>अधिक सीएसएस जानें</h2>
+<p>उपरोक्त उदाहरणों से, आपने सीखा कि पृष्ठभूमि छवियों को सीएसएस पृष्ठभूमि संपत्ति का उपयोग करके स्टाइल किया जा सकता है।</p>
+<p>सीएसएस पृष्ठभूमि गुणों के बारे में अधिक जानने के लिए, हमारा सीएसएस पृष्ठभूमि ट्यूटोरियल पढ़ें।</p>
+</section>
+<!-- Bottom Navigation -->
+<div class="bottom-nav">
+<a class="nav-tab prev" href="HTML%20Image%20Maps.html">
+<i class="fas fa-arrow-left"></i>
+<span>पिछला</span>
+</a>
+<a class="nav-tab next" href="HTML%20picture%20Element.html">
+<span>अगला</span>
+<i class="fas fa-arrow-right"></i>
+</a>
+</div>
+</main>
+<!-- Footer -->
+<footer>
+<div class="footer-content">
+<div class="footer-column">
+<h3>Jassif Team Institution</h3>
+<p>Leading educational institution providing quality programming education in Hindi.</p>
+</div>
+<div class="footer-column">
+<h3>Quick Links</h3>
+<ul>
+<li><a href="#background-element">HTML तत्व में पृष्ठभूमि छवि</a></li>
+<li><a href="#background-page">पृष्ठ पर पृष्ठभूमि छवि</a></li>
+<li><a href="#background-repeat">छवि की पुनरावृत्ति</a></li>
+<li><a href="#background-cover">पूरी फिल्म में प्रसार</a></li>
+<li><a href="#background-stretch">फिल्म को खींचना</a></li>
+<li><a href="#exercises">अभ्यास</a></li>
+</ul>
+</div>
+<div class="footer-column">
+<h3>Contact</h3>
+<ul>
+<li><a href="#">About Us</a></li>
+<li><a href="#">Contact Us</a></li>
+<li><a href="#">Location &amp; Hours</a></li>
+</ul>
+</div>
+<div class="footer-column">
+<h3>Follow Us</h3>
+<ul>
+<li><a href="#"><i class="fab fa-facebook"></i> Facebook</a></li>
+<li><a href="#"><i class="fab fa-instagram"></i> Instagram</a></li>
+<li><a href="#"><i class="fab fa-youtube"></i> YouTube</a></li>
+</ul>
+</div>
+</div>
+<div class="copyright">
+<p>© 2023 Jassif Team Institution. All rights reserved.</p>
+</div>
+</footer>
+<script>
+        // Add smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Exercise interaction
+        document.querySelectorAll('.option-card').forEach(card => {
+            card.addEventListener('click', function() {
+                // Show feedback for all options
+                document.querySelectorAll('.option-card').forEach(c => {
+                    c.querySelector('.option-feedback').style.display = 'block';
+                });
+            });
+        });
+
+        // Handle missing images
+        document.querySelectorAll('img').forEach(img => {
+            img.addEventListener('error', function() {
+                const parent = this.parentElement;
+                const imgName = this.getAttribute('src');
+                const altText = this.getAttribute('alt') || 'Image';
+                
+                // Create replacement div
+                const replacement = document.createElement('div');
+                replacement.className = 'missing-image';
+                replacement.innerHTML = `<div style="text-align: center; padding: 2rem; background: #f0f0f0; border-radius: 10px;">
+                    <i class="fas fa-image" style="font-size: 3rem; margin-bottom: 10px; color: #666;"></i><br>
+                    <strong>${altText}</strong><br>
+                    <small>File: ${imgName}</small>
+                </div>`;
+                
+                // Replace the image
+                parent.replaceChild(replacement, this);
+            });
+        });
+    </script>
+<!-- Home Button -->
+<a class="home-icon" href="index.html">
+<i class="fas fa-home"></i>
+</a>
+</body>
+</html>

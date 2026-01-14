@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+
+<html lang="hi">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>HTML Comments - Jassif Team</title>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<link href="style.css" rel="stylesheet"/>
+<style>
+        .content-section p, 
+        .content-section li,
+        .content-section h3,
+        .content-section h4,
+        .comparison-card p {
+            color: #333 !important;
+        }
+        
+        .tip-box p,
+        .tip-box li,
+        .tip-box h4 {
+            color: white !important;
+        }
+        
+        .warning-box p,
+        .warning-box li,
+        .warning-box h4 {
+            color: white !important;
+        }
+        
+        .exercise-box p,
+        .exercise-box h4 {
+            color: white !important;
+        }
+        
+        /* Stable logo styling - NO ANIMATIONS */
+        .logo-icon {
+            animation: none !important; /* Remove pulse animation */
+        }
+        
+        .logo-image {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+            display: block;
+            border: 2px solid white;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            animation: none !important; /* Ensure no animations */
+        }
+        
+        /* Comment specific styles */
+        .comment-demo {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin: 1.5rem 0;
+            border-left: 4px solid #28a745;
+            font-family: 'Courier New', monospace;
+        }
+        
+        .comment-highlight {
+            background: #fff3cd;
+            padding: 0.2rem 0.5rem;
+            border-radius: 3px;
+            border-left: 3px solid #ffc107;
+            font-family: 'Courier New', monospace;
+            color: #856404;
+        }
+        
+        .hidden-content {
+            background: #e9ecef;
+            padding: 1rem;
+            border-radius: 5px;
+            margin: 1rem 0;
+            border: 2px dashed #6c757d;
+            color: #6c757d;
+            font-style: italic;
+            text-align: center;
+        }
+        
+        .visible-content {
+            background: #d4edda;
+            padding: 1rem;
+            border-radius: 5px;
+            margin: 1rem 0;
+            border: 2px solid #28a745;
+        }
+        
+        .debug-section {
+            background: #cce5ff;
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin: 1.5rem 0;
+            border: 2px solid #007bff;
+        }
+        
+        .use-case-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .use-case-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            border-top: 4px solid var(--git-color);
+        }
+        
+        .use-case-icon {
+            font-size: 2rem;
+            color: var(--git-color);
+            margin-bottom: 1rem;
+        }
+        
+        .comment-syntax {
+            background: #2d2d2d;
+            color: #f8f8f2;
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin: 1.5rem 0;
+            text-align: center;
+            font-family: 'Courier New', monospace;
+            font-size: 1.2rem;
+            border-left: 4px solid #28a745;
+        }
+        
+        .comparison-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        @media (max-width: 768px) {
+            .comparison-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .use-case-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .code-toggle {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+        
+        .toggle-btn {
+            padding: 0.5rem 1rem;
+            background: var(--light);
+            border: 2px solid var(--git-color);
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: 500;
+        }
+        
+        .toggle-btn.active {
+            background: var(--git-color);
+            color: white;
+        }
+    </style>
+</head>
+<body>
+<!-- Header -->
+<header>
+<div class="header-container">
+<div class="logo">
+<div class="logo-icon">
+<img alt="Jassif Team Logo" class="logo-image" src="logo.jpg"/>
+</div>
+<h1>Jassif Team <span>Institution</span></h1>
+</div>
+</div>
+</header>
+<!-- Top Navigation Tabs -->
+<div class="nav-tabs">
+<a class="nav-tab prev" href="HTML%20Quotation%20and%20Citation%20Elements.html">
+<i class="fas fa-arrow-left"></i>
+<span>पिछला</span>
+</a>
+<a class="nav-tab next" href="HTML%20Colors.html">
+<span>अगला</span>
+<i class="fas fa-arrow-right"></i>
+</a>
+</div>
+<!-- Hero Section -->
+<section class="hero" id="home">
+<div class="hero-content">
+<h2>HTML Comments</h2>
+<p>HTML टिप्पणियाँ - अपने कोड का दस्तावेज़ीकरण करें</p>
+</div>
+</section>
+<!-- Main Content -->
+<main class="container">
+<!-- Introduction -->
+<section class="content-section" id="introduction">
+<h2>HTML Comments</h2>
+<p>HTML टिप्पणियाँ ब्राउज़र में प्रदर्शित नहीं होती हैं, लेकिन वे आपके HTML स्रोत कोड को दस्तावेज़ीकृत करने में मदद करती हैं।</p>
+<div class="comment-syntax">&lt;!-- अपनी टिप्पणियाँ यहाँ लिखें --&gt;</div>
+<div class="tip-box">
+<h4><i class="fas fa-exclamation-circle tip-icon"></i>जसिफ टीम केयर:</h4>
+<p>प्रारंभ टैग में विस्मयादिबोधक बिंदु (!) होता है, लेकिन अंत टैग नहीं होता है।</p>
+</div>
+</section>
+<!-- HTML Comment Tag -->
+<section class="content-section" id="comment-tag">
+<h2>HTML Comment Tag</h2>
+<p>आप निम्नलिखित सिंटैक्स का उपयोग करके अपने HTML स्रोत में टिप्पणियाँ जोड़ सकते हैं:</p>
+<div class="code-example">
+<h3>टिप्पणी वाक्यविन्यास</h3>
+<pre><code>&lt;!-- Write your comments here --&gt;</code></pre>
+</div>
+<div class="warning-box">
+<h4><i class="fas fa-info-circle warning-icon"></i>जसिफ़ टीम नोट:</h4>
+<p>टिप्पणियाँ ब्राउज़र द्वारा प्रदर्शित नहीं की जाती हैं, लेकिन वे आपके HTML स्रोत कोड को दस्तावेज़ीकृत करने में मदद करती हैं।</p>
+</div>
+</section>
+<!-- Add Comments -->
+<section class="content-section" id="add-comments">
+<h2>टिप्पणी करें</h2>
+<p>टिप्पणियों के साथ आप अपने HTML कोड में सूचनाएं और अनुस्मारक रख सकते हैं:</p>
+<div class="comparison-container">
+<div class="code-example">
+<h3>HTML कोड</h3>
+<pre><code>&lt;!-- This is a comment --&gt;
+
+&lt;p&gt;This is a paragraph.&lt;/p&gt;
+
+&lt;!-- Remember to add more information here --&gt;</code></pre>
+</div>
+<div class="result-demo">
+<h3>परिणाम (ब्राउज़र में)</h3>
+<div class="visible-content">
+<p>This is a paragraph.</p>
+</div>
+<div class="hidden-content">टिप्पणियाँ यहाँ प्रदर्शित नहीं की जाएंगी</div>
+</div>
+</div>
+</section>
+<!-- Hide Content -->
+<section class="content-section" id="hide-content">
+<h2>सामग्री छिपाएँ</h2>
+<p>टिप्पणियों का उपयोग सामग्री को छिपाने के लिए किया जा सकता है.</p>
+<p>सामग्री को अस्थायी रूप से छिपाना सहायक है:</p>
+<div class="comparison-container">
+<div class="code-example">
+<h3>HTML कोड</h3>
+<pre><code>&lt;p&gt;This is a paragraph.&lt;/p&gt;
+
+&lt;!-- &lt;p&gt;This is another paragraph &lt;/p&gt; --&gt;
+
+&lt;p&gt;This is a paragraph too.&lt;/p&gt;</code></pre>
+</div>
+<div class="result-demo">
+<h3>परिणाम (ब्राउज़र में)</h3>
+<div class="visible-content">
+<p>This is a paragraph.</p>
+<p>This is a paragraph too.</p>
+</div>
+<div class="hidden-content">छिपा हुआ कॉलम यहां प्रदर्शित नहीं किया जाएगा</div>
+</div>
+</div>
+<div class="tip-box">
+<h4><i class="fas fa-lightbulb tip-icon"></i>जसिफ़ टीम टिप:</h4>
+<p>आप एक से अधिक पंक्तियाँ छिपा सकते हैं.<span class="comment-highlight">&lt;!--</span>और<span class="comment-highlight">--&gt;</span>बीच में सब कुछ दृश्य से छिपा दिया जाएगा.</p>
+</div>
+<h3>HTML कोड का एक टुकड़ा छिपाएँ:</h3>
+<div class="code-example">
+<pre><code>&lt;p&gt;This is a paragraph.&lt;/p&gt;
+&lt;!--
+&lt;p&gt;Look at this cool image:&lt;/p&gt;
+&lt;img border="0" src="pic_trulli.jpg" alt="Trulli"&gt;
+--&gt;
+&lt;p&gt;This is a paragraph too.&lt;/p&gt;</code></pre>
+</div>
+<div class="debug-section">
+<h3><i class="fas fa-bug"></i>डिबगिंग के साथ HTML</h3>
+<p>HTML को डीबग करने के लिए टिप्पणियाँ भी बहुत अच्छी हैं क्योंकि आप त्रुटियों को देखने के लिए HTML कोड लाइनों पर एक समय में एक पंक्ति पर टिप्पणी कर सकते हैं।</p>
+</div>
+</section>
+<!-- Hide Inline Content -->
+<section class="content-section" id="hide-inline">
+<h2>इनलाइन सामग्री छिपाएँ</h2>
+<p>HTML कोड के मध्य में अनुभागों को छिपाने के लिए टिप्पणियों का उपयोग किया जा सकता है।</p>
+<h3>अनुच्छेद का भाग छिपाएँ:</h3>
+<div class="comparison-container">
+<div class="code-example">
+<h3>HTML कोड</h3>
+<pre><code>&lt;p&gt;This &lt;!-- great text --&gt; is a paragraph.&lt;/p&gt;</code></pre>
+</div>
+<div class="result-demo">
+<h3>परिणाम (ब्राउज़र में)</h3>
+<div class="visible-content">
+<p>This is a paragraph.</p>
+</div>
+<div class="comment-demo">"महान पाठ" शब्द प्रदर्शित नहीं किए जाते क्योंकि उन पर विचार किया जाता है</div>
+</div>
+</div>
+</section>
+<!-- Use Cases -->
+<section class="content-section" id="use-cases">
+<h2>अवधारणाओं के अनुप्रयोग</h2>
+<div class="use-case-grid">
+<div class="use-case-card">
+<div class="use-case-icon">
+<i class="fas fa-file-alt"></i>
+</div>
+<h3>कुछ दस्तावेज़ीकृत</h3>
+<p>अपने कोड का उद्देश्य और तर्क स्पष्ट करें</p>
+</div>
+<div class="use-case-card">
+<div class="use-case-icon">
+<i class="fas fa-eye-slash"></i>
+</div>
+<h3>अस्थायी आवरण</h3>
+<p>पुन: उपयोग के लिए कोड छिपाएँ</p>
+</div>
+<div class="use-case-card">
+<div class="use-case-icon">
+<i class="fas fa-bug"></i>
+</div>
+<h3>डिबगिंग</h3>
+<p>समस्या कोड ढूंढने में अक्षम करें</p>
+</div>
+<div class="use-case-card">
+<div class="use-case-icon">
+<i class="fas fa-sticky-note"></i>
+</div>
+<h3>अनुस्मारक</h3>
+<p>भविष्य के कार्यों का उल्लेख करें</p>
+</div>
+</div>
+</section>
+<!-- Exercise Section -->
+<section class="content-section" id="exercise">
+<h2>अभ्यास</h2>
+<div class="exercise-box">
+<h4><span class="exercise-icon">❓</span>HTML में टिप्पणी जोड़ने के लिए सही सिंटैक्स क्या है?</h4>
+<div class="options-grid">
+<div class="option-card" data-correct="false">
+<div class="option-content">
+<div class="option-text">&lt;-- This is a comment --&gt;</div>
+<div class="option-feedback incorrect">✗ ग़लत! &lt;-- एक वैध उद्घाटन टैग नहीं है</div>
+</div>
+</div>
+<div class="option-card" data-correct="false">
+<div class="option-content">
+<div class="option-text">&lt;## This is a comment ##&gt;</div>
+<div class="option-feedback incorrect">✗ ग़लत! यह HTML टिप्पणी सिंटैक्स नहीं है</div>
+</div>
+</div>
+<div class="option-card" data-correct="false">
+<div class="option-content">
+<div class="option-text">&lt;--&gt; This is a comment &lt;/--&gt;</div>
+<div class="option-feedback incorrect">✗ ग़लत! HTML टिप्पणियों के लिए क्लोजिंग टैग की आवश्यकता नहीं होती है</div>
+</div>
+</div>
+<div class="option-card" data-correct="true">
+<div class="option-content">
+<div class="option-text">&lt;!-- This is a comment --&gt;</div>
+<div class="option-feedback correct">✓ ठीक है! &lt;!-- --&gt; HTML टिप्पणियों के लिए सही सिंटैक्स है</div>
+</div>
+</div>
+</div>
+</div>
+<div class="tip-box">
+<h4><i class="fas fa-code tip-icon"></i>जसिफ़ टीम शीर्ष युक्ति:</h4>
+<p>HTML टिप्पणियाँ हमेशा<span class="comment-highlight">&lt;!--</span>प्रारंभ स्थल<span class="comment-highlight">--&gt;</span>के साथ किया जाना है. विस्मयादिबोधक चिह्न (!) महत्वपूर्ण है!</p>
+</div>
+</section>
+<!-- Best Practices -->
+<section class="content-section" id="best-practices">
+<h2>टिप्पणियों के लिए सर्वोत्तम अभ्यास</h2>
+<div class="best-practice-list">
+<div class="practice-item positive">
+<i class="fas fa-check-circle"></i>
+<div>
+<strong>महत्वपूर्ण कोड समझाइये:</strong>जटिल तर्क या काम न करने वाले कोड को समझाने के लिए टिप्पणियों का उपयोग करें।</div>
+</div>
+<div class="practice-item positive">
+<i class="fas fa-check-circle"></i>
+<div>
+<strong>अनुभागों को चिह्नित करें:</strong>अपनी HTML फ़ाइल के विभिन्न अनुभागों को चिह्नित करने के लिए टिप्पणियों का उपयोग करें।</div>
+</div>
+<div class="practice-item positive">
+<i class="fas fa-check-circle"></i>
+<div>
+<strong>अस्थायी कोड छिपाएँ:</strong>डिबगिंग या वैकल्पिक कार्यों का परीक्षण करते समय कोड छिपाएँ।</div>
+</div>
+<div class="practice-item negative">
+<i class="fas fa-times-circle"></i>
+<div>
+<strong>अत्यधिक टिप्पणियों से बचें:</strong>स्पष्ट कोड को टिप्पणियों की आवश्यकता नहीं है। अनावश्यक टिप्पणियाँ भ्रम पैदा कर सकती हैं।</div>
+</div>
+</div>
+<div class="debug-section">
+<h3><i class="fas fa-tools"></i>डिबगिंग युक्ति:</h3>
+<p>डिबगिंग करते समय, त्रुटि कहां है यह जानने के लिए अपने कोड के विभिन्न हिस्सों पर एक के बाद एक टिप्पणी करें। इससे कम समय में समस्या का निदान करने में मदद मिलेगी.</p>
+</div>
+</section>
+<!-- Bottom Navigation -->
+<div class="bottom-nav">
+<a class="nav-tab prev" href="HTML%20Quotation%20and%20Citation%20Elements.html">
+<i class="fas fa-arrow-left"></i>
+<span>पिछला</span>
+</a>
+<a class="nav-tab next" href="HTML%20Colors.html">
+<span>अगला</span>
+<i class="fas fa-arrow-right"></i>
+</a>
+</div>
+</main>
+<!-- Footer -->
+<footer>
+<div class="footer-content">
+<div class="footer-column">
+<h3>Jassif Team Institution</h3>
+<p>Leading educational institution providing quality programming education in Hindi.</p>
+</div>
+<div class="footer-column">
+<h3>Quick Links</h3>
+<ul>
+<li><a href="#introduction">HTML Comments</a></li>
+<li><a href="#comment-tag">Comment Tag</a></li>
+<li><a href="#hide-content">Hide Content</a></li>
+<li><a href="#hide-inline">Hide Inline Content</a></li>
+<li><a href="#exercise">अभ्यास</a></li>
+</ul>
+</div>
+<div class="footer-column">
+<h3>Contact</h3>
+<ul>
+<li><a href="#">About Us</a></li>
+<li><a href="#">Contact Us</a></li>
+<li><a href="#">Location &amp; Hours</a></li>
+</ul>
+</div>
+<div class="footer-column">
+<h3>Follow Us</h3>
+<ul>
+<li><a href="#"><i class="fab fa-facebook"></i> Facebook</a></li>
+<li><a href="#"><i class="fab fa-instagram"></i> Instagram</a></li>
+<li><a href="#"><i class="fab fa-youtube"></i> YouTube</a></li>
+</ul>
+</div>
+</div>
+<div class="copyright">
+<p>© 2023 Jassif Team Institution. All rights reserved.</p>
+</div>
+</footer>
+<script>
+        // Add smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Add scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animation = 'fadeInUp 0.8s ease-out forwards';
+                }
+            });
+        }, observerOptions);
+        
+        // Observe all content sections for animation
+        document.querySelectorAll('.content-section').forEach(section => {
+            observer.observe(section);
+        });
+
+        // Exercise interaction
+        document.querySelectorAll('.option-card').forEach(card => {
+            card.addEventListener('click', function() {
+                // Show feedback for all options
+                document.querySelectorAll('.option-card').forEach(c => {
+                    c.querySelector('.option-feedback').style.display = 'block';
+                });
+            });
+        });
+
+        // Interactive comment toggle demo
+        const toggleButtons = document.createElement('div');
+        toggleButtons.className = 'code-toggle';
+        toggleButtons.innerHTML = `
+            <button class="toggle-btn active" id="show-code">குறியீட்டைக் காட்டு</button>
+            <button class="toggle-btn" id="hide-code">குறியீட்டை மறை</button>
+        `;
+        
+        const hideContentSection = document.querySelector('#hide-content .code-example');
+        if (hideContentSection) {
+            hideContentSection.parentNode.insertBefore(toggleButtons, hideContentSection.nextSibling);
+            
+            const showBtn = document.getElementById('show-code');
+            const hideBtn = document.getElementById('hide-code');
+            const codeExample = hideContentSection.querySelector('pre code');
+            const originalCode = codeExample.textContent;
+            
+            const hiddenCode = `&lt;p&gt;This is a paragraph.&lt;/p&gt;
+
+&lt;p&gt;This is a paragraph too.&lt;/p&gt;`;
+            
+            showBtn.addEventListener('click', function() {
+                codeExample.textContent = originalCode;
+                showBtn.classList.add('active');
+                hideBtn.classList.remove('active');
+            });
+            
+            hideBtn.addEventListener('click', function() {
+                codeExample.textContent = hiddenCode;
+                hideBtn.classList.add('active');
+                showBtn.classList.remove('active');
+            });
+        }
+    </script>
+<!-- Home Button -->
+<a class="home-icon" href="index.html">
+<i class="fas fa-home"></i>
+</a>
+</body>
+</html>

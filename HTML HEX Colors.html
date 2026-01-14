@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+
+<html lang="hi">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>HTML HEX Colors - Jassif Team</title>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<link href="style.css" rel="stylesheet"/>
+<style>
+        .content-section p, 
+        .content-section li,
+        .content-section h3,
+        .content-section h4,
+        .comparison-card p {
+            color: #333 !important;
+        }
+        
+        .tip-box p,
+        .tip-box li,
+        .tip-box h4 {
+            color: white !important;
+        }
+        
+        .warning-box p,
+        .warning-box li,
+        .warning-box h4 {
+            color: white !important;
+        }
+        
+        .exercise-box p,
+        .exercise-box h4 {
+            color: white !important;
+        }
+        
+        /* Stable logo styling - NO ANIMATIONS */
+        .logo-icon {
+            animation: none !important; /* Remove pulse animation */
+        }
+        
+        .logo-image {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+            display: block;
+            border: 2px solid white;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            animation: none !important; /* Ensure no animations */
+        }
+        
+        /* HEX specific styles */
+        .hex-display {
+            height: 100px;
+            border-radius: 10px;
+            margin: 1rem 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 1.2rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .hex-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+        
+        .hex-example {
+            padding: 1rem;
+            border-radius: 8px;
+            text-align: center;
+            color: white;
+            font-family: 'Courier New', monospace;
+            font-weight: bold;
+        }
+        
+        .slider-container {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin: 1.5rem 0;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        
+        .slider-group {
+            margin: 1rem 0;
+        }
+        
+        .slider-label {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+        
+        .slider-value {
+            font-family: 'Courier New', monospace;
+            background: #f8f9fa;
+            padding: 0.2rem 0.5rem;
+            border-radius: 3px;
+        }
+        
+        input[type="range"] {
+            width: 100%;
+            height: 25px;
+            -webkit-appearance: none;
+            background: #e9ecef;
+            border-radius: 5px;
+            outline: none;
+        }
+        
+        input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            background: var(--git-color);
+            cursor: pointer;
+        }
+        
+        .gray-scale {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 0.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .gray-box {
+            height: 60px;
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+            font-weight: bold;
+        }
+        
+        .hex-comparison {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .hex-card {
+            padding: 1.5rem;
+            border-radius: 10px;
+            text-align: center;
+            font-weight: bold;
+            font-size: 1.2rem;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        @media (max-width: 768px) {
+            .hex-grid {
+                grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            }
+            
+            .hex-comparison {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .formula-box {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 1.5rem;
+            border-radius: 10px;
+            color: white;
+            text-align: center;
+            margin: 1.5rem 0;
+            font-family: 'Courier New', monospace;
+            font-size: 1.3rem;
+        }
+        
+        .hex-system {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin: 1.5rem 0;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        
+        .hex-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+        }
+        
+        .hex-table th {
+            background: var(--git-color);
+            color: white;
+            padding: 0.8rem;
+            text-align: center;
+        }
+        
+        .hex-table td {
+            padding: 0.8rem;
+            text-align: center;
+            border-bottom: 1px solid #eee;
+            font-family: 'Courier New', monospace;
+        }
+        
+        .hex-table tr:nth-child(even) {
+            background: #f9f9f9;
+        }
+        
+        .digit-grid {
+            display: grid;
+            grid-template-columns: repeat(8, 1fr);
+            gap: 0.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .digit-box {
+            background: white;
+            padding: 1rem;
+            border-radius: 5px;
+            text-align: center;
+            font-family: 'Courier New', monospace;
+            font-weight: bold;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .hex-value {
+            font-family: 'Courier New', monospace;
+            background: #2d2d2d;
+            color: #f8f8f2;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            display: inline-block;
+            margin: 0.2rem;
+        }
+        
+        .exercise-hello {
+            color: #000000 !important;
+            font-size: 2rem;
+            margin: 0;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+<!-- Header -->
+<header>
+<div class="header-container">
+<div class="logo">
+<div class="logo-icon">
+<img alt="Jassif Team Logo" class="logo-image" src="logo.jpg"/>
+</div>
+<h1>Jassif Team <span>Institution</span></h1>
+</div>
+</div>
+</header>
+<!-- Top Navigation Tabs -->
+<div class="nav-tabs">
+<a class="nav-tab prev" href="HTML%20RGB%20and%20RGBA%20Colors.html">
+<i class="fas fa-arrow-left"></i>
+<span>पिछला</span>
+</a>
+<a class="nav-tab next" href="HTML%20HSL%20and%20HSLA%20Colors.html">
+<span>अगला</span>
+<i class="fas fa-arrow-right"></i>
+</a>
+</div>
+<!-- Hero Section -->
+<section class="hero" id="home">
+<div class="hero-content">
+<h2>HTML HEX Colors</h2>
+<p>हेक्स रंग - हेक्साडेसिमल प्रारूप में रंग</p>
+</div>
+</section>
+<!-- Main Content -->
+<main class="container">
+<!-- Introduction -->
+<section class="content-section" id="introduction">
+<h2>HTML HEX Colors</h2>
+<p>एक हेक्साडेसिमल रंग को इस प्रकार दर्शाया गया है:<span class="hex-value">#RRGGBB</span>, आरआर (लाल), जीजी (हरा) और बीबी (नीला) रंग घटकों को निर्दिष्ट करने वाले हेक्साडेसिमल पूर्णांक हैं।</p>
+<div class="hex-comparison">
+<div class="hex-card" style="background: linear-gradient(135deg, #ff0000, #00ff00, #0000ff);">
+                    HEX Colors<br/>
+                    #RRGGBB Format
+                </div>
+<div class="hex-card" style="background: linear-gradient(135deg, #ff6347, #3cb371, #6a5acd);">
+                    Common HEX Colors<br/>
+                    Web Standard
+                </div>
+</div>
+</section>
+<!-- HEX Color Values -->
+<section class="content-section" id="hex-values">
+<h2>HEX Color Values</h2>
+<p>HTML में, निम्नलिखित प्रारूप में हेक्साडेसिमल मान का उपयोग करके एक रंग निर्दिष्ट किया जा सकता है:</p>
+<div class="formula-box">
+                #rrggbb
+            </div>
+<p>आरआर (लाल), जीजी (हरा) और बीबी (नीला) 00 और एफएफ (दशमलव 0-255 की तरह) के बीच हेक्साडेसिमल मान हैं।</p>
+<div class="hex-system">
+<h3>हेक्साडेसिमल संख्या प्रणाली</h3>
+<p>हेक्साडेसिमल (HEX) एक आधार-16 संख्या प्रणाली है। यह 16 कोड का उपयोग करता है:</p>
+<div class="digit-grid">
+<div class="digit-box">0</div>
+<div class="digit-box">1</div>
+<div class="digit-box">2</div>
+<div class="digit-box">3</div>
+<div class="digit-box">4</div>
+<div class="digit-box">5</div>
+<div class="digit-box">6</div>
+<div class="digit-box">7</div>
+<div class="digit-box">8</div>
+<div class="digit-box">9</div>
+<div class="digit-box">A</div>
+<div class="digit-box">B</div>
+<div class="digit-box">C</div>
+<div class="digit-box">D</div>
+<div class="digit-box">E</div>
+<div class="digit-box">F</div>
+</div>
+<table class="hex-table">
+<thead>
+<tr>
+<th>HEX</th>
+<th>दशमलव</th>
+<th>HEX</th>
+<th>दशमलव</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>00</td>
+<td>0</td>
+<td>80</td>
+<td>128</td>
+</tr>
+<tr>
+<td>20</td>
+<td>32</td>
+<td>A0</td>
+<td>160</td>
+</tr>
+<tr>
+<td>40</td>
+<td>64</td>
+<td>C0</td>
+<td>192</td>
+</tr>
+<tr>
+<td>60</td>
+<td>96</td>
+<td>E0</td>
+<td>224</td>
+</tr>
+<tr>
+<td>FF</td>
+<td>255</td>
+<td>00</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h3>प्रमुख HEX मान:</h3>
+<div class="hex-grid">
+<div class="hex-example" style="background-color: #ff0000;">
+                    #ff0000<br/>
+<strong>लाल</strong>
+</div>
+<div class="hex-example" style="background-color: #00ff00;">
+                    #00ff00<br/>
+<strong>हरा</strong>
+</div>
+<div class="hex-example" style="background-color: #0000ff;">
+                    #0000ff<br/>
+<strong>नीला</strong>
+</div>
+<div class="hex-example" style="background-color: #000000;">
+                    #000000<br/>
+<strong>काला</strong>
+</div>
+<div class="hex-example" style="background-color: #ffffff; color: #333;">
+                    #ffffff<br/>
+<strong>सफ़ेद</strong>
+</div>
+<div class="hex-example" style="background-color: #808080;">
+                    #808080<br/>
+<strong>राख</strong>
+</div>
+</div>
+<div class="tip-box">
+<h4><i class="fas fa-exchange-alt tip-icon"></i>जसिफ़ टीम परिवर्तन:</h4>
+<p>HEX से RGB रूपांतरण:<br/>
+                   #ff0000 = rgb(255, 0, 0)<br/>
+                   #00ff00 = rgb(0, 255, 0)<br/>
+                   #0000ff = rgb(0, 0, 255)<br/>
+                   #000000 = rgb(0, 0, 0)<br/>
+                   #ffffff = rgb(255, 255, 255)</p>
+</div>
+</section>
+<!-- HEX Examples -->
+<section class="content-section" id="hex-examples">
+<h2>हेक्स उदाहरण</h2>
+<p>सामान्य HEX रंगों के उदाहरण:</p>
+<div class="hex-grid">
+<div class="hex-example" style="background-color: #ff0000;">
+                    #ff0000
+                </div>
+<div class="hex-example" style="background-color: #0000ff;">
+                    #0000ff
+                </div>
+<div class="hex-example" style="background-color: #3cb371;">
+                    #3cb371
+                </div>
+<div class="hex-example" style="background-color: #ee82ee;">
+                    #ee82ee
+                </div>
+<div class="hex-example" style="background-color: #ffa500;">
+                    #ffa500
+                </div>
+<div class="hex-example" style="background-color: #6a5acd;">
+                    #6a5acd
+                </div>
+</div>
+<div class="tip-box">
+<h4><i class="fas fa-info-circle tip-icon"></i>जसिफ़ टीम विवरण:</h4>
+<p><span class="hex-value">#ff0000</span>लाल के रूप में दिखाया गया है क्योंकि लाल को उसके अधिकतम मान (एफएफ) पर सेट किया गया है, और अन्य दो (हरा और नीला) को 00 पर सेट किया गया है।</p>
+<p><span class="hex-value">#00ff00</span>हरे रंग के रूप में दिखाया गया है क्योंकि हरे रंग को उसके अधिकतम मान (एफएफ) पर सेट किया गया है, जबकि अन्य दो (लाल और नीला) को 00 पर सेट किया गया है।</p>
+</div>
+</section>
+<!-- HEX Mixer -->
+<section class="content-section" id="hex-mixer">
+<h2>हेक्स मिक्स टेस्ट</h2>
+<p>नीचे दिए गए HEX मानों को मिलाने का प्रयास करें:</p>
+<div class="slider-container">
+<div class="hex-display" id="hexDisplay" style="background-color: #ff6347;">
+                    #ff6347
+                </div>
+<div class="slider-group">
+<div class="slider-label">
+<span style="color: #e74c3c;">RED</span>
+<span class="slider-value" id="hexRedValue">ff</span>
+</div>
+<input class="slider" id="hexRedSlider" max="255" min="0" type="range" value="255"/>
+</div>
+<div class="slider-group">
+<div class="slider-label">
+<span style="color: #27ae60;">GREEN</span>
+<span class="slider-value" id="hexGreenValue">63</span>
+</div>
+<input class="slider" id="hexGreenSlider" max="255" min="0" type="range" value="99"/>
+</div>
+<div class="slider-group">
+<div class="slider-label">
+<span style="color: #3498db;">BLUE</span>
+<span class="slider-value" id="hexBlueValue">47</span>
+</div>
+<input class="slider" id="hexBlueSlider" max="255" min="0" type="range" value="71"/>
+</div>
+</div>
+<div class="tip-box">
+<h4><i class="fas fa-flask tip-icon"></i>जसिफ़ टीम टेस्ट:</h4>
+<p>सिलेंडरों को हिलाकर अलग-अलग HEX रंग बनाने का प्रयास करें। 00 से ff तक के मान प्रत्येक रंग की तीव्रता को नियंत्रित करते हैं।</p>
+</div>
+</section>
+<!-- Shades of Gray in HEX -->
+<section class="content-section" id="hex-gray">
+<h2>हेक्स में भूरे रंग के शेड्स</h2>
+<p>भूरे रंग के रंगों को अक्सर तीन मापदंडों के लिए समान मानों का उपयोग करके परिभाषित किया जाता है:</p>
+<div class="gray-scale">
+<div class="gray-box" style="background-color: #404040; color: white;">
+                    #404040
+                </div>
+<div class="gray-box" style="background-color: #686868; color: white;">
+                    #686868
+                </div>
+<div class="gray-box" style="background-color: #a0a0a0; color: white;">
+                    #a0a0a0
+                </div>
+<div class="gray-box" style="background-color: #bebebe; color: #333;">
+                    #bebebe
+                </div>
+<div class="gray-box" style="background-color: #dcdcdc; color: #333;">
+                    #dcdcdc
+                </div>
+<div class="gray-box" style="background-color: #f8f8f8; color: #333;">
+                    #f8f8f8
+                </div>
+</div>
+<div class="warning-box">
+<h4><i class="fas fa-balance-scale warning-icon"></i>जसिफ़ टीम नियम:</h4>
+<p>HEX ग्रेस्केल के लिए आवश्यक है कि लाल, हरा और नीला सभी का HEX मान समान हो। 00 के करीब का मान काले के करीब है, एफएफ के करीब का मान सफेद के करीब है।</p>
+</div>
+</section>
+<!-- HEX vs RGB Comparison -->
+<section class="content-section" id="comparison">
+<h2>हेक्स बनाम आरजीबी तुलना</h2>
+<div class="comparison-table">
+<table>
+<thead>
+<tr>
+<th>विशेषता</th>
+<th>HEX</th>
+<th>RGB</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>पूरा नाम</strong></td>
+<td>Hexadecimal</td>
+<td>Red Green Blue</td>
+</tr>
+<tr>
+<td><strong>FORMULA</strong></td>
+<td>#rrggbb</td>
+<td>rgb(r, g, b)</td>
+</tr>
+<tr>
+<td><strong>मूल्य पहुंच</strong></td>
+<td>00-एफएफ (हेक्साडेसिमल)</td>
+<td>0-255 (दशमलव)</td>
+</tr>
+<tr>
+<td><strong>आवेदन</strong></td>
+<td>वेब स्टैंडर्ड, सीएसएस</td>
+<td>सामान्य प्रयोजन</td>
+</tr>
+<tr>
+<td><strong>सारांश</strong></td>
+<td>#fff, #000 (3-digit)</td>
+<td>नहीं</td>
+</tr>
+<tr>
+<td><strong>उदाहरण</strong></td>
+<td style="color: #ff6347;">#ff6347</td>
+<td style="color: rgb(255, 99, 71);">rgb(255, 99, 71)</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tip-box">
+<h4><i class="fas fa-calculator tip-icon"></i>जसिफ टीम रिप्लेसमेंट फॉर्मूला:</h4>
+<p>HEX → RGB: प्रत्येक HEX जोड़ी को दशमलव में बदलें<br/>RGB → HEX: प्रत्येक दशमलव मान को हेक्साडेसिमल में बदलें<br/>उदाहरण के लिए: #ff6347 = rgb(255, 99, 71)</p>
+</div>
+</section>
+<!-- Exercise Section -->
+<section class="content-section" id="exercise">
+<h2>अभ्यास</h2>
+<div class="exercise-box">
+<h4><span class="exercise-icon">🔢</span>निम्नलिखित में से कौन सी अधिकतम HEX संख्या है?</h4>
+<div class="comparison-container" style="justify-content: center; grid-template-columns: repeat(3, 1fr);">
+<div style="background: white; border: 2px solid #ddd; border-radius: 10px; padding: 2rem; text-align: center;">
+<h3 style="margin: 0; color: #333; font-size: 2rem; font-family: 'Courier New', monospace;">#44</h3>
+<p style="margin: 1rem 0 0 0; font-size: 1rem; color: #666;">दशमलव: 68</p>
+</div>
+<div style="background: white; border: 2px solid #ddd; border-radius: 10px; padding: 2rem; text-align: center;">
+<h3 style="margin: 0; color: #333; font-size: 2rem; font-family: 'Courier New', monospace;">#AA</h3>
+<p style="margin: 1rem 0 0 0; font-size: 1rem; color: #666;">दशमलव: 170</p>
+</div>
+<div style="background: white; border: 2px solid #ddd; border-radius: 10px; padding: 2rem; text-align: center;">
+<h3 style="margin: 0; color: #333; font-size: 2rem; font-family: 'Courier New', monospace;">#BB</h3>
+<p style="margin: 1rem 0 0 0; font-size: 1rem; color: #666;">दशमलव: 187</p></div>
+</div>
+<div class="options-grid">
+<div class="option-card" data-correct="false">
+<div class="option-content">
+<div class="option-text">#44 (दशमलव: 68)</div>
+<div class="option-feedback incorrect">✗ ग़लत! 44 सबसे कम HEX मान है</div>
+</div>
+</div>
+<div class="option-card" data-correct="false">
+<div class="option-content">
+<div class="option-text">#एए (दशमलव: 170)</div>
+<div class="option-feedback incorrect">✗ ग़लत! AA, BB से कम है</div>
+</div>
+</div>
+<div class="option-card" data-correct="true">
+<div class="option-content">
+<div class="option-text">#बीबी (दशमलव: 187)</div>
+<div class="option-feedback correct">✓ ठीक है! बीबी उच्चतम HEX मान है (दशमलव 187)</div>
+</div>
+</div>
+<div class="option-card" data-correct="false">
+<div class="option-content">
+<div class="option-text">#FF (दशमलव: 255)</div>
+<div class="option-feedback incorrect">✗ ग़लत! एफएफ सही उत्तर नहीं है, यह विकल्पों में नहीं है</div>
+</div>
+</div>
+</div>
+</div>
+<div class="tip-box">
+<h4><i class="fas fa-sort-amount-up tip-icon"></i>जसिफ टीम हेक्स लाइनअप:</h4>
+<p>HEX संख्याओं का अनुक्रम: 0-9 (न्यूनतम), A-F (उच्चतम)<br/>ए=10, बी=11, सी=12, डी=13, ई=14, एफ=15 (दशमलव)<br/>तो: #44 (68) &lt; #एए (170) &lt; #बीबी (187) &lt; #एफएफ (255)</p>
+</div>
+</section>
+<!-- 3-digit HEX Shortcut -->
+<section class="content-section" id="shortcut">
+<h2>3-अंकीय HEX संक्षिप्तीकरण</h2>
+<p>HEX रंगों में 3 अंकों का संक्षिप्त नाम होता है:</p>
+<div class="hex-comparison">
+<div class="hex-card" style="background-color: #f00;">
+                    #f00<br/>
+                    = #ff0000<br/>लाल</div>
+<div class="hex-card" style="background-color: #0f0;">
+                    #0f0<br/>
+                    = #00ff00<br/>हरा</div>
+<div class="hex-card" style="background-color: #00f;">
+                    #00f<br/>
+                    = #0000ff<br/>नीला</div>
+</div>
+<div class="hex-comparison">
+<div class="hex-card" style="background-color: #000; color: white;">
+                    #000<br/>
+                    = #000000<br/>काला</div>
+<div class="hex-card" style="background-color: #fff; color: #333;">
+                    #fff<br/>
+                    = #ffffff<br/>सफ़ेद</div>
+<div class="hex-card" style="background-color: #888;">
+                    #888<br/>
+                    = #888888<br/>राख</div>
+</div>
+<div class="warning-box">
+<h4><i class="fas fa-compress-alt warning-icon"></i>जसिफ़ टीम नियम:</h4>
+<p>3-अंकीय HEX संक्षिप्त नाम प्रत्येक अंक को दोगुना करके काम करता है: #rgb = #rrggbb<br/>उदाहरण के लिए: #f00 = #ff0000, #0f0 = #00ff00, #00f = #0000ff</p>
+</div>
+</section>
+<!-- Bottom Navigation -->
+<div class="bottom-nav">
+<a class="nav-tab prev" href="HTML%20RGB%20and%20RGBA%20Colors.html">
+<i class="fas fa-arrow-left"></i>
+<span>पिछला</span>
+</a>
+<a class="nav-tab next" href="HTML%20HSL%20and%20HSLA%20Colors.html">
+<span>अगला</span>
+<i class="fas fa-arrow-right"></i>
+</a>
+</div>
+</main>
+<!-- Footer -->
+<footer>
+<div class="footer-content">
+<div class="footer-column">
+<h3>Jassif Team Institution</h3>
+<p>Leading educational institution providing quality programming education in Hindi.</p>
+</div>
+<div class="footer-column">
+<h3>Quick Links</h3>
+<ul>
+<li><a href="#introduction">HEX Colors</a></li>
+<li><a href="#hex-values">HEX Values</a></li>
+<li><a href="#hex-mixer">HEX Mixer</a></li>
+<li><a href="#hex-gray">HEX Gray Shades</a></li>
+<li><a href="#exercise">अभ्यास</a></li>
+</ul>
+</div>
+<div class="footer-column">
+<h3>Contact</h3>
+<ul>
+<li><a href="#">About Us</a></li>
+<li><a href="#">Contact Us</a></li>
+<li><a href="#">Location &amp; Hours</a></li>
+</ul>
+</div>
+<div class="footer-column">
+<h3>Follow Us</h3>
+<ul>
+<li><a href="#"><i class="fab fa-facebook"></i> Facebook</a></li>
+<li><a href="#"><i class="fab fa-instagram"></i> Instagram</a></li>
+<li><a href="#"><i class="fab fa-youtube"></i> YouTube</a></li>
+</ul>
+</div>
+</div>
+<div class="copyright">
+<p>© 2023 Jassif Team Institution. All rights reserved.</p>
+</div>
+</footer>
+<script>
+        // Add smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Add scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animation = 'fadeInUp 0.8s ease-out forwards';
+                }
+            });
+        }, observerOptions);
+        
+        // Observe all content sections for animation
+        document.querySelectorAll('.content-section').forEach(section => {
+            observer.observe(section);
+        });
+
+        // Exercise interaction
+        document.querySelectorAll('.option-card').forEach(card => {
+            card.addEventListener('click', function() {
+                // Show feedback for all options
+                document.querySelectorAll('.option-card').forEach(c => {
+                    c.querySelector('.option-feedback').style.display = 'block';
+                });
+            });
+        });
+
+        // HEX Slider functionality
+        const hexRedSlider = document.getElementById('hexRedSlider');
+        const hexGreenSlider = document.getElementById('hexGreenSlider');
+        const hexBlueSlider = document.getElementById('hexBlueSlider');
+        const hexDisplay = document.getElementById('hexDisplay');
+        const hexRedValue = document.getElementById('hexRedValue');
+        const hexGreenValue = document.getElementById('hexGreenValue');
+        const hexBlueValue = document.getElementById('hexBlueValue');
+
+        function decimalToHex(decimal) {
+            const hex = decimal.toString(16).toUpperCase();
+            return hex.length === 1 ? '0' + hex : hex;
+        }
+
+        function updateHEXDisplay() {
+            const red = parseInt(hexRedSlider.value);
+            const green = parseInt(hexGreenSlider.value);
+            const blue = parseInt(hexBlueSlider.value);
+            
+            const redHex = decimalToHex(red);
+            const greenHex = decimalToHex(green);
+            const blueHex = decimalToHex(blue);
+            
+            hexRedValue.textContent = redHex;
+            hexGreenValue.textContent = greenHex;
+            hexBlueValue.textContent = blueHex;
+            
+            const hexColor = `#${redHex}${greenHex}${blueHex}`;
+            hexDisplay.style.backgroundColor = hexColor;
+            hexDisplay.textContent = hexColor;
+            
+            // Adjust text color based on brightness
+            const brightness = (red * 299 + green * 587 + blue * 114) / 1000;
+            hexDisplay.style.color = brightness > 125 ? 'black' : 'white';
+        }
+
+        hexRedSlider.addEventListener('input', updateHEXDisplay);
+        hexGreenSlider.addEventListener('input', updateHEXDisplay);
+        hexBlueSlider.addEventListener('input', updateHEXDisplay);
+
+        // Initialize display
+        updateHEXDisplay();
+    </script>
+<!-- Home Button -->
+<a class="home-icon" href="index.html">
+<i class="fas fa-home"></i>
+</a>
+</body>
+</html>

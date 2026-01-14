@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+
+<html lang="hi">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>HTML Image Maps - Jassif Team</title>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<link href="style.css" rel="stylesheet"/>
+<style>
+        .content-section p, 
+        .content-section li,
+        .content-section h3,
+        .content-section h4,
+        .comparison-card p {
+            color: #333 !important;
+        }
+        
+        .tip-box p,
+        .tip-box li,
+        .tip-box h4 {
+            color: white !important;
+        }
+        
+        .warning-box p,
+        .warning-box li,
+        .warning-box h4 {
+            color: white !important;
+        }
+        
+        .exercise-box p,
+        .exercise-box h4 {
+            color: white !important;
+        }
+        
+        /* Stable logo styling - NO ANIMATIONS */
+        .logo-icon {
+            animation: none !important;
+        }
+        
+        .logo-image {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+            display: block;
+            border: 2px solid white;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            animation: none !important;
+        }
+        
+        /* Image map preview styling */
+        .image-map-container {
+            position: relative;
+            margin: 2rem 0;
+            text-align: center;
+        }
+        
+        .image-map-preview {
+            max-width: 100%;
+            height: auto;
+            border: 2px solid var(--git-color);
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        
+        .shape-demo {
+            position: absolute;
+            border: 2px dashed red;
+            pointer-events: none;
+        }
+        
+        .shape-rect {
+            border-color: #3498db;
+        }
+        
+        .shape-circle {
+            border-color: #e74c3c;
+            border-radius: 50%;
+        }
+        
+        .shape-poly {
+            border-color: #27ae60;
+        }
+        
+        .coordinate-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+        
+        .coordinate-item {
+            background: var(--light);
+            padding: 1rem;
+            border-radius: 8px;
+            border-left: 4px solid var(--git-color);
+        }
+        
+        .image-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .gallery-item {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        
+        .gallery-item:hover {
+            transform: translateY(-5px);
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            display: block;
+        }
+        
+        .gallery-caption {
+            padding: 1rem;
+            background: white;
+            text-align: center;
+        }
+        
+        .missing-image {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+<!-- Header -->
+<header>
+<div class="header-container">
+<div class="logo">
+<div class="logo-icon">
+<img alt="Jassif Team Logo" class="logo-image" src="logo.jpg"/>
+</div>
+<h1>Jassif Team <span>Institution</span></h1>
+</div>
+</div>
+</header>
+<!-- Top Navigation Tabs -->
+<div class="nav-tabs">
+<a class="nav-tab prev" href="HTML%20Images.html">
+<i class="fas fa-arrow-left"></i>
+<span>पिछला</span>
+</a>
+<a class="nav-tab next" href="HTML%20Background%20Images.html">
+<span>अगला</span>
+<i class="fas fa-arrow-right"></i>
+</a>
+</div>
+<!-- Hero Section -->
+<section class="hero" id="home">
+<div class="hero-content">
+<h2>HTML Image Maps</h2>
+<p>छवि में क्लिक करने योग्य क्षेत्र बनाना</p>
+</div>
+</section>
+<!-- Main Content -->
+<main class="container">
+<!-- Introduction -->
+<section class="content-section" id="introduction">
+<h2>HTML छवि मानचित्र</h2>
+<p>आप HTML छवि मानचित्रों का उपयोग करके किसी छवि में क्लिक करने योग्य क्षेत्र बना सकते हैं।</p>
+<div class="tip-box">
+<h4><span class="tip-icon">🗺️</span>छवि मानचित्र क्या हैं?</h4>
+<p>एक छवि मानचित्र क्लिक करने योग्य क्षेत्रों वाली एक छवि है। इन क्षेत्रों को एक या अधिक &lt;क्षेत्र&gt; टैग द्वारा परिभाषित किया गया है।</p>
+</div>
+<div class="image-map-container">
+<img alt="Image Map Example - img2" class="image-map-preview" src="img2.png"/>
+<p class="image-caption">चित्र 1: मूल छवि मानचित्र उदाहरण (img2.png)</p>
+</div>
+</section>
+<!-- How Image Maps Work -->
+<section class="content-section" id="how-it-works">
+<h2>छवि मानचित्र कैसे काम करते हैं?</h2>
+<p>छवि मानचित्र के पीछे का विचार यह है कि आप छवि पर कहां क्लिक करते हैं, इसके आधार पर विभिन्न क्रियाएं की जाती हैं।</p>
+<p>एक छवि मानचित्र बनाने के लिए, आपको एक छवि और कुछ HTML कोड की आवश्यकता होती है जो क्लिक करने योग्य क्षेत्रों का वर्णन करता है।</p>
+<div class="image-map-container">
+<img alt="Workplace Example - img3" class="image-map-preview" src="img3.png"/>
+<div class="shape-demo shape-rect" style="left: 34px; top: 44px; width: 236px; height: 306px;"></div>
+<div class="shape-demo shape-rect" style="left: 290px; top: 172px; width: 43px; height: 78px;"></div>
+<div class="shape-demo shape-circle" style="left: 293px; top: 256px; width: 88px; height: 88px;"></div>
+<p class="image-caption">चित्र 2: कंप्यूटर, फ़ोन, कॉफ़ी कप - क्लिक करने योग्य क्षेत्र (img3.png)</p>
+</div>
+</section>
+<!-- Example Code -->
+<section class="content-section" id="example">
+<h2>उदाहरण कोड</h2>
+<p>उपरोक्त छवि मानचित्र के लिए HTML स्रोत कोड:</p>
+<div class="code-example">
+<h3>HTML Code</h3>
+<pre><code>&lt;img src="workplace.jpg" alt="Workplace" usemap="#workmap"&gt;
+
+&lt;map name="workmap"&gt;
+  &lt;area shape="rect" coords="34,44,270,350" alt="Computer" href="computer.htm"&gt;
+  &lt;area shape="rect" coords="290,172,333,250" alt="Phone" href="phone.htm"&gt;
+  &lt;area shape="circle" coords="337,300,44" alt="Coffee" href="coffee.htm"&gt;
+&lt;/map&gt;</code></pre>
+</div>
+<div class="image-map-container">
+<img alt="Code Structure - img4" class="image-map-preview" src="img4.png"/>
+<p class="image-caption">चित्र 3: HTML कोड की संरचना (img4.png)</p>
+</div>
+</section>
+<!-- Shape Types -->
+<section class="content-section" id="shapes">
+<h2>आकृति प्रकार</h2>
+<p>आपको क्लिक करने योग्य क्षेत्र का आकार परिभाषित करना होगा, और आप इनमें से कोई एक मान चुन सकते हैं:</p>
+<div class="coordinate-grid">
+<div class="coordinate-item">
+<h4>rect</h4>
+<p>एक आयताकार क्षेत्र को परिभाषित करता है</p>
+</div>
+<div class="coordinate-item">
+<h4>circle</h4>
+<p>वृत्ताकार क्षेत्र को परिभाषित करता है</p>
+</div>
+<div class="coordinate-item">
+<h4>poly</h4>
+<p>बहुभुज क्षेत्र को परिभाषित करता है</p>
+</div>
+<div class="coordinate-item">
+<h4>default</h4>
+<p>संपूर्ण क्षेत्र को परिभाषित करता है</p>
+</div>
+</div>
+<h3>प्रारूप = "रेक्ट" (आयत)</h3>
+<p>आकार='रेक्ट' के निर्देशांक जोड़े में आते हैं, एक x-अक्ष के लिए और एक y-अक्ष के लिए।</p>
+<div class="image-map-container">
+<img alt="Rectangle Coordinates - img5" class="image-map-preview" src="img5.png"/>
+<div class="shape-demo shape-rect" style="left: 50px; top: 50px; width: 200px; height: 200px;"></div>
+<p class="image-caption">चित्र 4: आयत के लिए निर्देशांक (img5.png)</p>
+</div>
+<div class="code-example">
+<pre><code>&lt;area shape="rect" coords="34, 44, 270, 350" href="computer.htm"&gt;</code></pre>
+</div>
+<h3>प्रारूप = "सर्कल"</h3>
+<p>सबसे पहले वृत्त के केंद्र के निर्देशांक ज्ञात करें:</p>
+<div class="image-map-container">
+<img alt="Circle Coordinates - img6" class="image-map-preview" src="img6.png"/>
+<div class="shape-demo shape-circle" style="left: 250px; top: 150px; width: 100px; height: 100px;"></div>
+<p class="image-caption">चित्र 5: गोलाकार आकृति के लिए निर्देशांक (img6.png)</p>
+</div>
+<div class="code-example">
+<pre><code>&lt;area shape="circle" coords="337, 300, 44" href="coffee.htm"&gt;</code></pre>
+</div>
+<h3>आकार = "पाली" (बहुभुज)</h3>
+<p>आकार = "पॉली" में कई समन्वय बिंदु होते हैं, जो सीधी रेखाओं द्वारा बनाई गई आकृति बनाते हैं।</p>
+<div class="image-map-container">
+<img alt="Polygon Shape - img7" class="image-map-preview" src="img7.png"/>
+<div class="shape-demo shape-poly" style="left: 100px; top: 100px; width: 200px; height: 150px; clip-path: polygon(20% 0%, 80% 0%, 100% 50%, 80% 100%, 20% 100%, 0% 50%);"></div>
+<p class="image-caption">चित्र 6: बहुभुज आकार उदाहरण (img7.png)</p>
+</div>
+</section>
+<!-- Image Maps with JavaScript -->
+<section class="content-section" id="javascript">
+<h2>छवि मानचित्र और जावास्क्रिप्ट</h2>
+<p>क्लिक करने योग्य क्षेत्र एक जावास्क्रिप्ट फ़ंक्शन को भी ट्रिगर करेगा।</p>
+<p>क्षेत्र पर क्लिक होने पर जावास्क्रिप्ट फ़ंक्शन निष्पादित करने के लिए, &lt;क्षेत्र&gt; तत्व में एक क्लिक ईवेंट जोड़ें:</p>
+<div class="code-example">
+<h3>JavaScript Example</h3>
+<pre><code>&lt;map name="workmap"&gt;
+  &lt;area shape="circle" coords="337,300,44" href="coffee.htm" onclick="myFunction()"&gt;
+&lt;/map&gt;
+
+&lt;script&gt;
+function myFunction() {
+  alert("You clicked the coffee cup!");
+}
+&lt;/script&gt;</code></pre>
+</div>
+<div class="image-map-container">
+<img alt="JavaScript Integration - img8" class="image-map-preview" src="img8.png"/>
+<p class="image-caption">चित्र 7: जावास्क्रिप्ट के साथ एकीकरण (img8.png)</p>
+</div>
+</section>
+<!-- Chapter Summary -->
+<section class="content-section" id="summary">
+<h2>अध्याय का सारांश</h2>
+<div class="image-map-container">
+<img alt="Chapter Summary - img9" class="image-map-preview" src="img9.png"/>
+<p class="image-caption">चित्र 8: छवि ग्राफ़ सिद्धांत का सारांश (img9.png)</p>
+</div>
+<ul>
+<li>छवि मानचित्र को परिभाषित करने के लिए HTML &lt;map&gt; तत्व का उपयोग करें</li>
+<li>छवि मानचित्र में क्लिक करने योग्य क्षेत्रों को परिभाषित करने के लिए HTML &lt;क्षेत्र&gt; तत्व का उपयोग करें</li>
+<li>छवि मानचित्र को इंगित करने के लिए &lt;img&gt; तत्व का HTML<code>usemap</code>विशेषता का प्रयोग करें</li>
+</ul>
+</section>
+<!-- Exercise Section -->
+<section class="content-section" id="exercises">
+<h2>अभ्यास</h2>
+<div class="image-map-container">
+<img alt="Exercise Example - img10" class="image-map-preview" src="img10.png"/>
+<p class="image-caption">चित्र 9: अभ्यास उदाहरण (img10.png)</p>
+</div>
+<div class="exercise-box">
+<h4><span class="exercise-icon">❓</span>छवि मानचित्र को परिभाषित करने के लिए सही HTML तत्व क्या है?</h4>
+<div class="options-grid">
+<div class="option-card" data-correct="false">
+<div class="option-content">
+<div class="option-text">&lt;imagemap&gt; तत्व</div>
+<div class="option-feedback incorrect">✗ ग़लत! यह एक मान्य HTML तत्व नहीं है</div>
+</div>
+</div>
+<div class="option-card" data-correct="false">
+<div class="option-content">
+<div class="option-text">&lt;imgmap&gt; तत्व</div>
+<div class="option-feedback incorrect">✗ ग़लत! यह एक मान्य HTML तत्व नहीं है</div>
+</div>
+</div>
+<div class="option-card" data-correct="true">
+<div class="option-content">
+<div class="option-text">&lt;मानचित्र&gt; तत्व</div>
+<div class="option-feedback correct">✓ ठीक है! &lt;map&gt; टैग का उपयोग छवि मानचित्रों को परिभाषित करने के लिए किया जाता है</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- HTML Image Tags Reference -->
+<section class="content-section" id="tags-reference">
+<h2>HTML छवि टैग</h2>
+<div class="image-map-container">
+<img alt="HTML Tags Reference - img11" class="image-map-preview" src="img11.png"/>
+<p class="image-caption">चित्र 10: HTML छवि टैग के लिए संदर्भ (img11.png)</p>
+</div>
+<div class="comparison-table">
+<table>
+<thead>
+<tr>
+<th>टैग</th>
+<th>स्पष्टीकरण</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>&lt;img&gt;</td>
+<td>एक छवि को परिभाषित करता है</td>
+</tr>
+<tr>
+<td>&lt;map&gt;</td>
+<td>एक छवि मानचित्र को परिभाषित करता है</td>
+</tr>
+<tr>
+<td>&lt;area&gt;</td>
+<td>छवि मानचित्र के भीतर क्लिक करने योग्य क्षेत्र को परिभाषित करता है</td>
+</tr>
+<tr>
+<td>&lt;picture&gt;</td>
+<td>एकाधिक छवि संसाधनों के लिए एक कंटेनर को परिभाषित करता है</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>सभी उपलब्ध HTML टैग्स की पूरी सूची के लिए, हमारे HTML टैग संदर्भ पर जाएँ।</p>
+</section>
+<!-- Image Gallery -->
+<section class="content-section" id="gallery">
+<h2>छवि मानचित्रण अनुप्रयोग</h2>
+<p>विभिन्न उद्योगों में छवि आरेखों का उपयोग कैसे किया जाता है इसके उदाहरण:</p>
+<div class="image-gallery">
+<div class="gallery-item">
+<img alt="img2 - Basic Image Map" src="img2.png"/>
+<div class="gallery-caption">
+<h4>एक बुनियादी उदाहरण</h4>
+<p>img2.png - पहली छवि मानचित्र</p>
+</div>
+</div>
+<div class="gallery-item">
+<img alt="img3 - Workplace Map" src="img3.png"/>
+<div class="gallery-caption">
+<h4>कार्यस्थल का नक्शा</h4>
+<p>img3.png - क्लिक करने योग्य आइटम</p>
+</div>
+</div>
+<div class="gallery-item">
+<img alt="img4 - Code Structure" src="img4.png"/>
+<div class="gallery-caption">
+<h4>कोड संरचना</h4>
+<p>img4.png - HTML कोड मैप</p>
+</div>
+</div>
+<div class="gallery-item">
+<img alt="img5 - Rectangle Shape" src="img5.png"/>
+<div class="gallery-caption">
+<h4>आयताकार आकार</h4>
+<p>img5.png - निर्देशांक के साथ</p>
+</div>
+</div>
+<div class="gallery-item">
+<img alt="img6 - Circle Shape" src="img6.png"/>
+<div class="gallery-caption">
+<h4>गोल आकार</h4>
+<p>img6.png - केंद्र और त्रिज्या</p>
+</div>
+</div>
+<div class="gallery-item">
+<img alt="img7 - Polygon Shape" src="img7.png"/>
+<div class="gallery-caption">
+<h4>बहुभुज आकार</h4>
+<p>img7.png - एकाधिक बिंदु निर्देशांक</p>
+</div>
+</div>
+</div>
+<p class="tip-box" style="margin-top: 2rem;">
+<strong>याद करने के लिए:</strong>छवि आरेखों का व्यापक रूप से वेबसाइटों, शैक्षिक सामग्रियों, उत्पाद कैटलॉग और गेम में उपयोग किया जाता है।</p>
+</section>
+<!-- Best Practices -->
+<section class="content-section" id="best-practices">
+<h2>सर्वोत्तम प्रथाएं</h2>
+<div class="best-practice-list">
+<div class="practice-item positive">
+<i class="fas fa-check-circle"></i>
+<div>
+<h4>वैकल्पिक विशेषताओं का प्रयोग करें</h4>
+<p>प्रत्येक &lt;क्षेत्र&gt; तत्व के लिए वर्णनात्मक वैकल्पिक पाठ प्रदान करें</p>
+</div>
+</div>
+<div class="practice-item positive">
+<i class="fas fa-check-circle"></i>
+<div>
+<h4>निर्देशांक की जाँच करें</h4>
+<p>यह सुनिश्चित करने के लिए कि निर्देशांक सही हैं, छवि ग्राफ़ परीक्षण टूल का उपयोग करें</p>
+</div>
+</div>
+<div class="practice-item negative">
+<i class="fas fa-exclamation-circle"></i>
+<div>
+<h4>अत्यधिक जटिल पैटर्न से बचें</h4>
+<p>जटिल बहुभुज आकृतियों को बनाए रखना कठिन हो सकता है</p>
+</div>
+</div>
+<div class="practice-item positive">
+<i class="fas fa-check-circle"></i>
+<div>
+<h4>प्रदर्शन के लिए वैकल्पिक तरीके प्रदान करें</h4>
+<p>जब छवि मानचित्र काम न करें तो वैकल्पिक नेविगेशन प्रदान करें</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Bottom Navigation -->
+<div class="bottom-nav">
+<a class="nav-tab prev" href="HTML%20Images.html">
+<i class="fas fa-arrow-left"></i>
+<span>पिछला</span>
+</a>
+<a class="nav-tab next" href="HTML%20Background%20Images.html">
+<span>अगला</span>
+<i class="fas fa-arrow-right"></i>
+</a>
+</div>
+</main>
+<!-- Footer -->
+<footer>
+<div class="footer-content">
+<div class="footer-column">
+<h3>Jassif Team Institution</h3>
+<p>Leading educational institution providing quality programming education in Hindi.</p>
+</div>
+<div class="footer-column">
+<h3>Quick Links</h3>
+<ul>
+<li><a href="#introduction">छवि मानचित्र</a></li>
+<li><a href="#how-it-works">यह कैसे काम करता है?</a></li>
+<li><a href="#shapes">आकृति प्रकार</a></li>
+<li><a href="#javascript">जावास्क्रिप्ट के साथ</a></li>
+<li><a href="#exercises">अभ्यास</a></li>
+<li><a href="#best-practices">सर्वोत्तम प्रथाएं</a></li>
+<li><a href="#gallery">छवि गैलरी</a></li>
+</ul>
+</div>
+<div class="footer-column">
+<h3>Resources</h3>
+<ul>
+<li><a href="#example">कोड उदाहरण</a></li>
+<li><a href="#tags-reference">टैग संदर्भ</a></li>
+<li><a href="#summary">अध्याय का सारांश</a></li>
+</ul>
+</div>
+<div class="footer-column">
+<h3>Follow Us</h3>
+<ul>
+<li><a href="#"><i class="fab fa-facebook"></i> Facebook</a></li>
+<li><a href="#"><i class="fab fa-instagram"></i> Instagram</a></li>
+<li><a href="#"><i class="fab fa-youtube"></i> YouTube</a></li>
+</ul>
+</div>
+</div>
+<div class="copyright">
+<p>© 2023 Jassif Team Institution. All rights reserved.</p>
+</div>
+</footer>
+<script>
+        // Add smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Add scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animation = 'fadeInUp 0.8s ease-out forwards';
+                }
+            });
+        }, observerOptions);
+        
+        // Observe all content sections for animation
+        document.querySelectorAll('.content-section').forEach(section => {
+            observer.observe(section);
+        });
+
+        // Exercise interaction
+        document.querySelectorAll('.option-card').forEach(card => {
+            card.addEventListener('click', function() {
+                // Show feedback for all options
+                document.querySelectorAll('.option-card').forEach(c => {
+                    c.querySelector('.option-feedback').style.display = 'block';
+                });
+            });
+        });
+
+        // Image map area hover effects
+        document.querySelectorAll('.shape-demo').forEach(area => {
+            area.addEventListener('mouseenter', function() {
+                this.style.borderStyle = 'solid';
+                this.style.borderWidth = '3px';
+            });
+            
+            area.addEventListener('mouseleave', function() {
+                this.style.borderStyle = 'dashed';
+                this.style.borderWidth = '2px';
+            });
+        });
+
+        // Simulate image map clicking
+        document.querySelectorAll('.image-map-preview').forEach(img => {
+            img.addEventListener('click', function(e) {
+                const rect = this.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                const imgName = this.getAttribute('src');
+                
+                alert(`படம்: ${imgName}\nகிளிக் செய்த இடம்: X=${Math.round(x)}, Y=${Math.round(y)}\n\nஉண்மையான பயன்பாட்டில், இந்த ஆயங்கள் பட வரைபடப் பகுதியைத் தீர்மானிக்கும்.`);
+            });
+        });
+        
+        // Gallery image click
+        document.querySelectorAll('.gallery-item img').forEach(img => {
+            img.addEventListener('click', function() {
+                const src = this.getAttribute('src');
+                const alt = this.getAttribute('alt');
+                alert(`படம்: ${src}\n\nபயன்பாடு: ${this.closest('.gallery-item').querySelector('h4').textContent}`);
+            });
+        });
+        
+        // Handle missing images
+        document.querySelectorAll('img').forEach(img => {
+            img.addEventListener('error', function() {
+                const parent = this.parentElement;
+                const imgName = this.getAttribute('src');
+                const altText = this.getAttribute('alt') || 'Image';
+                
+                // Create replacement div
+                const replacement = document.createElement('div');
+                replacement.className = 'missing-image';
+                replacement.innerHTML = `<div style="text-align: center;">
+                    <i class="fas fa-image" style="font-size: 3rem; margin-bottom: 10px;"></i><br>
+                    <strong>${altText}</strong><br>
+                    <small>File: ${imgName}</small><br>
+                    <small style="font-size: 0.8rem;">(இந்த படத்தை உங்கள் images கோப்புறையில் சேர்க்கவும்)</small>
+                </div>`;
+                
+                // Replace the image
+                parent.replaceChild(replacement, this);
+            });
+        });
+    </script>
+<!-- Home Button -->
+<a class="home-icon" href="index.html">
+<i class="fas fa-home"></i>
+</a>
+</body>
+</html>

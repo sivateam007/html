@@ -1,0 +1,746 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Head Element - Jassif Team</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .content-section p, 
+        .content-section li,
+        .content-section h3,
+        .content-section h4,
+        .comparison-card p {
+            color: #333 !important;
+        }
+        
+        .tip-box p,
+        .tip-box li,
+        .tip-box h4 {
+            color: white !important;
+        }
+        
+        .warning-box p,
+        .warning-box li,
+        .warning-box h4 {
+            color: white !important;
+        }
+        
+        .exercise-box p,
+        .exercise-box h4 {
+            color: white !important;
+        }
+        
+        /* Stable logo styling - NO ANIMATIONS */
+        .logo-icon {
+            animation: none !important;
+        }
+        
+        .logo-image {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+            display: block;
+            border: 2px solid white;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            animation: none !important;
+        }
+        
+        .viewport-links {
+            display: flex;
+            gap: 1rem;
+            margin: 1rem 0;
+            flex-wrap: wrap;
+        }
+        
+        .viewport-link {
+            padding: 10px 20px;
+            background: var(--git-color);
+            color: white;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s;
+            display: inline-block;
+            margin: 5px;
+        }
+        
+        .viewport-link:hover {
+            background: #e74c3c;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+        
+        .element-table {
+            margin: 2rem 0;
+            overflow-x: auto;
+        }
+        
+        .element-table table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        
+        .element-table th {
+            background: var(--git-color);
+            color: white;
+            padding: 1rem;
+            text-align: left;
+            font-weight: 600;
+        }
+        
+        .element-table td {
+            padding: 1rem;
+            border-bottom: 1px solid #f0f0f0;
+            vertical-align: top;
+        }
+        
+        .element-table tr:last-child td {
+            border-bottom: none;
+        }
+        
+        .element-table td:first-child {
+            font-family: 'Courier New', monospace;
+            color: #e74c3c;
+            font-weight: 600;
+        }
+        
+        .meta-example-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .meta-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            border-left: 4px solid var(--git-color);
+        }
+        
+        .meta-card h4 {
+            color: var(--dark);
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+        
+        .viewport-comparison {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .viewport-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            text-align: center;
+            border: 2px solid var(--git-color);
+        }
+        
+        .viewport-card h4 {
+            color: var(--git-color);
+            margin-bottom: 1rem;
+        }
+        
+        .code-example pre {
+            background: #2d2d2d;
+            color: #f8f8f2;
+            padding: 1.5rem;
+            border-radius: 8px;
+            overflow-x: auto;
+            font-family: 'Courier New', monospace;
+            line-height: 1.5;
+        }
+        
+        .content-section ul {
+            margin-left: 2rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .content-section li {
+            margin-bottom: 0.8rem;
+            padding-left: 1rem;
+        }
+        
+        .content-section li:before {
+            content: '•';
+            color: var(--git-color);
+            font-weight: bold;
+            display: inline-block;
+            width: 1em;
+            margin-left: -1em;
+        }
+        
+        .head-image-container {
+            text-align: center;
+            margin: 2rem 0;
+            padding: 1rem;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+        
+        .head-image-container img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            border: 2px solid var(--git-color);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <div class="logo-icon">
+                    <img src="logo.jpg" alt="Jassif Team Logo" class="logo-image">
+                </div>
+                <h1>Jassif Team <span>Institution</span></h1>
+            </div>
+        </div>
+    </header>
+
+    <!-- Top Navigation Tabs -->
+    <div class="nav-tabs">
+        <a href="HTML%20File%20Paths.html" class="nav-tab prev">
+            <i class="fas fa-arrow-left"></i>
+            <span>पिछला</span>
+        </a>
+        <a href="HTML%20Layout%20Elements%20and%20Techniques.html" class="nav-tab next">
+            <span>अगला</span>
+            <i class="fas fa-arrow-right"></i>
+        </a>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h2>HTML Head Element</h2>
+            <p>HTML &lt;head&gt; तत्व के बारे में संपूर्ण गाइड</p>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="container">
+        <!-- Introduction -->
+        <section class="content-section" id="introduction">
+            <h2>HTML - The Head Element</h2>
+            
+            <p>HTML &lt;head&gt; तत्व निम्नलिखित तत्वों के लिए एक कंटेनर है: &lt;title&gt;, &lt;style&gt;, &lt;meta&gt;, &lt;link&gt;, &lt;script&gt;, और &lt;base&gt;.</p>
+            
+            <div class="tip-box">
+                <h4><i class="fas fa-mobile-alt tip-icon"></i> Tip:</h4>
+                <p>If you are browsing this page with a phone or a tablet, you can click on the two links below to see the difference:</p>
+                
+                <div class="viewport-links">
+                    <a href="#without-viewport" class="viewport-link">Without the viewport meta tag</a>
+                    <a href="#with-viewport" class="viewport-link">With the viewport meta tag</a>
+                </div>
+            </div>
+            
+            <!-- Image added here as requested -->
+            <div class="head-image-container">
+                <img src="img16.png" alt="HTML Head Element Structure">
+                <p style="margin-top: 1rem; font-style: italic;">HTML Head Element Structure</p>
+            </div>
+        </section>
+
+        <!-- The HTML <head> Element -->
+        <section class="content-section" id="head-element">
+            <h2>The HTML &lt;head&gt; Element</h2>
+            
+            <p>&lt;head&gt; கூறு மெட்டாடேட்டாவிற்கான (தரவு பற்றிய தரவு) ஒரு கொள்கலனாகும் மற்றும் &lt;html&gt; குறிச்சொல்லுக்கும் &lt;body&gt; குறிச்சொல்லுக்கும் இடையில் வைக்கப்படுகிறது.</p>
+            
+            <p>HTML மெட்டாடேட்டா என்பது HTML ஆவணத்தைப் பற்றிய தரவாகும். மெட்டாடேட்டா பக்கத்தில் காட்டப்படாது.</p>
+            
+            <p>மெட்டாடேட்டா பொதுவாக ஆவணத் தலைப்பு, எழுத்துத் தொகுப்பு, பாணிகள், நிரல்கள் மற்றும் பிற மெட்டா தகவல்களை வரையறுக்கிறது.</p>
+        </section>
+
+        <!-- The HTML <title> Element -->
+        <section class="content-section" id="title-element">
+            <h2>The HTML &lt;title&gt; Element</h2>
+            
+            <p>&lt;title&gt; கூறு ஆவணத்தின் தலைப்பை வரையறுக்கிறது. தலைப்பு உரை-மட்டுமே இருக்க வேண்டும், மேலும் இது உலாவியின் தலைப்புப் பட்டியில் அல்லது பக்கத்தின் தாவலில் காட்டப்படும்.</p>
+            
+            <p>&lt;title&gt; கூறு HTML ஆவணங்களில் தேவைப்படுகிறது!</p>
+            
+            <p>பக்கத் தலைப்பின் सामग्री தேடுபொறி மேம்பாட்டிற்கு மிகவும் முக்கியமானது! பக்கங்களை தேடல் முடிவுகளில் பட்டியலிடும் போது வரிசையை முடிவு செய்ய தேடுபொறி வழிமுறைகளால் பக்கத் தலைப்பு பயன்படுத்தப்படுகிறது.</p>
+            
+            <p>&lt;title&gt; கூறு:</p>
+            <ul>
+                <li>உலாவி கருவிப்பட்டியில் ஒரு தலைப்பை வரையறுக்கிறது</li>
+                <li>பக்கம் பிடித்தவைகளில் சேர்க்கப்படும் போது ஒரு தலைப்பை வழங்குகிறது</li>
+                <li>தேடுபொறி முடிவுகளில் பக்கத்திற்கான தலைப்பைக் காட்டுகிறது</li>
+            </ul>
+            
+            <p>எனவே, தலைப்பை முடிந்தவரை துல்லியமாகவும் அர்த்தமுள்ளதாகவும் உருவாக்க முயற்சிக்கவும்!</p>
+            
+            <div class="code-example">
+                <h3>Example</h3>
+                <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+  &lt;title&gt;A Meaningful Page Title&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+The content of the document......
+
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+            </div>
+        </section>
+
+        <!-- The HTML <style> Element -->
+        <section class="content-section" id="style-element">
+            <h2>The HTML &lt;style&gt; Element</h2>
+            
+            <p>&lt;style&gt; கூறு ஒரு ஒற்றை HTML பக்கத்திற்கான பாணி தகவலை வரையறுக்க பயன்படுகிறது:</p>
+            
+            <div class="code-example">
+                <h3>Example</h3>
+                <pre><code>&lt;style&gt;
+  body {background-color: powderblue;}
+  h1 {color: red;}
+  p {color: blue;}
+&lt;/style&gt;</code></pre>
+            </div>
+        </section>
+
+        <!-- The HTML <link> Element -->
+        <section class="content-section" id="link-element">
+            <h2>The HTML &lt;link&gt; Element</h2>
+            
+            <p>&lt;link&gt; கூறு தற்போதைய ஆவணத்திற்கும் வெளிப்புற வளத்திற்கும் இடையிலான உறவை வரையறுக்கிறது.</p>
+            
+            <p>&lt;link&gt; குறிச்சொல் பெரும்பாலும் வெளிப்புற பாணி தாள்களை இணைக்கப் பயன்படுகிறது:</p>
+            
+            <div class="code-example">
+                <h3>Example</h3>
+                <pre><code>&lt;link rel="stylesheet" href="mystyle.css"&gt;</code></pre>
+            </div>
+            
+            <div class="tip-box">
+                <h4><i class="fas fa-lightbulb tip-icon"></i> Tip:</h4>
+                <p>To learn all about CSS, visit our CSS Tutorial.</p>
+            </div>
+        </section>
+
+        <!-- The HTML <meta> Element -->
+        <section class="content-section" id="meta-element">
+            <h2>The HTML &lt;meta&gt; Element</h2>
+            
+            <p>&lt;meta&gt; கூறு பொதுவாக எழுத்துத் தொகுப்பு, பக்க விவரம், முக்கிய சொற்கள், ஆவணத்தின் ஆசிரியர் மற்றும் பார்வைப்பகுதி அமைப்புகளைக் குறிப்பிட பயன்படுகிறது.</p>
+            
+            <p>மெட்டாடேட்டா பக்கத்தில் காட்டப்படாது, ஆனால் உலாவிகளால் (உள்ளடக்கத்தை எவ்வாறு காண்பிப்பது அல்லது பக்கத்தை மீண்டும் ஏற்றுவது), தேடுபொறிகளால் (முக்கிய சொற்கள்) மற்றும் பிற வலை சேவைகளால் பயன்படுத்தப்படுகிறது.</p>
+            
+            <h3>Examples</h3>
+            <div class="meta-example-grid">
+                <div class="meta-card">
+                    <h4>Define the character set used:</h4>
+                    <div class="code-example">
+                        <pre><code>&lt;meta charset="UTF-8"&gt;</code></pre>
+                    </div>
+                </div>
+                
+                <div class="meta-card">
+                    <h4>Define keywords for search engines:</h4>
+                    <div class="code-example">
+                        <pre><code>&lt;meta name="keywords" content="HTML, CSS, JavaScript"&gt;</code></pre>
+                    </div>
+                </div>
+                
+                <div class="meta-card">
+                    <h4>Define a description of your web page:</h4>
+                    <div class="code-example">
+                        <pre><code>&lt;meta name="description" content="Free Web tutorials"&gt;</code></pre>
+                    </div>
+                </div>
+                
+                <div class="meta-card">
+                    <h4>Define the author of a page:</h4>
+                    <div class="code-example">
+                        <pre><code>&lt;meta name="author" content="John Doe"&gt;</code></pre>
+                    </div>
+                </div>
+                
+                <div class="meta-card">
+                    <h4>Refresh document every 30 seconds:</h4>
+                    <div class="code-example">
+                        <pre><code>&lt;meta http-equiv="refresh" content="30"&gt;</code></pre>
+                    </div>
+                </div>
+                
+                <div class="meta-card">
+                    <h4>Setting the viewport:</h4>
+                    <div class="code-example">
+                        <pre><code>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</code></pre>
+                    </div>
+                </div>
+            </div>
+            
+            <h3>Example of &lt;meta&gt; tags:</h3>
+            <div class="code-example">
+                <pre><code>&lt;meta charset="UTF-8"&gt;
+&lt;meta name="description" content="Free Web tutorials"&gt;
+&lt;meta name="keywords" content="HTML, CSS, JavaScript"&gt;
+&lt;meta name="author" content="John Doe"&gt;</code></pre>
+            </div>
+        </section>
+
+        <!-- Setting The Viewport -->
+        <section class="content-section" id="viewport-setting">
+            <h2>Setting The Viewport</h2>
+            
+            <p>பார்வைப்பகுதி என்பது ஒரு வலைப்பக்கத்தின் பயனர் காணக்கூடிய பகுதியாகும். இது சாதனத்துடன் மாறுபடும் - இது கணினி திரையில் இருப்பதை விட மொபைல் தொலைபேசியில் சிறியதாக இருக்கும்.</p>
+            
+            <p>You should include the following &lt;meta&gt; element in all your web pages:</p>
+            
+            <div class="code-example">
+                <pre><code>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</code></pre>
+            </div>
+            
+            <p>This gives the browser instructions on how to control the page's dimensions and scaling.</p>
+            
+            <p>The width=device-width part sets the width of the page to follow the screen-width of the device (which will vary depending on the device).</p>
+            
+            <p>The initial-scale=1.0 part sets the initial zoom level when the page is first loaded by the browser.</p>
+            
+            <p>Here is an example of a web page without the viewport meta tag, and the same web page with the viewport meta tag:</p>
+            
+            <div class="viewport-comparison">
+                <div class="viewport-card" id="without-viewport">
+                    <h4>Without the viewport meta tag</h4>
+                    <p>பார்வைப்பகுதி மெட்டா குறிச்சொல் இல்லாமல்</p>
+                    <div style="background: #f8f9fa; padding: 1rem; border-radius: 5px; margin-top: 1rem;">
+                        <p style="color: #333; font-size: 0.9rem;">இந்த வலைப்பக்கத்தில் सामग्री சரியாக அளவிடப்படவில்லை. நீங்கள் உருட்ட வேண்டியிருக்கலாம் அல்லது உள்ளடக்கத்தைப் பார்க்க சிறியதாக இருக்கலாம்.</p>
+                    </div>
+                </div>
+                
+                <div class="viewport-card" id="with-viewport">
+                    <h4>With the viewport meta tag</h4>
+                    <p>பார்வைப்பகுதி மெட்டா குறிச்சொல்லுடன்</p>
+                    <div style="background: #f8f9fa; padding: 1rem; border-radius: 5px; margin-top: 1rem;">
+                        <p style="color: #333; font-size: 0.9rem;">இந்த வலைப்பக்கத்தில் सामग्री சாதன அகலத்திற்கு ஏற்ப சரியாக அளவிடப்பட்டுள்ளது. படிக்க எளிதானது மற்றும் பயனர் நட்பு.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- The HTML <script> Element -->
+        <section class="content-section" id="script-element">
+            <h2>The HTML &lt;script&gt; Element</h2>
+            
+            <p>&lt;script&gt; கூறு கிளையன்-பக்க JavaScripts ஐ வரையறுக்க பயன்படுகிறது.</p>
+            
+            <p>The following JavaScript writes "Hello JavaScript!" into an HTML element with id="demo":</p>
+            
+            <div class="code-example">
+                <h3>Example</h3>
+                <pre><code>&lt;script&gt;
+function myFunction() {
+  document.getElementById("demo").innerHTML = "Hello JavaScript!";
+}
+&lt;/script&gt;</code></pre>
+            </div>
+            
+            <div class="tip-box">
+                <h4><i class="fas fa-code tip-icon"></i> Tip:</h4>
+                <p>To learn all about JavaScript, visit our JavaScript Tutorial.</p>
+            </div>
+        </section>
+
+        <!-- The HTML <base> Element -->
+        <section class="content-section" id="base-element">
+            <h2>The HTML &lt;base&gt; Element</h2>
+            
+            <p>&lt;base&gt; கூறு ஒரு பக்கத்தில் உள்ள அனைத்து சார்பு URLs க்கும் அடிப்படை URL மற்றும்/அல்லது இலக்கைக் குறிப்பிடுகிறது.</p>
+            
+            <p>&lt;base&gt; tag must have either an href or a target attribute present, or both.</p>
+            
+            <p>There can only be one single &lt;base&gt; element in a document!</p>
+            
+            <div class="code-example">
+                <h3>Example</h3>
+                <pre><code>Specify a default URL and a default target for all links on a page:
+
+&lt;head&gt;
+&lt;base href="https://www.jassifteam.com/" target="_blank"&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+&lt;img src="images/stickman.gif" width="24" height="39" alt="Stickman"&gt;
+&lt;a href="tags/tag_base.asp"&gt;HTML base Tag&lt;/a&gt;
+&lt;/body&gt;</code></pre>
+            </div>
+        </section>
+
+        <!-- Chapter Summary -->
+        <section class="content-section" id="summary">
+            <h2>Chapter Summary</h2>
+            <ul>
+                <li>&lt;head&gt; கூறு மெட்டாடேட்டாவிற்கான (தரவு பற்றிய தரவு) ஒரு கொள்கலனாகும்</li>
+                <li>&lt;head&gt; கூறு &lt;html&gt; குறிச்சொல்லுக்கும் &lt;body&gt; குறிச்சொல்லுக்கும் இடையில் வைக்கப்படுகிறது</li>
+                <li>&lt;title&gt; கூறு தேவைப்படுகிறது மற்றும் இது ஆவணத்தின் தலைப்பை வரையறுக்கிறது</li>
+                <li>&lt;style&gt; கூறு ஒரு ஒற்றை ஆவணத்திற்கான பாணி தகவலை வரையறுக்க பயன்படுகிறது</li>
+                <li>&lt;link&gt; குறிச்சொல் பெரும்பாலும் வெளிப்புற பாணி தாள்களை இணைக்க பயன்படுகிறது</li>
+                <li>&lt;meta&gt; கூறு பொதுவாக எழுத்துத் தொகுப்பு, பக்க விவரம், முக்கிய சொற்கள், ஆவணத்தின் ஆசிரியர் மற்றும் பார்வைப்பகுதி அமைப்புகளைக் குறிப்பிட பயன்படுகிறது</li>
+                <li>&lt;script&gt; கூறு கிளையன்-பக்க JavaScripts ஐ வரையறுக்க பயன்படுகிறது</li>
+                <li>&lt;base&gt; கூறு ஒரு பக்கத்தில் உள்ள அனைத்து சார்பு URLs க்கும் அடிப்படை URL மற்றும்/அல்லது இலக்கைக் குறிப்பிடுகிறது</li>
+            </ul>
+        </section>
+
+        <!-- Exercise Section -->
+        <section class="content-section" id="exercise">
+            <h2>Exercise</h2>
+            
+            <p style="text-align: center; font-size: 1.2rem; margin-bottom: 1.5rem;">❓ Which one of the following elements should NOT be placed in the head section?</p>
+            
+            <div class="exercise-box">
+                <div class="options-grid">
+                    <div class="option-card" data-correct="false">
+                        <div class="option-content">
+                            <div class="option-text">&lt;title&gt;</div>
+                            <div class="option-feedback correct">✓ Correct! &lt;title&gt; element should be placed in head section</div>
+                        </div>
+                    </div>
+                    
+                    <div class="option-card" data-correct="false">
+                        <div class="option-content">
+                            <div class="option-text">&lt;link&gt;</div>
+                            <div class="option-feedback correct">✓ Correct! &lt;link&gt; element should be placed in head section</div>
+                        </div>
+                    </div>
+                    
+                    <div class="option-card" data-correct="true">
+                        <div class="option-content">
+                            <div class="option-text">&lt;body&gt;</div>
+                            <div class="option-feedback incorrect">✗ Incorrect! &lt;body&gt; element should NOT be placed in head section. It's a separate section.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- HTML head Elements Table -->
+        <section class="content-section" id="elements-table">
+            <h2>HTML head Elements</h2>
+            
+            <div class="element-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Tag</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>&lt;head&gt;</td>
+                            <td>Defines information about the document</td>
+                        </tr>
+                        <tr>
+                            <td>&lt;title&gt;</td>
+                            <td>Defines the title of a document</td>
+                        </tr>
+                        <tr>
+                            <td>&lt;base&gt;</td>
+                            <td>Defines a default address or a default target for all links on a page</td>
+                        </tr>
+                        <tr>
+                            <td>&lt;link&gt;</td>
+                            <td>Defines the relationship between a document and an external resource</td>
+                        </tr>
+                        <tr>
+                            <td>&lt;meta&gt;</td>
+                            <td>Defines metadata about an HTML document</td>
+                        </tr>
+                        <tr>
+                            <td>&lt;script&gt;</td>
+                            <td>Defines a client-side script</td>
+                        </tr>
+                        <tr>
+                            <td>&lt;style&gt;</td>
+                            <td>Defines style information for a document</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <div class="tip-box">
+                <h4><i class="fas fa-book tip-icon"></i> Tip:</h4>
+                <p>For a complete list of all available HTML tags, visit our HTML Tag Reference.</p>
+            </div>
+        </section>
+
+        <!-- Bottom Navigation -->
+        <div class="bottom-nav">
+            <a href="HTML%20File%20Paths.html" class="nav-tab prev">
+                <i class="fas fa-arrow-left"></i>
+                <span>पिछला</span>
+            </a>
+            <a href="HTML%20Layout%20Elements%20and%20Techniques.html" class="nav-tab next">
+                <span>अगला</span>
+                <i class="fas fa-arrow-right"></i>
+            </a>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-column">
+                <h3>Jassif Team Institution</h3>
+                <p>Leading educational institution providing quality programming education in Hindi.</p>
+            </div>
+            <div class="footer-column">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#introduction">HTML Head Element</a></li>
+                    <li><a href="#title-element">The &lt;title&gt; Element</a></li>
+                    <li><a href="#meta-element">The &lt;meta&gt; Element</a></li>
+                    <li><a href="#viewport-setting">Viewport Setting</a></li>
+                    <li><a href="#exercise">Exercise</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Contact</h3>
+                <ul>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="#">Location & Hours</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Follow Us</h3>
+                <ul>
+                    <li><a href="#"><i class="fab fa-facebook"></i> Facebook</a></li>
+                    <li><a href="#"><i class="fab fa-instagram"></i> Instagram</a></li>
+                    <li><a href="#"><i class="fab fa-youtube"></i> YouTube</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2023 Jassif Team Institution. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Add smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Add scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animation = 'fadeInUp 0.8s ease-out forwards';
+                }
+            });
+        }, observerOptions);
+        
+        // Observe all content sections for animation
+        document.querySelectorAll('.content-section').forEach(section => {
+            observer.observe(section);
+        });
+
+        // Exercise interaction
+        document.querySelectorAll('.option-card').forEach(card => {
+            card.addEventListener('click', function() {
+                const isCorrect = this.getAttribute('data-correct') === 'true';
+                
+                // Show feedback for all options
+                document.querySelectorAll('.option-card').forEach(c => {
+                    const feedback = c.querySelector('.option-feedback');
+                    feedback.style.display = 'block';
+                    
+                    // Highlight correct/wrong answers
+                    if(c.getAttribute('data-correct') === 'true') {
+                        c.style.borderColor = '#28a745';
+                        c.style.background = 'rgba(40, 167, 69, 0.1)';
+                    } else {
+                        c.style.borderColor = '#dc3545';
+                        c.style.background = 'rgba(220, 53, 69, 0.1)';
+                    }
+                });
+                
+                // Show alert message
+                if(isCorrect) {
+                    alert('🎉 Correct! &lt;body&gt; element should NOT be placed in the head section. It is a separate section.');
+                } else {
+                    alert('❌ Incorrect! Please select the correct answer.');
+                }
+            });
+        });
+        
+        // Viewport link functionality
+        document.querySelectorAll('.viewport-link').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if(targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 100,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Highlight the section
+                    targetElement.style.boxShadow = '0 0 0 3px rgba(241, 196, 15, 0.5)';
+                    targetElement.style.transition = 'box-shadow 0.3s';
+                    
+                    setTimeout(() => {
+                        targetElement.style.boxShadow = '';
+                    }, 2000);
+                }
+            });
+        });
+        
+        // Image fallback
+        const headImage = document.querySelector('.head-image-container img');
+        if(headImage) {
+            headImage.onerror = function() {
+                this.src = 'https://via.placeholder.com/800x400/3498db/ffffff?text=HTML+Head+Element+Structure';
+                this.alt = 'HTML Head Element Structure - Placeholder Image';
+            };
+        }
+    </script>
+
+    <!-- Home Button -->
+    <a href="index.html" class="home-icon">
+        <i class="fas fa-home"></i>
+    </a>
+</body>
+</html>

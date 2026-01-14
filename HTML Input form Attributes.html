@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+
+<html lang="hi">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>HTML Input form* Attributes - Jassif Team</title>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<link href="style.css" rel="stylesheet"/>
+<style>
+        .content-section p, 
+        .content-section li,
+        .content-section h3,
+        .content-section h4,
+        .comparison-card p {
+            color: #333 !important;
+        }
+        
+        .tip-box p,
+        .tip-box li,
+        .tip-box h4 {
+            color: white !important;
+        }
+        
+        .warning-box p,
+        .warning-box li,
+        .warning-box h4 {
+            color: white !important;
+        }
+        
+        .exercise-box p,
+        .exercise-box h4 {
+            color: white !important;
+        }
+        
+        /* Stable logo styling - NO ANIMATIONS */
+        .logo-icon {
+            animation: none !important; /* Remove pulse animation */
+        }
+        
+        .logo-image {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+            display: block;
+            border: 2px solid white;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            animation: none !important; /* Ensure no animations */
+        }
+        
+        /* Form attribute styling */
+        .form-attr-demo {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+            border-left: 4px solid var(--git-color);
+            border: 1px dashed #ccc;
+        }
+        
+        .form-attr-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+        
+        .form-attr-card {
+            background: white;
+            padding: 1.2rem;
+            border-radius: 6px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            border: 1px solid #e0e0e0;
+            transition: transform 0.2s;
+        }
+        
+        .form-attr-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+        
+        .form-attr-icon {
+            font-size: 1.5rem;
+            color: var(--git-color);
+            margin-bottom: 0.5rem;
+        }
+        
+        .form-attr-name {
+            font-weight: bold;
+            color: var(--dark);
+            margin-bottom: 0.3rem;
+            font-family: 'Courier New', monospace;
+        }
+        
+        .form-attr-desc {
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .override-note {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 0.8rem;
+            margin: 1rem 0;
+            border-radius: 4px;
+            font-size: 0.9rem;
+        }
+        
+        .compatibility-table {
+            margin: 1rem 0;
+            overflow-x: auto;
+        }
+        
+        .compatibility-table table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            border-radius: 6px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        .compatibility-table th {
+            background: var(--git-color);
+            color: white;
+            padding: 0.8rem;
+            text-align: left;
+        }
+        
+        .compatibility-table td {
+            padding: 0.8rem;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .form-visual {
+            display: flex;
+            align-items: flex-start;
+            gap: 2rem;
+            margin: 1.5rem 0;
+            padding: 1.5rem;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            border: 1px solid #e0e0e0;
+        }
+        
+        .form-box {
+            flex: 1;
+            padding: 1rem;
+            border: 2px solid var(--git-color);
+            border-radius: 8px;
+            position: relative;
+            min-height: 150px;
+        }
+        
+        .form-box-label {
+            position: absolute;
+            top: -12px;
+            left: 10px;
+            background: var(--git-color);
+            color: white;
+            padding: 2px 10px;
+            border-radius: 4px;
+            font-size: 0.9rem;
+        }
+        
+        .outside-input {
+            flex: 1;
+            padding: 1rem;
+            border: 2px dashed #666;
+            border-radius: 8px;
+            position: relative;
+            min-height: 150px;
+        }
+        
+        .outside-input-label {
+            position: absolute;
+            top: -12px;
+            left: 10px;
+            background: #666;
+            color: white;
+            padding: 2px 10px;
+            border-radius: 4px;
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 768px) {
+            .form-visual {
+                flex-direction: column;
+            }
+            
+            .form-attr-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+<!-- Header -->
+<header>
+<div class="header-container">
+<div class="logo">
+<div class="logo-icon">
+<img alt="Jassif Team Logo" class="logo-image" src="logo.jpg"/>
+</div>
+<h1>Jassif Team <span>Institution</span></h1>
+</div>
+</div>
+</header>
+<!-- Top Navigation Tabs -->
+<div class="nav-tabs">
+<a class="nav-tab prev" href="HTML Input Attributes.html">
+<i class="fas fa-arrow-left"></i>
+<span>पिछला</span>
+</a>
+<a class="nav-tab next" href="HTML Canvas Graphics.html">
+<span>अगला</span>
+<i class="fas fa-arrow-right"></i>
+</a>
+</div>
+<!-- Hero Section -->
+<section class="hero" id="home">
+<div class="hero-content">
+<h2>HTML Input form* Attributes</h2>
+<p>HTML इनपुट फ़ॉर्म* विशेषताएँ सीखें</p>
+</div>
+</section>
+<!-- Main Content -->
+<main class="container">
+<!-- HTML Input form* Attributes Introduction -->
+<section class="content-section" id="introduction">
+<h2>HTML इनपुट फॉर्म* विशेषताएँ</h2>
+<p>यह अध्याय HTML &lt;इनपुट&gt; तत्व के लिए विभिन्न फॉर्म* विशेषताओं का वर्णन करता है।</p>
+<div class="tip-box">
+<h4><span class="tip-icon">🎯</span>महत्वपूर्ण अवधारणा:</h4>
+<p>फॉर्म* विशेषताएँ इनपुट तत्वों को फॉर्म तत्व की विशेषताओं को ओवरराइड करने की अनुमति देती हैं। इन्हें आमतौर पर सबमिट और छवि इनपुट प्रकारों के साथ उपयोग किया जाता है।</p>
+</div>
+<div class="form-attr-grid">
+<div class="form-attr-card">
+<div class="form-attr-icon">
+<i class="fas fa-link"></i>
+</div>
+<div class="form-attr-name">form</div>
+<div class="form-attr-desc">उस फॉर्म को निर्दिष्ट करता है जिससे इनपुट तत्व संबंधित है</div>
+</div>
+<div class="form-attr-card">
+<div class="form-attr-icon">
+<i class="fas fa-paper-plane"></i>
+</div>
+<div class="form-attr-name">formaction</div>
+<div class="form-attr-desc">एक कार्यात्मक यूआरएल को ओवरराइड करता है</div>
+</div>
+<div class="form-attr-card">
+<div class="form-attr-icon">
+<i class="fas fa-code"></i>
+</div>
+<div class="form-attr-name">formenctype</div>
+<div class="form-attr-desc">एन्क्रिप्शन विधि का उल्लंघन करता है</div>
+</div>
+<div class="form-attr-card">
+<div class="form-attr-icon">
+<i class="fas fa-exchange-alt"></i>
+</div>
+<div class="form-attr-name">formmethod</div>
+<div class="form-attr-desc">HTTP पद्धति का उल्लंघन करता है</div>
+</div>
+<div class="form-attr-card">
+<div class="form-attr-icon">
+<i class="fas fa-window-restore"></i>
+</div>
+<div class="form-attr-name">formtarget</div>
+<div class="form-attr-desc">लक्ष्य से अधिक</div>
+</div>
+<div class="form-attr-card">
+<div class="form-attr-icon">
+<i class="fas fa-ban"></i>
+</div>
+<div class="form-attr-name">formnovalidate</div>
+<div class="form-attr-desc">सत्यापन का उल्लंघन करता है</div>
+</div>
+</div>
+</section>
+<!-- The form Attribute -->
+<section class="content-section" id="form-attribute">
+<h2>प्रपत्र विशेषता</h2>
+<p>इनपुट फॉर्म विशेषता उस फॉर्म को निर्दिष्ट करती है जिससे &lt;इनपुट&gt; तत्व संबंधित है।</p>
+<p>इस विशेषता का मान उस &lt;form&gt; तत्व की आईडी विशेषता के बराबर होना चाहिए जिससे वह संबंधित है।</p>
+<h3>उदाहरण</h3>
+<p>HTML फॉर्म के बाहर स्थित एक इनपुट फ़ील्ड (लेकिन फिर भी फॉर्म का हिस्सा):</p>
+<div class="code-example">
+<pre><code><span class="command-input">&lt;form action="/action_page.php" id="form1"&gt;</span>
+  <span class="command-input">&lt;label for="fname"&gt;First name:&lt;/label&gt;</span>
+  <span class="command-input">&lt;input type="text" id="fname" name="fname"&gt;&lt;br&gt;&lt;br&gt;</span>
+  <span class="command-input">&lt;input type="submit" value="Submit"&gt;</span>
+<span class="command-input">&lt;/form&gt;</span>
+
+<span class="command-input">&lt;label for="lname"&gt;Last name:&lt;/label&gt;</span>
+<span class="command-input">&lt;input type="text" id="lname" name="lname" form="form1"&gt;</span></code></pre>
+</div>
+<div class="form-visual">
+<div class="form-box">
+<div class="form-box-label">&lt;form id="form1"&gt;</div>
+<div style="margin-top: 20px;">
+<div style="margin-bottom: 10px;">
+<label for="demo-fname" style="display: block; margin-bottom: 5px;">First name:</label>
+<input id="demo-fname" style="width: 100%; padding: 5px;" type="text"/>
+</div>
+<input style="padding: 8px 20px; background: var(--git-color); color: white; border: none; border-radius: 5px;" type="submit" value="Submit"/>
+</div>
+</div>
+<div style="display: flex; align-items: center; justify-content: center;">
+<i class="fas fa-arrow-right" style="font-size: 1.5rem; color: var(--git-color);"></i>
+</div>
+<div class="outside-input">
+<div class="outside-input-label">Outside form</div>
+<div style="margin-top: 20px;">
+<label for="demo-lname" style="display: block; margin-bottom: 5px;">Last name:</label>
+<input id="demo-lname" placeholder="form='form1' attribute connects this to the form" style="width: 100%; padding: 5px; border: 2px solid var(--git-color);" type="text"/>
+</div>
+</div>
+</div>
+<div class="override-note">
+<strong>टिप्पणी:</strong>फॉर्म विशेषता इनपुट तत्वों को उनके संबंधित फॉर्म तत्वों के बाहर रखने की अनुमति देती है, जिससे HTML संरचना में सुधार होता है।</div>
+</section>
+<!-- The formaction Attribute -->
+<section class="content-section" id="formaction-attribute">
+<h2>गठन विशेषता</h2>
+<p>इनपुटफॉर्मएक्शन विशेषता उस फ़ाइल का यूआरएल निर्दिष्ट करती है जो फॉर्म सबमिट होने पर इनपुट को संसाधित करती है।</p>
+<div class="override-note">
+<strong>टिप्पणी:</strong>यह विशेषता &lt;form&gt; तत्व की क्रिया विशेषता को ओवरराइड करती है।</div>
+<div class="compatibility-table">
+<table>
+<thead>
+<tr>
+<th>गुण</th>
+<th>उपयोगी इनपुट प्रकार</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>formaction</td>
+<td>सबमिट करें और छवि</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h3>उदाहरण</h3>
+<p>विभिन्न क्रियाओं वाले दो सबमिट बटन वाला एक HTML फॉर्म:</p>
+<div class="code-example">
+<pre><code><span class="command-input">&lt;form action="/action_page.php"&gt;</span>
+  <span class="command-input">&lt;label for="fname"&gt;First name:&lt;/label&gt;</span>
+  <span class="command-input">&lt;input type="text" id="fname" name="fname"&gt;&lt;br&gt;&lt;br&gt;</span>
+  <span class="command-input">&lt;label for="lname"&gt;Last name:&lt;/label&gt;</span>
+  <span class="command-input">&lt;input type="text" id="lname" name="lname"&gt;&lt;br&gt;&lt;br&gt;</span>
+  <span class="command-input">&lt;input type="submit" value="Submit"&gt;</span>
+  <span class="command-input">&lt;input type="submit" formaction="/action_page2.php" value="Submit as Admin"&gt;</span>
+<span class="command-input">&lt;/form&gt;</span></code></pre>
+</div>
+<div class="form-attr-demo">
+<div style="display: flex; gap: 1rem; align-items: center;">
+<div style="flex: 1;">
+<label for="demo-fname2">First name:</label><br/>
+<input id="demo-fname2" style="width: 100%; margin-bottom: 10px; padding: 5px;" type="text"/><br/>
+<label for="demo-lname2">Last name:</label><br/>
+<input id="demo-lname2" style="width: 100%; margin-bottom: 10px; padding: 5px;" type="text"/>
+</div>
+<div style="display: flex; flex-direction: column; gap: 10px;">
+<button style="padding: 10px 20px; background: var(--git-color); color: white; border: none; border-radius: 5px; cursor: pointer;">
+                            Submit to action_page.php
+                        </button>
+<button style="padding: 10px 20px; background: #28a745; color: white; border: none; border-radius: 5px; cursor: pointer;">
+                            Submit as Admin (formaction)
+                        </button>
+</div>
+</div>
+<div style="margin-top: 10px; font-size: 0.9rem; color: #666;">
+<i class="fas fa-info-circle"></i>दूसरा बटन formaction='/action_page2.php' विशेषता के साथ फॉर्म की कार्रवाई को ओवरराइड करता है</div>
+</div>
+</section>
+<!-- The formenctype Attribute -->
+<section class="content-section" id="formenctype-attribute">
+<h2>फॉर्मेंक्टाइप विशेषता</h2>
+<p>इनपुट फॉर्मेंक्टाइप विशेषता निर्दिष्ट करती है कि सबमिट किए जाने पर फॉर्म-डेटा को कैसे एन्कोड किया जाना चाहिए (केवल विधि = "पोस्ट" वाले फॉर्म के लिए)।</p>
+<div class="override-note">
+<strong>टिप्पणी:</strong>यह विशेषता &lt;form&gt; तत्व की enctype विशेषता को ओवरराइड करती है।</div>
+<h3>उदाहरण</h3>
+<p>दो सबमिट बटन वाला एक फॉर्म. पहला डिफ़ॉल्ट एन्कोडिंग के साथ फॉर्म-डेटा भेजता है, दूसरा "मल्टीपार्ट/फॉर्म-डेटा" के रूप में एन्कोडेड फॉर्म-डेटा भेजता है:</p>
+<div class="code-example">
+<pre><code><span class="command-input">&lt;form action="/action_page_binary.asp" method="post"&gt;</span>
+  <span class="command-input">&lt;label for="fname"&gt;First name:&lt;/label&gt;</span>
+  <span class="command-input">&lt;input type="text" id="fname" name="fname"&gt;&lt;br&gt;&lt;br&gt;</span>
+  <span class="command-input">&lt;input type="submit" value="Submit"&gt;</span>
+  <span class="command-input">&lt;input type="submit" formenctype="multipart/form-data"</span>
+  <span class="command-input">value="Submit as Multipart/form-data"&gt;</span>
+<span class="command-input">&lt;/form&gt;</span></code></pre>
+</div>
+<div class="tip-box">
+<h4><span class="tip-icon">💡</span>मुख्य अनुप्रयोग:</h4>
+<p>फ़ाइल अपलोड के लिए formenctype='multipart/form-data' आवश्यक है क्योंकि यह बाइनरी डेटा भेजने की अनुमति देता है।</p>
+</div>
+</section>
+<!-- The formmethod Attribute -->
+<section class="content-section" id="formmethod-attribute">
+<h2>formmethod विशेषता</h2>
+<p>इनपुट फॉर्ममेथड विशेषता एक्शन यूआरएल पर फॉर्म-डेटा भेजने के लिए HTTP विधि को परिभाषित करती है।</p>
+<div class="override-note">
+<strong>टिप्पणी:</strong>यह विशेषता &lt;form&gt; तत्व की विधि विशेषता को ओवरराइड करती है।</div>
+<h3>उदाहरण</h3>
+<p>दो सबमिट बटन वाला एक फॉर्म. पहला विधि = "प्राप्त करें" के साथ फॉर्म-डेटा भेजता है। दूसरा फ़ॉर्म-डेटा को विधि = "पोस्ट" के साथ भेजता है:</p>
+<div class="code-example">
+<pre><code><span class="command-input">&lt;form action="/action_page.php" method="get"&gt;</span>
+  <span class="command-input">&lt;label for="fname"&gt;First name:&lt;/label&gt;</span>
+  <span class="command-input">&lt;input type="text" id="fname" name="fname"&gt;&lt;br&gt;&lt;br&gt;</span>
+  <span class="command-input">&lt;label for="lname"&gt;Last name:&lt;/label&gt;</span>
+  <span class="command-input">&lt;input type="text" id="lname" name="lname"&gt;&lt;br&gt;&lt;br&gt;</span>
+  <span class="command-input">&lt;input type="submit" value="Submit using GET"&gt;</span>
+  <span class="command-input">&lt;input type="submit" formmethod="post" value="Submit using POST"&gt;</span>
+<span class="command-input">&lt;/form&gt;</span></code></pre>
+</div>
+<div class="comparison-section">
+<div class="comparison-item">
+<h3 class="comparison-title">"प्राप्त करें" विधि पर नोट्स:</h3>
+<ul>
+<li>यह विधि फॉर्म-डेटा को नाम/मूल्य जोड़े के रूप में यूआरएल से बांधती है</li>
+<li>यह विधि फॉर्म सबमिशन के लिए उपयोगी है जहां उपयोगकर्ता परिणाम को बुकमार्क करना चाहता है</li>
+<li>एक यूआरएल में कितना डेटा रखा जा सकता है इसकी एक सीमा है</li>
+<li>संवेदनशील जानकारी भेजने के लिए "GET" पद्धति का उपयोग न करें!</li>
+</ul>
+</div>
+<div class="comparison-item">
+<h3 class="comparison-title">"पोस्ट" विधि पर नोट्स:</h3>
+<ul>
+<li>यह विधि फॉर्म-डेटा को HTTP पोस्ट लेनदेन के रूप में भेजती है</li>
+<li>"POST" पद्धति से फॉर्म सबमिशन को बुकमार्क नहीं किया जा सकता</li>
+<li>"POST" विधि "GET" की तुलना में अधिक मजबूत और सुरक्षित है।</li>
+<li>"POST" की कोई आकार सीमा नहीं है</li>
+</ul>
+</div>
+</div>
+</section>
+<!-- The formtarget Attribute -->
+<section class="content-section" id="formtarget-attribute">
+<h2>प्रारूप लक्ष्य विशेषता</h2>
+<p>इनपुट फॉर्मटार्गेट विशेषता एक नाम या कीवर्ड निर्दिष्ट करती है जो यह दर्शाती है कि फॉर्म सबमिट करने के बाद प्राप्त प्रतिक्रिया को कहां प्रदर्शित किया जाए।</p>
+<div class="override-note">
+<strong>टिप्पणी:</strong>यह विशेषता &lt;form&gt; तत्व की लक्ष्य विशेषता को ओवरराइड करती है।</div>
+<h3>उदाहरण</h3>
+<p>अलग-अलग लक्ष्य विंडो के साथ दो सबमिट बटन वाला एक फॉर्म:</p>
+<div class="code-example">
+<pre><code><span class="command-input">&lt;form action="/action_page.php"&gt;</span>
+  <span class="command-input">&lt;label for="fname"&gt;First name:&lt;/label&gt;</span>
+  <span class="command-input">&lt;input type="text" id="fname" name="fname"&gt;&lt;br&gt;&lt;br&gt;</span>
+  <span class="command-input">&lt;label for="lname"&gt;Last name:&lt;/label&gt;</span>
+  <span class="command-input">&lt;input type="text" id="lname" name="lname"&gt;&lt;br&gt;&lt;br&gt;</span>
+  <span class="command-input">&lt;input type="submit" value="Submit"&gt;</span>
+  <span class="command-input">&lt;input type="submit" formtarget="_blank" value="Submit to a new window/tab"&gt;</span>
+<span class="command-input">&lt;/form&gt;</span></code></pre>
+</div>
+<div class="compatibility-table">
+<table>
+<thead>
+<tr>
+<th>लक्ष्य मान</th>
+<th>स्पष्टीकरण</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>_blank</td>
+<td>नई विंडो/टैब में खुलता है</td>
+</tr>
+<tr>
+<td>_self</td>
+<td>वर्तमान विंडो में खुलता है (डिफ़ॉल्ट)</td>
+</tr>
+<tr>
+<td>_parent</td>
+<td>शीर्ष पर खुलता है</td>
+</tr>
+<tr>
+<td>_top</td>
+<td>पूर्ण विंडो में खुलता है</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<!-- The formnovalidate Attribute -->
+<section class="content-section" id="formnovalidate-attribute">
+<h2>फॉर्मनोवैलिडेट विशेषता</h2>
+<p>इनपुट फॉर्मनोवैलिडेट विशेषता निर्दिष्ट करती है कि सबमिट किए जाने पर &lt;इनपुट&gt; तत्व को मान्य नहीं किया जाना चाहिए।</p>
+<div class="override-note">
+<strong>टिप्पणी:</strong>यह विशेषता &lt;form&gt; तत्व की novalidate विशेषता को ओवरराइड करती है।</div>
+<h3>उदाहरण</h3>
+<p>दो सबमिट बटन वाला एक फॉर्म (सत्यापन के साथ और बिना सत्यापन):</p>
+<div class="code-example">
+<pre><code><span class="command-input">&lt;form action="/action_page.php"&gt;</span>
+  <span class="command-input">&lt;label for="email"&gt;Enter your email:&lt;/label&gt;</span>
+  <span class="command-input">&lt;input type="email" id="email" name="email"&gt;&lt;br&gt;&lt;br&gt;</span>
+  <span class="command-input">&lt;input type="submit" value="Submit"&gt;</span>
+  <span class="command-input">&lt;input type="submit" formnovalidate="formnovalidate"</span>
+  <span class="command-input">value="Submit without validation"&gt;</span>
+<span class="command-input">&lt;/form&gt;</span></code></pre>
+</div>
+</section>
+<!-- The novalidate Attribute -->
+<section class="content-section" id="novalidate-attribute">
+<h2>नवीनीकृत विशेषता</h2>
+<p>नोवैलिडेट विशेषता एक &lt;form&gt; विशेषता है।</p>
+<p>यदि मौजूद है, तो नोवैलिडेट निर्दिष्ट करता है कि सबमिट किए जाने पर सभी फॉर्म-डेटा को मान्य नहीं किया जाना चाहिए।</p>
+<h3>उदाहरण</h3>
+<p>निर्दिष्ट करें कि सबमिट करने पर कोई भी फॉर्म-डेटा मान्य नहीं किया जाना चाहिए:</p>
+<div class="code-example">
+<pre><code><span class="command-input">&lt;form action="/action_page.php" novalidate&gt;</span>
+  <span class="command-input">&lt;label for="email"&gt;Enter your email:&lt;/label&gt;</span>
+  <span class="command-input">&lt;input type="email" id="email" name="email"&gt;&lt;br&gt;&lt;br&gt;</span>
+  <span class="command-input">&lt;input type="submit" value="Submit"&gt;</span>
+<span class="command-input">&lt;/form&gt;</span></code></pre>
+</div>
+<div class="warning-box">
+<h4><span class="warning-icon">⚠️</span>मुख्य अंतर:</h4>
+<p><strong>novalidate</strong>(फ़ॉर्म पर): संपूर्ण फ़ॉर्म के लिए सत्यापन अक्षम करता है<br/>
+<strong>formnovalidate</strong>(इनपुट पर): निर्दिष्ट सबमिट बटन के लिए सत्यापन अक्षम करता है</p>
+</div>
+</section>
+<!-- Exercise Section -->
+<section class="content-section" id="exercises">
+<h2>अभ्यास</h2>
+<div class="exercise-box">
+<h4><span class="exercise-icon">❓</span>INPUT तत्व के लिए कौन सा कानूनी रूप विशेषता नहीं है?</h4>
+<div class="options-grid">
+<div class="option-card" data-correct="false">
+<div class="option-content">
+<div class="option-text">formaction</div>
+<div class="option-feedback incorrect">✗ ग़लत! फॉर्मैक्शन एक कानूनी HTML विशेषता है जो सबमिट बटन की कार्रवाई को ओवरराइड करती है</div>
+</div>
+</div>
+<div class="option-card" data-correct="true">
+<div class="option-content">
+<div class="option-text">formtype</div>
+<div class="option-feedback correct">✓ ठीक है! formtype एक कानूनी HTML विशेषता नहीं है। सही विशेषता प्रकार है</div>
+</div>
+</div>
+<div class="option-card" data-correct="false">
+<div class="option-content">
+<div class="option-text">formtarget</div>
+<div class="option-feedback incorrect">✗ ग़लत! formtarget एक कानूनी HTML विशेषता है जो सबमिट बटन के लक्ष्य को ओवरराइड करती है</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- HTML Form and Input Elements -->
+<section class="content-section" id="form-input-elements">
+<h2>HTML फॉर्म और इनपुट तत्व</h2>
+<div class="comparison-table">
+<table>
+<thead>
+<tr>
+<th>टैग</th>
+<th>स्पष्टीकरण</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>&lt;form&gt;</td>
+<td>उपयोगकर्ता इनपुट के लिए HTML फॉर्म को परिभाषित करता है</td>
+</tr>
+<tr>
+<td>&lt;input&gt;</td>
+<td>इनपुट नियंत्रण को परिभाषित करता है</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tip-box">
+<h4><span class="tip-icon">🔗</span>अतिरिक्त स्रोत:</h4>
+<p>सभी उपलब्ध HTML टैग्स की पूरी सूची के लिए, हमारे HTML टैग संदर्भ पर जाएँ।</p>
+</div>
+<h3>फॉर्म* विशेषताओं का सारांश:</h3>
+<div class="compatibility-table">
+<table>
+<thead>
+<tr>
+<th>गुण</th>
+<th>का उल्लंघन करती है</th>
+<th>उपयोगी इनपुट प्रकार</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>form</td>
+<td>-</td>
+<td>सब कुछ</td>
+</tr>
+<tr>
+<td>formaction</td>
+<td>action</td>
+<td>submit, image</td>
+</tr>
+<tr>
+<td>formenctype</td>
+<td>enctype</td>
+<td>submit, image</td>
+</tr>
+<tr>
+<td>formmethod</td>
+<td>method</td>
+<td>submit, image</td>
+</tr>
+<tr>
+<td>formtarget</td>
+<td>target</td>
+<td>submit, image</td>
+</tr>
+<tr>
+<td>formnovalidate</td>
+<td>novalidate</td>
+<td>submit</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<!-- Bottom Navigation -->
+<div class="bottom-nav">
+<a class="nav-tab prev" href="HTML Input Attributes.html">
+<i class="fas fa-arrow-left"></i>
+<span>पिछला</span>
+</a>
+<a class="nav-tab next" href="HTML Canvas Graphics.html">
+<span>अगला</span>
+<i class="fas fa-arrow-right"></i>
+</a>
+</div>
+</main>
+<!-- Footer -->
+<footer>
+<div class="footer-content">
+<div class="footer-column">
+<h3>Jassif Team Institution</h3>
+<p>Leading educational institution providing quality programming education in Hindi.</p>
+</div>
+<div class="footer-column">
+<h3>Quick Links</h3>
+<ul>
+<li><a href="#introduction">फॉर्म* विशेषताएँ</a></li>
+<li><a href="#form-attribute">प्रपत्र विशेषता</a></li>
+<li><a href="#formaction-attribute">गठन विशेषता</a></li>
+<li><a href="#formenctype-attribute">फॉर्मेंक्टाइप विशेषता</a></li>
+<li><a href="#formmethod-attribute">formmethod विशेषता</a></li>
+<li><a href="#formtarget-attribute">प्रारूप लक्ष्य विशेषता</a></li>
+<li><a href="#formnovalidate-attribute">फॉर्मनोवैलिडेट विशेषता</a></li>
+<li><a href="#novalidate-attribute">नवीनीकृत विशेषता</a></li>
+<li><a href="#exercises">अभ्यास</a></li>
+<li><a href="#form-input-elements">सारांश</a></li>
+</ul>
+</div>
+<div class="footer-column">
+<h3>Contact</h3>
+<ul>
+<li><a href="#">About Us</a></li>
+<li><a href="#">Contact Us</a></li>
+<li><a href="#">Location &amp; Hours</a></li>
+</ul>
+</div>
+<div class="footer-column">
+<h3>Follow Us</h3>
+<ul>
+<li><a href="#"><i class="fab fa-facebook"></i> Facebook</a></li>
+<li><a href="#"><i class="fab fa-instagram"></i> Instagram</a></li>
+<li><a href="#"><i class="fab fa-youtube"></i> YouTube</a></li>
+</ul>
+</div>
+</div>
+<div class="copyright">
+<p>© 2023 Jassif Team Institution. All rights reserved.</p>
+</div>
+</footer>
+<script>
+        // Add smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Add scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animation = 'fadeInUp 0.8s ease-out forwards';
+                }
+            });
+        }, observerOptions);
+        
+        // Observe all content sections for animation
+        document.querySelectorAll('.content-section').forEach(section => {
+            observer.observe(section);
+        });
+
+        // Exercise interaction
+        document.querySelectorAll('.option-card').forEach(card => {
+            card.addEventListener('click', function() {
+                // Show feedback for all options
+                document.querySelectorAll('.option-card').forEach(c => {
+                    c.querySelector('.option-feedback').style.display = 'block';
+                });
+            });
+        });
+        
+        // Demo button functionality
+        document.querySelectorAll('.form-attr-demo button').forEach(button => {
+            button.addEventListener('click', function() {
+                const text = this.textContent;
+                alert('Demo: This button would submit with ' + text + ' attributes. In real form, form* attributes override form attributes.');
+            });
+        });
+    </script>
+<!-- Home Button -->
+<a class="home-icon" href="index.html">
+<i class="fas fa-home"></i>
+</a>
+</body>
+</html>

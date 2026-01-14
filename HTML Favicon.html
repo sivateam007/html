@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+
+<html lang="hi">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>HTML Favicon - Jassif Team</title>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<link href="style.css" rel="stylesheet"/>
+<style>
+        .content-section p, 
+        .content-section li,
+        .content-section h3,
+        .content-section h4 {
+            color: #333 !important;
+        }
+        
+        .tip-box p,
+        .tip-box li,
+        .tip-box h4 {
+            color: white !important;
+        }
+        
+        .exercise-box p,
+        .exercise-box h4 {
+            color: white !important;
+        }
+        
+        .logo-icon {
+            animation: none !important;
+        }
+        
+        .logo-image {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+            display: block;
+            border: 2px solid white;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            animation: none !important;
+        }
+        
+        .code-example {
+            background-color: #2d2d2d;
+            color: #f8f8f2;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+            overflow-x: auto;
+        }
+    </style>
+</head>
+<body>
+<!-- Header -->
+<header>
+<div class="header-container">
+<div class="logo">
+<div class="logo-icon">
+<img alt="Jassif Team Logo" class="logo-image" src="logo.jpg"/>
+</div>
+<h1>Jassif Team <span>Institution</span></h1>
+</div>
+</div>
+</header>
+<!-- Top Navigation Tabs -->
+<div class="nav-tabs">
+<a class="nav-tab prev" href="HTML%20picture%20Element.html">
+<i class="fas fa-arrow-left"></i>
+<span>पिछला</span>
+</a>
+<a class="nav-tab next" href="HTML%20Page%20Title.html">
+<span>अगला</span>
+<i class="fas fa-arrow-right"></i>
+</a>
+</div>
+<!-- Hero Section -->
+<section class="hero" id="home">
+<div class="hero-content">
+<h2>HTML Favicon</h2>
+<p>एचटीएमएल पाविकॉन</p>
+</div>
+</section>
+<!-- Main Content -->
+<main class="container">
+<!-- Introduction -->
+<section class="content-section" id="introduction">
+<h2>एचटीएमएल पाविकॉन</h2>
+<p>बाविकॉन ब्राउज़र में पेज हेडर के बगल में प्रदर्शित एक छोटी छवि है।</p>
+</section>
+<!-- How To Add a Favicon in HTML -->
+<section class="content-section" id="how-to-add">
+<h2>HTML में बीविकॉन कैसे जोड़ें</h2>
+<p>आप अपनी पसंदीदा किसी भी छवि को अपने बाविकॉन के रूप में उपयोग कर सकते हैं। आप https://www.favicon.cc जैसी साइटों पर अपना स्वयं का फ़ेविकॉन बना सकते हैं।</p>
+<div class="tip-box">
+<h4><span class="tip-icon">💡</span>बख्शीश:</h4>
+<p>बाविकॉन एक छोटी छवि है, इसलिए यह उच्च कंट्रास्ट वाली एक साधारण छवि होनी चाहिए।</p>
+</div>
+<p>ब्राउज़र में पेज हेडर के बाईं ओर एक बाविकॉन छवि प्रदर्शित होती है:</p>
+<div class="code-example">
+<h3>बीविकॉन उदाहरण</h3>
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+  &lt;title&gt;My Page Title&lt;/title&gt;
+  &lt;link rel="icon" type="image/x-icon" href="/images/favicon.ico"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;h1&gt;This is a Heading&lt;/h1&gt;
+&lt;p&gt;This is a paragraph.&lt;/p&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+</div>
+<p>अपनी वेबसाइट में एक बाविकॉन जोड़ने के लिए, अपनी बाविकॉन छवि को अपने वेब सर्वर की रूट निर्देशिका में सहेजें, या रूट निर्देशिका में छवियों नामक एक निर्देशिका बनाएं और इस निर्देशिका में अपनी बाविकॉन छवि सहेजें। फ़ेविकॉन छवि का सामान्य नाम "favicon.ico" है।</p>
+<p>इसके बाद, अपनी "index.html" फ़ाइल में &lt;title&gt; तत्व के बाद एक &lt;link&gt; तत्व जोड़ें:</p>
+<p>अब, "index.html" फ़ाइल को सहेजें और इसे अपने ब्राउज़र में पुनः लोड करें। आपकी बाविकॉन छवि आपके ब्राउज़र में पेज हेडर के बाईं ओर प्रदर्शित होगी।</p>
+</section>
+<!-- Favicon File Format Support -->
+<section class="content-section" id="format-support">
+<h2>बाविकॉन फ़ाइल स्वरूप समर्थन</h2>
+<p>निम्न तालिका बाविकॉन छवि के लिए फ़ाइल प्रारूप समर्थन दिखाती है:</p>
+<div class="comparison-table">
+<table>
+<thead>
+<tr>
+<th>ब्राउज़र</th>
+<th>ICO</th>
+<th>PNG</th>
+<th>GIF</th>
+<th>JPEG</th>
+<th>SVG</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>किनारा</td>
+<td>हाँ</td>
+<td>हाँ</td>
+<td>हाँ</td>
+<td>हाँ</td>
+<td>हाँ</td>
+</tr>
+<tr>
+<td>क्रोम</td>
+<td>हाँ</td>
+<td>हाँ</td>
+<td>हाँ</td>
+<td>हाँ</td>
+<td>हाँ</td>
+</tr>
+<tr>
+<td>फ़ायरफ़ॉक्स</td>
+<td>हाँ</td>
+<td>हाँ</td>
+<td>हाँ</td>
+<td>हाँ</td>
+<td>हाँ</td>
+</tr>
+<tr>
+<td>ओपेरा</td>
+<td>हाँ</td>
+<td>हाँ</td>
+<td>हाँ</td>
+<td>हाँ</td>
+<td>हाँ</td>
+</tr>
+<tr>
+<td>सफ़ारी</td>
+<td>हाँ</td>
+<td>हाँ</td>
+<td>हाँ</td>
+<td>हाँ</td>
+<td>हाँ</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<!-- Chapter Summary -->
+<section class="content-section" id="chapter-summary">
+<h2>अध्याय का सारांश</h2>
+<p>पैविकॉन डालने के लिए HTML &lt;link&gt; तत्व का उपयोग करें</p>
+</section>
+<!-- Exercise Section -->
+<section class="content-section" id="exercises">
+<h2>अभ्यास</h2>
+<div class="exercise-box">
+<h4><span class="exercise-icon">❓</span>बाविकॉन को किस HTML तत्व में परिभाषित किया गया है?</h4>
+<div class="options-grid">
+<div class="option-card" data-correct="false">
+<div class="option-content">
+<div class="option-text">&lt;img&gt; तत्व</div>
+<div class="option-feedback incorrect">✗ ग़लत!</div>
+</div>
+</div>
+<div class="option-card" data-correct="false">
+<div class="option-content">
+<div class="option-text">&lt;शरीर&gt; तत्व</div>
+<div class="option-feedback incorrect">✗ ग़लत!</div>
+</div>
+</div>
+<div class="option-card" data-correct="true">
+<div class="option-content">
+<div class="option-text">&lt;लिंक&gt; तत्व</div>
+<div class="option-feedback correct">✓ ठीक है!</div>
+</div>
+</div>
+<div class="option-card" data-correct="false">
+<div class="option-content">
+<div class="option-text">&lt;शैली&gt; तत्व</div>
+<div class="option-feedback incorrect">✗ ग़लत!</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- HTML Link Tag -->
+<section class="content-section" id="html-link-tag">
+<h2>HTML लिंक टैग</h2>
+<div class="comparison-table">
+<table>
+<thead>
+<tr>
+<th>टैग</th>
+<th>स्पष्टीकरण</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>&lt;link&gt;</td>
+<td>किसी दस्तावेज़ और बाहरी संसाधन के बीच संबंध को परिभाषित करता है</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>सभी उपलब्ध HTML टैग्स की पूरी सूची के लिए, हमारे HTML टैग संदर्भ पर जाएँ।</p>
+</section>
+<!-- Bottom Navigation -->
+<div class="bottom-nav">
+<a class="nav-tab prev" href="HTML%20picture%20Element.html">
+<i class="fas fa-arrow-left"></i>
+<span>पिछला</span>
+</a>
+<a class="nav-tab next" href="HTML%20Page%20Title.html">
+<span>अगला</span>
+<i class="fas fa-arrow-right"></i>
+</a>
+</div>
+</main>
+<!-- Footer -->
+<footer>
+<div class="footer-content">
+<div class="footer-column">
+<h3>Jassif Team Institution</h3>
+<p>Leading educational institution providing quality programming education in Hindi.</p>
+</div>
+<div class="footer-column">
+<h3>Quick Links</h3>
+<ul>
+<li><a href="#introduction">एचटीएमएल पाविकॉन</a></li>
+<li><a href="#how-to-add">कैसे जोड़ना है</a></li>
+<li><a href="#format-support">फ़ाइल स्वरूप समर्थन</a></li>
+<li><a href="#chapter-summary">अध्याय का सारांश</a></li>
+<li><a href="#exercises">अभ्यास</a></li>
+<li><a href="#html-link-tag">HTML लिंक टैग</a></li>
+</ul>
+</div>
+<div class="footer-column">
+<h3>Contact</h3>
+<ul>
+<li><a href="#">About Us</a></li>
+<li><a href="#">Contact Us</a></li>
+<li><a href="#">Location &amp; Hours</a></li>
+</ul>
+</div>
+<div class="footer-column">
+<h3>Follow Us</h3>
+<ul>
+<li><a href="#"><i class="fab fa-facebook"></i> Facebook</a></li>
+<li><a href="#"><i class="fab fa-instagram"></i> Instagram</a></li>
+<li><a href="#"><i class="fab fa-youtube"></i> YouTube</a></li>
+</ul>
+</div>
+</div>
+<div class="copyright">
+<p>© 2023 Jassif Team Institution. All rights reserved.</p>
+</div>
+</footer>
+<script>
+        // Add smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Exercise interaction
+        document.querySelectorAll('.option-card').forEach(card => {
+            card.addEventListener('click', function() {
+                // Show feedback for all options
+                document.querySelectorAll('.option-card').forEach(c => {
+                    c.querySelector('.option-feedback').style.display = 'block';
+                });
+            });
+        });
+    </script>
+<!-- Home Button -->
+<a class="home-icon" href="index.html">
+<i class="fas fa-home"></i>
+</a>
+</body>
+</html>

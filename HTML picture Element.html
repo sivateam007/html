@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML &lt;picture&gt; Element - Jassif Team</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .content-section p, 
+        .content-section li,
+        .content-section h3,
+        .content-section h4 {
+            color: #333 !important;
+        }
+        
+        .tip-box p,
+        .tip-box li,
+        .tip-box h4 {
+            color: white !important;
+        }
+        
+        .exercise-box p,
+        .exercise-box h4 {
+            color: white !important;
+        }
+        
+        .logo-icon {
+            animation: none !important;
+        }
+        
+        .logo-image {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+            display: block;
+            border: 2px solid white;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            animation: none !important;
+        }
+        
+        .code-example {
+            background-color: #2d2d2d;
+            color: #f8f8f2;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+            overflow-x: auto;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <div class="logo-icon">
+                    <img src="logo.jpg" alt="Jassif Team Logo" class="logo-image">
+                </div>
+                <h1>Jassif Team <span>Institution</span></h1>
+            </div>
+        </div>
+    </header>
+
+    <!-- Top Navigation Tabs -->
+    <div class="nav-tabs">
+        <a href="HTML%20Background%20Images.html" class="nav-tab prev">
+            <i class="fas fa-arrow-left"></i>
+            <span>पिछला</span>
+        </a>
+        <a href="HTML%20Favicon.html" class="nav-tab next">
+            <span>अगला</span>
+            <i class="fas fa-arrow-right"></i>
+        </a>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h2>HTML &lt;picture&gt; Element</h2>
+            <p>HTML &lt;picture&gt; உறுப்பு</p>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="container">
+        <!-- Introduction -->
+        <section class="content-section" id="introduction">
+            <h2>HTML &lt;picture&gt; உறுப்பு</h2>
+            
+            <p>HTML &lt;picture&gt; உறுப்பு வெவ்வேறு சாதனங்கள் அல்லது திரை அளவுகளுக்கு வெவ்வேறு படங்களைக் காட்ட உங்களை அனுமதிக்கிறது.</p>
+            
+            <div class="image-map-container">
+                <img src="img14.png" alt="Picture Element Example" class="image-map-preview">
+            </div>
+        </section>
+
+        <!-- The HTML <picture> Element -->
+        <section class="content-section" id="picture-element">
+            <h2>HTML &lt;picture&gt; உறுப்பு</h2>
+            
+            <p>HTML &lt;picture&gt; உறுப்பு பட வளங்களைக் குறிப்பிடுவதில் வலை மேம்பாட்டாளர்களுக்கு அதிக நெகிழ்வுத்தன்மையை வழங்குகிறது.</p>
+            
+            <p>&lt;picture&gt; உறுப்பு ஒன்று அல்லது அதற்கு மேற்பட்ட &lt;source&gt; உறுப்புகளைக் கொண்டுள்ளது, ஒவ்வொன்றும் srcset பண்புக்கூறு மூலம் வெவ்வேறு படங்களைக் குறிக்கிறது. இந்த வழியில் உலாவி தற்போதைய பார்வை மற்றும்/அல்லது சாதனத்திற்கு மிகவும் பொருந்தக்கூடிய படத்தைத் தேர்ந்தெடுக்கலாம்.</p>
+            
+            <p>ஒவ்வொரு &lt;source&gt; உறுப்புக்கும் ஒரு media பண்புக்கூறு உள்ளது, இது படம் மிகவும் பொருத்தமானது எப்போது என்பதை வரையறுக்கிறது.</p>
+            
+            <h3>எடுத்துக்காட்டு</h3>
+            <p>வெவ்வேறு திரை அளவுகளுக்கு வெவ்வேறு படங்களைக் காட்டவும்:</p>
+            
+            <div class="code-example">
+                <pre><code>&lt;picture&gt;
+  &lt;source media="(min-width: 650px)" srcset="img_food.jpg"&gt;
+  &lt;source media="(min-width: 465px)" srcset="img_car.jpg"&gt;
+  &lt;img src="img_girl.jpg"&gt;
+&lt;/picture&gt;</code></pre>
+            </div>
+            
+            <div class="tip-box">
+                <h4><span class="tip-icon">📝</span> குறிப்பு:</h4>
+                <p>&lt;picture&gt; உறுப்பின் கடைசி குழந்தை உறுப்பாக எப்போதும் ஒரு &lt;img&gt; உறுப்பைக் குறிப்பிடவும். &lt;picture&gt; உறுப்பை ஆதரிக்காத உலாவிகள் அல்லது &lt;source&gt; குறிச்சொற்கள் எதுவும் பொருந்தாத படத்தில் &lt;img&gt; உறுப்பு பயன்படுத்தப்படுகிறது.</p>
+            </div>
+        </section>
+
+        <!-- When to use the Picture Element -->
+        <section class="content-section" id="when-to-use">
+            <h2>&lt;picture&gt; உறுப்பு எப்போது பயன்படுத்தப்படுகிறது</h2>
+            
+            <p>&lt;picture&gt; உறுப்புக்கு இரண்டு முக்கிய நோக்கங்கள் உள்ளன:</p>
+            
+            <h3>1. பேண்ட்வித்</h3>
+            <p>உங்களிடம் சிறிய திரை அல்லது சாதனம் இருந்தால், ஒரு பெரிய படக் கோப்பை ஏற்றுவது அவசியமில்லை. உலாவி பொருந்தக்கூடிய பண்புக்கூறு மதிப்புகளுடன் முதல் &lt;source&gt; உறுப்பைப் பயன்படுத்தும், மேலும் பின்வரும் எந்த உறுப்புகளையும் புறக்கணிக்கும்.</p>
+            
+            <h3>2. வடிவ ஆதரவு</h3>
+            <p>சில உலாவிகள் அல்லது சாதனங்கள் அனைத்து பட வடிவங்களையும் ஆதரிக்காது. &lt;picture&gt; உறுப்பைப் பயன்படுத்துவதன் மூலம், நீங்கள் அனைத்து வடிவங்களின் படங்களையும் சேர்க்கலாம், மேலும் உலாவி அது அடையாளம் காணும் முதல் வடிவத்தைப் பயன்படுத்தும், மேலும் பின்வரும் எந்த உறுப்புகளையும் புறக்கணிக்கும்.</p>
+            
+            <h3>எடுத்துக்காட்டு</h3>
+            <p>உலாவி அது அடையாளம் காணும் முதல் பட வடிவத்தைப் பயன்படுத்தும்:</p>
+            
+            <div class="code-example">
+                <pre><code>&lt;picture&gt;
+  &lt;source srcset="img_avatar.png"&gt;
+  &lt;source srcset="img_girl.jpg"&gt;
+  &lt;img src="img_beatles.gif" alt="Beatles" style="width:auto;"&gt;
+&lt;/picture&gt;</code></pre>
+            </div>
+            
+            <div class="tip-box">
+                <h4><span class="tip-icon">📝</span> குறிப்பு:</h4>
+                <p>உலாவி பொருந்தக்கூடிய பண்புக்கூறு மதிப்புகளுடன் முதல் &lt;source&gt; உறுப்பைப் பயன்படுத்தும், மேலும் பின்வரும் &lt;source&gt; உறுப்புகளைப் புறக்கணிக்கும்.</p>
+            </div>
+        </section>
+
+        <!-- Exercise Section -->
+        <section class="content-section" id="exercises">
+            <h2>अभ्यास</h2>
+            
+            <div class="exercise-box">
+                <h4><span class="exercise-icon">❓</span> இந்த உறுப்புகளில் ஒன்று சட்டபூர்வமான HTML உறுப்பு அல்ல, எது?</h4>
+                
+                <div class="options-grid">
+                    <div class="option-card" data-correct="true">
+                        <div class="option-content">
+                            <div class="option-text">&lt;image&gt; உறுப்பு</div>
+                            <div class="option-feedback correct">✓ சரி! &lt;image&gt; என்பது செல்லுபடியாகும் HTML உறுப்பு அல்ல</div>
+                        </div>
+                    </div>
+                    
+                    <div class="option-card" data-correct="false">
+                        <div class="option-content">
+                            <div class="option-text">&lt;picture&gt; உறுப்பு</div>
+                            <div class="option-feedback incorrect">✗ தவறு! &lt;picture&gt; என்பது செல்லுபடியாகும் HTML உறுப்பு</div>
+                        </div>
+                    </div>
+                    
+                    <div class="option-card" data-correct="false">
+                        <div class="option-content">
+                            <div class="option-text">&lt;source&gt; உறுப்பு</div>
+                            <div class="option-feedback incorrect">✗ தவறு! &lt;source&gt; என்பது செல்லுபடியாகும் HTML உறுப்பு</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- HTML Image Tags -->
+        <section class="content-section" id="html-tags">
+            <h2>HTML பட குறிச்சொற்கள்</h2>
+            
+            <div class="comparison-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>குறிச்சொல்</th>
+                            <th>விளக்கம்</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>&lt;img&gt;</td>
+                            <td>ஒரு படத்தை வரையறுக்கிறது</td>
+                        </tr>
+                        <tr>
+                            <td>&lt;map&gt;</td>
+                            <td>ஒரு பட வரைபடத்தை வரையறுக்கிறது</td>
+                        </tr>
+                        <tr>
+                            <td>&lt;area&gt;</td>
+                            <td>பட வரைபடத்திற்குள் கிளிக் செய்யக்கூடிய பகுதியை வரையறுக்கிறது</td>
+                        </tr>
+                        <tr>
+                            <td>&lt;picture&gt;</td>
+                            <td>பல பட வளங்களுக்கான கொள்கலனை வரையறுக்கிறது</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <p>அனைத்து கிடைக்கக்கூடிய HTML குறிச்சொற்களின் முழுமையான பட்டியலுக்கு, எங்கள் HTML குறிச்சொல் குறிப்பைப் பார்வையிடவும்.</p>
+        </section>
+
+        <!-- Bottom Navigation -->
+        <div class="bottom-nav">
+            <a href="HTML%20Background%20Images.html" class="nav-tab prev">
+                <i class="fas fa-arrow-left"></i>
+                <span>पिछला</span>
+            </a>
+            <a href="HTML%20Favicon.html" class="nav-tab next">
+                <span>अगला</span>
+                <i class="fas fa-arrow-right"></i>
+            </a>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-column">
+                <h3>Jassif Team Institution</h3>
+                <p>Leading educational institution providing quality programming education in Hindi.</p>
+            </div>
+            <div class="footer-column">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#introduction">HTML &lt;picture&gt; உறுப்பு</a></li>
+                    <li><a href="#picture-element">&lt;picture&gt; உறுப்பு விளக்கம்</a></li>
+                    <li><a href="#when-to-use">எப்போது பயன்படுத்துவது</a></li>
+                    <li><a href="#exercises">अभ्यासகள்</a></li>
+                    <li><a href="#html-tags">HTML பட குறிச்சொற்கள்</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Contact</h3>
+                <ul>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="#">Location & Hours</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Follow Us</h3>
+                <ul>
+                    <li><a href="#"><i class="fab fa-facebook"></i> Facebook</a></li>
+                    <li><a href="#"><i class="fab fa-instagram"></i> Instagram</a></li>
+                    <li><a href="#"><i class="fab fa-youtube"></i> YouTube</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2023 Jassif Team Institution. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Add smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Exercise interaction
+        document.querySelectorAll('.option-card').forEach(card => {
+            card.addEventListener('click', function() {
+                // Show feedback for all options
+                document.querySelectorAll('.option-card').forEach(c => {
+                    c.querySelector('.option-feedback').style.display = 'block';
+                });
+            });
+        });
+
+        // Handle missing images
+        document.querySelectorAll('img').forEach(img => {
+            img.addEventListener('error', function() {
+                const parent = this.parentElement;
+                const imgName = this.getAttribute('src');
+                const altText = this.getAttribute('alt') || 'Image';
+                
+                // Create replacement div
+                const replacement = document.createElement('div');
+                replacement.className = 'missing-image';
+                replacement.innerHTML = `<div style="text-align: center; padding: 2rem; background: #f0f0f0; border-radius: 10px;">
+                    <i class="fas fa-image" style="font-size: 3rem; margin-bottom: 10px; color: #666;"></i><br>
+                    <strong>${altText}</strong><br>
+                    <small>File: ${imgName}</small>
+                </div>`;
+                
+                // Replace the image
+                parent.replaceChild(replacement, this);
+            });
+        });
+    </script>
+
+    <!-- Home Button -->
+    <a href="index.html" class="home-icon">
+        <i class="fas fa-home"></i>
+    </a>
+</body>
+</html>

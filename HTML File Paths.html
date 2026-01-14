@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+
+<html lang="hi">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>HTML File Paths - Jassif Team</title>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<link href="style.css" rel="stylesheet"/>
+<style>
+        .content-section p, 
+        .content-section li,
+        .content-section h3,
+        .content-section h4,
+        .comparison-card p {
+            color: #333 !important;
+        }
+        
+        .tip-box p,
+        .tip-box li,
+        .tip-box h4 {
+            color: white !important;
+        }
+        
+        .warning-box p,
+        .warning-box li,
+        .warning-box h4 {
+            color: white !important;
+        }
+        
+        .exercise-box p,
+        .exercise-box h4 {
+            color: white !important;
+        }
+        
+        /* Stable logo styling - NO ANIMATIONS */
+        .logo-icon {
+            animation: none !important;
+        }
+        
+        .logo-image {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+            display: block;
+            border: 2px solid white;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            animation: none !important;
+        }
+    </style>
+</head>
+<body>
+<!-- Header -->
+<header>
+<div class="header-container">
+<div class="logo">
+<div class="logo-icon">
+<img alt="Jassif Team Logo" class="logo-image" src="logo.jpg"/>
+</div>
+<h1>Jassif Team <span>Institution</span></h1>
+</div>
+</div>
+</header>
+<!-- Top Navigation Tabs -->
+<div class="nav-tabs">
+<a class="nav-tab prev" href="HTML%20JavaScript.html">
+<i class="fas fa-arrow-left"></i>
+<span>पिछला</span>
+</a>
+<a class="nav-tab next" href="HTML%20-%20The%20Head%20Element.html">
+<span>अगला</span>
+<i class="fas fa-arrow-right"></i>
+</a>
+</div>
+<!-- Hero Section -->
+<section class="hero" id="home">
+<div class="hero-content">
+<h2>HTML File Paths</h2>
+<p>HTML फ़ाइल पथों पर एक ट्यूटोरियल</p>
+</div>
+</section>
+<!-- Main Content -->
+<main class="container">
+<!-- Introduction -->
+<section class="content-section" id="introduction">
+<h2>HTML File Paths</h2>
+<p>फ़ाइल पथ किसी वेबसाइट की फ़ोल्डर संरचना में फ़ाइल के स्थान का वर्णन करता है।</p>
+</section>
+<!-- File Path Examples -->
+<section class="content-section" id="file-path-examples">
+<h2>File Path Examples</h2>
+<div class="comparison-table">
+<table>
+<tr>
+<th>Path</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><code>&lt;img src="picture.jpg"&gt;</code></td>
+<td>"चित्र.jpg" फ़ाइल वर्तमान पृष्ठ के समान फ़ोल्डर में स्थित है</td>
+</tr>
+<tr>
+<td><code>&lt;img src="images/picture.jpg"&gt;</code></td>
+<td>"चित्र.jpg" फ़ाइल वर्तमान फ़ोल्डर में छवि फ़ोल्डर में स्थित है</td>
+</tr>
+<tr>
+<td><code>&lt;img src="/images/picture.jpg"&gt;</code></td>
+<td>"पिक्चर.जेपीजी" फ़ाइल वर्तमान वेब के रूट में इमेज फ़ोल्डर में स्थित है</td>
+</tr>
+<tr>
+<td><code>&lt;img src="../picture.jpg"&gt;</code></td>
+<td>"पिक्चर.jpg" फ़ाइल वर्तमान फ़ोल्डर से एक स्तर ऊपर एक फ़ोल्डर में स्थित है</td>
+</tr>
+</table>
+</div>
+</section>
+<!-- HTML File Paths -->
+<section class="content-section" id="html-file-paths">
+<h2>HTML File Paths</h2>
+<p>फ़ाइल पथ किसी वेबसाइट की फ़ोल्डर संरचना में फ़ाइल के स्थान का वर्णन करता है।</p>
+<p>फ़ाइल पथ का उपयोग बाहरी फ़ाइलों से लिंक करते समय किया जाता है, उदाहरण के लिए:</p>
+<ul>
+<li>वेब पेज</li>
+<li>चित्र</li>
+<li>स्टाइल शीट</li>
+<li>JavaScripts</li>
+</ul>
+</section>
+<!-- Absolute File Paths -->
+<section class="content-section" id="absolute-paths">
+<h2>Absolute File Paths</h2>
+<p>एक संपूर्ण फ़ाइल पथ किसी फ़ाइल का पूर्ण URL होता है:</p>
+<h3>Example</h3>
+<div class="code-example">
+<pre><code>&lt;img src="https://www.jassifteam.com/images/picture.jpg" alt="Mountain"&gt;</code></pre>
+</div>
+<p>The &lt;img&gt; tag is explained in the chapter: HTML Images.</p>
+</section>
+<!-- Relative File Paths -->
+<section class="content-section" id="relative-paths">
+<h2>Relative File Paths</h2>
+<p>एक सापेक्ष फ़ाइल पथ वर्तमान पृष्ठ से संबंधित फ़ाइल को इंगित करता है।</p>
+<p>निम्नलिखित उदाहरण में, फ़ाइल पथ वर्तमान वेबसाइट के मूल में स्थित छवि फ़ोल्डर में एक फ़ाइल को इंगित करता है:</p>
+<h3>Example</h3>
+<div class="code-example">
+<pre><code>&lt;img src="/images/picture.jpg" alt="Mountain"&gt;</code></pre>
+</div>
+<p>निम्नलिखित उदाहरण में, फ़ाइल पथ वर्तमान फ़ोल्डर में स्थित छवि फ़ोल्डर में एक फ़ाइल को इंगित करता है:</p>
+<h3>Example</h3>
+<div class="code-example">
+<pre><code>&lt;img src="images/picture.jpg" alt="Mountain"&gt;</code></pre>
+</div>
+<p>निम्नलिखित उदाहरण में, फ़ाइल पथ वर्तमान फ़ोल्डर से एक स्तर ऊपर छवि फ़ोल्डर में एक फ़ाइल को इंगित करता है:</p>
+<h3>Example</h3>
+<div class="code-example">
+<pre><code>&lt;img src="../images/picture.jpg" alt="Mountain"&gt;</code></pre>
+</div>
+</section>
+<!-- Best Practice -->
+<section class="content-section" id="best-practice">
+<h2>Best Practice</h2>
+<p>सबसे अच्छा अभ्यास सापेक्ष फ़ाइल पथ (यदि संभव हो) का उपयोग करना है।</p>
+<p>सापेक्ष फ़ाइल पथों का उपयोग करते समय, आपके वेब पेज आपके वर्तमान आधार URL से बंधे नहीं होंगे। सभी लिंक आपके अपने कंप्यूटर (लोकलहोस्ट) और आपके वर्तमान सार्वजनिक डोमेन और आपके भविष्य के सार्वजनिक डोमेन पर काम करते हैं।</p>
+</section>
+<!-- Bottom Navigation -->
+<div class="bottom-nav">
+<a class="nav-tab prev" href="HTML%20JavaScript.html">
+<i class="fas fa-arrow-left"></i>
+<span>पिछला</span>
+</a>
+<a class="nav-tab next" href="HTML%20-%20The%20Head%20Element.html">
+<span>अगला</span>
+<i class="fas fa-arrow-right"></i>
+</a>
+</div>
+</main>
+<!-- Footer -->
+<footer>
+<div class="footer-content">
+<div class="footer-column">
+<h3>Jassif Team Institution</h3>
+<p>Leading educational institution providing quality programming education in Hindi.</p>
+</div>
+<div class="footer-column">
+<h3>Quick Links</h3>
+<ul>
+<li><a href="#introduction">HTML File Paths</a></li>
+<li><a href="#file-path-examples">File Path Examples</a></li>
+<li><a href="#html-file-paths">HTML File Paths</a></li>
+<li><a href="#absolute-paths">Absolute File Paths</a></li>
+<li><a href="#relative-paths">Relative File Paths</a></li>
+<li><a href="#best-practice">Best Practice</a></li>
+</ul>
+</div>
+<div class="footer-column">
+<h3>Contact</h3>
+<ul>
+<li><a href="#">About Us</a></li>
+<li><a href="#">Contact Us</a></li>
+<li><a href="#">Location &amp; Hours</a></li>
+</ul>
+</div>
+<div class="footer-column">
+<h3>Follow Us</h3>
+<ul>
+<li><a href="#"><i class="fab fa-facebook"></i> Facebook</a></li>
+<li><a href="#"><i class="fab fa-instagram"></i> Instagram</a></li>
+<li><a href="#"><i class="fab fa-youtube"></i> YouTube</a></li>
+</ul>
+</div>
+</div>
+<div class="copyright">
+<p>© 2023 Jassif Team Institution. All rights reserved.</p>
+</div>
+</footer>
+<script>
+        // Add smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Add scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animation = 'fadeInUp 0.8s ease-out forwards';
+                }
+            });
+        }, observerOptions);
+        
+        // Observe all content sections for animation
+        document.querySelectorAll('.content-section').forEach(section => {
+            observer.observe(section);
+        });
+    </script>
+<!-- Home Button -->
+<a class="home-icon" href="index.html">
+<i class="fas fa-home"></i>
+</a>
+</body>
+</html>

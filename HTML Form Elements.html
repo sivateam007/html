@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+
+<html lang="hi">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>HTML Form Elements - Jassif Team</title>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<link href="style.css" rel="stylesheet"/>
+<style>
+        .content-section p, 
+        .content-section li,
+        .content-section h3,
+        .content-section h4,
+        .comparison-card p {
+            color: #333 !important;
+        }
+        
+        .tip-box p,
+        .tip-box li,
+        .tip-box h4 {
+            color: white !important;
+        }
+        
+        .warning-box p,
+        .warning-box li,
+        .warning-box h4 {
+            color: white !important;
+        }
+        
+        .exercise-box p,
+        .exercise-box h4 {
+            color: white !important;
+        }
+        
+        /* Stable logo styling - NO ANIMATIONS */
+        .logo-icon {
+            animation: none !important; /* Remove pulse animation */
+        }
+        
+        .logo-image {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+            display: block;
+            border: 2px solid white;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            animation: none !important; /* Ensure no animations */
+        }
+        
+        /* Form element styling */
+        .form-demo {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+            border-left: 4px solid var(--git-color);
+        }
+    </style>
+</head>
+<body>
+<!-- Header -->
+<header>
+<div class="header-container">
+<div class="logo">
+<div class="logo-icon">
+<img alt="Jassif Team Logo" class="logo-image" src="logo.jpg"/>
+</div>
+<h1>Jassif Team <span>Institution</span></h1>
+</div>
+</div>
+</header>
+<!-- Top Navigation Tabs -->
+<div class="nav-tabs">
+<a class="nav-tab prev" href="HTML Form Attributes.html">
+<i class="fas fa-arrow-left"></i>
+<span>पिछला</span>
+</a>
+<a class="nav-tab next" href="HTML Input Types.html">
+<span>अगला</span>
+<i class="fas fa-arrow-right"></i>
+</a>
+</div>
+<!-- Hero Section -->
+<section class="hero" id="home">
+<div class="hero-content">
+<h2>HTML Form Elements</h2>
+<p>एचटीएमएल फॉर्म तत्वों को जानें</p>
+</div>
+</section>
+<!-- Main Content -->
+<main class="container">
+<!-- HTML Form Elements Introduction -->
+<section class="content-section" id="introduction">
+<h2>HTML प्रपत्र तत्व</h2>
+<p>यह अध्याय सभी विभिन्न HTML फॉर्म तत्वों का वर्णन करता है।</p>
+<div class="examples-grid">
+<div class="example-card">
+<div class="example-icon">
+<i class="fas fa-keyboard"></i>
+</div>
+<h4>&lt;input&gt;</h4>
+<p>इनपुट तत्व</p>
+</div>
+<div class="example-card">
+<div class="example-icon">
+<i class="fas fa-tag"></i>
+</div>
+<h4>&lt;label&gt;</h4>
+<p>लेबल तत्व</p>
+</div>
+<div class="example-card">
+<div class="example-icon">
+<i class="fas fa-caret-square-down"></i>
+</div>
+<h4>&lt;select&gt;</h4>
+<p>चयन सूची</p>
+</div>
+<div class="example-card">
+<div class="example-icon">
+<i class="fas fa-align-left"></i>
+</div>
+<h4>&lt;textarea&gt;</h4>
+<p>मल्टी लाइन इनपुट</p>
+</div>
+</div>
+</section>
+<!-- The HTML <form> Elements -->
+<section class="content-section" id="form-elements">
+<h2>HTML &lt;form&gt; तत्व</h2>
+<p>HTML &lt;form&gt; तत्व में निम्नलिखित में से एक या अधिक फॉर्म तत्व शामिल हो सकते हैं:</p>
+<div class="comparison-table">
+<table>
+<thead>
+<tr>
+<th>टैग</th>
+<th>स्पष्टीकरण</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>&lt;input&gt;</td>
+<td>विभिन्न प्रकार के इनपुट नियंत्रण</td>
+</tr>
+<tr>
+<td>&lt;label&gt;</td>
+<td>प्रपत्र तत्वों के लिए लेबल</td>
+</tr>
+<tr>
+<td>&lt;select&gt;</td>
+<td>सूची डाउनलोड करें</td>
+</tr>
+<tr>
+<td>&lt;textarea&gt;</td>
+<td>एक बहु-पंक्ति पाठ फ़ील्ड</td>
+</tr>
+<tr>
+<td>&lt;button&gt;</td>
+<td>क्लिक करने योग्य बटन</td>
+</tr>
+<tr>
+<td>&lt;fieldset&gt;</td>
+<td>प्रासंगिक डेटा संकलित करने के लिए</td>
+</tr>
+<tr>
+<td>&lt;legend&gt;</td>
+<td>&lt;फ़ील्डसेट&gt; के लिए हेडर</td>
+</tr>
+<tr>
+<td>&lt;datalist&gt;</td>
+<td>पूर्वनिर्धारित विकल्पों की एक सूची</td>
+</tr>
+<tr>
+<td>&lt;output&gt;</td>
+<td>कम्प्यूटेशनल परिणाम</td>
+</tr>
+<tr>
+<td>&lt;option&gt;</td>
+<td>चयन योग्य विकल्प</td>
+</tr>
+<tr>
+<td>&lt;optgroup&gt;</td>
+<td>विकल्पों का एक समूह</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<!-- The <input> Element -->
+<section class="content-section" id="input-element">
+<h2>&lt;इनपुट&gt; तत्व</h2>
+<p>सबसे अधिक उपयोग किए जाने वाले फॉर्म तत्वों में से एक &lt;इनपुट&gt; तत्व है।</p>
+<p>&lt;इनपुट&gt; तत्व को प्रकार विशेषता के आधार पर विभिन्न तरीकों से प्रदर्शित किया जा सकता है।</p>
+<h3>उदाहरण</h3>
+<div class="code-example">
+<pre><code><span class="command-input">&lt;label for="fname"&gt;First name:&lt;/label&gt;</span>
+<span class="command-input">&lt;input type="text" id="fname" name="fname"&gt;</span></code></pre>
+</div>
+<div class="form-demo">
+<label for="demo-fname">First name:</label>
+<input id="demo-fname" name="fname" placeholder="Enter your first name" type="text"/>
+</div>
+<div class="tip-box">
+<h4><span class="tip-icon">🔍</span>महत्वपूर्ण:</h4>
+<p>प्रकार विशेषता के सभी अलग-अलग मान अगले अध्याय में शामिल हैं:<strong>HTML Input Types</strong>.</p>
+</div>
+</section>
+<!-- The <label> Element -->
+<section class="content-section" id="label-element">
+<h2>&lt;लेबल&gt; तत्व</h2>
+<p>&lt;लेबल&gt; तत्व एकाधिक प्रपत्र तत्वों के लिए एक लेबल को परिभाषित करता है।</p>
+<p>&lt;लेबल&gt; तत्व स्क्रीन रीडर उपयोगकर्ताओं के लिए उपयोगी है क्योंकि जब उपयोगकर्ता इनपुट तत्व पर ध्यान केंद्रित करता है तो स्क्रीन रीडर लेबल को ज़ोर से पढ़ता है।</p>
+<p>&lt;लेबल&gt; तत्व उन उपयोगकर्ताओं की भी मदद करता है जिन्हें बहुत छोटे क्षेत्रों (जैसे रेडियो बटन या चेकबॉक्स) पर क्लिक करने में परेशानी होती है - क्योंकि जब उपयोगकर्ता &lt;लेबल&gt; तत्व के अंदर टेक्स्ट पर क्लिक करता है, तो यह रेडियो बटन/चेकबॉक्स को बदल देता है।</p>
+<h3>उदाहरण</h3>
+<div class="code-example">
+<pre><code><span class="command-input">&lt;input type="checkbox" id="vehicle1" name="vehicle1" value="Bike"&gt;</span>
+<span class="command-input">&lt;label for="vehicle1"&gt; I have a bike&lt;/label&gt;</span></code></pre>
+</div>
+<div class="form-demo">
+<input id="demo-vehicle1" name="vehicle1" type="checkbox" value="Bike"/>
+<label for="demo-vehicle1">I have a bike</label><br/>
+<input id="demo-male" name="gender" type="radio" value="male"/>
+<label for="demo-male">Male</label><br/>
+<input id="demo-female" name="gender" type="radio" value="female"/>
+<label for="demo-female">Female</label>
+</div>
+<div class="warning-box">
+<h4><span class="warning-icon">❗</span>मुख्य निर्देश:</h4>
+<p>उन्हें एक साथ जोड़ने के लिए &lt;लेबल&gt; टैग की विशेषता &lt;इनपुट&gt; तत्व की आईडी विशेषता के बराबर होनी चाहिए।</p>
+</div>
+</section>
+<!-- The <select> Element -->
+<section class="content-section" id="select-element">
+<h2>&lt;चयन&gt; तत्व</h2>
+<p>&lt;select&gt; तत्व एक डाउनलोड सूची को परिभाषित करता है:</p>
+<h3>उदाहरण</h3>
+<div class="code-example">
+<pre><code><span class="command-input">&lt;label for="cars"&gt;Choose a car:&lt;/label&gt;</span>
+<span class="command-input">&lt;select id="cars" name="cars"&gt;</span>
+  <span class="command-input">&lt;option value="volvo"&gt;Volvo&lt;/option&gt;</span>
+  <span class="command-input">&lt;option value="saab"&gt;Saab&lt;/option&gt;</span>
+  <span class="command-input">&lt;option value="fiat"&gt;Fiat&lt;/option&gt;</span>
+  <span class="command-input">&lt;option value="audi"&gt;Audi&lt;/option&gt;</span>
+<span class="command-input">&lt;/select&gt;</span></code></pre>
+</div>
+<div class="form-demo">
+<label for="demo-cars">Choose a car:</label>
+<select id="demo-cars" name="cars">
+<option value="volvo">Volvo</option>
+<option value="saab">Saab</option>
+<option value="fiat">Fiat</option>
+<option value="audi">Audi</option>
+</select>
+</div>
+<p>&lt;विकल्प&gt; तत्व एक विकल्प को परिभाषित करता है जिसे चुना जा सकता है।</p>
+<p>डिफ़ॉल्ट रूप से, डाउनलोड सूची में पहला आइटम चयनित होता है।</p>
+<p>पूर्व-चयनित विकल्प को परिभाषित करने के लिए, चयनित विशेषता को विकल्प में जोड़ें:</p>
+<div class="code-example">
+<pre><code><span class="command-input">&lt;option value="fiat" selected&gt;Fiat&lt;/option&gt;</span></code></pre>
+</div>
+<h4>दृश्यमान मान:</h4>
+<p>दृश्य मानों की संख्या निर्दिष्ट करने के लिए आकार विशेषता का उपयोग करें:</p>
+<div class="code-example">
+<pre><code><span class="command-input">&lt;label for="cars"&gt;Choose a car:&lt;/label&gt;</span>
+<span class="command-input">&lt;select id="cars" name="cars" size="3"&gt;</span>
+  <span class="command-input">&lt;option value="volvo"&gt;Volvo&lt;/option&gt;</span>
+  <span class="command-input">&lt;option value="saab"&gt;Saab&lt;/option&gt;</span>
+  <span class="command-input">&lt;option value="fiat"&gt;Fiat&lt;/option&gt;</span>
+  <span class="command-input">&lt;option value="audi"&gt;Audi&lt;/option&gt;</span>
+<span class="command-input">&lt;/select&gt;</span></code></pre>
+</div>
+<h4>एकाधिक चयन की अनुमति देने के लिए:</h4>
+<p>उपयोगकर्ता को एक से अधिक मान चुनने की अनुमति देने के लिए एकाधिक विशेषता का उपयोग करें:</p>
+<div class="code-example">
+<pre><code><span class="command-input">&lt;label for="cars"&gt;Choose a car:&lt;/label&gt;</span>
+<span class="command-input">&lt;select id="cars" name="cars" size="4" multiple&gt;</span>
+  <span class="command-input">&lt;option value="volvo"&gt;Volvo&lt;/option&gt;</span>
+  <span class="command-input">&lt;option value="saab"&gt;Saab&lt;/option&gt;</span>
+  <span class="command-input">&lt;option value="fiat"&gt;Fiat&lt;/option&gt;</span>
+  <span class="command-input">&lt;option value="audi"&gt;Audi&lt;/option&gt;</span>
+<span class="command-input">&lt;/select&gt;</span></code></pre>
+</div>
+</section>
+<!-- The <textarea> Element -->
+<section class="content-section" id="textarea-element">
+<h2>&lt;textarea&gt; तत्व</h2>
+<p>&lt;textarea&gt; तत्व एक बहु-पंक्ति इनपुट फ़ील्ड (पाठ क्षेत्र) को परिभाषित करता है:</p>
+<h3>उदाहरण</h3>
+<div class="code-example">
+<pre><code><span class="command-input">&lt;textarea name="message" rows="10" cols="30"&gt;</span>
+<span class="command-input">The cat was playing in the garden.</span>
+<span class="command-input">&lt;/textarea&gt;</span></code></pre>
+</div>
+<div class="form-demo">
+<label for="demo-message">Message:</label><br/>
+<textarea cols="40" id="demo-message" name="message" placeholder="Enter your message here..." rows="4"></textarea>
+</div>
+<p>पंक्तियाँ विशेषता पाठ क्षेत्र में दृश्यमान रेखाओं की संख्या निर्दिष्ट करती है।</p>
+<p>कॉल्स विशेषता पाठ क्षेत्र की दृश्यमान चौड़ाई निर्दिष्ट करती है।</p>
+<p>आप CSS का उपयोग करके टेक्स्ट क्षेत्र का आकार भी परिभाषित कर सकते हैं:</p>
+<div class="code-example">
+<pre><code><span class="command-input">&lt;textarea name="message" style="width:200px; height:600px;"&gt;</span>
+<span class="command-input">The cat was playing in the garden.</span>
+<span class="command-input">&lt;/textarea&gt;</span></code></pre>
+</div>
+</section>
+<!-- The <button> Element -->
+<section class="content-section" id="button-element">
+<h2>&lt;बटन&gt; तत्व</h2>
+<p>&lt;बटन&gt; तत्व एक क्लिक करने योग्य बटन को परिभाषित करता है:</p>
+<h3>उदाहरण</h3>
+<div class="code-example">
+<pre><code><span class="command-input">&lt;button type="button" onclick="alert('Hello World!')"&gt;Click Me!&lt;/button&gt;</span></code></pre>
+</div>
+<div class="form-demo">
+<button onclick="alert('Hello from Jassif Team!')" style="padding: 10px 20px; background: var(--git-color); color: white; border: none; border-radius: 5px; cursor: pointer;" type="button">
+                    Click Me!
+                </button>
+</div>
+<div class="warning-box">
+<h4><span class="warning-icon">⚠️</span>टिप्पणी:</h4>
+<p>बटन तत्व के लिए हमेशा प्रकार विशेषता निर्दिष्ट करें। विभिन्न ब्राउज़र बटन तत्व के लिए विभिन्न डिफ़ॉल्ट प्रकारों का उपयोग कर सकते हैं।</p>
+</div>
+</section>
+<!-- The <fieldset> and <legend> Elements -->
+<section class="content-section" id="fieldset-element">
+<h2>&lt;फ़ील्डसेट&gt; और &lt;लीजेंड&gt; तत्व</h2>
+<p>&lt;फ़ील्डसेट&gt; तत्व का उपयोग संबंधित डेटा को एक रूप में समूहित करने के लिए किया जाता है।</p>
+<p>&lt;legend&gt; तत्व &lt;fieldset&gt; तत्व के लिए एक कैप्शन परिभाषित करता है।</p>
+<h3>उदाहरण</h3>
+<div class="code-example">
+<pre><code><span class="command-input">&lt;form action="/action_page.php"&gt;</span>
+  <span class="command-input">&lt;fieldset&gt;</span>
+    <span class="command-input">&lt;legend&gt;Personalia:&lt;/legend&gt;</span>
+    <span class="command-input">&lt;label for="fname"&gt;First name:&lt;/label&gt;&lt;br&gt;</span>
+    <span class="command-input">&lt;input type="text" id="fname" name="fname" value="John"&gt;&lt;br&gt;</span>
+    <span class="command-input">&lt;label for="lname"&gt;Last name:&lt;/label&gt;&lt;br&gt;</span>
+    <span class="command-input">&lt;input type="text" id="lname" name="lname" value="Doe"&gt;&lt;br&gt;&lt;br&gt;</span>
+    <span class="command-input">&lt;input type="submit" value="Submit"&gt;</span>
+  <span class="command-input">&lt;/fieldset&gt;</span>
+<span class="command-input">&lt;/form&gt;</span></code></pre>
+</div>
+<div class="form-demo" style="border: 1px solid #ccc; padding: 20px; border-radius: 5px;">
+<fieldset style="border: 1px solid #ccc; padding: 15px; border-radius: 5px;">
+<legend style="padding: 0 10px; font-weight: bold;">Personalia:</legend>
+<label for="demo-fname2">First name:</label><br/>
+<input id="demo-fname2" name="fname" style="margin-bottom: 10px; padding: 5px;" type="text" value="John"/><br/>
+<label for="demo-lname2">Last name:</label><br/>
+<input id="demo-lname2" name="lname" style="margin-bottom: 10px; padding: 5px;" type="text" value="Doe"/><br/><br/>
+<input style="padding: 8px 20px; background: var(--git-color); color: white; border: none; border-radius: 5px;" type="submit" value="Submit"/>
+</fieldset>
+</div>
+</section>
+<!-- The <datalist> Element -->
+<section class="content-section" id="datalist-element">
+<h2>&lt;डेटालिस्ट&gt; तत्व</h2>
+<p>&lt;डेटालिस्ट&gt; तत्व एक &lt;इनपुट&gt; तत्व के लिए पूर्वनिर्धारित विकल्पों की एक सूची निर्दिष्ट करता है।</p>
+<p>डेटा दर्ज करते ही उपयोगकर्ताओं को पूर्वनिर्धारित विकल्पों की एक डाउनलोड करने योग्य सूची दिखाई देगी।</p>
+<p>&lt;इनपुट&gt; तत्व की सूची विशेषता को &lt;डेटालिस्ट&gt; तत्व की आईडी विशेषता का संदर्भ देना चाहिए।</p>
+<h3>उदाहरण</h3>
+<div class="code-example">
+<pre><code><span class="command-input">&lt;form action="/action_page.php"&gt;</span>
+  <span class="command-input">&lt;input list="browsers"&gt;</span>
+  <span class="command-input">&lt;datalist id="browsers"&gt;</span>
+    <span class="command-input">&lt;option value="Edge"&gt;</span>
+    <span class="command-input">&lt;option value="Firefox"&gt;</span>
+    <span class="command-input">&lt;option value="Chrome"&gt;</span>
+    <span class="command-input">&lt;option value="Opera"&gt;</span>
+    <span class="command-input">&lt;option value="Safari"&gt;</span>
+  <span class="command-input">&lt;/datalist&gt;</span>
+<span class="command-input">&lt;/form&gt;</span></code></pre>
+</div>
+</section>
+<!-- The <output> Element -->
+<section class="content-section" id="output-element">
+<h2>&lt;आउटपुट&gt; तत्व</h2>
+<p>&lt;आउटपुट&gt; तत्व एक गणना के परिणाम का प्रतिनिधित्व करता है (जैसे कि एक स्क्रिप्ट द्वारा निष्पादित)।</p>
+<h3>उदाहरण</h3>
+<p>गणना करें और परिणाम को &lt;आउटपुट&gt; तत्व में प्रदर्शित करें:</p>
+<div class="code-example">
+<pre><code><span class="command-input">&lt;form action="/action_page.php"</span>
+<span class="command-input">  oninput="x.value=parseInt(a.value)+parseInt(b.value)"&gt;</span>
+<span class="command-input">  0</span>
+<span class="command-input">  &lt;input type="range"  id="a" name="a" value="50"&gt;</span>
+<span class="command-input">  100 +</span>
+<span class="command-input">  &lt;input type="number" id="b" name="b" value="50"&gt;</span>
+<span class="command-input">  =</span>
+<span class="command-input">  &lt;output name="x" for="a b"&gt;&lt;/output&gt;</span>
+<span class="command-input">  &lt;br&gt;&lt;br&gt;</span>
+<span class="command-input">  &lt;input type="submit"&gt;</span>
+<span class="command-input">&lt;/form&gt;</span></code></pre>
+</div>
+</section>
+<!-- Exercise Section -->
+<section class="content-section" id="exercises">
+<h2>अभ्यास</h2>
+<div class="exercise-box">
+<h4><span class="exercise-icon">❓</span>प्रासंगिक डेटा को एक फॉर्म में समूहीकृत करने और डिफ़ॉल्ट रूप से, उसके चारों ओर एक सीमा खींचने के लिए सही HTML तत्व क्या है?</h4>
+<div class="options-grid">
+<div class="option-card" data-correct="false">
+<div class="option-content">
+<div class="option-text">&lt;group&gt;</div>
+<div class="option-feedback incorrect">✗ ग़लत! &lt;group&gt; एक मान्य HTML तत्व नहीं है</div>
+</div>
+</div>
+<div class="option-card" data-correct="true">
+<div class="option-content">
+<div class="option-text">&lt;fieldset&gt;</div>
+<div class="option-feedback correct">✓ ठीक है! &lt;फ़ील्डसेट&gt; संबंधित प्रपत्र नियंत्रणों को समूहित करता है और डिफ़ॉल्ट रूप से एक सीमा खींचता है</div>
+</div>
+</div>
+<div class="option-card" data-correct="false">
+<div class="option-content">
+<div class="option-text">&lt;fence&gt;</div>
+<div class="option-feedback incorrect">✗ ग़लत! &lt;fence&gt; एक मान्य HTML टैग नहीं है</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Bottom Navigation -->
+<div class="bottom-nav">
+<a class="nav-tab prev" href="HTML Form Attributes.html">
+<i class="fas fa-arrow-left"></i>
+<span>पिछला</span>
+</a>
+<a class="nav-tab next" href="HTML Input Types.html">
+<span>अगला</span>
+<i class="fas fa-arrow-right"></i>
+</a>
+</div>
+</main>
+<!-- Footer -->
+<footer>
+<div class="footer-content">
+<div class="footer-column">
+<h3>Jassif Team Institution</h3>
+<p>Leading educational institution providing quality programming education in Hindi.</p>
+</div>
+<div class="footer-column">
+<h3>Quick Links</h3>
+<ul>
+<li><a href="#introduction">प्रपत्र तत्व</a></li>
+<li><a href="#form-elements">सभी तत्व</a></li>
+<li><a href="#input-element">&lt;इनपुट&gt; तत्व</a></li>
+<li><a href="#label-element">&lt;लेबल&gt; तत्व</a></li>
+<li><a href="#select-element">&lt;चयन&gt; तत्व</a></li>
+<li><a href="#textarea-element">&lt;textarea&gt; तत्व</a></li>
+<li><a href="#button-element">&lt;बटन&gt; तत्व</a></li>
+<li><a href="#fieldset-element">&lt;फ़ील्डसेट&gt; तत्व</a></li>
+<li><a href="#datalist-element">&lt;डेटालिस्ट&gt; तत्व</a></li>
+<li><a href="#output-element">&lt;आउटपुट&gt; तत्व</a></li>
+<li><a href="#exercises">अभ्यास</a></li>
+</ul>
+</div>
+<div class="footer-column">
+<h3>Contact</h3>
+<ul>
+<li><a href="#">About Us</a></li>
+<li><a href="#">Contact Us</a></li>
+<li><a href="#">Location &amp; Hours</a></li>
+</ul>
+</div>
+<div class="footer-column">
+<h3>Follow Us</h3>
+<ul>
+<li><a href="#"><i class="fab fa-facebook"></i> Facebook</a></li>
+<li><a href="#"><i class="fab fa-instagram"></i> Instagram</a></li>
+<li><a href="#"><i class="fab fa-youtube"></i> YouTube</a></li>
+</ul>
+</div>
+</div>
+<div class="copyright">
+<p>© 2023 Jassif Team Institution. All rights reserved.</p>
+</div>
+</footer>
+<script>
+        // Add smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Add scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animation = 'fadeInUp 0.8s ease-out forwards';
+                }
+            });
+        }, observerOptions);
+        
+        // Observe all content sections for animation
+        document.querySelectorAll('.content-section').forEach(section => {
+            observer.observe(section);
+        });
+
+        // Exercise interaction
+        document.querySelectorAll('.option-card').forEach(card => {
+            card.addEventListener('click', function() {
+                // Show feedback for all options
+                document.querySelectorAll('.option-card').forEach(c => {
+                    c.querySelector('.option-feedback').style.display = 'block';
+                });
+            });
+        });
+    </script>
+<!-- Home Button -->
+<a class="home-icon" href="index.html">
+<i class="fas fa-home"></i>
+</a>
+</body>
+</html>

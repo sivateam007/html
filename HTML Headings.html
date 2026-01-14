@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+
+<html lang="hi">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>HTML Headings - Jassif Team</title>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<link href="style.css" rel="stylesheet"/>
+<style>
+        .content-section p, 
+        .content-section li,
+        .content-section h3,
+        .content-section h4,
+        .comparison-card p {
+            color: #333 !important;
+        }
+        
+        .tip-box p,
+        .tip-box li,
+        .tip-box h4 {
+            color: white !important;
+        }
+        
+        .warning-box p,
+        .warning-box li,
+        .warning-box h4 {
+            color: white !important;
+        }
+        
+        .exercise-box p,
+        .exercise-box h4 {
+            color: white !important;
+        }
+        
+        /* Stable logo styling - NO ANIMATIONS */
+        .logo-icon {
+            animation: none !important; /* Remove pulse animation */
+        }
+        
+        .logo-image {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+            display: block;
+            border: 2px solid white;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            animation: none !important; /* Ensure no animations */
+        }
+        
+        /* Heading demonstration styles */
+        .heading-demo {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            margin: 2rem 0;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        
+        .heading-demo h1, 
+        .heading-demo h2,
+        .heading-demo h3,
+        .heading-demo h4,
+        .heading-demo h5,
+        .heading-demo h6 {
+            margin: 1rem 0;
+            color: var(--dark);
+        }
+    </style>
+</head>
+<body>
+<!-- Header -->
+<header>
+<div class="header-container">
+<div class="logo">
+<div class="logo-icon">
+<img alt="Jassif Team Logo" class="logo-image" src="logo.jpg"/>
+</div>
+<h1>Jassif Team <span>Institution</span></h1>
+</div>
+</div>
+</header>
+<!-- Top Navigation Tabs -->
+<div class="nav-tabs">
+<a class="nav-tab prev" href="HTML%20Attributes.html">
+<i class="fas fa-arrow-left"></i>
+<span>पिछला</span>
+</a>
+<a class="nav-tab next" href="HTML%20Paragraphs.html">
+<span>अगला</span>
+<i class="fas fa-arrow-right"></i>
+</a>
+</div>
+<!-- Hero Section -->
+<section class="hero" id="home">
+<div class="hero-content">
+<h2>HTML Headings</h2>
+<p>HTML हेडर</p>
+</div>
+</section>
+<!-- Main Content -->
+<main class="container">
+<!-- HTML Headings Introduction -->
+<section class="content-section" id="introduction">
+<h2>HTML हेडर</h2>
+<p>HTML हेडर वे हेडर या सबहेडर हैं जिन्हें आप किसी वेब पेज पर प्रदर्शित करना चाहते हैं।</p>
+<div class="heading-demo">
+<h1 style="font-size: 2.5rem; color: var(--dark);">Heading 1</h1>
+<h2 style="font-size: 2rem; color: var(--dark);">Heading 2</h2>
+<h3 style="font-size: 1.75rem; color: var(--dark);">Heading 3</h3>
+<h4 style="font-size: 1.5rem; color: var(--dark);">Heading 4</h4>
+<h5 style="font-size: 1.25rem; color: var(--dark);">Heading 5</h5>
+<h6 style="font-size: 1rem; color: var(--dark);">Heading 6</h6>
+</div>
+</section>
+<!-- HTML Headings Definition -->
+<section class="content-section" id="definition">
+<h2>HTML हेडर</h2>
+<p>HTML हेडर<code>&lt;h1&gt;</code>पहला<code>&lt;h6&gt;</code>टैग तक परिभाषित हैं।</p>
+<p><code>&lt;h1&gt;</code>सबसे महत्वपूर्ण विषय को परिभाषित करता है.<code>&lt;h6&gt;</code>कम से कम महत्व के विषय को परिभाषित करता है।</p>
+<h3>उदाहरण</h3>
+<div class="code-example">
+<pre><code>&lt;h1&gt;Heading 1&lt;/h1&gt;
+&lt;h2&gt;Heading 2&lt;/h2&gt;
+&lt;h3&gt;Heading 3&lt;/h3&gt;
+&lt;h4&gt;Heading 4&lt;/h4&gt;
+&lt;h5&gt;Heading 5&lt;/h5&gt;
+&lt;h6&gt;Heading 6&lt;/h6&gt;</code></pre>
+</div>
+<div class="tip-box">
+<h4><span class="tip-icon">📝</span>टिप्पणी:</h4>
+<p>ब्राउज़र स्वचालित रूप से शीर्षक के पहले और बाद में कुछ सफेद स्थान (एक मार्जिन) जोड़ देते हैं।</p>
+</div>
+</section>
+<!-- Headings Are Important -->
+<section class="content-section" id="importance">
+<h2>शीर्षक महत्वपूर्ण हैं</h2>
+<p>खोज इंजन आपके वेब पेजों की संरचना और सामग्री को अनुक्रमित करने के लिए शीर्षकों का उपयोग करते हैं।</p>
+<p>उपयोगकर्ता अक्सर किसी पृष्ठ को उसके शीर्षकों के आधार पर तुरंत देखते हैं। दस्तावेज़ संरचना दिखाने के लिए शीर्षकों का उपयोग करना महत्वपूर्ण है।</p>
+<p><code>&lt;h1&gt;</code>शीर्षकों का उपयोग मुख्य शीर्षकों के लिए किया जाना चाहिए, उसके बाद<code>&lt;h2&gt;</code>शीर्षक, फिर कम महत्वपूर्ण<code>&lt;h3&gt;</code>, और इसी तरह।</p>
+<h3>उदाहरण</h3>
+<div class="code-example">
+<pre><code>&lt;h1&gt;Travel Guide&lt;/h1&gt;
+
+&lt;h2&gt;Europe&lt;/h2&gt;
+&lt;h3&gt;France&lt;/h3&gt;
+&lt;h3&gt;Italy&lt;/h3&gt;
+
+&lt;h2&gt;Asia&lt;/h2&gt;
+&lt;h3&gt;India&lt;/h3&gt;
+&lt;h3&gt;Thailand&lt;/h3&gt;</code></pre>
+</div>
+<div class="comparison-grid">
+<div class="comparison-card">
+<div class="comparison-header">
+<i class="fas fa-heading"></i>
+<h4><code>&lt;h1&gt;</code>- पृष्ठ शीर्षक</h4>
+</div>
+<p>मुख्य पृष्ठ का शीर्षक. प्रति पक्ष केवल एक<code>&lt;h1&gt;</code>होना चाहिए.</p>
+</div>
+<div class="comparison-card">
+<div class="comparison-header">
+<i class="fas fa-heading"></i>
+<h4><code>&lt;h2&gt;</code>- खंड शीर्षक</h4>
+</div>
+<p>प्रमुख अनुभागीय विषय. एक पृष्ठ पर एकाधिक<code>&lt;h2&gt;</code>शायद।</p>
+</div>
+<div class="comparison-card">
+<div class="comparison-header">
+<i class="fas fa-heading"></i>
+<h4><code>&lt;h3&gt;</code>- उपशीर्षक</h4>
+</div>
+<p>उप-अनुभाग शीर्षक.<code>&lt;h2&gt;</code>अनुभागों के भीतर उपयोग किया जाता है.</p>
+</div>
+</div>
+<div class="tip-box">
+<h4><span class="tip-icon">💡</span>बख्शीश:</h4>
+<p>प्रति पृष्ठ केवल एक<code>&lt;h1&gt;</code>केवल i का प्रयोग करें - यह मुख्य शीर्षक या नाम को संदर्भित करता है।</p>
+</div>
+<div class="warning-box">
+<h4><span class="warning-icon">⚠️</span>टिप्पणी:</h4>
+<p>केवल शीर्षकों के लिए HTML शीर्षलेखों का उपयोग करें। टेक्स्ट को बड़ा या बोल्ड बनाने के लिए शीर्षकों का उपयोग न करें।</p>
+</div>
+</section>
+<!-- Bigger Headings -->
+<section class="content-section" id="bigger-headings">
+<h2>बड़े विषय</h2>
+<p>प्रत्येक HTML हेडर का एक डिफ़ॉल्ट आकार होता है। हालाँकि, सी.एस.एस<code>font-size</code>विशेषता से<code>style</code>विशेषता का उपयोग करके किसी भी विषय के लिए आकार निर्दिष्ट किया जा सकता है:</p>
+<h3>उदाहरण</h3>
+<div class="code-example">
+<pre><code>&lt;h1 style="font-size:60px;"&gt;Heading 1&lt;/h1&gt;</code></pre>
+</div>
+<div class="examples-grid">
+<div class="example-card">
+<div class="example-icon">
+<i class="fas fa-text-height"></i>
+</div>
+<h4>डिफ़ॉल्ट आकार</h4>
+<p>h1: 2em, h2: 1.5em, h3: 1.17em, h4: 1em, h5: 0.83em, h6: 0.67em</p>
+</div>
+<div class="example-card">
+<div class="example-icon">
+<i class="fas fa-paint-brush"></i>
+</div>
+<h4>सीएसएस स्टाइलिंग</h4>
+<p>शैली विशेषता के माध्यम से कस्टम आकार</p>
+</div>
+<div class="example-card">
+<div class="example-icon">
+<i class="fas fa-file-alt"></i>
+</div>
+<h4>बाहरी सीएसएस</h4>
+<p>सभी हेडर को बाहरी स्टाइल शीट के साथ स्टाइल किया जा सकता है</p>
+</div>
+</div>
+</section>
+<!-- Heading Hierarchy Example -->
+<section class="content-section" id="hierarchy">
+<h2>विषय पदानुक्रम उदाहरण</h2>
+<p>उचित HTML हेडर पदानुक्रम का उपयोग कैसे करें इसका एक उदाहरण:</p>
+<div class="code-example">
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;title&gt;Book Store&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;h1&gt;Welcome to Our Book Store&lt;/h1&gt;
+
+&lt;h2&gt;Fiction Books&lt;/h2&gt;
+&lt;h3&gt;Science Fiction&lt;/h3&gt;
+&lt;p&gt;Description of science fiction books...&lt;/p&gt;
+
+&lt;h3&gt;Fantasy&lt;/h3&gt;
+&lt;p&gt;Description of fantasy books...&lt;/p&gt;
+
+&lt;h2&gt;Non-Fiction Books&lt;/h2&gt;
+&lt;h3&gt;Biographies&lt;/h3&gt;
+&lt;p&gt;Description of biography books...&lt;/p&gt;
+
+&lt;h3&gt;Self-Help&lt;/h3&gt;
+&lt;p&gt;Description of self-help books...&lt;/p&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+</div>
+<div class="tip-box">
+<h4><span class="tip-icon">🏗️</span>संरचनात्मक स्थिरता:</h4>
+<p>शीर्षक स्थिति को न छोड़ें (उदाहरण के लिए, सीधे h1 से h3 पर न जाएं)। एक व्यवस्थित पदानुक्रमित संरचना एसईओ और पहुंच के लिए बहुत अच्छी है।</p>
+</div>
+</section>
+<!-- Learning by Exercises -->
+<section class="content-section" id="exercises">
+<h2>अभ्यास के माध्यम से सीखना</h2>
+<div class="exercise-box">
+<h4><span class="exercise-icon">❓</span>निम्नलिखित में से कौन सा विषय सबसे बड़ा और महत्वपूर्ण है?</h4>
+<div class="options-grid">
+<div class="option-card" data-correct="true">
+<div class="option-content">
+<div class="option-text">&lt;h1&gt;</div>
+<div class="option-feedback correct">✓ ठीक है! &lt;h1&gt; सबसे महत्वपूर्ण और सबसे बड़ा शीर्षक है</div>
+</div>
+</div>
+<div class="option-card" data-correct="false">
+<div class="option-content">
+<div class="option-text">&lt;h2&gt;</div>
+<div class="option-feedback incorrect">✗ ग़लत! &lt;h1&gt; के बाद &lt;h2&gt; दूसरा सबसे महत्वपूर्ण है</div>
+</div>
+</div>
+<div class="option-card" data-correct="false">
+<div class="option-content">
+<div class="option-text">&lt;h3&gt;</div>
+<div class="option-feedback incorrect">✗ ग़लत! &lt;h3&gt; तीसरा सबसे महत्वपूर्ण शीर्षक है</div>
+</div>
+</div>
+<div class="option-card" data-correct="false">
+<div class="option-content">
+<div class="option-text">&lt;h4&gt;</div>
+<div class="option-feedback incorrect">✗ ग़लत! &lt;h4&gt; चौथा सबसे महत्वपूर्ण शीर्षक है</div>
+</div>
+</div>
+<div class="option-card" data-correct="false">
+<div class="option-content">
+<div class="option-text">&lt;h5&gt;</div>
+<div class="option-feedback incorrect">✗ ग़लत! &lt;h5&gt; पांचवां सबसे महत्वपूर्ण शीर्षक है</div>
+</div>
+</div>
+<div class="option-card" data-correct="false">
+<div class="option-content">
+<div class="option-text">&lt;h6&gt;</div>
+<div class="option-feedback incorrect">✗ ग़लत! &lt;h6&gt; एक कम महत्वपूर्ण शीर्षक है</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- HTML Tag Reference -->
+<section class="content-section" id="tag-reference">
+<h2>HTML टैग संदर्भ</h2>
+<p>जैसिफ टीम के टैग संदर्भ में इन टैग और उनकी विशेषताओं के बारे में अधिक जानकारी है।</p>
+<div class="comparison-table">
+<table>
+<tr>
+<th>टैग</th>
+<th>स्पष्टीकरण</th>
+</tr>
+<tr>
+<td><code>&lt;html&gt;</code></td>
+<td>HTML दस्तावेज़ के स्रोत को परिभाषित करता है</td>
+</tr>
+<tr>
+<td><code>&lt;body&gt;</code></td>
+<td>दस्तावेज़ के मुख्य भाग को परिभाषित करता है</td>
+</tr>
+<tr>
+<td><code>&lt;h1&gt;</code>पहला<code>&lt;h6&gt;</code>तक</td>
+<td>HTML हेडर को परिभाषित करता है</td>
+</tr>
+</table>
+</div>
+<p>सभी उपलब्ध HTML टैग्स की पूरी सूची के लिए, हमारा HTML टैग संदर्भ देखें।</p>
+</section>
+<!-- Bottom Navigation -->
+<div class="bottom-nav">
+<a class="nav-tab prev" href="HTML%20Attributes.html">
+<i class="fas fa-arrow-left"></i>
+<span>पिछला</span>
+</a>
+<a class="nav-tab next" href="HTML%20Paragraphs.html">
+<span>अगला</span>
+<i class="fas fa-arrow-right"></i>
+</a>
+</div>
+</main>
+<!-- Footer -->
+<footer>
+<div class="footer-content">
+<div class="footer-column">
+<h3>Jassif Team Institution</h3>
+<p>Leading educational institution providing quality programming education in Hindi.</p>
+</div>
+<div class="footer-column">
+<h3>Quick Links</h3>
+<ul>
+<li><a href="#introduction">HTML हेडर</a></li>
+<li><a href="#definition">शीर्षक परिभाषा</a></li>
+<li><a href="#importance">विषयों का महत्व</a></li>
+<li><a href="#bigger-headings">बड़े विषय</a></li>
+<li><a href="#hierarchy">शीर्षक पदानुक्रम</a></li>
+<li><a href="#exercises">अभ्यास</a></li>
+<li><a href="#tag-reference">टैग संदर्भ</a></li>
+</ul>
+</div>
+<div class="footer-column">
+<h3>HTML Topics</h3>
+<ul>
+<li><a href="#">HTML विशेषताएँ</a></li>
+<li><a href="#">HTML कॉलम</a></li>
+<li><a href="#">HTML लिंक</a></li>
+<li><a href="#">HTML छवियां</a></li>
+</ul>
+</div>
+<div class="footer-column">
+<h3>Follow Us</h3>
+<ul>
+<li><a href="#"><i class="fab fa-facebook"></i> Facebook</a></li>
+<li><a href="#"><i class="fab fa-instagram"></i> Instagram</a></li>
+<li><a href="#"><i class="fab fa-youtube"></i> YouTube</a></li>
+</ul>
+</div>
+</div>
+<div class="copyright">
+<p>© 2023 Jassif Team Institution. All rights reserved.</p>
+</div>
+</footer>
+<script>
+        // Add smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Add scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animation = 'fadeInUp 0.8s ease-out forwards';
+                }
+            });
+        }, observerOptions);
+        
+        // Observe all content sections for animation
+        document.querySelectorAll('.content-section').forEach(section => {
+            observer.observe(section);
+        });
+
+        // Exercise interaction
+        document.querySelectorAll('.option-card').forEach(card => {
+            card.addEventListener('click', function() {
+                // Show feedback for all options
+                document.querySelectorAll('.option-card').forEach(c => {
+                    c.querySelector('.option-feedback').style.display = 'block';
+                });
+            });
+        });
+    </script>
+<!-- Home Button -->
+<a class="home-icon" href="index.html">
+<i class="fas fa-home"></i>
+</a>
+</body>
+</html>

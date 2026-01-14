@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+
+<html lang="hi">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>HTML Elements - Jassif Team</title>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<link href="style.css" rel="stylesheet"/>
+<style>
+        .content-section p, 
+        .content-section li,
+        .content-section h3,
+        .content-section h4,
+        .comparison-card p {
+            color: #333 !important;
+        }
+        
+        .tip-box p,
+        .tip-box li,
+        .tip-box h4 {
+            color: white !important;
+        }
+        
+        .warning-box p,
+        .warning-box li,
+        .warning-box h4 {
+            color: white !important;
+        }
+        
+        .exercise-box p,
+        .exercise-box h4 {
+            color: white !important;
+        }
+        
+        /* Stable logo styling - NO ANIMATIONS */
+        .logo-icon {
+            animation: none !important; /* Remove pulse animation */
+        }
+        
+        .logo-image {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+            display: block;
+            border: 2px solid white;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            animation: none !important; /* Ensure no animations */
+        }
+    </style>
+</head>
+<body>
+<!-- Header -->
+<header>
+<div class="header-container">
+<div class="logo">
+<div class="logo-icon">
+<img alt="Jassif Team Logo" class="logo-image" src="logo.jpg"/>
+</div>
+<h1>Jassif Team <span>Institution</span></h1>
+</div>
+</div>
+</header>
+<!-- Top Navigation Tabs -->
+<div class="nav-tabs">
+<a class="nav-tab prev" href="HTML%20Basic%20Examples.html">
+<i class="fas fa-arrow-left"></i>
+<span>पिछला</span>
+</a>
+<a class="nav-tab next" href="HTML%20Attributes.html">
+<span>अगला</span>
+<i class="fas fa-arrow-right"></i>
+</a>
+</div>
+<!-- Hero Section -->
+<section class="hero" id="home">
+<div class="hero-content">
+<h2>HTML Elements</h2>
+<p>HTML तत्व</p>
+</div>
+</section>
+<!-- Main Content -->
+<main class="container">
+<!-- HTML Elements Introduction -->
+<section class="content-section" id="introduction">
+<h2>HTML तत्व</h2>
+<p>एक HTML तत्व को एक प्रारंभ टैग, कुछ सामग्री और एक अंत टैग द्वारा परिभाषित किया जाता है।</p>
+</section>
+<!-- HTML Elements Definition -->
+<section class="content-section" id="definition">
+<h2>HTML तत्व</h2>
+<p>एक HTML तत्व प्रारंभ टैग से अंत टैग तक सब कुछ है:</p>
+<div class="code-example">
+<pre><code>&lt;tagname&gt;Content goes here...&lt;/tagname&gt;</code></pre>
+</div>
+<p>कुछ HTML तत्वों के उदाहरण:</p>
+<div class="code-example">
+<pre><code>&lt;h1&gt;My First Heading&lt;/h1&gt;
+&lt;p&gt;My first paragraph.&lt;/p&gt;</code></pre>
+</div>
+<div class="comparison-table">
+<table>
+<tr>
+<th>प्रारंभ चिह्न</th>
+<th>तत्व सामग्री</th>
+<th>अंत चिन्ह</th>
+</tr>
+<tr>
+<td><code>&lt;h1&gt;</code></td>
+<td>My First Heading</td>
+<td><code>&lt;/h1&gt;</code></td>
+</tr>
+<tr>
+<td><code>&lt;p&gt;</code></td>
+<td>My first paragraph.</td>
+<td><code>&lt;/p&gt;</code></td>
+</tr>
+<tr>
+<td><code>&lt;br&gt;</code></td>
+<td>कोई सामग्री नहीं</td>
+<td>कोई अंतिम बिंदु नहीं है</td>
+</tr>
+</table>
+</div>
+<div class="warning-box">
+<h4><span class="warning-icon">⚠️</span>टिप्पणी:</h4>
+<p>कुछ HTML तत्वों में कोई सामग्री नहीं है (उदाहरण के लिए)।<code>&lt;br&gt;</code>तत्व)। इन तत्वों को "रिक्त तत्व" कहा जाता है। खाली तत्वों में कोई टर्मिनेटर नहीं होता!</p>
+</div>
+</section>
+<!-- Nested HTML Elements -->
+<section class="content-section" id="nested-elements">
+<h2>HTML तत्वों को ब्रैड करें</h2>
+<p>HTML तत्वों को नेस्ट किया जा सकता है (अर्थात तत्वों में अन्य तत्व शामिल हो सकते हैं)।</p>
+<p>सभी HTML दस्तावेज़ों में नेस्टेड HTML तत्व होते हैं।</p>
+<p>निम्नलिखित उदाहरण में चार HTML तत्व शामिल हैं (<code>&lt;html&gt;</code>, <code>&lt;body&gt;</code>, <code>&lt;h1&gt;</code>और<code>&lt;p&gt;</code>):</p>
+<h3>उदाहरण</h3>
+<div class="code-example">
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;body&gt;
+
+&lt;h1&gt;My First Heading&lt;/h1&gt;
+&lt;p&gt;My first paragraph.&lt;/p&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+</div>
+</section>
+<!-- Example Explained -->
+<section class="content-section" id="example-explained">
+<h2>उदाहरण विवरण</h2>
+<div class="comparison-grid">
+<div class="comparison-card">
+<div class="comparison-header">
+<i class="fas fa-code"></i>
+<h4>&lt;html&gt; तत्व</h4>
+</div>
+<p><code>&lt;html&gt;</code>तत्व मूल तत्व है और संपूर्ण HTML दस्तावेज़ को परिभाषित करता है।</p>
+<p>यह एक आरंभिक बिंदु है<code>&lt;html&gt;</code>और एक अंत संकेत<code>&lt;/html&gt;</code>रोकना</p>
+</div>
+<div class="comparison-card">
+<div class="comparison-header">
+<i class="fas fa-file-alt"></i>
+<h4>&lt;शरीर&gt; तत्व</h4>
+</div>
+<p><code>&lt;body&gt;</code>तत्व दस्तावेज़ के मुख्य भाग को परिभाषित करता है।</p>
+<p>यह एक आरंभिक बिंदु है<code>&lt;body&gt;</code>और एक अंत संकेत<code>&lt;/body&gt;</code>रोकना</p>
+</div>
+</div>
+<div class="comparison-grid">
+<div class="comparison-card">
+<div class="comparison-header">
+<i class="fas fa-heading"></i>
+<h4>&lt;h1&gt; तत्व</h4>
+</div>
+<p><code>&lt;h1&gt;</code>तत्व एक शीर्षक को परिभाषित करता है।</p>
+<p>यह एक आरंभिक बिंदु है<code>&lt;h1&gt;</code>और एक अंत संकेत<code>&lt;/h1&gt;</code>रोकना:</p>
+<div class="code-example" style="margin-top: 1rem;">
+<pre><code>&lt;h1&gt;My First Heading&lt;/h1&gt;</code></pre>
+</div>
+</div>
+<div class="comparison-card">
+<div class="comparison-header">
+<i class="fas fa-paragraph"></i>
+<h4>&lt;पी&gt;तत्व</h4>
+</div>
+<p><code>&lt;p&gt;</code>तत्व एक अनुच्छेद को परिभाषित करता है।</p>
+<p>यह एक आरंभिक बिंदु है<code>&lt;p&gt;</code>और एक अंत संकेत<code>&lt;/p&gt;</code>रोकना:</p>
+<div class="code-example" style="margin-top: 1rem;">
+<pre><code>&lt;p&gt;My first paragraph.&lt;/p&gt;</code></pre>
+</div>
+</div>
+</div>
+</section>
+<!-- Never Skip the End Tag -->
+<section class="content-section" id="end-tag">
+<h2>कभी भी अंतिम चिन्ह न छोड़ें</h2>
+<p>कुछ HTML तत्व सही ढंग से प्रदर्शित होंगे, भले ही आप अंतिम टैग भूल जाएं:</p>
+<h3>उदाहरण</h3>
+<div class="code-example">
+<pre><code>&lt;html&gt;
+&lt;body&gt;
+
+&lt;p&gt;This is a paragraph
+&lt;p&gt;This is a paragraph
+
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+</div>
+<div class="warning-box">
+<h4><span class="warning-icon">🚫</span>टिप्पणी:</h4>
+<p>हालाँकि, इस पर कभी विश्वास न करें! यदि आप टर्मिनेटर भूल जाते हैं, तो आपको अप्रत्याशित परिणाम और त्रुटियाँ मिल सकती हैं!</p>
+</div>
+<div class="tip-box">
+<h4><span class="tip-icon">💡</span>सर्वश्रेष्ठ प्रणालियां:</h4>
+<p>हमेशा अपने HTML तत्वों में क्लोजिंग टैग जोड़ें। इससे कोड स्पष्ट और बनाए रखना आसान हो जाता है।</p>
+</div>
+</section>
+<!-- Empty HTML Elements -->
+<section class="content-section" id="empty-elements">
+<h2>खाली HTML तत्व</h2>
+<p>बिना सामग्री वाले HTML तत्वों को खाली तत्व कहा जाता है।</p>
+<p><code>&lt;br&gt;</code>टैग एक लाइन ब्रेक को परिभाषित करता है, और बिना किसी समाप्ति टैग के एक खाली तत्व है:</p>
+<h3>उदाहरण</h3>
+<div class="code-example">
+<pre><code>&lt;p&gt;This is a &lt;br&gt; paragraph with a line break.&lt;/p&gt;</code></pre>
+</div>
+<div class="examples-grid">
+<div class="example-card">
+<div class="example-icon">
+<i class="fas fa-slash"></i>
+</div>
+<h4>&lt;br&gt;</h4>
+<p>कर भंग</p>
+</div>
+<div class="example-card">
+<div class="example-icon">
+<i class="fas fa-image"></i>
+</div>
+<h4>&lt;img&gt;</h4>
+<p>छवियाँ जोड़ता है</p>
+</div>
+<div class="example-card">
+<div class="example-icon">
+<i class="fas fa-horizontal-rule"></i>
+</div>
+<h4>&lt;hr&gt;</h4>
+<p>क्षैतिज रेखा</p>
+</div>
+</div>
+</section>
+<!-- HTML is Not Case Sensitive -->
+<section class="content-section" id="case-sensitive">
+<h2>HTML केस-असंवेदनशील है</h2>
+<p>HTML टैग केस संवेदी नहीं हैं:<code>&lt;P&gt;</code>है<code>&lt;p&gt;</code>मतलब वही.</p>
+<p>HTML मानक को लोअरकेस टैग की आवश्यकता नहीं है, लेकिन W3C HTML में लोअरकेस की अनुशंसा करता है, और XHTML जैसे सख्त दस्तावेज़ प्रकारों के लिए लोअरकेस की आवश्यकता होती है।</p>
+<div class="tip-box">
+<h4><span class="tip-icon">📝</span>जसिफ़ टीम की सिफ़ारिश:</h4>
+<p>जैसिफ टीम में हम हमेशा लोअर केस टैग नामों का उपयोग करते हैं। यह भविष्य के HTML संस्करणों के साथ स्थिरता और अनुकूलता में मदद करता है।</p>
+</div>
+<div class="comparison-table">
+<table>
+<tr>
+<th>सही</th>
+<th>असत्य (तुलनात्मक)</th>
+</tr>
+<tr>
+<td><code>&lt;html&gt;</code></td>
+<td><code>&lt;HTML&gt;</code></td>
+</tr>
+<tr>
+<td><code>&lt;body&gt;</code></td>
+<td><code>&lt;BODY&gt;</code></td>
+</tr>
+<tr>
+<td><code>&lt;h1&gt;</code></td>
+<td><code>&lt;H1&gt;</code></td>
+</tr>
+<tr>
+<td><code>&lt;p&gt;</code></td>
+<td><code>&lt;P&gt;</code></td>
+</tr>
+</table>
+</div>
+</section>
+<!-- Learning by Exercises -->
+<section class="content-section" id="exercises">
+<h2>अभ्यास के माध्यम से सीखना</h2>
+<div class="exercise-box">
+<h4><span class="exercise-icon">❓</span>सच है या झूठ. खाली तत्वों में एक समापन टैग होना चाहिए।</h4>
+<div class="options-grid">
+<div class="option-card" data-correct="false">
+<div class="option-content">
+<div class="option-text">सत्य</div>
+<div class="option-feedback incorrect">✗ ग़लत! खाली तत्वों को क्लोजिंग टैग की आवश्यकता नहीं होती है</div>
+</div>
+</div>
+<div class="option-card" data-correct="true">
+<div class="option-content">
+<div class="option-text">झूठ</div>
+<div class="option-feedback correct">✓ ठीक है! खाली तत्वों (जैसे, &lt;br&gt;, &lt;img&gt;) में कोई समापन टैग नहीं होता है</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- HTML Tag Reference -->
+<section class="content-section" id="tag-reference">
+<h2>HTML टैग संदर्भ</h2>
+<p>जैसिफ टीम के टैग संदर्भ में इन टैग और उनकी विशेषताओं के बारे में अधिक जानकारी है।</p>
+<div class="comparison-table">
+<table>
+<tr>
+<th>टैग</th>
+<th>स्पष्टीकरण</th>
+</tr>
+<tr>
+<td><code>&lt;html&gt;</code></td>
+<td>HTML दस्तावेज़ के स्रोत को परिभाषित करता है</td>
+</tr>
+<tr>
+<td><code>&lt;body&gt;</code></td>
+<td>दस्तावेज़ के मुख्य भाग को परिभाषित करता है</td>
+</tr>
+<tr>
+<td><code>&lt;h1&gt;</code>पहला<code>&lt;h6&gt;</code>तक</td>
+<td>HTML हेडर को परिभाषित करता है</td>
+</tr>
+</table>
+</div>
+<p>सभी उपलब्ध HTML टैग्स की पूरी सूची के लिए, हमारा HTML टैग संदर्भ देखें।</p>
+<div class="tip-box">
+<h4><span class="tip-icon">🔖</span>टिप्पणी:</h4>
+<p>यदि आप किसी HTML टैग के बारे में भ्रमित हैं, तो हमारा HTML टैग संदर्भ पृष्ठ देखें। यह प्रत्येक टैग और उपयोग के उदाहरणों का संपूर्ण विवरण प्रदान करता है।</p>
+</div>
+</section>
+<!-- Bottom Navigation -->
+<div class="bottom-nav">
+<a class="nav-tab prev" href="HTML%20Basic%20Examples.html">
+<i class="fas fa-arrow-left"></i>
+<span>पिछला</span>
+</a>
+<a class="nav-tab next" href="HTML%20Attributes.html">
+<span>अगला</span>
+<i class="fas fa-arrow-right"></i>
+</a>
+</div>
+</main>
+<!-- Footer -->
+<footer>
+<div class="footer-content">
+<div class="footer-column">
+<h3>Jassif Team Institution</h3>
+<p>Leading educational institution providing quality programming education in Hindi.</p>
+</div>
+<div class="footer-column">
+<h3>Quick Links</h3>
+<ul>
+<li><a href="#introduction">HTML तत्व</a></li>
+<li><a href="#definition">तत्व परिभाषा</a></li>
+<li><a href="#nested-elements">बुनाई के तत्व</a></li>
+<li><a href="#end-tag">अंत चिन्ह</a></li>
+<li><a href="#empty-elements">खाली तत्व</a></li>
+<li><a href="#case-sensitive">अक्षर संवेदनशील</a></li>
+<li><a href="#exercises">अभ्यास</a></li>
+<li><a href="#tag-reference">टैग संदर्भ</a></li>
+</ul>
+</div>
+<div class="footer-column">
+<h3>HTML Topics</h3>
+<ul>
+<li><a href="#">बुनियादी HTML उदाहरण</a></li>
+<li><a href="#">HTML विशेषताएँ</a></li>
+<li><a href="#">HTML हेडर</a></li>
+<li><a href="#">HTML कॉलम</a></li>
+</ul>
+</div>
+<div class="footer-column">
+<h3>Follow Us</h3>
+<ul>
+<li><a href="#"><i class="fab fa-facebook"></i> Facebook</a></li>
+<li><a href="#"><i class="fab fa-instagram"></i> Instagram</a></li>
+<li><a href="#"><i class="fab fa-youtube"></i> YouTube</a></li>
+</ul>
+</div>
+</div>
+<div class="copyright">
+<p>© 2023 Jassif Team Institution. All rights reserved.</p>
+</div>
+</footer>
+<script>
+        // Add smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Add scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animation = 'fadeInUp 0.8s ease-out forwards';
+                }
+            });
+        }, observerOptions);
+        
+        // Observe all content sections for animation
+        document.querySelectorAll('.content-section').forEach(section => {
+            observer.observe(section);
+        });
+
+        // Exercise interaction
+        document.querySelectorAll('.option-card').forEach(card => {
+            card.addEventListener('click', function() {
+                // Show feedback for all options
+                document.querySelectorAll('.option-card').forEach(c => {
+                    c.querySelector('.option-feedback').style.display = 'block';
+                });
+            });
+        });
+    </script>
+<!-- Home Button -->
+<a class="home-icon" href="index.html">
+<i class="fas fa-home"></i>
+</a>
+</body>
+</html>

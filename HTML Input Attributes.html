@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+
+<html lang="hi">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>HTML Input Attributes - Jassif Team</title>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<link href="style.css" rel="stylesheet"/>
+<style>
+        .content-section p, 
+        .content-section li,
+        .content-section h3,
+        .content-section h4,
+        .comparison-card p {
+            color: #333 !important;
+        }
+        
+        .tip-box p,
+        .tip-box li,
+        .tip-box h4 {
+            color: white !important;
+        }
+        
+        .warning-box p,
+        .warning-box li,
+        .warning-box h4 {
+            color: white !important;
+        }
+        
+        .exercise-box p,
+        .exercise-box h4 {
+            color: white !important;
+        }
+        
+        /* Stable logo styling - NO ANIMATIONS */
+        .logo-icon {
+            animation: none !important; /* Remove pulse animation */
+        }
+        
+        .logo-image {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+            display: block;
+            border: 2px solid white;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            animation: none !important; /* Ensure no animations */
+        }
+        
+        /* Attribute demo styling */
+        .attribute-demo {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+            border-left: 4px solid var(--git-color);
+        }
+        
+        .attribute-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+        
+        .attribute-card {
+            background: white;
+            padding: 1.2rem;
+            border-radius: 6px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            border: 1px solid #e0e0e0;
+            transition: transform 0.2s;
+        }
+        
+        .attribute-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+        
+        .attribute-icon {
+            font-size: 1.5rem;
+            color: var(--git-color);
+            margin-bottom: 0.5rem;
+        }
+        
+        .attribute-name {
+            font-weight: bold;
+            color: var(--dark);
+            margin-bottom: 0.3rem;
+        }
+        
+        .attribute-code {
+            font-family: 'Courier New', monospace;
+            background: #f0f0f0;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+        }
+        
+        .comparison-section {
+            display: flex;
+            gap: 2rem;
+            margin: 2rem 0;
+            flex-wrap: wrap;
+        }
+        
+        .comparison-item {
+            flex: 1;
+            min-width: 300px;
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .comparison-title {
+            color: var(--git-color);
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--git-color);
+        }
+        
+        @media (max-width: 768px) {
+            .comparison-section {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+<!-- Header -->
+<header>
+<div class="header-container">
+<div class="logo">
+<div class="logo-icon">
+<img alt="Jassif Team Logo" class="logo-image" src="logo.jpg"/>
+</div>
+<h1>Jassif Team <span>Institution</span></h1>
+</div>
+</div>
+</header>
+<!-- Top Navigation Tabs -->
+<div class="nav-tabs">
+<a class="nav-tab prev" href="HTML Input Types.html">
+<i class="fas fa-arrow-left"></i>
+<span>पिछला</span>
+</a>
+<a class="nav-tab next" href="HTML Input form Attributes.html">
+<span>अगला</span>
+<i class="fas fa-arrow-right"></i>
+</a>
+</div>
+<!-- Hero Section -->
+<section class="hero" id="home">
+<div class="hero-content">
+<h2>HTML Input Attributes</h2>
+<p>HTML इनपुट विशेषताएँ जानें</p>
+</div>
+</section>
+<!-- Main Content -->
+<main class="container">
+<!-- HTML Input Attributes Introduction -->
+<section class="content-section" id="introduction">
+<h2>HTML इनपुट विशेषताएँ</h2>
+<p>यह अध्याय HTML &lt;इनपुट&gt; तत्व के लिए विभिन्न विशेषताओं का वर्णन करता है।</p>
+<div class="attribute-grid">
+<div class="attribute-card">
+<div class="attribute-icon">
+<i class="fas fa-font"></i>
+</div>
+<div class="attribute-name">value</div>
+<p>इनपुट फ़ील्ड के लिए प्रारंभिक मान निर्दिष्ट करता है</p>
+<div class="attribute-code">value="John"</div>
+</div>
+<div class="attribute-card">
+<div class="attribute-icon">
+<i class="fas fa-eye-slash"></i>
+</div>
+<div class="attribute-name">readonly</div>
+<p>केवल पढ़ने योग्य इनपुट फ़ील्ड</p>
+<div class="attribute-code">readonly</div>
+</div>
+<div class="attribute-card">
+<div class="attribute-icon">
+<i class="fas fa-ban"></i>
+</div>
+<div class="attribute-name">disabled</div>
+<p>अक्षम इनपुट फ़ील्ड</p>
+<div class="attribute-code">disabled</div>
+</div>
+<div class="attribute-card">
+<div class="attribute-icon">
+<i class="fas fa-ruler-horizontal"></i>
+</div>
+<div class="attribute-name">size</div>
+<p>दृश्यमान चौड़ाई निर्दिष्ट करता है</p>
+<div class="attribute-code">size="50"</div>
+</div>
+</div>
+</section>
+<!-- The value Attribute -->
+<section class="content-section" id="value-attribute">
+<h2>मूल्य विशेषता</h2>
+<p>इनपुट मान विशेषता इनपुट फ़ील्ड के लिए प्रारंभिक मान निर्दिष्ट करती है:</p>
+<h3>उदाहरण</h3>
+<p>प्रारंभिक (डिफ़ॉल्ट) मानों के साथ इनपुट फ़ील्ड:</p>
+<div class="code-example">
+<pre><code><span class="command-input">&lt;form&gt;</span>
+  <span class="command-input">&lt;label for="fname"&gt;First name:&lt;/label&gt;&lt;br&gt;</span>
+  <span class="command-input">&lt;input type="text" id="fname" name="fname" value="John"&gt;&lt;br&gt;</span>
+  <span class="command-input">&lt;label for="lname"&gt;Last name:&lt;/label&gt;&lt;br&gt;</span>
+  <span class="command-input">&lt;input type="text" id="lname" name="lname" value="Doe"&gt;</span>
+<span class="command-input">&lt;/form&gt;</span></code></pre>
+</div>
+<div class="attribute-demo">
+<label for="demo-fname">First name:</label><br/>
+<input id="demo-fname" name="fname" style="margin-bottom: 10px;" type="text" value="John"/><br/>
+<label for="demo-lname">Last name:</label><br/>
+<input id="demo-lname" name="lname" type="text" value="Doe"/>
+</div>
+</section>
+<!-- The readonly Attribute -->
+<section class="content-section" id="readonly-attribute">
+<h2>केवल पढ़ने योग्य विशेषता</h2>
+<p>इनपुट रीडओनली विशेषता निर्दिष्ट करती है कि इनपुट फ़ील्ड केवल-पढ़ने के लिए है।</p>
+<p>केवल पढ़ने योग्य इनपुट फ़ील्ड को बदला नहीं जा सकता (हालाँकि, उपयोगकर्ता इस पर जा सकता है, इसे हाइलाइट कर सकता है और टेक्स्ट कॉपी कर सकता है)।</p>
+<div class="warning-box">
+<h4><span class="warning-icon">❗</span>महत्वपूर्ण:</h4>
+<p>फॉर्म सबमिशन के दौरान रीड-ओनली इनपुट फ़ील्ड का मान पास कर दिया जाता है!</p>
+</div>
+<h3>उदाहरण</h3>
+<p>केवल पढ़ने योग्य इनपुट फ़ील्ड:</p>
+<div class="code-example">
+<pre><code><span class="command-input">&lt;form&gt;</span>
+  <span class="command-input">&lt;label for="fname"&gt;First name:&lt;/label&gt;&lt;br&gt;</span>
+  <span class="command-input">&lt;input type="text" id="fname" name="fname" value="John" readonly&gt;&lt;br&gt;</span>
+  <span class="command-input">&lt;label for="lname"&gt;Last name:&lt;/label&gt;&lt;br&gt;</span>
+  <span class="command-input">&lt;input type="text" id="lname" name="lname" value="Doe"&gt;</span>
+<span class="command-input">&lt;/form&gt;</span></code></pre>
+</div>
+<div class="attribute-demo">
+<label for="demo-readonly">First name (readonly):</label><br/>
+<input id="demo-readonly" name="fname" readonly="" style="margin-bottom: 10px; background: #f0f0f0;" type="text" value="John"/><br/>
+<label for="demo-normal">Last name (editable):</label><br/>
+<input id="demo-normal" name="lname" type="text" value="Doe"/>
+</div>
+</section>
+<!-- The disabled Attribute -->
+<section class="content-section" id="disabled-attribute">
+<h2>अक्षम विशेषता</h2>
+<p>इनपुट अक्षम विशेषता निर्दिष्ट करती है कि एक इनपुट फ़ील्ड अक्षम किया जाना चाहिए।</p>
+<p>एक अक्षम इनपुट फ़ील्ड अनुपयोगी और गैर-क्लिक करने योग्य है।</p>
+<div class="warning-box">
+<h4><span class="warning-icon">❗</span>मुख्य अंतर:</h4>
+<p>फॉर्म जमा करने के दौरान अक्षम इनपुट फ़ील्ड मान नहीं भेजा जाता है!</p>
+</div>
+<h3>उदाहरण</h3>
+<p>अक्षम इनपुट फ़ील्ड:</p>
+<div class="code-example">
+<pre><code><span class="command-input">&lt;form&gt;</span>
+  <span class="command-input">&lt;label for="fname"&gt;First name:&lt;/label&gt;&lt;br&gt;</span>
+  <span class="command-input">&lt;input type="text" id="fname" name="fname" value="John" disabled&gt;&lt;br&gt;</span>
+  <span class="command-input">&lt;label for="lname"&gt;Last name:&lt;/label&gt;&lt;br&gt;</span>
+  <span class="command-input">&lt;input type="text" id="lname" name="lname" value="Doe"&gt;</span>
+<span class="command-input">&lt;/form&gt;</span></code></pre>
+</div>
+<div class="comparison-section">
+<div class="comparison-item">
+<h3 class="comparison-title">readonly vs disabled</h3>
+<ul>
+<li><strong>readonly:</strong>केवल पढ़ें, लेकिन मूल्य सबमिट किया जाएगा</li>
+<li><strong>disabled:</strong>उपयोग नहीं किया जा सकता, कोई मूल्य सबमिट नहीं किया जाएगा</li>
+<li><strong>readonly:</strong>उपयोगकर्ता पाठ का चयन कर सकता है</li>
+<li><strong>disabled:</strong>उपयोगकर्ता कुछ नहीं कर सकता</li>
+<li><strong>readonly:</strong>भूरे रंग में दिखाई नहीं देता</li>
+<li><strong>disabled:</strong>यह आमतौर पर भूरे रंग का दिखाई देता है</li>
+</ul>
+</div>
+</div>
+</section>
+<!-- The size Attribute -->
+<section class="content-section" id="size-attribute">
+<h2>आकार विशेषता</h2>
+<p>इनपुट आकार विशेषता इनपुट फ़ील्ड की दृश्यमान चौड़ाई, वर्णों में निर्दिष्ट करती है।</p>
+<p>आकार के लिए डिफ़ॉल्ट मान 20 है.</p>
+<div class="tip-box">
+<h4><span class="tip-icon">📝</span>टिप्पणी:</h4>
+<p>आकार विशेषता निम्नलिखित इनपुट प्रकारों के साथ काम करती है: टेक्स्ट, खोज, टेल, यूआरएल, ईमेल और पासवर्ड।</p>
+</div>
+<h3>उदाहरण</h3>
+<p>इनपुट फ़ील्ड के लिए चौड़ाई निर्धारित करें:</p>
+<div class="code-example">
+<pre><code><span class="command-input">&lt;form&gt;</span>
+  <span class="command-input">&lt;label for="fname"&gt;First name:&lt;/label&gt;&lt;br&gt;</span>
+  <span class="command-input">&lt;input type="text" id="fname" name="fname" size="50"&gt;&lt;br&gt;</span>
+  <span class="command-input">&lt;label for="pin"&gt;PIN:&lt;/label&gt;&lt;br&gt;</span>
+  <span class="command-input">&lt;input type="text" id="pin" name="pin" size="4"&gt;</span>
+<span class="command-input">&lt;/form&gt;</span></code></pre>
+</div>
+<div class="attribute-demo">
+<label for="demo-size1">First name (size="50"):</label><br/>
+<input id="demo-size1" name="fname" size="50" style="margin-bottom: 10px;" type="text"/><br/>
+<label for="demo-size2">PIN (size="4"):</label><br/>
+<input id="demo-size2" name="pin" size="4" type="text"/>
+</div>
+</section>
+<!-- The maxlength Attribute -->
+<section class="content-section" id="maxlength-attribute">
+<h2>अधिकतम लंबाई विशेषता</h2>
+<p>इनपुट अधिकतम लंबाई विशेषता इनपुट फ़ील्ड में अनुमत वर्णों की अधिकतम संख्या निर्दिष्ट करती है।</p>
+<div class="warning-box">
+<h4><span class="warning-icon">⚠️</span>टिप्पणी:</h4>
+<p>यदि अधिकतम लम्बाई सेट है, तो इनपुट फ़ील्ड वर्णों की निर्दिष्ट संख्या से अधिक स्वीकार नहीं करेगा। हालाँकि, यह विशेषता कोई प्रतिक्रिया नहीं देती है। इसलिए, यदि आप उपयोगकर्ता को सचेत करना चाहते हैं, तो आपको जावास्क्रिप्ट कोड लिखना होगा।</p>
+</div>
+<h3>उदाहरण</h3>
+<p>इनपुट फ़ील्ड के लिए अधिकतम लंबाई निर्धारित करें:</p>
+<div class="code-example">
+<pre><code><span class="command-input">&lt;form&gt;</span>
+  <span class="command-input">&lt;label for="fname"&gt;First name:&lt;/label&gt;&lt;br&gt;</span>
+  <span class="command-input">&lt;input type="text" id="fname" name="fname" size="50"&gt;&lt;br&gt;</span>
+  <span class="command-input">&lt;label for="pin"&gt;PIN:&lt;/label&gt;&lt;br&gt;</span>
+  <span class="command-input">&lt;input type="text" id="pin" name="pin" maxlength="4" size="4"&gt;</span>
+<span class="command-input">&lt;/form&gt;</span></code></pre>
+</div>
+</section>
+<!-- More Attribute Grid -->
+<section class="content-section" id="more-attributes">
+<h2>अन्य महत्वपूर्ण गुण</h2>
+<div class="attribute-grid">
+<div class="attribute-card">
+<div class="attribute-icon">
+<i class="fas fa-sort-numeric-up"></i>
+</div>
+<div class="attribute-name">min &amp; max</div>
+<p>न्यूनतम और अधिकतम मान निर्दिष्ट करता है</p>
+<div class="attribute-code">min="1" max="5"</div>
+</div>
+<div class="attribute-card">
+<div class="attribute-icon">
+<i class="fas fa-clone"></i>
+</div>
+<div class="attribute-name">multiple</div>
+<p>एकाधिक मान दर्ज करने की अनुमति देता है</p>
+<div class="attribute-code">multiple</div>
+</div>
+<div class="attribute-card">
+<div class="attribute-icon">
+<i class="fas fa-shield-alt"></i>
+</div>
+<div class="attribute-name">pattern</div>
+<p>एक रेगुलर एक्सप्रेशन निर्दिष्ट करता है</p>
+<div class="attribute-code">pattern="[A-Z]{3}"</div>
+</div>
+<div class="attribute-card">
+<div class="attribute-icon">
+<i class="fas fa-info-circle"></i>
+</div>
+<div class="attribute-name">placeholder</div>
+<p>एक संक्षिप्त नोट निर्दिष्ट करता है</p>
+<div class="attribute-code">placeholder="Enter name"</div>
+</div>
+<div class="attribute-card">
+<div class="attribute-icon">
+<i class="fas fa-exclamation-circle"></i>
+</div>
+<div class="attribute-name">required</div>
+<p>एक इनपुट फ़ील्ड आवश्यक है</p>
+<div class="attribute-code">required</div>
+</div>
+<div class="attribute-card">
+<div class="attribute-icon">
+<i class="fas fa-football-ball"></i>
+</div>
+<div class="attribute-name">step</div>
+<p>कानूनी संख्या अंतराल निर्दिष्ट करता है</p>
+<div class="attribute-code">step="3"</div>
+</div>
+<div class="attribute-card">
+<div class="attribute-icon">
+<i class="fas fa-bullseye"></i>
+</div>
+<div class="attribute-name">autofocus</div>
+<p>स्वचालित फोकस की अनुमति देता है</p>
+<div class="attribute-code">autofocus</div>
+</div>
+<div class="attribute-card">
+<div class="attribute-icon">
+<i class="fas fa-list"></i>
+</div>
+<div class="attribute-name">list</div>
+<p>डेटालिस्ट तत्व निर्दिष्ट करता है</p>
+<div class="attribute-code">list="browsers"</div>
+</div>
+</div>
+</section>
+<!-- The pattern Attribute -->
+<section class="content-section" id="pattern-attribute">
+<h2>पैटर्न विशेषता</h2>
+<p>इनपुट पैटर्न विशेषता एक नियमित अभिव्यक्ति निर्दिष्ट करती है जिसके विरुद्ध फॉर्म सबमिट करते समय इनपुट फ़ील्ड का मान जांचा जाना चाहिए।</p>
+<p>पैटर्न विशेषता निम्नलिखित इनपुट प्रकारों के साथ काम करती है: टेक्स्ट, दिनांक, खोज, यूआरएल, टेल, ईमेल और पासवर्ड।</p>
+<div class="tip-box">
+<h4><span class="tip-icon">💡</span>सुझावों:</h4>
+<ul>
+<li>उपयोगकर्ता की सहायता के लिए फ़ॉर्म का वर्णन करने के लिए सार्वजनिक शीर्षक विशेषता का उपयोग करें।</li>
+<li>हमारे जावास्क्रिप्ट ट्यूटोरियल में रेगुलर एक्सप्रेशन के बारे में और जानें।</li>
+</ul>
+</div>
+<h3>उदाहरण</h3>
+<p>एक इनपुट फ़ील्ड जिसमें केवल तीन वर्ण हो सकते हैं (कोई संख्या या विशेष वर्ण नहीं):</p>
+<div class="code-example">
+<pre><code><span class="command-input">&lt;form&gt;</span>
+  <span class="command-input">&lt;label for="country_code"&gt;Country code:&lt;/label&gt;</span>
+  <span class="command-input">&lt;input type="text" id="country_code" name="country_code"</span>
+  <span class="command-input">pattern="[A-Za-z]{3}" title="Three letter country code"&gt;</span>
+<span class="command-input">&lt;/form&gt;</span></code></pre>
+</div>
+</section>
+<!-- The required Attribute -->
+<section class="content-section" id="required-attribute">
+<h2>आवश्यक विशेषता</h2>
+<p>इनपुट आवश्यक विशेषता निर्दिष्ट करती है कि फॉर्म सबमिट करने से पहले एक इनपुट फ़ील्ड भरना होगा।</p>
+<p>आवश्यक विशेषता निम्नलिखित इनपुट प्रकारों के साथ काम करती है: टेक्स्ट, खोज, यूआरएल, टेल, ईमेल, पासवर्ड, दिनांक पिकर, नंबर, चेकबॉक्स, रेडियो और फ़ाइल।</p>
+<h3>उदाहरण</h3>
+<p>आवश्यक इनपुट फ़ील्ड:</p>
+<div class="code-example">
+<pre><code><span class="command-input">&lt;form&gt;</span>
+  <span class="command-input">&lt;label for="username"&gt;Username:&lt;/label&gt;</span>
+  <span class="command-input">&lt;input type="text" id="username" name="username" required&gt;</span>
+<span class="command-input">&lt;/form&gt;</span></code></pre>
+</div>
+</section>
+<!-- Input Restrictions Note -->
+<section class="content-section" id="restrictions-note">
+<h2>इनपुट नियंत्रणों पर ध्यान दें</h2>
+<div class="warning-box">
+<h4><span class="warning-icon">⚠️</span>महत्वपूर्ण चेतावनी:</h4>
+<p>इनपुट बाधाएं पूरी तरह से सुरक्षित नहीं हैं, और जावास्क्रिप्ट अवैध इनपुट जोड़ने के कई तरीके प्रदान करता है। इसे सुरक्षित रूप से नियंत्रित करने के लिए इनपुट को प्राप्तकर्ता (सर्वर) द्वारा सत्यापित किया जाना चाहिए!</p>
+</div>
+<h3>इनपुट नियंत्रणों की सूची:</h3>
+<div class="comparison-table">
+<table>
+<thead>
+<tr>
+<th>गुण</th>
+<th>उपयोगी इनपुट प्रकार</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>min &amp; max</td>
+<td>number, range, date, datetime-local, month, time, week</td>
+</tr>
+<tr>
+<td>maxlength</td>
+<td>text, search, url, tel, email, password</td>
+</tr>
+<tr>
+<td>pattern</td>
+<td>text, date, search, url, tel, email, password</td>
+</tr>
+<tr>
+<td>required</td>
+<td>text, search, url, tel, email, password, date pickers, number, checkbox, radio, file</td>
+</tr>
+<tr>
+<td>step</td>
+<td>number, range, date, datetime-local, month, time, week</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<!-- Exercise Section -->
+<section class="content-section" id="exercises">
+<h2>अभ्यास</h2>
+<div class="exercise-box">
+<h4><span class="exercise-icon">❓</span>INPUT तत्व की आकार विशेषता का डिफ़ॉल्ट मान क्या है?</h4>
+<div class="options-grid">
+<div class="option-card" data-correct="false">
+<div class="option-content">
+<div class="option-text">10</div>
+<div class="option-feedback incorrect">✗ ग़लत! 10 आकार विशेषता का डिफ़ॉल्ट मान नहीं है</div>
+</div>
+</div>
+<div class="option-card" data-correct="false">
+<div class="option-content">
+<div class="option-text">15</div>
+<div class="option-feedback incorrect">✗ ग़लत! 15 आकार विशेषता का डिफ़ॉल्ट मान नहीं है</div>
+</div>
+</div>
+<div class="option-card" data-correct="true">
+<div class="option-content">
+<div class="option-text">20</div>
+<div class="option-feedback correct">✓ ठीक है! आकार विशेषता का डिफ़ॉल्ट मान 20 है</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- HTML Form and Input Elements -->
+<section class="content-section" id="form-input-elements">
+<h2>HTML फॉर्म और इनपुट तत्व</h2>
+<div class="comparison-table">
+<table>
+<thead>
+<tr>
+<th>टैग</th>
+<th>स्पष्टीकरण</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>&lt;form&gt;</td>
+<td>उपयोगकर्ता इनपुट के लिए HTML फॉर्म को परिभाषित करता है</td>
+</tr>
+<tr>
+<td>&lt;input&gt;</td>
+<td>इनपुट नियंत्रण को परिभाषित करता है</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tip-box">
+<h4><span class="tip-icon">🔗</span>अतिरिक्त स्रोत:</h4>
+<p>सभी उपलब्ध HTML टैग्स की पूरी सूची के लिए, हमारे HTML टैग संदर्भ पर जाएँ।</p>
+</div>
+</section>
+<!-- Bottom Navigation -->
+<div class="bottom-nav">
+<a class="nav-tab prev" href="HTML Input Types.html">
+<i class="fas fa-arrow-left"></i>
+<span>पिछला</span>
+</a>
+<a class="nav-tab next" href="HTML Input form Attributes.html">
+<span>अगला</span>
+<i class="fas fa-arrow-right"></i>
+</a>
+</div>
+</main>
+<!-- Footer -->
+<footer>
+<div class="footer-content">
+<div class="footer-column">
+<h3>Jassif Team Institution</h3>
+<p>Leading educational institution providing quality programming education in Hindi.</p>
+</div>
+<div class="footer-column">
+<h3>Quick Links</h3>
+<ul>
+<li><a href="#introduction">इनपुट विशेषताएँ</a></li>
+<li><a href="#value-attribute">मूल्य विशेषता</a></li>
+<li><a href="#readonly-attribute">केवल पढ़ने योग्य विशेषता</a></li>
+<li><a href="#disabled-attribute">अक्षम विशेषता</a></li>
+<li><a href="#size-attribute">आकार विशेषता</a></li>
+<li><a href="#maxlength-attribute">अधिकतम लंबाई विशेषता</a></li>
+<li><a href="#pattern-attribute">पैटर्न विशेषता</a></li>
+<li><a href="#required-attribute">आवश्यक विशेषता</a></li>
+<li><a href="#more-attributes">अन्य गुण</a></li>
+<li><a href="#restrictions-note">प्रतिबंध</a></li>
+<li><a href="#exercises">अभ्यास</a></li>
+</ul>
+</div>
+<div class="footer-column">
+<h3>Contact</h3>
+<ul>
+<li><a href="#">About Us</a></li>
+<li><a href="#">Contact Us</a></li>
+<li><a href="#">Location &amp; Hours</a></li>
+</ul>
+</div>
+<div class="footer-column">
+<h3>Follow Us</h3>
+<ul>
+<li><a href="#"><i class="fab fa-facebook"></i> Facebook</a></li>
+<li><a href="#"><i class="fab fa-instagram"></i> Instagram</a></li>
+<li><a href="#"><i class="fab fa-youtube"></i> YouTube</a></li>
+</ul>
+</div>
+</div>
+<div class="copyright">
+<p>© 2023 Jassif Team Institution. All rights reserved.</p>
+</div>
+</footer>
+<script>
+        // Add smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Add scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animation = 'fadeInUp 0.8s ease-out forwards';
+                }
+            });
+        }, observerOptions);
+        
+        // Observe all content sections for animation
+        document.querySelectorAll('.content-section').forEach(section => {
+            observer.observe(section);
+        });
+
+        // Exercise interaction
+        document.querySelectorAll('.option-card').forEach(card => {
+            card.addEventListener('click', function() {
+                // Show feedback for all options
+                document.querySelectorAll('.option-card').forEach(c => {
+                    c.querySelector('.option-feedback').style.display = 'block';
+                });
+            });
+        });
+        
+        // Form validation for demo fields
+        document.addEventListener('DOMContentLoaded', function() {
+            const demoForm = document.createElement('form');
+            demoForm.style.display = 'none';
+            document.body.appendChild(demoForm);
+            
+            // Create a required field for demo
+            const requiredField = document.getElementById('demo-fname');
+            if (requiredField) {
+                requiredField.addEventListener('invalid', function(e) {
+                    e.preventDefault();
+                    alert('This field is required! This is a demo of HTML5 validation.');
+                });
+            }
+        });
+    </script>
+<!-- Home Button -->
+<a class="home-icon" href="index.html">
+<i class="fas fa-home"></i>
+</a>
+</body>
+</html>

@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+
+<html lang="hi">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>HTML Canvas Graphics - Jassif Team</title>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<link href="style.css" rel="stylesheet"/>
+<style>
+        .content-section p, 
+        .content-section li,
+        .content-section h3,
+        .content-section h4,
+        .comparison-card p {
+            color: #333 !important;
+        }
+        
+        .tip-box p,
+        .tip-box li,
+        .tip-box h4 {
+            color: white !important;
+        }
+        
+        .warning-box p,
+        .warning-box li,
+        .warning-box h4 {
+            color: white !important;
+        }
+        
+        .exercise-box p,
+        .exercise-box h4 {
+            color: white !important;
+        }
+        
+        /* Stable logo styling - NO ANIMATIONS */
+        .logo-icon {
+            animation: none !important; /* Remove pulse animation */
+        }
+        
+        .logo-image {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+            display: block;
+            border: 2px solid white;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            animation: none !important; /* Ensure no animations */
+        }
+        
+        /* Canvas styling */
+        .canvas-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .canvas-demo {
+            flex: 1;
+            min-width: 300px;
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            border: 1px solid #e0e0e0;
+        }
+        
+        .canvas-preview {
+            width: 100%;
+            height: 200px;
+            border: 1px solid #ccc;
+            margin: 1rem 0;
+            background: #f8f9fa;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+        
+        .canvas-code {
+            background: #2d2d2d;
+            color: #f8f8f2;
+            padding: 1rem;
+            border-radius: 6px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+            overflow-x: auto;
+            margin: 1rem 0;
+        }
+        
+        .canvas-example {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+            border-left: 4px solid var(--git-color);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .canvas-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .canvas-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+            border-top: 4px solid var(--git-color);
+        }
+        
+        .canvas-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .canvas-icon {
+            font-size: 2rem;
+            color: var(--git-color);
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+        
+        .live-canvas {
+            border: 1px solid #ddd;
+            margin: 1rem 0;
+            background: white;
+        }
+        
+        /* Custom canvas styles */
+        #demoCanvas1, #demoCanvas2, #demoCanvas3, #demoCanvas4,
+        #demoCanvas5, #demoCanvas6, #demoCanvas7, #demoCanvas8 {
+            display: block;
+            margin: 0 auto;
+        }
+        
+        @media (max-width: 768px) {
+            .canvas-container {
+                flex-direction: column;
+            }
+            
+            .canvas-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+<!-- Header -->
+<header>
+<div class="header-container">
+<div class="logo">
+<div class="logo-icon">
+<img alt="Jassif Team Logo" class="logo-image" src="logo.jpg"/>
+</div>
+<h1>Jassif Team <span>Institution</span></h1>
+</div>
+</div>
+</header>
+<!-- Top Navigation Tabs -->
+<div class="nav-tabs">
+<a class="nav-tab prev" href="HTML Input form Attributes.html">
+<i class="fas fa-arrow-left"></i>
+<span>पिछला</span>
+</a>
+<a class="nav-tab next" href="HTML SVG Graphics.html">
+<span>अगला</span>
+<i class="fas fa-arrow-right"></i>
+</a>
+</div>
+<!-- Hero Section -->
+<section class="hero" id="home">
+<div class="hero-content">
+<h2>HTML Canvas Graphics</h2>
+<p>HTML कैनवस ग्राफ़िक्स सीखें</p>
+</div>
+</section>
+<!-- Main Content -->
+<main class="container">
+<!-- HTML Canvas Introduction -->
+<section class="content-section" id="introduction">
+<h2>HTML कैनवस ग्राफ़िक्स</h2>
+<p>HTML &lt;कैनवास&gt; तत्व का उपयोग वेब पेज पर ग्राफिक्स बनाने के लिए किया जाता है।</p>
+<div class="canvas-container">
+<div class="canvas-demo">
+<h3>कैनवास का उदाहरण</h3>
+<div class="canvas-preview">
+<canvas height="150" id="demoCanvas1" style="border:1px solid #000;" width="280"></canvas>
+</div>
+<p>उपरोक्त ग्राफ़िक्स &lt;कैनवस&gt; के साथ बनाए गए हैं। यह चार तत्वों को दर्शाता है: एक लाल आयत, एक ढाल आयत, एक बहुरंगी आयत और बहुरंगी पाठ।</p>
+</div>
+<div class="canvas-demo">
+<h3>कैनवास क्या है?</h3>
+<p>HTML &lt;कैनवास&gt; तत्व का उपयोग जावास्क्रिप्ट के साथ तुरंत ग्राफिक्स बनाने के लिए किया जाता है।</p>
+<div class="tip-box" style="margin: 1rem 0;">
+<h4><span class="tip-icon">🎨</span>महत्वपूर्ण अवधारणा:</h4>
+<p>&lt;कैनवस&gt; तत्व ग्राफिक्स के लिए सिर्फ एक कंटेनर है। वास्तव में ग्राफ़िक्स बनाने के लिए आपको जावास्क्रिप्ट का उपयोग करना होगा।</p>
+</div>
+</div>
+</div>
+<div class="canvas-grid">
+<div class="canvas-card">
+<div class="canvas-icon">
+<i class="fas fa-draw-polygon"></i>
+</div>
+<h4>पथ बनाएं</h4>
+<p>कैनवास पर पथ, बक्से, वृत्त बनाने के कई तरीके हैं</p>
+</div>
+<div class="canvas-card">
+<div class="canvas-icon">
+<i class="fas fa-font"></i>
+</div>
+<h4>लेख जोड़ें</h4>
+<p>कैनवास पर टेक्स्ट को ड्रा और फॉर्मेट कर सकते हैं</p>
+</div>
+<div class="canvas-card">
+<div class="canvas-icon">
+<i class="fas fa-image"></i>
+</div>
+<h4படங்களை h4="" சேர்க்க<="">
+<p>छवियों को कैनवास में जोड़ा और संशोधित किया जा सकता है</p>
+</h4படங்களை></div>
+<div class="canvas-card">
+<div class="canvas-icon">
+<i class="fas fa-palette"></i>
+</div>
+<h4>ढ़ाल</h4>
+<p>रैखिक और वृत्ताकार ग्रेडिएंट बनाए जा सकते हैं</p>
+</div>
+</div>
+<div class="warning-box">
+<h4><span class="warning-icon">🌐</span>ब्राउज़र समर्थन:</h4>
+<p>कैनवस सभी प्रमुख ब्राउज़रों द्वारा समर्थित है।</p>
+</div>
+</section>
+<!-- Canvas Examples -->
+<section class="content-section" id="canvas-examples">
+<h2>कैनवास के उदाहरण</h2>
+<p>कैनवास एक HTML पृष्ठ के भीतर एक आयताकार क्षेत्र है। डिफ़ॉल्ट रूप से, कैनवास में कोई सीमा नहीं होती और न ही कोई सामग्री होती है।</p>
+<p>मार्कअप इस तरह दिखता है:</p>
+<div class="canvas-code">
+                &lt;canvas id="myCanvas" width="200" height="100"&gt;&lt;/canvas&gt;
+            </div>
+<div class="override-note" style="background: #d4edda; border-left-color: #28a745;">
+<strong>टिप्पणी:</strong>हमेशा एक आईडी विशेषता निर्दिष्ट करें (स्क्रिप्ट में निर्दिष्ट होने के लिए), और कैनवास के आकार को परिभाषित करने के लिए चौड़ाई और ऊंचाई विशेषताएँ निर्दिष्ट करें। बॉर्डर जोड़ने के लिए स्टाइल विशेषता का उपयोग करें।</div>
+<h3>उदाहरण</h3>
+<p>एक बुनियादी, रिक्त कैनवास का उदाहरण:</p>
+<div class="canvas-example">
+<div class="canvas-code">
+                    &lt;canvas id="myCanvas" width="200" height="100" style="border:1px solid #000000;"&gt;<br/>
+                    &lt;/canvas&gt;
+                </div>
+<div class="canvas-preview">
+<canvas height="100" id="emptyCanvas" style="border:1px solid #000000;" width="200"></canvas>
+</div>
+</div>
+</section>
+<!-- Add JavaScript -->
+<section class="content-section" id="add-javascript">
+<h2>जावास्क्रिप्ट जोड़ें</h2>
+<p>आयताकार कैनवास क्षेत्र बनाने के बाद, आपको इसे खींचने के लिए जावास्क्रिप्ट जोड़ना होगा।</p>
+<div class="tip-box">
+<h4><span class="tip-icon">⚙️</span>कदम:</h4>
+<ol>
+<li>कैनवास तत्व प्राप्त करें: document.getElementById()</li>
+<li>प्रारूपण संदर्भ प्राप्त करें: getContext('2d')</li>
+<li>प्रारूपण विधियों का प्रयोग करें</li>
+</ol>
+</div>
+</section>
+<!-- Draw a Line -->
+<section class="content-section" id="draw-line">
+<h2>एक रेखा खींचो</h2>
+<div class="canvas-example">
+<h3>उदाहरण</h3>
+<div class="canvas-code">
+                    &lt;script&gt;<br/>
+                      var c = document.getElementById("myCanvas");<br/>
+                      var ctx = c.getContext("2d");<br/>
+                      ctx.moveTo(0, 0);<br/>
+                      ctx.lineTo(200, 100);<br/>
+                      ctx.stroke();<br/>
+                    &lt;/script&gt;
+                </div>
+<div class="canvas-preview">
+<canvas height="100" id="demoCanvas2" style="border:1px solid #ddd;" width="200"></canvas>
+</div>
+</div>
+</section>
+<!-- Draw a Circle -->
+<section class="content-section" id="draw-circle">
+<h2>एक वृत्त बनाएं</h2>
+<div class="canvas-example">
+<h3>उदाहरण</h3>
+<div class="canvas-code">
+                    &lt;script&gt;<br/>
+                      var c = document.getElementById("myCanvas");<br/>
+                      var ctx = c.getContext("2d");<br/>
+                      ctx.beginPath();<br/>
+                      ctx.arc(95, 50, 40, 0, 2 * Math.PI);<br/>
+                      ctx.stroke();<br/>
+                    &lt;/script&gt;
+                </div>
+<div class="canvas-preview">
+<canvas height="100" id="demoCanvas3" style="border:1px solid #ddd;" width="200"></canvas>
+</div>
+</div>
+</section>
+<!-- Draw Text -->
+<section class="content-section" id="draw-text">
+<h2>पाठ को ड्रा करें</h2>
+<div class="canvas-example">
+<h3>उदाहरण</h3>
+<div class="canvas-code">
+                    &lt;script&gt;<br/>
+                      var c = document.getElementById("myCanvas");<br/>
+                      var ctx = c.getContext("2d");<br/>
+                      ctx.font = "30px Arial";<br/>
+                      ctx.fillText("Hello World", 10, 50);<br/>
+                    &lt;/script&gt;
+                </div>
+<div class="canvas-preview">
+<canvas height="100" id="demoCanvas4" style="border:1px solid #ddd;" width="200"></canvas>
+</div>
+</div>
+</section>
+<!-- Stroke Text -->
+<section class="content-section" id="stroke-text">
+<h2>स्ट्रोक पाठ</h2>
+<div class="canvas-example">
+<h3>उदाहरण</h3>
+<div class="canvas-code">
+                    &lt;script&gt;<br/>
+                      var c = document.getElementById("myCanvas");<br/>
+                      var ctx = c.getContext("2d");<br/>
+                      ctx.font = "30px Arial";<br/>
+                      ctx.strokeText("Hello World", 10, 50);<br/>
+                    &lt;/script&gt;
+                </div>
+<div class="canvas-preview">
+<canvas height="100" id="demoCanvas5" style="border:1px solid #ddd;" width="200"></canvas>
+</div>
+</div>
+<div class="comparison-section" style="display: flex; gap: 2rem; margin: 2rem 0; flex-wrap: wrap;">
+<div style="flex: 1; min-width: 300px; background: white; padding: 1.5rem; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
+<h4 style="color: var(--git-color); margin-bottom: 1rem;">fillText() vs strokeText()</h4>
+<ul>
+<li><strong>fillText():</strong>पाठ भरें (ठोस रंग)</li>
+<li><strong>strokeText():</strong>पाठ की रूपरेखा तैयार करता है</li>
+<li><strong>fillText():</strong>आप fillStyle से रंग सेट कर सकते हैं</li>
+<li><strong>strokeText():</strong>आप स्ट्रोक स्टाइल से रंग सेट कर सकते हैं</li>
+</ul>
+</div>
+</div>
+</section>
+<!-- Draw Linear Gradient -->
+<section class="content-section" id="draw-linear-gradient">
+<h2>एक रेखीय ढाल बनाएं</h2>
+<div class="canvas-example">
+<h3>उदाहरण</h3>
+<div class="canvas-code">
+                    &lt;script&gt;<br/>
+                      var c = document.getElementById("myCanvas");<br/>
+                      var ctx = c.getContext("2d");<br/>
+<br/>// ग्रेडिएंट बनाएं<br/>
+                      var grd = ctx.createLinearGradient(0, 0, 200, 0);<br/>
+                      grd.addColorStop(0, "red");<br/>
+                      grd.addColorStop(1, "white");<br/>
+<br/>// ग्रेडिएंट भरें<br/>
+                      ctx.fillStyle = grd;<br/>
+                      ctx.fillRect(10, 10, 150, 80);<br/>
+                    &lt;/script&gt;
+                </div>
+<div class="canvas-preview">
+<canvas height="100" id="demoCanvas6" style="border:1px solid #ddd;" width="200"></canvas>
+</div>
+</div>
+</section>
+<!-- Draw Circular Gradient -->
+<section class="content-section" id="draw-circular-gradient">
+<h2>एक गोलाकार ढाल बनाएं</h2>
+<div class="canvas-example">
+<h3>उदाहरण</h3>
+<div class="canvas-code">
+                    &lt;script&gt;<br/>
+                      var c = document.getElementById("myCanvas");<br/>
+                      var ctx = c.getContext("2d");<br/>
+<br/>// ग्रेडिएंट बनाएं<br/>
+                      var grd = ctx.createRadialGradient(75, 50, 5, 90, 60, 100);<br/>
+                      grd.addColorStop(0, "red");<br/>
+                      grd.addColorStop(1, "white");<br/>
+<br/>// ग्रेडिएंट भरें<br/>
+                      ctx.fillStyle = grd;<br/>
+                      ctx.fillRect(10, 10, 150, 80);<br/>
+                    &lt;/script&gt;
+                </div>
+<div class="canvas-preview">
+<canvas height="100" id="demoCanvas7" style="border:1px solid #ddd;" width="200"></canvas>
+</div>
+</div>
+</section>
+<!-- Draw Image -->
+<section class="content-section" id="draw-image">
+<h2>चित्र बनाएं</h2>
+<div class="canvas-example">
+<h3>उदाहरण</h3>
+<div class="canvas-code">
+                    &lt;script&gt;<br/>
+                      var c = document.getElementById("myCanvas");<br/>
+                      var ctx = c.getContext("2d");<br/>
+                      var img = document.getElementById("scream");<br/>
+                      ctx.drawImage(img, 10, 10);<br/>
+                    &lt;/script&gt;
+                </div>
+<div class="canvas-preview">
+<canvas height="100" id="demoCanvas8" style="border:1px solid #ddd;" width="200"></canvas>
+<img id="demoImage" src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwIiBoZWlnaHQ9IjgwIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxyZWN0IHdpZHRoPSIxMDAiIGhlaWdodD0iODAiIGZpbGw9IiNlNzRjM2MiLz48dGV4dCB4PSI1MCIgeT0iNDAiIGZvbnQtc2l6ZT0iMTQiIGZpbGw9IiNmZmYiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGR5PSIuM2VtIj5EZW1vIEltYWdlPC90ZXh0Pjwvc3ZnPg==" style="display:none;"/>
+</div>
+</div>
+</section>
+<!-- HTML Canvas Tutorial -->
+<section class="content-section" id="canvas-tutorial">
+<h2>HTML कैनवास ट्यूटोरियल</h2>
+<p>&lt;कैनवास&gt; के बारे में अधिक जानने के लिए, हमारा HTML कैनवास ट्यूटोरियल पढ़ें।</p>
+<div class="canvas-grid">
+<div class="canvas-card">
+<h4>कैनवास के तरीके</h4>
+<ul>
+<li>fillRect() - आयत भरें</li>
+<li>स्ट्रोकरेक्ट() - आयत रूपरेखा</li>
+<li>ClearRect() - आयत साफ़ करें</li>
+<li>beginPath() - एक नया पथ शुरू करें</li>
+<li>क्लोज़पाथ() - पथ बंद करें</li>
+</ul>
+</div>
+<div class="canvas-card">
+<h4>कैनवास गुण</h4>
+<ul>
+<li>fillStyle - रंग भरें</li>
+<li>स्ट्रोकस्टाइल - स्ट्रोक का रंग</li>
+<li>लाइनविड्थ - लाइन की चौड़ाई</li>
+<li>फ़ॉन्ट - टेक्स्ट फ़ॉन्ट</li>
+<li>textAlign - पाठ संरेखण</li>
+</ul>
+</div>
+</div>
+<div class="exercise-box">
+<h4><span class="exercise-icon">💡</span>कैनवास अभ्यास</h4>
+<p>आप जो कुछ भी आज़माना चाहते हैं उसे नीचे कैनवास पर बनाएं:</p>
+<div style="text-align: center; margin: 1rem 0;">
+<canvas height="200" id="practiceCanvas" style="border:1px solid #000; background: white; cursor: crosshair;" width="400"></canvas>
+</div>
+<div style="text-align: center; margin-top: 1rem;">
+<button id="clearBtn" style="padding: 8px 20px; background: var(--git-color); color: white; border: none; border-radius: 5px; cursor: pointer; margin: 0 5px;">
+                        Clear Canvas
+                    </button>
+<button id="drawRectBtn" style="padding: 8px 20px; background: #28a745; color: white; border: none; border-radius: 5px; cursor: pointer; margin: 0 5px;">
+                        Draw Rectangle
+                    </button>
+<button id="drawCircleBtn" style="padding: 8px 20px; background: #007bff; color: white; border: none; border-radius: 5px; cursor: pointer; margin: 0 5px;">
+                        Draw Circle
+                    </button>
+</div>
+</div>
+</section>
+<!-- Bottom Navigation -->
+<div class="bottom-nav">
+<a class="nav-tab prev" href="HTML Input form Attributes.html">
+<i class="fas fa-arrow-left"></i>
+<span>पिछला</span>
+</a>
+<a class="nav-tab next" href="HTML SVG Graphics.html">
+<span>अगला</span>
+<i class="fas fa-arrow-right"></i>
+</a>
+</div>
+</main>
+<!-- Footer -->
+<footer>
+<div class="footer-content">
+<div class="footer-column">
+<h3>Jassif Team Institution</h3>
+<p>Leading educational institution providing quality programming education in Hindi.</p>
+</div>
+<div class="footer-column">
+<h3>Quick Links</h3>
+<ul>
+<li><a href="#introduction">कैनवास का परिचय</a></li>
+<li><a href="#canvas-examples">कैनवास के उदाहरण</a></li>
+<li><a href="#draw-line">हदबंदी करना</a></li>
+<li><a href="#draw-circle">एक वृत्त बनाएं</a></li>
+<li><a href="#draw-text">पाठ को ड्रा करें</a></li>
+<li><a href="#draw-linear-gradient">रैखिक ढलान</a></li>
+<li><a href="#draw-circular-gradient">गोलाकार ढाल</a></li>
+<li><a href="#draw-image">चित्र बनाएं</a></li>
+<li><a href="#canvas-tutorial">कैनवास ट्यूटोरियल</a></li>
+</ul>
+</div>
+<div class="footer-column">
+<h3>Contact</h3>
+<ul>
+<li><a href="#">About Us</a></li>
+<li><a href="#">Contact Us</a></li>
+<li><a href="#">Location &amp; Hours</a></li>
+</ul>
+</div>
+<div class="footer-column">
+<h3>Follow Us</h3>
+<ul>
+<li><a href="#"><i class="fab fa-facebook"></i> Facebook</a></li>
+<li><a href="#"><i class="fab fa-instagram"></i> Instagram</a></li>
+<li><a href="#"><i class="fab fa-youtube"></i> YouTube</a></li>
+</ul>
+</div>
+</div>
+<div class="copyright">
+<p>© 2023 Jassif Team Institution. All rights reserved.</p>
+</div>
+</footer>
+<script>
+        // Add smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Add scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animation = 'fadeInUp 0.8s ease-out forwards';
+                }
+            });
+        }, observerOptions);
+        
+        // Observe all content sections for animation
+        document.querySelectorAll('.content-section').forEach(section => {
+            observer.observe(section);
+        });
+
+        // Canvas Drawing Examples
+        document.addEventListener('DOMContentLoaded', function() {
+            // Draw on demoCanvas1 (Introduction example)
+            const canvas1 = document.getElementById('demoCanvas1');
+            if (canvas1.getContext) {
+                const ctx1 = canvas1.getContext('2d');
+                
+                // Red rectangle
+                ctx1.fillStyle = '#e74c3c';
+                ctx1.fillRect(10, 10, 50, 50);
+                
+                // Gradient rectangle
+                const grd1 = ctx1.createLinearGradient(70, 10, 130, 60);
+                grd1.addColorStop(0, '#3498db');
+                grd1.addColorStop(1, '#2c3e50');
+                ctx1.fillStyle = grd1;
+                ctx1.fillRect(70, 10, 50, 50);
+                
+                // Multicolor rectangle
+                ctx1.fillStyle = '#9b59b6';
+                ctx1.fillRect(130, 10, 50, 50);
+                ctx1.fillStyle = '#2ecc71';
+                ctx1.fillRect(140, 20, 30, 30);
+                
+                // Multicolor text
+                ctx1.font = '20px Arial';
+                ctx1.fillStyle = '#e67e22';
+                ctx1.fillText('Canvas', 10, 90);
+                ctx1.fillStyle = '#34495e';
+                ctx1.fillText('Graphics', 85, 90);
+            }
+            
+            // Draw line on demoCanvas2
+            const canvas2 = document.getElementById('demoCanvas2');
+            if (canvas2.getContext) {
+                const ctx2 = canvas2.getContext('2d');
+                ctx2.moveTo(0, 0);
+                ctx2.lineTo(200, 100);
+                ctx2.stroke();
+            }
+            
+            // Draw circle on demoCanvas3
+            const canvas3 = document.getElementById('demoCanvas3');
+            if (canvas3.getContext) {
+                const ctx3 = canvas3.getContext('2d');
+                ctx3.beginPath();
+                ctx3.arc(100, 50, 40, 0, 2 * Math.PI);
+                ctx3.stroke();
+            }
+            
+            // Draw text on demoCanvas4
+            const canvas4 = document.getElementById('demoCanvas4');
+            if (canvas4.getContext) {
+                const ctx4 = canvas4.getContext('2d');
+                ctx4.font = '20px Arial';
+                ctx4.fillText('Hello World', 10, 50);
+            }
+            
+            // Stroke text on demoCanvas5
+            const canvas5 = document.getElementById('demoCanvas5');
+            if (canvas5.getContext) {
+                const ctx5 = canvas5.getContext('2d');
+                ctx5.font = '20px Arial';
+                ctx5.strokeText('Hello World', 10, 50);
+            }
+            
+            // Draw linear gradient on demoCanvas6
+            const canvas6 = document.getElementById('demoCanvas6');
+            if (canvas6.getContext) {
+                const ctx6 = canvas6.getContext('2d');
+                const grd6 = ctx6.createLinearGradient(0, 0, 200, 0);
+                grd6.addColorStop(0, 'red');
+                grd6.addColorStop(1, 'white');
+                ctx6.fillStyle = grd6;
+                ctx6.fillRect(10, 10, 180, 80);
+            }
+            
+            // Draw circular gradient on demoCanvas7
+            const canvas7 = document.getElementById('demoCanvas7');
+            if (canvas7.getContext) {
+                const ctx7 = canvas7.getContext('2d');
+                const grd7 = ctx7.createRadialGradient(100, 50, 5, 100, 50, 50);
+                grd7.addColorStop(0, 'red');
+                grd7.addColorStop(1, 'white');
+                ctx7.fillStyle = grd7;
+                ctx7.fillRect(10, 10, 180, 80);
+            }
+            
+            // Draw image on demoCanvas8
+            const canvas8 = document.getElementById('demoCanvas8');
+            const demoImage = document.getElementById('demoImage');
+            if (canvas8.getContext && demoImage) {
+                const ctx8 = canvas8.getContext('2d');
+                demoImage.onload = function() {
+                    ctx8.drawImage(demoImage, 10, 10, 80, 60);
+                };
+            }
+            
+            // Practice Canvas
+            const practiceCanvas = document.getElementById('practiceCanvas');
+            const clearBtn = document.getElementById('clearBtn');
+            const drawRectBtn = document.getElementById('drawRectBtn');
+            const drawCircleBtn = document.getElementById('drawCircleBtn');
+            
+            if (practiceCanvas.getContext) {
+                const practiceCtx = practiceCanvas.getContext('2d');
+                
+                // Clear canvas function
+                clearBtn.addEventListener('click', function() {
+                    practiceCtx.clearRect(0, 0, practiceCanvas.width, practiceCanvas.height);
+                });
+                
+                // Draw rectangle function
+                drawRectBtn.addEventListener('click', function() {
+                    practiceCtx.fillStyle = '#3498db';
+                    practiceCtx.fillRect(
+                        Math.random() * 300,
+                        Math.random() * 150,
+                        50 + Math.random() * 50,
+                        30 + Math.random() * 30
+                    );
+                });
+                
+                // Draw circle function
+                drawCircleBtn.addEventListener('click', function() {
+                    practiceCtx.beginPath();
+                    practiceCtx.fillStyle = '#e74c3c';
+                    practiceCtx.arc(
+                        50 + Math.random() * 300,
+                        50 + Math.random() * 100,
+                        20 + Math.random() * 20,
+                        0,
+                        2 * Math.PI
+                    );
+                    practiceCtx.fill();
+                });
+                
+                // Freehand drawing
+                let isDrawing = false;
+                let lastX = 0;
+                let lastY = 0;
+                
+                practiceCanvas.addEventListener('mousedown', (e) => {
+                    isDrawing = true;
+                    [lastX, lastY] = [
+                        e.offsetX,
+                        e.offsetY
+                    ];
+                });
+                
+                practiceCanvas.addEventListener('mousemove', (e) => {
+                    if (!isDrawing) return;
+                    practiceCtx.beginPath();
+                    practiceCtx.moveTo(lastX, lastY);
+                    practiceCtx.lineTo(e.offsetX, e.offsetY);
+                    practiceCtx.strokeStyle = '#2c3e50';
+                    practiceCtx.lineWidth = 2;
+                    practiceCtx.stroke();
+                    [lastX, lastY] = [e.offsetX, e.offsetY];
+                });
+                
+                practiceCanvas.addEventListener('mouseup', () => isDrawing = false);
+                practiceCanvas.addEventListener('mouseout', () => isDrawing = false);
+            }
+        });
+    </script>
+<!-- Home Button -->
+<a class="home-icon" href="index.html">
+<i class="fas fa-home"></i>
+</a>
+</body>
+</html>

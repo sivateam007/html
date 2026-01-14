@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Paragraphs - Jassif Team</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .content-section p, 
+        .content-section li,
+        .content-section h3,
+        .content-section h4,
+        .comparison-card p {
+            color: #333 !important;
+        }
+        
+        .tip-box p,
+        .tip-box li,
+        .tip-box h4 {
+            color: white !important;
+        }
+        
+        .warning-box p,
+        .warning-box li,
+        .warning-box h4 {
+            color: white !important;
+        }
+        
+        .exercise-box p,
+        .exercise-box h4 {
+            color: white !important;
+        }
+        
+        .logo-img {
+            height: 60px;
+            width: 60px;
+            border-radius: 50%;
+            margin-right: 15px;
+            object-fit: cover;
+            border: 3px solid white;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease;
+            animation: none !important; /* Ensure no animations */
+        }
+        
+        .logo-img:hover {
+            transform: scale(1.05);
+        }
+        
+        /* Responsive adjustments for circular logo */
+        @media (max-width: 768px) {
+            .logo-img {
+                height: 50px;
+                width: 50px;
+                border-width: 2px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .logo-img {
+                height: 40px;
+                width: 40px;
+                border-width: 2px;
+                margin-right: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <img src="logo.jpg" alt="Jassif Team Logo" class="logo-img">
+                <h1>Jassif Team <span>Institution</span></h1>
+            </div>
+        </div>
+    </header>
+
+    <!-- Top Navigation Tabs -->
+    <div class="nav-tabs">
+        <a href="HTML%20Headings.html" class="nav-tab prev">
+            <i class="fas fa-arrow-left"></i>
+            <span>पिछला</span>
+        </a>
+        <a href="HTML%20Styles.html" class="nav-tab next">
+            <span>अगला</span>
+            <i class="fas fa-arrow-right"></i>
+        </a>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h2>HTML Paragraphs</h2>
+            <p>HTML பத்திகள் கற்றுக்கொள்ளுங்கள்</p>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="container">
+        <!-- HTML Paragraphs Introduction -->
+        <section class="content-section" id="introduction">
+            <h2>HTML Paragraphs</h2>
+            
+            <p>A paragraph always starts on a new line, and is usually a block of text.</p>
+            
+            <div class="tip-box">
+                <h4><span class="tip-icon">📝</span> உதவிக்குறிப்பு:</h4>
+                <p>HTML இல் பத்திகளை உருவாக்க &lt;p&gt; குறிச்சொல் பயன்படுகிறது.</p>
+            </div>
+        </section>
+
+        <!-- HTML Paragraphs Details -->
+        <section class="content-section" id="paragraphs-details">
+            <h2>HTML Paragraphs</h2>
+            
+            <p>The HTML &lt;p&gt; element defines a paragraph.</p>
+            <p>A paragraph always starts on a new line, and browsers automatically add some white space (a margin) before and after a paragraph.</p>
+            
+            <h3>எடுத்துக்காட்டு</h3>
+            
+            <div class="code-example">
+                <pre><code>&lt;p&gt;This is a paragraph.&lt;/p&gt;
+&lt;p&gt;This is another paragraph.&lt;/p&gt;</code></pre>
+            </div>
+        </section>
+
+        <!-- HTML Display -->
+        <section class="content-section" id="display">
+            <h2>HTML Display</h2>
+            
+            <p>You cannot be sure how HTML will be displayed.</p>
+            <p>Large or small screens, and resized windows will create different results.</p>
+            <p>With HTML, you cannot change the display by adding extra spaces or extra lines in your HTML code.</p>
+            <p>The browser will automatically remove any extra spaces and lines when the page is displayed:</p>
+            
+            <h3>எடுத்துக்காட்டு</h3>
+            
+            <div class="code-example">
+                <pre><code>&lt;p&gt;
+This paragraph
+contains a lot of lines
+in the source code,
+but the browser
+ignores it.
+&lt;/p&gt;
+
+&lt;p&gt;
+This paragraph
+contains         a lot of spaces
+in the source         code,
+but the        browser
+ignores it.
+&lt;/p&gt;</code></pre>
+            </div>
+        </section>
+
+        <!-- HTML Horizontal Rules -->
+        <section class="content-section" id="horizontal-rules">
+            <h2>HTML Horizontal Rules</h2>
+            
+            <p>The &lt;hr&gt; tag defines a thematic break in an HTML page, and is most often displayed as a horizontal rule.</p>
+            <p>The &lt;hr&gt; element is used to separate content (or define a change) in an HTML page:</p>
+            
+            <h3>எடுத்துக்காட்டு</h3>
+            
+            <div class="code-example">
+                <pre><code>&lt;h1&gt;This is heading 1&lt;/h1&gt;
+&lt;p&gt;This is some text.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2&gt;This is heading 2&lt;/h2&gt;
+&lt;p&gt;This is some other text.&lt;/p&gt;
+&lt;hr&gt;</code></pre>
+            </div>
+            
+            <div class="warning-box">
+                <h4><span class="warning-icon">⚠️</span> கவனிக்க:</h4>
+                <p>The &lt;hr&gt; tag is an empty tag, which means that it has no end tag.</p>
+            </div>
+        </section>
+
+        <!-- HTML Line Breaks -->
+        <section class="content-section" id="line-breaks">
+            <h2>HTML Line Breaks</h2>
+            
+            <p>The HTML &lt;br&gt; element defines a line break.</p>
+            <p>Use &lt;br&gt; if you want a line break (a new line) without starting a new paragraph:</p>
+            
+            <h3>எடுத்துக்காட்டு</h3>
+            
+            <div class="code-example">
+                <pre><code>&lt;p&gt;This is&lt;br&gt;a paragraph&lt;br&gt;with line breaks.&lt;/p&gt;</code></pre>
+            </div>
+            
+            <div class="warning-box">
+                <h4><span class="warning-icon">⚠️</span> கவனிக்க:</h4>
+                <p>The &lt;br&gt; tag is an empty tag, which means that it has no end tag.</p>
+            </div>
+        </section>
+
+        <!-- The Poem Problem -->
+        <section class="content-section" id="poem-problem">
+            <h2>The Poem Problem</h2>
+            
+            <p>This poem will display on a single line:</p>
+            
+            <h3>எடுத்துக்காட்டு</h3>
+            
+            <div class="code-example">
+                <pre><code>&lt;p&gt;
+  My Bonnie lies over the ocean.
+
+  My Bonnie lies over the sea.
+
+  My Bonnie lies over the ocean.
+
+  Oh, bring back my Bonnie to me.
+&lt;/p&gt;</code></pre>
+            </div>
+        </section>
+
+        <!-- Solution - The HTML <pre> Element -->
+        <section class="content-section" id="pre-element">
+            <h2>Solution - The HTML &lt;pre&gt; Element</h2>
+            
+            <p>The HTML &lt;pre&gt; element defines preformatted text.</p>
+            <p>The text inside a &lt;pre&gt; element is displayed in a fixed-width font (usually Courier), and it preserves both spaces and line breaks:</p>
+            
+            <h3>எடுத்துக்காட்டு</h3>
+            
+            <div class="code-example">
+                <pre><code>&lt;pre&gt;
+  My Bonnie lies over the ocean.
+
+  My Bonnie lies over the sea.
+
+  My Bonnie lies over the ocean.
+
+  Oh, bring back my Bonnie to me.
+&lt;/pre&gt;</code></pre>
+            </div>
+        </section>
+
+        <!-- Exercise -->
+        <section class="content-section" id="exercises">
+            <h2>अभ्यास</h2>
+            
+            <p>HTML பத்திகள் எப்பொழுதும் புதிய வரியில் துவங்குமா?</p>
+            
+            <div class="exercise-box">
+                <h4><span class="exercise-icon">❓</span> சரி அல்லது தவறு. HTML பத்திகள் எப்பொழுதும் புதிய வரியில் துவங்கும்.</h4>
+                
+                <div class="options-grid">
+                    <div class="option-card" data-correct="true">
+                        <div class="option-content">
+                            <div class="option-text">சரி</div>
+                            <div class="option-feedback correct">✓ சரி! HTML பத்திகள் எப்பொழுதும் புதிய வரியில் துவங்கும்.</div>
+                        </div>
+                    </div>
+                    
+                    <div class="option-card" data-correct="false">
+                        <div class="option-content">
+                            <div class="option-text">தவறு</div>
+                            <div class="option-feedback incorrect">✗ தவறு! HTML &lt;p&gt; குறிச்சொல் பயன்படுத்தும் போது பத்திகள் எப்பொழுதும் புதிய வரியில் துவங்கும்.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- HTML Tag Reference -->
+        <section class="content-section" id="tag-reference">
+            <h2>HTML Tag Reference</h2>
+            
+            <p>Jassif Team's tag reference contains additional information about HTML elements and their attributes.</p>
+            
+            <div class="comparison-grid">
+                <div class="comparison-card">
+                    <div class="comparison-header">
+                        <i class="fas fa-code"></i>
+                        <h4>Tag Reference</h4>
+                    </div>
+                    <table class="tag-table">
+                        <tr>
+                            <th>Tag</th>
+                            <th>Description</th>
+                        </tr>
+                        <tr>
+                            <td>&lt;p&gt;</td>
+                            <td>Defines a paragraph</td>
+                        </tr>
+                        <tr>
+                            <td>&lt;hr&gt;</td>
+                            <td>Defines a thematic change in the content</td>
+                        </tr>
+                        <tr>
+                            <td>&lt;br&gt;</td>
+                            <td>Inserts a single line break</td>
+                        </tr>
+                        <tr>
+                            <td>&lt;pre&gt;</td>
+                            <td>Defines pre-formatted text</td>
+                        </tr>
+                    </table>
+                    <p style="margin-top: 15px;">For a complete list of all available HTML tags, visit our Jassif Team HTML Tag Reference.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Bottom Navigation -->
+        <div class="bottom-nav">
+            <a href="HTML%20Headings.html" class="nav-tab prev">
+                <i class="fas fa-arrow-left"></i>
+                <span>पिछला</span>
+            </a>
+            <a href="HTML%20Styles.html" class="nav-tab next">
+                <span>अगला</span>
+                <i class="fas fa-arrow-right"></i>
+            </a>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-column">
+                <h3>Jassif Team Institution</h3>
+                <p>Leading educational institution providing quality programming education in Hindi.</p>
+            </div>
+            <div class="footer-column">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#introduction">HTML Paragraphs</a></li>
+                    <li><a href="#paragraphs-details">பத்தி விவரங்கள்</a></li>
+                    <li><a href="#horizontal-rules">கிடைமட்ட விதிகள்</a></li>
+                    <li><a href="#line-breaks">வரி முறிவுகள்</a></li>
+                    <li><a href="#exercises">अभ्यासகள்</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Contact</h3>
+                <ul>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="#">Location & Hours</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Follow Us</h3>
+                <ul>
+                    <li><a href="#"><i class="fab fa-facebook"></i> Facebook</a></li>
+                    <li><a href="#"><i class="fab fa-instagram"></i> Instagram</a></li>
+                    <li><a href="#"><i class="fab fa-youtube"></i> YouTube</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2023 Jassif Team Institution. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Add smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Add scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animation = 'fadeInUp 0.8s ease-out forwards';
+                }
+            });
+        }, observerOptions);
+        
+        // Observe all content sections for animation
+        document.querySelectorAll('.content-section').forEach(section => {
+            observer.observe(section);
+        });
+
+        // Exercise interaction
+        document.querySelectorAll('.option-card').forEach(card => {
+            card.addEventListener('click', function() {
+                // Show feedback for all options
+                document.querySelectorAll('.option-card').forEach(c => {
+                    c.querySelector('.option-feedback').style.display = 'block';
+                });
+            });
+        });
+
+        // Style for tag table
+        const style = document.createElement('style');
+        style.textContent = `
+            .tag-table {
+                width: 100%;
+                border-collapse: collapse;
+                margin-top: 15px;
+            }
+            .tag-table th, .tag-table td {
+                border: 1px solid #ddd;
+                padding: 12px;
+                text-align: left;
+            }
+            .tag-table th {
+                background-color: #3498db;
+                color: white;
+            }
+            .tag-table tr:nth-child(even) {
+                background-color: #f8f9fa;
+            }
+            .tag-table tr:hover {
+                background-color: #e9ecef;
+            }
+            .tag-table td:first-child {
+                font-family: 'Courier New', monospace;
+                color: #e74c3c;
+                font-weight: bold;
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+
+    <!-- Home Button -->
+    <a href="index.html" class="home-icon">
+        <i class="fas fa-home"></i>
+    </a>
+</body>
+</html>

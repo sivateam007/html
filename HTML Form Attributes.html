@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+
+<html lang="hi">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>HTML Form Attributes - Jassif Team</title>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<link href="style.css" rel="stylesheet"/>
+<style>
+        .content-section p, 
+        .content-section li,
+        .content-section h3,
+        .content-section h4,
+        .comparison-card p {
+            color: #333 !important;
+        }
+        
+        .tip-box p,
+        .tip-box li,
+        .tip-box h4 {
+            color: white !important;
+        }
+        
+        .warning-box p,
+        .warning-box li,
+        .warning-box h4 {
+            color: white !important;
+        }
+        
+        .exercise-box p,
+        .exercise-box h4 {
+            color: white !important;
+        }
+        
+        /* Stable logo styling - NO ANIMATIONS */
+        .logo-icon {
+            animation: none !important; /* Remove pulse animation */
+        }
+        
+        .logo-image {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+            display: block;
+            border: 2px solid white;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            animation: none !important; /* Ensure no animations */
+        }
+    </style>
+</head>
+<body>
+<!-- Header -->
+<header>
+<div class="header-container">
+<div class="logo">
+<div class="logo-icon">
+<img alt="Jassif Team Logo" class="logo-image" src="logo.jpg"/>
+</div>
+<h1>Jassif Team <span>Institution</span></h1>
+</div>
+</div>
+</header>
+<!-- Top Navigation Tabs -->
+<div class="nav-tabs">
+<a class="nav-tab prev" href="HTML Forms.html">
+<i class="fas fa-arrow-left"></i>
+<span>पिछला</span>
+</a>
+<a class="nav-tab next" href="HTML Form Elements.html">
+<span>अगला</span>
+<i class="fas fa-arrow-right"></i>
+</a>
+</div>
+<!-- Hero Section -->
+<section class="hero" id="home">
+<div class="hero-content">
+<h2>HTML Form Attributes</h2>
+<p>HTML फॉर्म विशेषताएँ सीखें</p>
+</div>
+</section>
+<!-- Main Content -->
+<main class="container">
+<!-- HTML Form Attributes Introduction -->
+<section class="content-section" id="introduction">
+<h2>HTML प्रपत्र विशेषताएँ</h2>
+<p>यह अध्याय HTML &lt;form&gt; तत्व के लिए विभिन्न विशेषताओं का वर्णन करता है।</p>
+<div class="comparison-grid">
+<div class="comparison-card">
+<div class="comparison-header">
+<i class="fas fa-bullseye"></i>
+<h4>क्रिया विशेषता</h4>
+</div>
+<p>फ़ॉर्म सबमिट करते समय की जाने वाली कार्रवाई को परिभाषित करता है</p>
+</div>
+<div class="comparison-card">
+<div class="comparison-header">
+<i class="fas fa-window-restore"></i>
+<h4>लक्ष्य विशेषता</h4>
+</div>
+<p>निर्दिष्ट करता है कि प्रतिक्रिया कहाँ प्रदर्शित करनी है</p>
+</div>
+<div class="comparison-card">
+<div class="comparison-header">
+<i class="fas fa-paper-plane"></i>
+<h4>विधि विशेषता</h4>
+</div>
+<p>उपयोग करने के लिए HTTP विधि निर्दिष्ट करता है</p>
+</div>
+</div>
+</section>
+<!-- The Action Attribute -->
+<section class="content-section" id="action-attribute">
+<h2>क्रिया विशेषता</h2>
+<p>एक्शन विशेषता फॉर्म सबमिट होने पर की जाने वाली कार्रवाई को परिभाषित करती है।</p>
+<p>आमतौर पर, जब उपयोगकर्ता सबमिट बटन पर क्लिक करता है तो फॉर्म डेटा सर्वर पर एक फ़ाइल में भेजा जाता है।</p>
+<p>नीचे दिए गए उदाहरण में, फ़ॉर्म डेटा को "action_page.php" नामक फ़ाइल में भेजा जाता है। इस फ़ाइल में सर्वर-साइड स्क्रिप्ट है जो प्रपत्र डेटा को संभालती है:</p>
+<h3>उदाहरण</h3>
+<p>सबमिट करते समय, फ़ॉर्म डेटा को "action_page.php" पर पास करें:</p>
+<div class="code-example">
+<pre><code><span class="command-input">&lt;form action="/action_page.php"&gt;</span>
+  <span class="command-input">&lt;label for="fname"&gt;First name:&lt;/label&gt;&lt;br&gt;</span>
+  <span class="command-input">&lt;input type="text" id="fname" name="fname" value="John"&gt;&lt;br&gt;</span>
+  <span class="command-input">&lt;label for="lname"&gt;Last name:&lt;/label&gt;&lt;br&gt;</span>
+  <span class="command-input">&lt;input type="text" id="lname" name="lname" value="Doe"&gt;&lt;br&gt;&lt;br&gt;</span>
+  <span class="command-input">&lt;input type="submit" value="Submit"&gt;</span>
+<span class="command-input">&lt;/form&gt;</span></code></pre>
+</div>
+<div class="tip-box">
+<h4><span class="tip-icon">💡</span>बख्शीश:</h4>
+<p>यदि क्रिया विशेषता छोड़ दी जाती है, तो क्रिया वर्तमान पृष्ठ पर सेट हो जाती है।</p>
+</div>
+</section>
+<!-- The Target Attribute -->
+<section class="content-section" id="target-attribute">
+<h2>लक्ष्य विशेषता</h2>
+<p>लक्ष्य विशेषता निर्दिष्ट करती है कि फ़ॉर्म सबमिट करने के बाद प्राप्त प्रतिक्रिया को कहाँ प्रदर्शित किया जाए।</p>
+<p>लक्ष्य विशेषता में निम्नलिखित में से एक मान हो सकता है:</p>
+<div class="comparison-table">
+<table>
+<thead>
+<tr>
+<th>कीमत</th>
+<th>स्पष्टीकरण</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>_blank</td>
+<td>उत्तर एक नई विंडो या पॉपअप में प्रदर्शित किया जाएगा</td>
+</tr>
+<tr>
+<td>_self</td>
+<td>उत्तर वर्तमान विंडो में प्रदर्शित किया जाएगा</td>
+</tr>
+<tr>
+<td>_parent</td>
+<td>उत्तर सूची में प्रदर्शित किया जाएगा</td>
+</tr>
+<tr>
+<td>_top</td>
+<td>उत्तर विंडो के संपूर्ण भाग में प्रदर्शित होता है</td>
+</tr>
+<tr>
+<td>framename</td>
+<td>प्रतिक्रिया नामित iframe में प्रदर्शित होती है</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>डिफ़ॉल्ट मान _self है, जिसका अर्थ है कि प्रतिक्रिया वर्तमान विंडो में खुलेगी।</p>
+<h3>उदाहरण</h3>
+<p>यहां, सबमिट किया गया परिणाम एक नए ब्राउज़र टैब में खुलेगा:</p>
+<div class="code-example">
+<pre><code><span class="command-input">&lt;form action="/action_page.php" target="_blank"&gt;</span></code></pre>
+</div>
+</section>
+<!-- The Method Attribute -->
+<section class="content-section" id="method-attribute">
+<h2>विधि विशेषता</h2>
+<p>मेथड विशेषता फॉर्म डेटा सबमिट करते समय उपयोग की जाने वाली HTTP विधि को निर्दिष्ट करती है।</p>
+<p>फॉर्म-डेटा को यूआरएल वेरिएबल्स (मेथड = "गेट" के साथ) या HTTP पोस्ट ट्रांसफर (मेथड = "पोस्ट" के साथ) के रूप में भेजा जा सकता है।</p>
+<p>फॉर्म डेटा सबमिट करते समय GET डिफ़ॉल्ट HTTP विधि है।</p>
+<h3>उदाहरण</h3>
+<p>यह उदाहरण प्रपत्र डेटा सबमिट करते समय GET विधि का उपयोग करता है:</p>
+<div class="code-example">
+<pre><code><span class="command-input">&lt;form action="/action_page.php" method="get"&gt;</span></code></pre>
+</div>
+<h3>उदाहरण</h3>
+<p>यह उदाहरण प्रपत्र डेटा सबमिट करते समय POST विधि का उपयोग करता है:</p>
+<div class="code-example">
+<pre><code><span class="command-input">&lt;form action="/action_page.php" method="post"&gt;</span></code></pre>
+</div>
+<div class="code-comparison">
+<div class="code-column">
+<h4>GET पर नोट्स:</h4>
+<div class="best-practice-list">
+<div class="practice-item positive">
+<i class="fas fa-link"></i>
+<div>नाम/मान जोड़े के रूप में फॉर्म डेटा को यूआरएल से जोड़ता है</div>
+</div>
+<div class="practice-item negative">
+<i class="fas fa-exclamation-triangle"></i>
+<div>संवेदनशील डेटा भेजने के लिए GET का उपयोग न करें! (सबमिट किया गया फॉर्म डेटा यूआरएल में दिखाई दे रहा है!)</div>
+</div>
+<div class="practice-item positive">
+<i class="fas fa-bookmark"></i>
+<div>फ़ॉर्म सबमिशन के लिए उपयोगी जहां उपयोगकर्ता परिणाम को बुकमार्क करना चाहता है</div>
+</div>
+</div>
+</div>
+<div class="code-column">
+<h4>पोस्ट पर नोट्स:</h4>
+<div class="best-practice-list">
+<div class="practice-item positive">
+<i class="fas fa-shield-alt"></i>
+<div>फॉर्म डेटा को HTTP अनुरोध के मुख्य भाग में संलग्न करता है (सबमिट किया गया फॉर्म डेटा यूआरएल में प्रदर्शित नहीं होता है)</div>
+</div>
+<div class="practice-item positive">
+<i class="fas fa-database"></i>
+<div>POST की कोई आकार सीमा नहीं है और इसका उपयोग बड़ी मात्रा में डेटा भेजने के लिए किया जा सकता है</div>
+</div>
+<div class="practice-item negative">
+<i class="fas fa-bookmark-slash"></i>
+<div>फॉर्म सबमिशन को POST से बुकमार्क नहीं किया जा सकता</div>
+</div>
+</div>
+</div>
+</div>
+<div class="warning-box">
+<h4><span class="warning-icon">⚠️</span>महत्वपूर्ण टिप:</h4>
+<p>यदि प्रपत्र डेटा में संवेदनशील या निजी जानकारी है तो हमेशा POST का उपयोग करें!</p>
+</div>
+</section>
+<!-- The Autocomplete Attribute -->
+<section class="content-section" id="autocomplete-attribute">
+<h2>स्वत: पूर्ण विशेषता</h2>
+<p>स्वत: पूर्ण विशेषता निर्दिष्ट करती है कि किसी प्रपत्र पर स्वत: पूर्ण सक्षम किया जाना चाहिए या अक्षम किया जाना चाहिए।</p>
+<p>जब स्वत: पूर्ण चालू होता है, तो ब्राउज़र उपयोगकर्ता द्वारा पहले दर्ज किए गए मानों के आधार पर मानों को स्वचालित रूप से पूरा करता है।</p>
+<h3>उदाहरण</h3>
+<p>स्वत: पूर्ण सक्षम वाला फ़ॉर्म:</p>
+<div class="code-example">
+<pre><code><span class="command-input">&lt;form action="/action_page.php" autocomplete="on"&gt;</span></code></pre>
+</div>
+</section>
+<!-- The Novalidate Attribute -->
+<section class="content-section" id="novalidate-attribute">
+<h2>नवीनीकृत विशेषता</h2>
+<p>नोवेलिडेट विशेषता एक बूलियन विशेषता है।</p>
+<p>यदि मौजूद है, तो निर्दिष्ट करता है कि सबमिट किए जाने पर फॉर्म-डेटा (इनपुट) को मान्य नहीं किया जाना चाहिए।</p>
+<h3>उदाहरण</h3>
+<p>नवीनीकृत विशेषता के साथ प्रपत्र:</p>
+<div class="code-example">
+<pre><code><span class="command-input">&lt;form action="/action_page.php" novalidate&gt;</span></code></pre>
+</div>
+</section>
+<!-- Exercise Section -->
+<section class="content-section" id="exercises">
+<h2>अभ्यास</h2>
+<div class="exercise-box">
+<h4><span class="exercise-icon">❓</span>नए ब्राउज़र टैब में फ़ॉर्म के अंत को खोलने के लिए सही सिंटैक्स क्या है?</h4>
+<div class="options-grid">
+<div class="option-card" data-correct="true">
+<div class="option-content">
+<div class="option-text">&lt;form action='/action_page.php' target='_blank'&gt;</div>
+<div class="option-feedback correct">✓ ठीक है! target='_blank' एक नई विंडो या पॉपअप में खुलेगा</div>
+</div>
+</div>
+<div class="option-card" data-correct="false">
+<div class="option-content">
+<div class="option-text">&lt;form action='/action_page.php' target='_top'&gt;</div>
+<div class="option-feedback incorrect">✗ ग़लत! target='_top' विंडो का संपूर्ण भाग प्रदर्शित करेगा, नया टैग नहीं</div>
+</div>
+</div>
+<div class="option-card" data-correct="false">
+<div class="option-content">
+<div class="option-text">&lt;form action='/action_page.php' target='_new'&gt;</div>
+<div class="option-feedback incorrect">✗ ग़लत! '_नया' मान्य लक्ष्य मान नहीं है</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- List of All <form> Attributes -->
+<section class="content-section" id="all-attributes">
+<h2>सभी &lt;form&gt; विशेषताओं की एक सूची</h2>
+<div class="comparison-table">
+<table>
+<thead>
+<tr>
+<th>गुण</th>
+<th>स्पष्टीकरण</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>accept-charset</td>
+<td>फ़ॉर्म सबमिशन के लिए उपयोग किए जाने वाले वर्ण एन्कोडिंग को निर्दिष्ट करता है</td>
+</tr>
+<tr>
+<td>action</td>
+<td>निर्दिष्ट करता है कि फॉर्म सबमिट होने पर फॉर्म-डेटा कहां भेजना है</td>
+</tr>
+<tr>
+<td>autocomplete</td>
+<td>निर्दिष्ट करता है कि किसी फ़ॉर्म पर ऑटोफ़िल सक्षम किया जाना चाहिए या अक्षम किया जाना चाहिए</td>
+</tr>
+<tr>
+<td>enctype</td>
+<td>निर्दिष्ट करता है कि सर्वर पर सबमिट करते समय फॉर्म-डेटा को कैसे एन्कोड किया जाना चाहिए (केवल विधि = "पोस्ट" के लिए)</td>
+</tr>
+<tr>
+<td>method</td>
+<td>फॉर्म-डेटा सबमिट करते समय उपयोग की जाने वाली HTTP विधि निर्दिष्ट करता है</td>
+</tr>
+<tr>
+<td>name</td>
+<td>प्रपत्र का नाम निर्दिष्ट करता है</td>
+</tr>
+<tr>
+<td>novalidate</td>
+<td>निर्दिष्ट करता है कि सबमिट किए जाने पर फॉर्म को मान्य नहीं किया जाना चाहिए</td>
+</tr>
+<tr>
+<td>rel</td>
+<td>लिंक किए गए संसाधन और वर्तमान दस्तावेज़ के बीच संबंध निर्दिष्ट करता है</td>
+</tr>
+<tr>
+<td>target</td>
+<td>निर्दिष्ट करता है कि फॉर्म जमा करने के बाद प्राप्त प्रतिक्रिया को कहां प्रदर्शित किया जाए</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<!-- Bottom Navigation -->
+<div class="bottom-nav">
+<a class="nav-tab prev" href="HTML Forms.html">
+<i class="fas fa-arrow-left"></i>
+<span>पिछला</span>
+</a>
+<a class="nav-tab next" href="HTML Form Elements.html">
+<span>अगला</span>
+<i class="fas fa-arrow-right"></i>
+</a>
+</div>
+</main>
+<!-- Footer -->
+<footer>
+<div class="footer-content">
+<div class="footer-column">
+<h3>Jassif Team Institution</h3>
+<p>Leading educational institution providing quality programming education in Hindi.</p>
+</div>
+<div class="footer-column">
+<h3>Quick Links</h3>
+<ul>
+<li><a href="#introduction">HTML प्रपत्र विशेषताएँ</a></li>
+<li><a href="#action-attribute">क्रिया विशेषता</a></li>
+<li><a href="#target-attribute">लक्ष्य विशेषता</a></li>
+<li><a href="#method-attribute">विधि विशेषता</a></li>
+<li><a href="#autocomplete-attribute">स्वत: पूर्ण विशेषता</a></li>
+<li><a href="#novalidate-attribute">नवीनीकृत विशेषता</a></li>
+<li><a href="#exercises">अभ्यास</a></li>
+<li><a href="#all-attributes">सभी गुण</a></li>
+</ul>
+</div>
+<div class="footer-column">
+<h3>Contact</h3>
+<ul>
+<li><a href="#">About Us</a></li>
+<li><a href="#">Contact Us</a></li>
+<li><a href="#">Location &amp; Hours</a></li>
+</ul>
+</div>
+<div class="footer-column">
+<h3>Follow Us</h3>
+<ul>
+<li><a href="#"><i class="fab fa-facebook"></i> Facebook</a></li>
+<li><a href="#"><i class="fab fa-instagram"></i> Instagram</a></li>
+<li><a href="#"><i class="fab fa-youtube"></i> YouTube</a></li>
+</ul>
+</div>
+</div>
+<div class="copyright">
+<p>© 2023 Jassif Team Institution. All rights reserved.</p>
+</div>
+</footer>
+<script>
+        // Add smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Add scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animation = 'fadeInUp 0.8s ease-out forwards';
+                }
+            });
+        }, observerOptions);
+        
+        // Observe all content sections for animation
+        document.querySelectorAll('.content-section').forEach(section => {
+            observer.observe(section);
+        });
+
+        // Exercise interaction
+        document.querySelectorAll('.option-card').forEach(card => {
+            card.addEventListener('click', function() {
+                // Show feedback for all options
+                document.querySelectorAll('.option-card').forEach(c => {
+                    c.querySelector('.option-feedback').style.display = 'block';
+                });
+            });
+        });
+    </script>
+<!-- Home Button -->
+<a class="home-icon" href="index.html">
+<i class="fas fa-home"></i>
+</a>
+</body>
+</html>

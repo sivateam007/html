@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+
+<html lang="hi">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>HTML - What is a Web API? - Jassif Team</title>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<link href="style.css" rel="stylesheet"/>
+<style>
+        .content-section p, 
+        .content-section li,
+        .content-section h3,
+        .content-section h4,
+        .comparison-card p {
+            color: #333 !important;
+        }
+        
+        .tip-box p,
+        .tip-box li,
+        .tip-box h4 {
+            color: white !important;
+        }
+        
+        .warning-box p,
+        .warning-box li,
+        .warning-box h4 {
+            color: white !important;
+        }
+        
+        .exercise-box p,
+        .exercise-box h4 {
+            color: white !important;
+        }
+        
+        /* Stable logo styling - NO ANIMATIONS */
+        .logo-icon {
+            animation: none !important; /* Remove pulse animation */
+        }
+        
+        .logo-image {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+            display: block;
+            border: 2px solid white;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            animation: none !important; /* Ensure no animations */
+        }
+        
+        .api-icon {
+            font-size: 2rem;
+            color: var(--git-color);
+            margin-right: 10px;
+        }
+        
+        .api-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .api-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+            border-left: 4px solid var(--git-color);
+        }
+        
+        .api-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .api-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid #f0f0f0;
+        }
+        
+        .api-header i {
+            font-size: 1.5rem;
+            color: var(--git-color);
+        }
+        
+        .api-header h4 {
+            margin: 0;
+            color: var(--dark);
+        }
+        
+        .third-party-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .third-party-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            border-top: 4px solid;
+        }
+        
+        .third-party-card.youtube {
+            border-color: #FF0000;
+        }
+        
+        .third-party-card.twitter {
+            border-color: #1DA1F2;
+        }
+        
+        .third-party-card.facebook {
+            border-color: #1877F2;
+        }
+        
+        .api-badge {
+            display: inline-block;
+            padding: 4px 10px;
+            background: var(--git-color);
+            color: white;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            margin: 0 2px;
+            font-family: monospace;
+        }
+    </style>
+</head>
+<body>
+<!-- Header -->
+<header>
+<div class="header-container">
+<div class="logo">
+<div class="logo-icon">
+<img alt="Jassif Team Logo" class="logo-image" src="logo.jpg"/>
+</div>
+<h1>Jassif Team <span>Institution</span></h1>
+</div>
+</div>
+</header>
+<!-- Top Navigation Tabs -->
+<div class="nav-tabs">
+<a class="nav-tab prev" href="HTML YouTube Videos.html">
+<i class="fas fa-arrow-left"></i>
+<span>पिछला</span>
+</a>
+<a class="nav-tab next" href="HTML Geolocation API.html">
+<span>अगला</span>
+<i class="fas fa-arrow-right"></i>
+</a>
+</div>
+<!-- Hero Section -->
+<section class="hero" id="home">
+<div class="hero-content">
+<h2>HTML - What is a Web API?</h2>
+<p>वेब एप्लिकेशन प्रोग्रामिंग इंटरफेस का परिचय</p>
+</div>
+</section>
+<!-- Main Content -->
+<main class="container">
+<!-- Introduction -->
+<section class="content-section" id="introduction">
+<h2><i class="fas fa-code api-icon"></i>HTML - What is a Web API?</h2>
+<p>एक वेब API एक डेवलपर की सपना है।</p>
+<ul>
+<li>यह ब्राउज़र की कार्यक्षमता का विस्तार करता है</li>
+<li>यह जटिल कार्यों को बहुत सरल बनाता है</li>
+<li>यह जटिल कोड के लिए सरल सिंटैक्स प्रदान करता है</li>
+</ul>
+</section>
+<!-- What is Web API? -->
+<section class="content-section" id="what-is-api">
+<h2><i class="fas fa-question-circle api-icon"></i>वेब API क्या है?</h2>
+<p>API का अर्थ है Application Programming Interface (एप्लिकेशन प्रोग्रामिंग इंटरफेस)। एक API एक प्रकार का इंटरफेस है जो डेवलपर्स को किसी एप्लिकेशन, ऑपरेटिंग सिस्टम या अन्य सेवाओं के विशिष्ट फीचर्स या डेटा तक पहुंचने की अनुमति देता है, जिसमें कार्यों और उप-कार्यों का संग्रह शामिल है।</p>
+<p>एक वेब API वेब के लिए एप्लिकेशन प्रोग्रामिंग इंटरफेस है।</p>
+<div class="tip-box">
+<h4><i class="fas fa-lightbulb tip-icon"></i>API की भूमिका:</h4>
+<p>API विभिन्न सॉफ्टवेयर घटकों को एक दूसरे के साथ संवाद करने की अनुमति देने वाले "मध्यस्थ" हैं। वे किसी एप्लिकेशन के आंतरिक कार्यों को प्रकट किए बिना, उसके कार्यों का उपयोग करने के लिए डेवलपर्स को अनुमति देते हैं।</p>
+</div>
+</section>
+<!-- HTML APIs -->
+<section class="content-section" id="html-apis">
+<h2><i class="fas fa-cogs api-icon"></i>HTML API</h2>
+<p>सभी ब्राउज़रों में जटिल कार्यों का समर्थन करने और डेटा तक पहुंचने में मदद करने के लिए अंतर्निहित वेब API का एक सेट है।</p>
+<p>यहां कुछ प्रमुख HTML5 API हैं:</p>
+<div class="api-grid">
+<div class="api-card">
+<div class="api-header">
+<i class="fas fa-map-marker-alt"></i>
+<h4>1. Geolocation API</h4>
+</div>
+<p>यह API उपयोगकर्ता के वर्तमान स्थान (अक्षांश और देशांतर के साथ) तक पहुंचने के लिए उपयोग किया जाता है।</p>
+</div>
+<div class="api-card">
+<div class="api-header">
+<i class="fas fa-arrows-alt"></i>
+<h4>2. Drag and Drop API</h4>
+</div>
+<p>यह API आपको ब्राउज़रों में ड्रैग-एंड-ड्रॉप सुविधाओं का उपयोग करने में सक्षम बनाता है।</p>
+</div>
+<div class="api-card">
+<div class="api-header">
+<i class="fas fa-database"></i>
+<h4>3. Web Storage API</h4>
+</div>
+<p>इस API में ब्राउज़रों को कुंजी/मान जोड़े संग्रहीत करने की अनुमति देने के तरीके हैं (कुकीज़ की तुलना में अधिक सहज तरीके से)।</p>
+</div>
+<div class="api-card">
+<div class="api-header">
+<i class="fas fa-users-cog"></i>
+<h4>4. Web Workers API</h4>
+</div>
+<p>यह API जावास्क्रिप्ट पृष्ठ के प्रदर्शन को प्रभावित किए बिना पृष्ठभूमि में चलने की अनुमति देता है। जब वेब वर्कर पृष्ठभूमि में चल रहा होता है, तो उपयोगकर्ता कुछ भी कर सकते हैं: क्लिक करना, चीजें चुनना आदि।</p>
+</div>
+<div class="api-card">
+<div class="api-header">
+<i class="fas fa-bell"></i>
+<h4>5. Server-Sent Events API</h4>
+</div>
+<p>यह API एक वेबपेज को सर्वर से स्वचालित रूप से अपडेट प्राप्त करने की अनुमति देता है।</p>
+</div>
+<div class="api-card">
+<div class="api-header">
+<i class="fas fa-paint-brush"></i>
+<h4>6. Canvas API</h4>
+</div>
+<p>यह API आपको जावास्क्रिप्ट के माध्यम से तुरंत ग्राफिक्स बनाने की अनुमति देता है।</p>
+</div>
+</div>
+</section>
+<!-- Notes on Using HTML APIs -->
+<section class="content-section" id="api-notes">
+<h2><i class="fas fa-sticky-note api-icon"></i>HTML API का उपयोग करने के बारे में नोट्स</h2>
+<p>एक HTML API को लागू करते समय, आप हमेशा:</p>
+<div class="api-grid">
+<div class="api-card">
+<div class="api-header">
+<i class="fas fa-search"></i>
+<h4>ब्राउज़र क्षमता जांचें</h4>
+</div>
+<p>हमेशा जांचें कि लक्ष्य ब्राउज़र API का समर्थन करते हैं। यदि कोई ब्राउज़र इसका समर्थन नहीं करता है तो हमेशा एक स्क्रिप्ट या संदेश जोड़ें जो चलाया जाना चाहिए।</p>
+<div class="code-example">
+<pre><code>// ब्राउज़र समर्थन जांचें
+if (navigator.geolocation) {
+    // API समर्थित है
+} else {
+    // API समर्थित नहीं है
+    alert("आपका ब्राउज़र Geolocation API का समर्थन नहीं करता");
+}</code></pre>
+</div>
+</div>
+<div class="api-card">
+<div class="api-header">
+<i class="fas fa-exclamation-triangle"></i>
+<h4>मजबूत त्रुटि प्रबंधन जोड़ें</h4>
+</div>
+<p>API की अपेक्षा के अनुसार काम न करने वाली स्थितियों पर ध्यान देने के लिए, मजबूत त्रुटि प्रबंधन जोड़ें, जो निर्बाध उपयोगकर्ता अनुभव सुनिश्चित करता है।</p>
+</div>
+<div class="api-card">
+<div class="api-header">
+<i class="fas fa-user-check"></i>
+<h4>उपयोगकर्ता की अनुमति मांगें</h4>
+</div>
+<p>Geolocation API जैसे संवेदनशील डेटा तक पहुंचने वाले API का उपयोग करते समय (जो उपयोगकर्ता के भौगोलिक स्थान तक पहुंचता है), आगे बढ़ने से पहले हमेशा उपयोगकर्ता की सहमति लें।</p>
+</div>
+</div>
+</section>
+<!-- Third Party APIs -->
+<section class="content-section" id="third-party-apis">
+<h2><i class="fas fa-external-link-alt api-icon"></i>तृतीय-पक्ष API</h2>
+<p>तृतीय-पक्ष API आपके ब्राउज़र में अंतर्निहित नहीं हैं।</p>
+<p>इन API का उपयोग करने के लिए, आपको वेबसाइट से कोड डाउनलोड करना होगा।</p>
+<div class="third-party-grid">
+<div class="third-party-card youtube">
+<i class="fab fa-youtube fa-2x" style="color: #FF0000;"></i>
+<h4>YouTube API</h4>
+<p>आपको एक वेबसाइट पर वीडियो दिखाने की अनुमति देता है।</p>
+<span class="api-badge">video.play()</span>
+<span class="api-badge">video.pause()</span>
+</div>
+<div class="third-party-card twitter">
+<i class="fab fa-twitter fa-2x" style="color: #1DA1F2;"></i>
+<h4>Twitter API</h4>
+<p>आपको एक वेबसाइट पर ट्वीट दिखाने की अनुमति देता है।</p>
+<span class="api-badge">tweet.load()</span>
+<span class="api-badge">tweet.embed()</span>
+</div>
+<div class="third-party-card facebook">
+<i class="fab fa-facebook fa-2x" style="color: #1877F2;"></i>
+<h4>Facebook API</h4>
+<p>आपको एक वेबसाइट पर Facebook जानकारी दिखाने की अनुमति देता है।</p>
+<span class="api-badge">FB.login()</span>
+<span class="api-badge">FB.api()</span>
+</div>
+</div>
+<div class="tip-box">
+<h4><i class="fas fa-key tip-icon"></i>तृतीय-पक्ष API कुंजी:</h4>
+<p>अधिकांश तृतीय-पक्ष API के लिए आपके एप्लिकेशन को प्रमाणित करने के लिए API कुंजी की आवश्यकता होती है। ये कुंजी आमतौर पर API प्रदाता की वेबसाइट पर मुफ्त में प्राप्त की जा सकती हैं।</p>
+</div>
+</section>
+<!-- Example Code -->
+<section class="content-section" id="example-code">
+<h2><i class="fas fa-code api-icon"></i>API उपयोग का उदाहरण</h2>
+<div class="code-example">
+<h3>Geolocation API उदाहरण</h3>
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;title&gt;Geolocation Example - Jassif Team&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;h1&gt;Geolocation API Example&lt;/h1&gt;
+
+&lt;button onclick="getLocation()"&gt;मेरा स्थान प्राप्त करें&lt;/button&gt;
+&lt;p id="demo"&gt;&lt;/p&gt;
+
+&lt;script&gt;
+function getLocation() {
+    // 1. ब्राउज़र समर्थन जांचें
+    if (navigator.geolocation) {
+        // 2. उपयोगकर्ता की अनुमति मांगें
+        navigator.geolocation.getCurrentPosition(showPosition, showError);
+    } else {
+        // 3. त्रुटि प्रबंधन
+        document.getElementById("demo").innerHTML = 
+            "आपका ब्राउज़र Geolocation API का समर्थन नहीं करता।";
+    }
+}
+
+function showPosition(position) {
+    // API ने सफलतापूर्वक प्रतिक्रिया दी
+    document.getElementById("demo").innerHTML = 
+        "अक्षांश: " + position.coords.latitude + 
+        "&lt;br&gt;देशांतर: " + position.coords.longitude;
+}
+
+function showError(error) {
+    // 4. मजबूत त्रुटि प्रबंधन
+    switch(error.code) {
+        case error.PERMISSION_DENIED:
+            document.getElementById("demo").innerHTML = 
+                "उपयोगकर्ता ने स्थान अनुमति अस्वीकार कर दी।";
+            break;
+        case error.POSITION_UNAVAILABLE:
+            document.getElementById("demo").innerHTML = 
+                "स्थान जानकारी उपलब्ध नहीं है।";
+            break;
+        case error.TIMEOUT:
+            document.getElementById("demo").innerHTML = 
+                "स्थान अनुरोध समय समाप्त हो गया।";
+            break;
+        case error.UNKNOWN_ERROR:
+            document.getElementById("demo").innerHTML = 
+                "एक अज्ञात त्रुटि हुई।";
+            break;
+    }
+}
+&lt;/script&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+</div>
+</section>
+<!-- Exercise -->
+<section class="content-section" id="exercise">
+<h2><i class="fas fa-dumbbell api-icon"></i>अभ्यास</h2>
+<div class="exercise-box">
+<h4><span class="exercise-icon">❓</span> निम्नलिखित में कौन सा HTML API शैक्षणिक संस्थानों द्वारा बनाई गई वेबसाइटों में वीडियो एम्बेड करने के लिए उपयोग किया जाता है?</h4>
+<div class="options-grid">
+<div class="option-card" data-correct="false">
+<div class="option-content">
+<div class="option-text">Geolocation API</div>
+<div class="option-feedback incorrect">✗ गलत! Geolocation API उपयोगकर्ता के स्थान का पता लगाने के लिए उपयोग किया जाता है, वीडियो एम्बेड करने के लिए नहीं</div>
+</div>
+</div>
+<div class="option-card" data-correct="true">
+<div class="option-content">
+<div class="option-text">YouTube API (तृतीय-पक्ष API)</div>
+<div class="option-feedback correct">✓ सही! YouTube API एक तृतीय-पक्ष API है, जो शैक्षणिक वेबसाइटों में वीडियो एम्बेड करने के लिए उपयोग किया जाता है</div>
+</div>
+</div>
+<div class="option-card" data-correct="false">
+<div class="option-content">
+<div class="option-text">Web Storage API</div>
+<div class="option-feedback incorrect">✗ गलत! Web Storage API ब्राउज़र में डेटा संग्रहीत करने के लिए उपयोग किया जाता है, वीडियो एम्बेड करने के लिए नहीं</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Bottom Navigation -->
+<div class="bottom-nav">
+<a class="nav-tab prev" href="HTML YouTube Videos.html">
+<i class="fas fa-arrow-left"></i>
+<span>पिछला</span>
+</a>
+<a class="nav-tab next" href="HTML Geolocation API.html">
+<span>अगला</span>
+<i class="fas fa-arrow-right"></i>
+</a>
+</div>
+</main>
+<!-- Footer -->
+<footer>
+<div class="footer-content">
+<div class="footer-column">
+<h3>Jassif Team Institution</h3>
+<p>Leading educational institution providing quality programming education in Hindi.</p>
+</div>
+<div class="footer-column">
+<h3>Quick Links</h3>
+<ul>
+<li><a href="#introduction">What is a Web API?</a></li>
+<li><a href="#what-is-api">वेब API स्पष्टीकरण</a></li>
+<li><a href="#html-apis">HTML API</a></li>
+<li><a href="#api-notes">API उपयोग नोट्स</a></li>
+<li><a href="#third-party-apis">तृतीय-पक्ष API</a></li>
+<li><a href="#example-code">उदाहरण कोड</a></li>
+<li><a href="#exercise">अभ्यास</a></li>
+</ul>
+</div>
+<div class="footer-column">
+<h3>Contact</h3>
+<ul>
+<li><a href="#">About Us</a></li>
+<li><a href="#">Contact Us</a></li>
+<li><a href="#">Location &amp; Hours</a></li>
+</ul>
+</div>
+<div class="footer-column">
+<h3>Follow Us</h3>
+<ul>
+<li><a href="#"><i class="fab fa-facebook"></i> Facebook</a></li>
+<li><a href="#"><i class="fab fa-instagram"></i> Instagram</a></li>
+<li><a href="#"><i class="fab fa-youtube"></i> YouTube</a></li>
+</ul>
+</div>
+</div>
+<div class="copyright">
+<p>© 2023 Jassif Team Institution. All rights reserved.</p>
+</div>
+</footer>
+<script>
+        // Add smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Add scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animation = 'fadeInUp 0.8s ease-out forwards';
+                }
+            });
+        }, observerOptions);
+        
+        // Observe all content sections for animation
+        document.querySelectorAll('.content-section').forEach(section => {
+            observer.observe(section);
+        });
+
+        // Exercise interaction
+        document.querySelectorAll('.option-card').forEach(card => {
+            card.addEventListener('click', function() {
+                // Show feedback for all options
+                document.querySelectorAll('.option-card').forEach(c => {
+                    c.querySelector('.option-feedback').style.display = 'block';
+                });
+            });
+        });
+    </script>
+<!-- Home Button -->
+<a class="home-icon" href="index.html">
+<i class="fas fa-home"></i>
+</a>
+</body>
+</html>

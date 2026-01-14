@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+
+<html lang="hi">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>HTML Editors - Jassif Team</title>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<link href="style.css" rel="stylesheet"/>
+<style>
+        .content-section p, 
+        .content-section li,
+        .content-section h3,
+        .content-section h4,
+        .comparison-card p {
+            color: #333 !important;
+        }
+        
+        .tip-box p,
+        .tip-box li,
+        .tip-box h4 {
+            color: white !important;
+        }
+        
+        .warning-box p,
+        .warning-box li,
+        .warning-box h4 {
+            color: white !important;
+        }
+        
+        .exercise-box p,
+        .exercise-box h4 {
+            color: white !important;
+        }
+        
+        .logo-img {
+            height: 60px;
+            width: 60px;
+            border-radius: 50%;
+            margin-right: 15px;
+            object-fit: cover;
+            border: 3px solid white;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease;
+        }
+        
+        .logo-img:hover {
+            transform: scale(1.05);
+        }
+        
+        .step-box {
+            background: #f8f9fa;
+            border-left: 4px solid var(--git-color);
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+        
+        .step-number {
+            display: inline-block;
+            background: var(--git-color);
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 30px;
+            margin-right: 10px;
+            font-weight: bold;
+        }
+        
+        .platform-comparison {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .platform-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: transform 0.3s;
+        }
+        
+        .platform-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .platform-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: var(--git-color);
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .logo-img {
+                height: 50px;
+                width: 50px;
+                border-width: 2px;
+            }
+            
+            .platform-comparison {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .logo-img {
+                height: 40px;
+                width: 40px;
+                border-width: 2px;
+                margin-right: 10px;
+            }
+            
+            .step-box {
+                padding: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<!-- Header -->
+<header>
+<div class="header-container">
+<div class="logo">
+<img alt="Jassif Team Logo" class="logo-img" src="logo.jpg"/>
+<h1>Jassif Team <span>Institution</span></h1>
+</div>
+</div>
+</header>
+<!-- Top Navigation Tabs -->
+<div class="nav-tabs">
+<a class="nav-tab prev" href="HTML Introduction.html">
+<i class="fas fa-arrow-left"></i>
+<span>पिछला</span>
+</a>
+<a class="nav-tab next" href="HTML Basic Examples.html">
+<span>अगला</span>
+<i class="fas fa-arrow-right"></i>
+</a>
+</div>
+<!-- Hero Section -->
+<section class="hero" id="home">
+<div class="hero-content">
+<h2>HTML Editors</h2>
+<p>HTML सीखने के लिए आपको बस एक साधारण टेक्स्ट एडिटर की आवश्यकता है</p>
+</div>
+</section>
+<!-- Main Content -->
+<main class="container">
+<!-- Introduction -->
+<section class="content-section" id="introduction">
+<h2>HTML Editors</h2>
+<p>पेशेवर HTML संपादकों का उपयोग करके वेब पेज बनाएं और संशोधित करें।</p>
+<p>हालाँकि, हम HTML सीखने के लिए नोटपैड (पीसी) या टेक्स्टएडिट (मैक) जैसे सरल टेक्स्ट एडिटर की सलाह देते हैं।</p>
+<div class="tip-box">
+<h4><span class="tip-icon">💡</span>हमें यकीन है:</h4>
+<p>एक साधारण टेक्स्ट एडिटर का उपयोग करना HTML सीखने का एक शानदार तरीका है। यह बुनियादी अवधारणाओं को बेहतर ढंग से समझने में मदद करता है।</p>
+</div>
+<p>नीचे दिए गए चरणों का पालन करके नोटपैड या टेक्स्टएडिट का उपयोग करके अपना पहला वेब पेज बनाएं।</p>
+</section>
+<!-- Step 1: Open Notepad (PC) -->
+<section class="content-section" id="notepad-windows">
+<h2>चरण 1: नोटपैड खोलें (पीसी)</h2>
+<div class="step-box">
+<h4><span class="step-number">1</span>विंडोज़ 8 या बाद का संस्करण:</h4>
+<p>स्टार्ट स्क्रीन खोलें (आपकी स्क्रीन के नीचे बाईं ओर विंडो आइकन)।<strong>Notepad</strong>वह टाइप करें.</p>
+</div>
+<div class="step-box">
+<h4><span class="step-number">2</span>विंडोज 7 या इससे पहले का संस्करण:</h4>
+<p><strong>Start &gt; Programs &gt; Accessories &gt; Notepad</strong>खोलें</p>
+</div>
+<div class="platform-comparison">
+<div class="platform-card">
+<div class="platform-icon">
+<i class="fab fa-windows"></i>
+</div>
+<h4>खिड़कियाँ</h4>
+<p>नोटपैड संपादक</p>
+<p>विंडोज़ के साथ निःशुल्क आता है</p>
+</div>
+<div class="platform-card">
+<div class="platform-icon">
+<i class="fab fa-apple"></i>
+</div>
+<h4>मैक</h4>
+<p>टेक्स्टएडिट संपादक</p>
+<p>macOS के साथ निःशुल्क आता है</p>
+</div>
+</div>
+</section>
+<!-- Step 1: Open TextEdit (Mac) -->
+<section class="content-section" id="textedit-mac">
+<h2>चरण 1: टेक्स्टएडिट खोलें (मैक)</h2>
+<div class="step-box">
+<h4><span class="step-number">1</span>टेक्स्टएडिट खोलें:</h4>
+<p><strong>Finder &gt; Applications &gt; TextEdit</strong>खोलें</p>
+</div>
+<div class="step-box">
+<h4><span class="step-number">2</span>विकल्प बदलें:</h4>
+<p>फ़ाइलों को ठीक से सहेजने के लिए ऐप के लिए कुछ विकल्प बदलें।</p>
+<ul>
+<li><strong>Preferences &gt; Format</strong>- में<strong>"Plain Text"</strong>चुनना</li>
+<li><strong>"Open and Save"</strong>- में,<strong>"Display HTML files as HTML code instead of formatted text"</strong>जाँच करें कि</li>
+</ul>
+</div>
+<div class="tip-box">
+<h4><span class="tip-icon">📝</span>महत्वपूर्ण:</h4>
+<p>Mac उपयोगकर्ताओं द्वारा TextEdit में HTML फ़ाइलें लिखने से पहले,<strong>विकल्पों को सादा पाठ मोड में बदलें</strong>. अन्यथा फ़ाइलें ठीक से सहेजी नहीं जाएंगी.</p>
+</div>
+<p>फिर कोड डालने के लिए एक नया दस्तावेज़ खोलें।</p>
+</section>
+<!-- Step 2: Write Some HTML -->
+<section class="content-section" id="write-html">
+<h2>चरण 2: कुछ HTML लिखें</h2>
+<p>निम्नलिखित HTML कोड को नोटपैड में कॉपी करें या लिखें:</p>
+<div class="code-example">
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;body&gt;
+
+&lt;h1&gt;My First Heading&lt;/h1&gt;
+
+&lt;p&gt;My first paragraph.&lt;/p&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+</div>
+<div class="comparison-grid">
+<div class="comparison-card">
+<div class="comparison-header">
+<i class="fas fa-code"></i>
+<h4>प्रतीकात्मक तत्व</h4>
+</div>
+<ul>
+<li><code>&lt;!DOCTYPE html&gt;</code>- HTML5 दस्तावेज़</li>
+<li><code>&lt;html&gt;</code>- मूल तत्व</li>
+<li><code>&lt;body&gt;</code>- साइड बॉडी</li>
+<li><code>&lt;h1&gt;</code>- शीर्षक</li>
+<li><code>&lt;p&gt;</code>- अनुच्छेद</li>
+</ul>
+</div>
+<div class="comparison-card">
+<div class="comparison-header">
+<i class="fas fa-file-alt"></i>
+<h4>नोटपैड नोट्स</h4>
+</div>
+<ul>
+<li>कोड सावधानी से टाइप करें</li>
+<li>जांचें कि सभी कोड घटक ठीक से बंद हैं</li>
+<li>रिक्त स्थान और लाइन ब्रेक कोड को बेहतर दिखने में मदद करते हैं</li>
+</ul>
+</div>
+</div>
+</section>
+<!-- Step 3: Save the HTML Page -->
+<section class="content-section" id="save-html">
+<h2>चरण 3: HTML पृष्ठ सहेजें</h2>
+<div class="step-box">
+<h4><span class="step-number">1</span>फ़ाइल सहेजें:</h4>
+<p>फ़ाइल को अपने कंप्यूटर में सहेजें. नोटपैड मेनू में<strong>File &gt; Save as</strong>चुनना ।</p>
+</div>
+<div class="step-box">
+<h4><span class="step-number">2</span>फ़ाइल का नाम और एन्कोडिंग:</h4>
+<p>कप<strong>"index.htm"</strong>नाम और एन्कोडिंग<strong>UTF-8</strong>पर सेट करें (यह HTML फ़ाइलों के लिए पसंदीदा एन्कोडिंग है)।</p>
+</div>
+<div class="tip-box">
+<h4><span class="tip-icon">💾</span>बख्शीश:</h4>
+<p>फ़ाइल एक्सटेंशन के रूप में<strong>.htm</strong>या<strong>.html</strong>और उपयोग किया जा सकता है. कोई अंतर नहीं है; यह आप पर निर्भर करता है।</p>
+</div>
+<div class="warning-box">
+<h4><span class="warning-icon">⚠️</span>टिप्पणी:</h4>
+<p>अब तक का पहला कप<strong>index.html</strong>या<strong>index.htm</strong>नाम लो। इसे वेब सर्वर द्वारा डिफ़ॉल्ट फ़ाइल के रूप में पहचाना जाता है।</p>
+</div>
+</section>
+<!-- Step 4: View in Browser -->
+<section class="content-section" id="view-browser">
+<h2>चरण 4: ब्राउज़र में HTML पृष्ठ देखें</h2>
+<div class="step-box">
+<h4><span class="step-number">1</span>फ़ाइल खोलें:</h4>
+<p>अपने पसंदीदा ब्राउज़र में सहेजी गई HTML फ़ाइल खोलें (फ़ाइल पर डबल-क्लिक करें, या राइट-क्लिक करें<strong>"Open with"</strong>चुनना )।</p>
+</div>
+<div class="examples-grid">
+<div class="example-card">
+<div class="example-icon">
+<i class="fab fa-chrome"></i>
+</div>
+<h4>Google Chrome</h4>
+<p>फ़ाइल पर डबल-क्लिक करें</p>
+</div>
+<div class="example-card">
+<div class="example-icon">
+<i class="fab fa-firefox"></i>
+</div>
+<h4>Firefox</h4>
+<p>राइट-क्लिक करें&gt; इसके साथ खोलें</p>
+</div>
+<div class="example-card">
+<div class="example-icon">
+<i class="fab fa-edge"></i>
+</div>
+<h4>Microsoft Edge</h4>
+<p>डिफ़ॉल्ट रूप से ब्राउज़र में खुलता है</p>
+</div>
+</div>
+<p>परिणाम इस तरह दिखेगा:</p>
+<div class="code-example">
+<h3>ब्राउज़र में प्रदर्शित करें:</h3>
+<div style="background: white; padding: 2rem; border-radius: 8px; border: 1px solid #ddd;">
+<h1 style="color: #333; margin-bottom: 1rem;">My First Heading</h1>
+<p style="color: #666;">My first paragraph.</p>
+</div>
+</div>
+</section>
+<!-- Jassif Team Online Editor -->
+<section class="content-section" id="online-editor">
+<h2>Jassif Team Online Editor - "Try it Yourself"</h2>
+<p>हमारे मुफ़्त ऑनलाइन संपादक के साथ, आप HTML कोड संपादित कर सकते हैं और अपने ब्राउज़र में परिणाम देख सकते हैं।</p>
+<p>जब आप कोड का त्वरित परीक्षण करना चाहते हैं तो यह एक आदर्श उपकरण है। इसमें रंग कोडिंग और कोड को सहेजने और दूसरों के साथ साझा करने की क्षमता भी है:</p>
+<div class="code-example">
+<h3>उदाहरण:</h3>
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;title&gt;Page Title&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;h1&gt;This is a Heading&lt;/h1&gt;
+&lt;p&gt;This is a paragraph.&lt;/p&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+</div>
+<div class="tip-box">
+<h4><span class="tip-icon">🚀</span>ऑनलाइन संपादक के लाभ:</h4>
+<ul>
+<li>कोड तुरंत प्रदर्शित करता है</li>
+<li>वाक्य - विन्यास पर प्रकाश डालना</li>
+<li>टेस्ट जल्दी हो सकेंगे</li>
+<li>कोड साझा किया जा सकता है</li>
+<li>फ़ाइलें सहेजने की कोई आवश्यकता नहीं</li>
+</ul>
+</div>
+</section>
+<!-- Learning by Exercises -->
+<section class="content-section" id="exercises">
+<h2>अभ्यास के माध्यम से सीखना</h2>
+<div class="exercise-box">
+<h4><span class="exercise-icon">❓</span>HTML सीखने के लिए किस संपादक की अनुशंसा की जाती है?</h4>
+<div class="options-grid">
+<div class="option-card" data-correct="false">
+<div class="option-content">
+<div class="option-text">पेशेवर आईडीई संपादक</div>
+<div class="option-feedback incorrect">✗ ग़लत! शुरुआत में ये जरूरी नहीं है</div>
+</div>
+</div>
+<div class="option-card" data-correct="true">
+<div class="option-content">
+<div class="option-text">एक साधारण पाठ संपादक</div>
+<div class="option-feedback correct">✓ ठीक है! HTML सीखने के लिए एक साधारण टेक्स्ट एडिटर की अनुशंसा की जाती है</div>
+</div>
+</div>
+<div class="option-card" data-correct="false">
+<div class="option-content">
+<div class="option-text">वर्ड प्रोसेसर</div>
+<div class="option-feedback incorrect">✗ ग़लत! HTML लिखने के लिए वर्ड प्रोसेसर उपयुक्त नहीं है</div>
+</div>
+</div>
+<div class="option-card" data-correct="false">
+<div class="option-content">
+<div class="option-text">पीडीएफ संपादक</div>
+<div class="option-feedback incorrect">✗ ग़लत! HTML उत्पन्न करने के लिए PDF संपादक का उपयोग नहीं किया जा सकता</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Bottom Navigation -->
+<div class="bottom-nav">
+<a class="nav-tab prev" href="HTML Introduction.html">
+<i class="fas fa-arrow-left"></i>
+<span>पिछला</span>
+</a>
+<a class="nav-tab next" href="HTML Basic Examples.html">
+<span>अगला</span>
+<i class="fas fa-arrow-right"></i>
+</a>
+</div>
+</main>
+<!-- Footer -->
+<footer>
+<div class="footer-content">
+<div class="footer-column">
+<h3>Jassif Team Institution</h3>
+<p>Leading educational institution providing quality programming education in Hindi.</p>
+</div>
+<div class="footer-column">
+<h3>Quick Links</h3>
+<ul>
+<li><a href="#introduction">HTML Editors</a></li>
+<li><a href="#notepad-windows">नोटपैड (विंडोज़)</a></li>
+<li><a href="#textedit-mac">टेक्स्टएडिट (मैक)</a></li>
+<li><a href="#exercises">अभ्यास</a></li>
+</ul>
+</div>
+<div class="footer-column">
+<h3>HTML चरण</h3>
+<ul>
+<li><a href="#write-html">HTML लिखना</a></li>
+<li><a href="#save-html">फ़ाइल सहेजना</a></li>
+<li><a href="#view-browser">ब्राउज़र में देखना</a></li>
+</ul>
+</div>
+<div class="footer-column">
+<h3>Follow Us</h3>
+<ul>
+<li><a href="#"><i class="fab fa-facebook"></i> Facebook</a></li>
+<li><a href="#"><i class="fab fa-instagram"></i> Instagram</a></li>
+<li><a href="#"><i class="fab fa-youtube"></i> YouTube</a></li>
+</ul>
+</div>
+</div>
+<div class="copyright">
+<p>© 2023 Jassif Team Institution. All rights reserved.</p>
+</div>
+</footer>
+<script>
+        // Add smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Add scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animation = 'fadeInUp 0.8s ease-out forwards';
+                }
+            });
+        }, observerOptions);
+        
+        // Observe all content sections for animation
+        document.querySelectorAll('.content-section').forEach(section => {
+            observer.observe(section);
+        });
+
+        // Exercise interaction
+        document.querySelectorAll('.option-card').forEach(card => {
+            card.addEventListener('click', function() {
+                // Show feedback for all options
+                document.querySelectorAll('.option-card').forEach(c => {
+                    c.querySelector('.option-feedback').style.display = 'block';
+                });
+            });
+        });
+        
+        // Platform selection
+        document.querySelectorAll('.platform-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                document.querySelectorAll('.platform-btn').forEach(b => {
+                    b.classList.remove('active');
+                });
+                this.classList.add('active');
+            });
+        });
+    </script>
+<!-- Home Button -->
+<a class="home-icon" href="index.html">
+<i class="fas fa-home"></i>
+</a>
+</body>
+</html>

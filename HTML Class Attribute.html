@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+
+<html lang="hi">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>HTML Class Attribute - Jassif Team</title>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<link href="style.css" rel="stylesheet"/>
+<style>
+        .content-section p, 
+        .content-section li,
+        .content-section h3,
+        .content-section h4,
+        .comparison-card p {
+            color: #333 !important;
+        }
+        
+        .tip-box p,
+        .tip-box li,
+        .tip-box h4 {
+            color: white !important;
+        }
+        
+        .warning-box p,
+        .warning-box li,
+        .warning-box h4 {
+            color: white !important;
+        }
+        
+        .exercise-box p,
+        .exercise-box h4 {
+            color: white !important;
+        }
+        
+        /* Stable logo styling - NO ANIMATIONS */
+        .logo-icon {
+            animation: none !important;
+        }
+        
+        .logo-image {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+            display: block;
+            border: 2px solid white;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            animation: none !important;
+        }
+    </style>
+</head>
+<body>
+<!-- Header -->
+<header>
+<div class="header-container">
+<div class="logo">
+<div class="logo-icon">
+<img alt="Jassif Team Logo" class="logo-image" src="logo.jpg"/>
+</div>
+<h1>Jassif Team <span>Institution</span></h1>
+</div>
+</div>
+</header>
+<!-- Top Navigation Tabs -->
+<div class="nav-tabs">
+<a class="nav-tab prev" href="HTML%20Div%20Element.html">
+<i class="fas fa-arrow-left"></i>
+<span>पिछला</span>
+</a>
+<a class="nav-tab next" href="HTML%20ID%20Attribute.html">
+<span>अगला</span>
+<i class="fas fa-arrow-right"></i>
+</a>
+</div>
+<!-- Hero Section -->
+<section class="hero" id="home">
+<div class="hero-content">
+<h2>HTML Class Attribute</h2>
+<p>HTML वर्ग विशेषता पर ट्यूटोरियल</p>
+</div>
+</section>
+<!-- Main Content -->
+<main class="container">
+<!-- The class Attribute -->
+<section class="content-section" id="class-attribute">
+<h2>The class Attribute</h2>
+<p>क्लास विशेषता का उपयोग अक्सर स्टाइल शीट में क्लास नाम निर्दिष्ट करने के लिए किया जाता है। जावास्क्रिप्ट का उपयोग किसी विशिष्ट वर्ग नाम वाले तत्वों तक पहुंचने और उनमें हेरफेर करने के लिए भी किया जा सकता है।</p>
+<div class="tip-box">
+<h4><i class="fas fa-lightbulb tip-icon"></i>बख्शीश:</h4>
+<p>क्लास विशेषता का उपयोग किसी भी HTML तत्व पर किया जा सकता है।</p>
+</div>
+<div class="warning-box">
+<h4><i class="fas fa-exclamation-triangle warning-icon"></i>टिप्पणी:</h4>
+<p>वर्ग का नाम केस संवेदी है!</p>
+</div>
+</section>
+<!-- First Example with div -->
+<section class="content-section" id="example-div">
+<h3>Example</h3>
+<p>निम्नलिखित उदाहरण में "शहर" मान के साथ एक वर्ग विशेषता वाले तीन &lt;div&gt; तत्व शामिल हैं। सभी तीन &lt;div&gt; तत्वों को मुख्य अनुभाग में .city शैली परिभाषा के अनुसार समान रूप से स्टाइल किया जाएगा:</p>
+<div class="code-example">
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;style&gt;
+.city {
+  background-color: tomato;
+  color: white;
+  border: 2px solid black;
+  margin: 20px;
+  padding: 20px;
+}
+&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;div class="city"&gt;
+  &lt;h2&gt;London&lt;/h2&gt;
+  &lt;p&gt;London is the capital of England.&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;div class="city"&gt;
+  &lt;h2&gt;Paris&lt;/h2&gt;
+  &lt;p&gt;Paris is the capital of France.&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;div class="city"&gt;
+  &lt;h2&gt;Tokyo&lt;/h2&gt;
+  &lt;p&gt;Tokyo is the capital of Japan.&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+</div>
+</section>
+<!-- Second Example with span -->
+<section class="content-section" id="example-span">
+<h3>Example</h3>
+<p>निम्नलिखित उदाहरण में "नोट" मान के साथ एक वर्ग विशेषता वाले दो &lt;span&gt; तत्व शामिल हैं। दोनों &lt;span&gt; तत्वों को मुख्य अनुभाग में .note शैली परिभाषा के अनुसार समान रूप से स्टाइल किया जाएगा:</p>
+<div class="code-example">
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;style&gt;
+.note {
+  font-size: 120%;
+  color: red;
+}
+&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;h1&gt;My &lt;span class="note"&gt;Important&lt;/span&gt; Heading&lt;/h1&gt;
+&lt;p&gt;This is some &lt;span class="note"&gt;important&lt;/span&gt; text.&lt;/p&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+</div>
+<div class="tip-box">
+<h4><i class="fas fa-lightbulb tip-icon"></i>बख्शीश:</h4>
+<p>हमारे सीएसएस ट्यूटोरियल से सीएसएस के बारे में और जानें।</p>
+</div>
+</section>
+<!-- The Syntax For Class -->
+<section class="content-section" id="syntax">
+<h2>The Syntax For Class</h2>
+<p>एक कक्षा बनाएँ; एक वर्ग नाम के बाद एक अवधि (.) वर्ण दर्ज करें। फिर, घुंघराले ब्रेसिज़ के अंदर सीएसएस विशेषताओं को परिभाषित करें {}:</p>
+<h3>Example</h3>
+<p>"शहर" नामक एक वर्ग बनाएँ:</p>
+<div class="code-example">
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;style&gt;
+.city {
+  background-color: tomato;
+  color: white;
+  padding: 10px;
+}
+&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;h2 class="city"&gt;London&lt;/h2&gt;
+&lt;p&gt;London is the capital of England.&lt;/p&gt;
+
+&lt;h2 class="city"&gt;Paris&lt;/h2&gt;
+&lt;p&gt;Paris is the capital of France.&lt;/p&gt;
+
+&lt;h2 class="city"&gt;Tokyo&lt;/h2&gt;
+&lt;p&gt;Tokyo is the capital of Japan.&lt;/p&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+</div>
+</section>
+<!-- Multiple Classes -->
+<section class="content-section" id="multiple-classes">
+<h2>Multiple Classes</h2>
+<p>HTML तत्व एक से अधिक वर्गों से संबंधित हो सकते हैं।</p>
+<p>To define multiple classes, separate the class names with a space, e.g. &lt;div class="city main"&gt;. The element will be styled according to all the classes specified.</p>
+<p>In the following example, the first &lt;h2&gt; element belongs to both the city class and also to the main class, and will get the CSS styles from both of the classes:</p>
+<h3>Example</h3>
+<div class="code-example">
+<pre><code>&lt;h2 class="city main"&gt;London&lt;/h2&gt;
+&lt;h2 class="city"&gt;Paris&lt;/h2&gt;
+&lt;h2 class="city"&gt;Tokyo&lt;/h2&gt;</code></pre>
+</div>
+</section>
+<!-- Different Elements Can Share Same Class -->
+<section class="content-section" id="share-class">
+<h2>Different Elements Can Share Same Class</h2>
+<p>Different HTML elements can point to the same class name.</p>
+<p>In the following example, both &lt;h2&gt; and &lt;p&gt; point to the "city" class and will share the same style:</p>
+<h3>Example</h3>
+<div class="code-example">
+<pre><code>&lt;h2 class="city"&gt;Paris&lt;/h2&gt;
+&lt;p class="city"&gt;Paris is the capital of France&lt;/p&gt;</code></pre>
+</div>
+</section>
+<!-- Use of the class Attribute in JavaScript -->
+<section class="content-section" id="javascript-class">
+<h2>Use of the class Attribute in JavaScript</h2>
+<p>The class name can also be used by JavaScript to perform certain tasks for specific elements.</p>
+<p>JavaScript can access elements with a specific class name with the getElementsByClassName() method:</p>
+<h3>Example</h3>
+<p>Click on a button to hide all elements with the class name "city":</p>
+<div class="code-example">
+<pre><code>&lt;script&gt;
+function myFunction() {
+  var x = document.getElementsByClassName("city");
+  for (var i = 0; i &lt; x.length; i++) {
+    x[i].style.display = "none";
+  }
+}
+&lt;/script&gt;</code></pre>
+</div>
+<p>Don't worry if you don't understand the code in the example above.</p>
+<p>You will learn more about JavaScript in our HTML JavaScript chapter, or you can study our JavaScript Tutorial.</p>
+</section>
+<!-- Chapter Summary -->
+<section class="content-section" id="summary">
+<h2>Chapter Summary</h2>
+<ul>
+<li>The HTML class attribute specifies one or more class names for an element</li>
+<li>Classes are used by CSS and JavaScript to select and access specific elements</li>
+<li>The class attribute can be used on any HTML element</li>
+<li>The class name is case sensitive</li>
+<li>Different HTML elements can point to the same class name</li>
+<li>JavaScript can access elements with a specific class name with the getElementsByClassName() method</li>
+</ul>
+</section>
+<!-- Exercise -->
+<section class="content-section" id="exercise">
+<h2>Exercise</h2>
+<div class="exercise-box">
+<h4><span class="exercise-icon">❓</span> True or False. The class name is case sensitive</h4>
+<div class="options-grid">
+<div class="option-card" data-correct="true">
+<div class="option-content">
+<div class="option-text">True</div>
+<div class="option-feedback correct">✓ ठीक है! वर्ग का नाम केस संवेदी है.</div>
+</div>
+</div>
+<div class="option-card" data-correct="false">
+<div class="option-content">
+<div class="option-text">False</div>
+<div class="option-feedback incorrect">✗ ग़लत! वर्ग का नाम केस संवेदी है.</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Bottom Navigation -->
+<div class="bottom-nav">
+<a class="nav-tab prev" href="HTML%20Div%20Element.html">
+<i class="fas fa-arrow-left"></i>
+<span>पिछला</span>
+</a>
+<a class="nav-tab next" href="HTML%20ID%20Attribute.html">
+<span>अगला</span>
+<i class="fas fa-arrow-right"></i>
+</a>
+</div>
+</main>
+<!-- Footer -->
+<footer>
+<div class="footer-content">
+<div class="footer-column">
+<h3>Jassif Team Institution</h3>
+<p>Leading educational institution providing quality programming education in Hindi.</p>
+</div>
+<div class="footer-column">
+<h3>Quick Links</h3>
+<ul>
+<li><a href="#class-attribute">The class Attribute</a></li>
+<li><a href="#example-div">Example with div</a></li>
+<li><a href="#example-span">Example with span</a></li>
+<li><a href="#syntax">Syntax For Class</a></li>
+<li><a href="#multiple-classes">Multiple Classes</a></li>
+<li><a href="#share-class">Share Same Class</a></li>
+<li><a href="#javascript-class">JavaScript with Class</a></li>
+<li><a href="#summary">Chapter Summary</a></li>
+<li><a href="#exercise">Exercise</a></li>
+</ul>
+</div>
+<div class="footer-column">
+<h3>Contact</h3>
+<ul>
+<li><a href="#">About Us</a></li>
+<li><a href="#">Contact Us</a></li>
+<li><a href="#">Location &amp; Hours</a></li>
+</ul>
+</div>
+<div class="footer-column">
+<h3>Follow Us</h3>
+<ul>
+<li><a href="#"><i class="fab fa-facebook"></i> Facebook</a></li>
+<li><a href="#"><i class="fab fa-instagram"></i> Instagram</a></li>
+<li><a href="#"><i class="fab fa-youtube"></i> YouTube</a></li>
+</ul>
+</div>
+</div>
+<div class="copyright">
+<p>© 2023 Jassif Team Institution. All rights reserved.</p>
+</div>
+</footer>
+<script>
+        // Add smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Add scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animation = 'fadeInUp 0.8s ease-out forwards';
+                }
+            });
+        }, observerOptions);
+        
+        // Observe all content sections for animation
+        document.querySelectorAll('.content-section').forEach(section => {
+            observer.observe(section);
+        });
+
+        // Exercise interaction
+        document.querySelectorAll('.option-card').forEach(card => {
+            card.addEventListener('click', function() {
+                // Show feedback for all options
+                document.querySelectorAll('.option-card').forEach(c => {
+                    c.querySelector('.option-feedback').style.display = 'block';
+                });
+            });
+        });
+    </script>
+<!-- Home Button -->
+<a class="home-icon" href="index.html">
+<i class="fas fa-home"></i>
+</a>
+</body>
+</html>

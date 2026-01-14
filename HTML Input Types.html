@@ -1,0 +1,769 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Input Types - Jassif Team</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .content-section p, 
+        .content-section li,
+        .content-section h3,
+        .content-section h4,
+        .comparison-card p {
+            color: #333 !important;
+        }
+        
+        .tip-box p,
+        .tip-box li,
+        .tip-box h4 {
+            color: white !important;
+        }
+        
+        .warning-box p,
+        .warning-box li,
+        .warning-box h4 {
+            color: white !important;
+        }
+        
+        .exercise-box p,
+        .exercise-box h4 {
+            color: white !important;
+        }
+        
+        /* Stable logo styling - NO ANIMATIONS */
+        .logo-icon {
+            animation: none !important; /* Remove pulse animation */
+        }
+        
+        .logo-image {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+            display: block;
+            border: 2px solid white;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            animation: none !important; /* Ensure no animations */
+        }
+        
+        /* Input type styling */
+        .input-demo {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+            border-left: 4px solid var(--git-color);
+        }
+        
+        .input-type-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+        
+        .input-type-item {
+            background: white;
+            padding: 1rem;
+            border-radius: 6px;
+            text-align: center;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            border: 1px solid #e0e0e0;
+            transition: transform 0.2s;
+        }
+        
+        .input-type-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+        
+        .input-type-icon {
+            font-size: 1.5rem;
+            color: var(--git-color);
+            margin-bottom: 0.5rem;
+        }
+        
+        .input-type-code {
+            font-family: 'Courier New', monospace;
+            background: #f0f0f0;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <div class="logo-icon">
+                    <img src="logo.jpg" alt="Jassif Team Logo" class="logo-image">
+                </div>
+                <h1>Jassif Team <span>Institution</span></h1>
+            </div>
+        </div>
+    </header>
+
+    <!-- Top Navigation Tabs -->
+    <div class="nav-tabs">
+        <a href="HTML Form Elements.html" class="nav-tab prev">
+            <i class="fas fa-arrow-left"></i>
+            <span>पिछला</span>
+        </a>
+        <a href="HTML Input Attributes.html" class="nav-tab next">
+            <span>अगला</span>
+            <i class="fas fa-arrow-right"></i>
+        </a>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h2>HTML Input Types</h2>
+            <p>HTML உள்ளீட்டு வகைகளைக் கற்றுக்கொள்ளுங்கள்</p>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="container">
+        <!-- HTML Input Types Introduction -->
+        <section class="content-section" id="introduction">
+            <h2>HTML உள்ளீட்டு வகைகள்</h2>
+            
+            <p>இந்த அத்தியாயம் HTML &lt;input&gt; உறுப்புக்கான வெவ்வேறு வகைகளை விவரிக்கிறது.</p>
+            
+            <div class="tip-box">
+                <h4><span class="tip-icon">💡</span> உதவிக்குறிப்பு:</h4>
+                <p>type பண்புக்கூறின் இயல்புநிலை மதிப்பு "text" ஆகும்.</p>
+            </div>
+            
+            <h3>HTML இல் பயன்படுத்தக்கூடிய வெவ்வேறு உள்ளீட்டு வகைகள்:</h3>
+            
+            <div class="input-type-grid">
+                <div class="input-type-item">
+                    <div class="input-type-icon">
+                        <i class="fas fa-font"></i>
+                    </div>
+                    <div class="input-type-code">type="text"</div>
+                </div>
+                
+                <div class="input-type-item">
+                    <div class="input-type-icon">
+                        <i class="fas fa-key"></i>
+                    </div>
+                    <div class="input-type-code">type="password"</div>
+                </div>
+                
+                <div class="input-type-item">
+                    <div class="input-type-icon">
+                        <i class="fas fa-check-square"></i>
+                    </div>
+                    <div class="input-type-code">type="checkbox"</div>
+                </div>
+                
+                <div class="input-type-item">
+                    <div class="input-type-icon">
+                        <i class="fas fa-dot-circle"></i>
+                    </div>
+                    <div class="input-type-code">type="radio"</div>
+                </div>
+                
+                <div class="input-type-item">
+                    <div class="input-type-icon">
+                        <i class="fas fa-calendar-alt"></i>
+                    </div>
+                    <div class="input-type-code">type="date"</div>
+                </div>
+                
+                <div class="input-type-item">
+                    <div class="input-type-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <div class="input-type-code">type="email"</div>
+                </div>
+                
+                <div class="input-type-item">
+                    <div class="input-type-icon">
+                        <i class="fas fa-hashtag"></i>
+                    </div>
+                    <div class="input-type-code">type="number"</div>
+                </div>
+                
+                <div class="input-type-item">
+                    <div class="input-type-icon">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <div class="input-type-code">type="search"</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Input Type Text -->
+        <section class="content-section" id="text-type">
+            <h2>உள்ளீட்டு வகை: Text</h2>
+            
+            <p>&lt;input type="text"&gt; ஒரு ஒற்றை வரி உரை உள்ளீட்டுப் புலத்தை வரையறுக்கிறது:</p>
+            
+            <h3>எடுத்துக்காட்டு</h3>
+            
+            <div class="code-example">
+                <pre><code><span class="command-input">&lt;form&gt;</span>
+  <span class="command-input">&lt;label for="fname"&gt;First name:&lt;/label&gt;&lt;br&gt;</span>
+  <span class="command-input">&lt;input type="text" id="fname" name="fname"&gt;&lt;br&gt;</span>
+  <span class="command-input">&lt;label for="lname"&gt;Last name:&lt;/label&gt;&lt;br&gt;</span>
+  <span class="command-input">&lt;input type="text" id="lname" name="lname"&gt;</span>
+<span class="command-input">&lt;/form&gt;</span></code></pre>
+            </div>
+            
+            <div class="input-demo">
+                <label for="demo-fname">First name:</label><br>
+                <input type="text" id="demo-fname" name="fname" placeholder="Enter first name"><br>
+                <label for="demo-lname">Last name:</label><br>
+                <input type="text" id="demo-lname" name="lname" placeholder="Enter last name">
+            </div>
+        </section>
+
+        <!-- Input Type Password -->
+        <section class="content-section" id="password-type">
+            <h2>உள்ளீட்டு வகை: Password</h2>
+            
+            <p>&lt;input type="password"&gt; ஒரு கடவுச்சொல் புலத்தை வரையறுக்கிறது:</p>
+            
+            <h3>எடுத்துக்காட்டு</h3>
+            
+            <div class="code-example">
+                <pre><code><span class="command-input">&lt;form&gt;</span>
+  <span class="command-input">&lt;label for="username"&gt;Username:&lt;/label&gt;&lt;br&gt;</span>
+  <span class="command-input">&lt;input type="text" id="username" name="username"&gt;&lt;br&gt;</span>
+  <span class="command-input">&lt;label for="pwd"&gt;Password:&lt;/label&gt;&lt;br&gt;</span>
+  <span class="command-input">&lt;input type="password" id="pwd" name="pwd"&gt;</span>
+<span class="command-input">&lt;/form&gt;</span></code></pre>
+            </div>
+            
+            <div class="input-demo">
+                <label for="demo-username">Username:</label><br>
+                <input type="text" id="demo-username" name="username" placeholder="Enter username"><br>
+                <label for="demo-pwd">Password:</label><br>
+                <input type="password" id="demo-pwd" name="pwd" placeholder="Enter password">
+            </div>
+            
+            <p>கடவுச்சொல் புலத்தில் உள்ள எழுத்துக்கள் மறைக்கப்பட்டு (நட்சத்திரங்கள் அல்லது வட்டங்களாகக் காட்டப்படும்).</p>
+        </section>
+
+        <!-- Input Type Submit -->
+        <section class="content-section" id="submit-type">
+            <h2>உள்ளீட்டு வகை: Submit</h2>
+            
+            <p>&lt;input type="submit"&gt; படிவத் தரவை படிவ-கையாளுநருக்குச் சமர்ப்பிப்பதற்கான ஒரு பொத்தானை வரையறுக்கிறது.</p>
+            
+            <p>படிவ-கையாளுநர் பொதுவாக உள்ளீட்டுத் தரவைச் செயலாக்குவதற்கான ஸ்கிரிப்ட் கொண்ட ஒரு சர்வர் பக்கமாகும்.</p>
+            
+            <p>படிவ-கையாளுநர் படிவத்தின் action பண்புக்கூறில் குறிப்பிடப்பட்டுள்ளது:</p>
+            
+            <h3>எடுத்துக்காட்டு</h3>
+            
+            <div class="code-example">
+                <pre><code><span class="command-input">&lt;form action="/action_page.php"&gt;</span>
+  <span class="command-input">&lt;label for="fname"&gt;First name:&lt;/label&gt;&lt;br&gt;</span>
+  <span class="command-input">&lt;input type="text" id="fname" name="fname" value="John"&gt;&lt;br&gt;</span>
+  <span class="command-input">&lt;label for="lname"&gt;Last name:&lt;/label&gt;&lt;br&gt;</span>
+  <span class="command-input">&lt;input type="text" id="lname" name="lname" value="Doe"&gt;&lt;br&gt;&lt;br&gt;</span>
+  <span class="command-input">&lt;input type="submit" value="Submit"&gt;</span>
+<span class="command-input">&lt;/form&gt;</span></code></pre>
+            </div>
+            
+            <div class="input-demo">
+                <form style="background: #f0f0f0; padding: 15px; border-radius: 5px;">
+                    <label for="demo-fname2">First name:</label><br>
+                    <input type="text" id="demo-fname2" name="fname" value="John" style="margin-bottom: 10px;"><br>
+                    <label for="demo-lname2">Last name:</label><br>
+                    <input type="text" id="demo-lname2" name="lname" value="Doe" style="margin-bottom: 10px;"><br><br>
+                    <input type="submit" value="Submit" style="padding: 8px 20px; background: var(--git-color); color: white; border: none; border-radius: 5px;">
+                </form>
+            </div>
+            
+            <p>நீங்கள் submit பொத்தானின் value பண்புக்கூறைத் தவிர்த்தால், பொத்தானுக்கு இயல்புநிலை உரை கிடைக்கும்:</p>
+            
+            <div class="code-example">
+                <pre><code><span class="command-input">&lt;form action="/action_page.php"&gt;</span>
+  <span class="command-input">&lt;label for="fname"&gt;First name:&lt;/label&gt;&lt;br&gt;</span>
+  <span class="command-input">&lt;input type="text" id="fname" name="fname" value="John"&gt;&lt;br&gt;</span>
+  <span class="command-input">&lt;label for="lname"&gt;Last name:&lt;/label&gt;&lt;br&gt;</span>
+  <span class="command-input">&lt;input type="text" id="lname" name="lname" value="Doe"&gt;&lt;br&gt;&lt;br&gt;</span>
+  <span class="command-input">&lt;input type="submit"&gt;</span>
+<span class="command-input">&lt;/form&gt;</span></code></pre>
+            </div>
+        </section>
+
+        <!-- Input Type Reset -->
+        <section class="content-section" id="reset-type">
+            <h2>உள்ளீட்டு வகை: Reset</h2>
+            
+            <p>&lt;input type="reset"&gt; அனைத்து படிவ மதிப்புகளையும் அவற்றின் இயல்புநிலை மதிப்புகளுக்கு மீட்டமைக்கும் ஒரு மீட்டமைப்பு பொத்தானை வரையறுக்கிறது:</p>
+            
+            <h3>எடுத்துக்காட்டு</h3>
+            
+            <div class="code-example">
+                <pre><code><span class="command-input">&lt;form action="/action_page.php"&gt;</span>
+  <span class="command-input">&lt;label for="fname"&gt;First name:&lt;/label&gt;&lt;br&gt;</span>
+  <span class="command-input">&lt;input type="text" id="fname" name="fname" value="John"&gt;&lt;br&gt;</span>
+  <span class="command-input">&lt;label for="lname"&gt;Last name:&lt;/label&gt;&lt;br&gt;</span>
+  <span class="command-input">&lt;input type="text" id="lname" name="lname" value="Doe"&gt;&lt;br&gt;&lt;br&gt;</span>
+  <span class="command-input">&lt;input type="submit" value="Submit"&gt;</span>
+  <span class="command-input">&lt;input type="reset" value="Reset"&gt;</span>
+<span class="command-input">&lt;/form&gt;</span></code></pre>
+            </div>
+            
+            <div class="warning-box">
+                <h4><span class="warning-icon">⚠️</span> குறிப்பு:</h4>
+                <p>நீங்கள் உள்ளீட்டு மதிப்புகளை மாற்றிவிட்டு "Reset" பொத்தானைக் கிளிக் செய்தால், படிவ-தரவு இயல்புநிலை மதிப்புகளுக்கு மீட்டமைக்கப்படும்.</p>
+            </div>
+        </section>
+
+        <!-- Input Type Radio -->
+        <section class="content-section" id="radio-type">
+            <h2>உள்ளீட்டு வகை: Radio</h2>
+            
+            <p>&lt;input type="radio"&gt; ஒரு ரேடியோ பொத்தானை வரையறுக்கிறது.</p>
+            
+            <p>ரேடியோ பொத்தான்கள் ஒரு பயனரை வரையறுக்கப்பட்ட எண்ணிக்கையிலான தேர்வுகளில் ஒன்றை மட்டுமே தேர்ந்தெடுக்க அனுமதிக்கின்றன:</p>
+            
+            <h3>எடுத்துக்காட்டு</h3>
+            
+            <div class="code-example">
+                <pre><code><span class="command-input">&lt;p&gt;Choose your favorite Web language:&lt;/p&gt;</span>
+
+<span class="command-input">&lt;form&gt;</span>
+  <span class="command-input">&lt;input type="radio" id="html" name="fav_language" value="HTML"&gt;</span>
+  <span class="command-input">&lt;label for="html"&gt;HTML&lt;/label&gt;&lt;br&gt;</span>
+  <span class="command-input">&lt;input type="radio" id="css" name="fav_language" value="CSS"&gt;</span>
+  <span class="command-input">&lt;label for="css"&gt;CSS&lt;/label&gt;&lt;br&gt;</span>
+  <span class="command-input">&lt;input type="radio" id="javascript" name="fav_language" value="JavaScript"&gt;</span>
+  <span class="command-input">&lt;label for="javascript"&gt;JavaScript&lt;/label&gt;</span>
+<span class="command-input">&lt;/form&gt;</span></code></pre>
+            </div>
+            
+            <div class="input-demo">
+                <p><strong>Choose your favorite Web language:</strong></p>
+                <input type="radio" id="demo-html" name="fav_language" value="HTML">
+                <label for="demo-html">HTML</label><br>
+                <input type="radio" id="demo-css" name="fav_language" value="CSS">
+                <label for="demo-css">CSS</label><br>
+                <input type="radio" id="demo-js" name="fav_language" value="JavaScript">
+                <label for="demo-js">JavaScript</label>
+            </div>
+        </section>
+
+        <!-- Input Type Checkbox -->
+        <section class="content-section" id="checkbox-type">
+            <h2>உள்ளீட்டு வகை: Checkbox</h2>
+            
+            <p>&lt;input type="checkbox"&gt; ஒரு சரிபார்ப்புப் பெட்டியை வரையறுக்கிறது.</p>
+            
+            <p>சரிபார்ப்புப் பெட்டிகள் ஒரு பயனரை வரையறுக்கப்பட்ட எண்ணிக்கையிலான தேர்வுகளில் பூஜ்ஜியம் அல்லது அதற்கு மேற்பட்ட விருப்பங்களைத் தேர்ந்தெடுக்க அனுமதிக்கின்றன.</p>
+            
+            <h3>எடுத்துக்காட்டு</h3>
+            
+            <div class="code-example">
+                <pre><code><span class="command-input">&lt;form&gt;</span>
+  <span class="command-input">&lt;input type="checkbox" id="vehicle1" name="vehicle1" value="Bike"&gt;</span>
+  <span class="command-input">&lt;label for="vehicle1"&gt; I have a bike&lt;/label&gt;&lt;br&gt;</span>
+  <span class="command-input">&lt;input type="checkbox" id="vehicle2" name="vehicle2" value="Car"&gt;</span>
+  <span class="command-input">&lt;label for="vehicle2"&gt; I have a car&lt;/label&gt;&lt;br&gt;</span>
+  <span class="command-input">&lt;input type="checkbox" id="vehicle3" name="vehicle3" value="Boat"&gt;</span>
+  <span class="command-input">&lt;label for="vehicle3"&gt; I have a boat&lt;/label&gt;</span>
+<span class="command-input">&lt;/form&gt;</span></code></pre>
+            </div>
+            
+            <div class="input-demo">
+                <input type="checkbox" id="demo-bike" name="vehicle1" value="Bike">
+                <label for="demo-bike">I have a bike</label><br>
+                <input type="checkbox" id="demo-car" name="vehicle2" value="Car">
+                <label for="demo-car">I have a car</label><br>
+                <input type="checkbox" id="demo-boat" name="vehicle3" value="Boat">
+                <label for="demo-boat">I have a boat</label>
+            </div>
+        </section>
+
+        <!-- Input Type Button -->
+        <section class="content-section" id="button-type">
+            <h2>உள்ளீட்டு வகை: Button</h2>
+            
+            <p>&lt;input type="button"&gt; ஒரு பொத்தானை வரையறுக்கிறது:</p>
+            
+            <h3>எடுத்துக்காட்டு</h3>
+            
+            <div class="code-example">
+                <pre><code><span class="command-input">&lt;input type="button" onclick="alert('Hello World!')" value="Click Me!"&gt;</span></code></pre>
+            </div>
+            
+            <div class="input-demo">
+                <input type="button" onclick="alert('Hello from Jassif Team!')" value="Click Me!" style="padding: 10px 20px; background: var(--git-color); color: white; border: none; border-radius: 5px; cursor: pointer;">
+            </div>
+        </section>
+
+        <!-- Other Input Types -->
+        <section class="content-section" id="other-types">
+            <h2>பிற உள்ளீட்டு வகைகள்</h2>
+            
+            <div class="comparison-grid">
+                <div class="comparison-card">
+                    <div class="comparison-header">
+                        <i class="fas fa-palette"></i>
+                        <h4>type="color"</h4>
+                    </div>
+                    <p>நிறத்தைத் தேர்ந்தெடுக்க பயன்படுகிறது</p>
+                    <div class="code-example" style="margin: 0.5rem 0; padding: 0.8rem;">
+                        <code>&lt;input type="color" id="favcolor" name="favcolor"&gt;</code>
+                    </div>
+                </div>
+                
+                <div class="comparison-card">
+                    <div class="comparison-header">
+                        <i class="fas fa-calendar-day"></i>
+                        <h4>type="date"</h4>
+                    </div>
+                    <p>தேதியைத் தேர்ந்தெடுக்க பயன்படுகிறது</p>
+                    <div class="code-example" style="margin: 0.5rem 0; padding: 0.8rem;">
+                        <code>&lt;input type="date" id="birthday" name="birthday"&gt;</code>
+                    </div>
+                </div>
+                
+                <div class="comparison-card">
+                    <div class="comparison-header">
+                        <i class="fas fa-at"></i>
+                        <h4>type="email"</h4>
+                    </div>
+                    <p>மின்னஞ்சல் முகவரிக்கு பயன்படுகிறது</p>
+                    <div class="code-example" style="margin: 0.5rem 0; padding: 0.8rem;">
+                        <code>&lt;input type="email" id="email" name="email"&gt;</code>
+                    </div>
+                </div>
+                
+                <div class="comparison-card">
+                    <div class="comparison-header">
+                        <i class="fas fa-file-upload"></i>
+                        <h4>type="file"</h4>
+                    </div>
+                    <p>கோப்புப் பதிவேற்றத்திற்கு பயன்படுகிறது</p>
+                    <div class="code-example" style="margin: 0.5rem 0; padding: 0.8rem;">
+                        <code>&lt;input type="file" id="myfile" name="myfile"&gt;</code>
+                    </div>
+                </div>
+                
+                <div class="comparison-card">
+                    <div class="comparison-header">
+                        <i class="fas fa-hashtag"></i>
+                        <h4>type="number"</h4>
+                    </div>
+                    <p>எண் மதிப்புகளுக்கு பயன்படுகிறது</p>
+                    <div class="code-example" style="margin: 0.5rem 0; padding: 0.8rem;">
+                        <code>&lt;input type="number" id="quantity" name="quantity" min="1" max="5"&gt;</code>
+                    </div>
+                </div>
+                
+                <div class="comparison-card">
+                    <div class="comparison-header">
+                        <i class="fas fa-sliders-h"></i>
+                        <h4>type="range"</h4>
+                    </div>
+                    <p>ஸ்லைடர் கட்டுப்பாட்டிற்கு பயன்படுகிறது</p>
+                    <div class="code-example" style="margin: 0.5rem 0; padding: 0.8rem;">
+                        <code>&lt;input type="range" id="vol" name="vol" min="0" max="50"&gt;</code>
+                    </div>
+                </div>
+                
+                <div class="comparison-card">
+                    <div class="comparison-header">
+                        <i class="fas fa-search"></i>
+                        <h4>type="search"</h4>
+                    </div>
+                    <p>தேடல் புலங்களுக்கு பயன்படுகிறது</p>
+                    <div class="code-example" style="margin: 0.5rem 0; padding: 0.8rem;">
+                        <code>&lt;input type="search" id="gsearch" name="gsearch"&gt;</code>
+                    </div>
+                </div>
+                
+                <div class="comparison-card">
+                    <div class="comparison-header">
+                        <i class="fas fa-phone"></i>
+                        <h4>type="tel"</h4>
+                    </div>
+                    <p>தொலைபேசி எண்களுக்கு பயன்படுகிறது</p>
+                    <div class="code-example" style="margin: 0.5rem 0; padding: 0.8rem;">
+                        <code>&lt;input type="tel" id="phone" name="phone"&gt;</code>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Input Restrictions -->
+        <section class="content-section" id="input-restrictions">
+            <h2>உள்ளீட்டு கட்டுப்பாடுகள்</h2>
+            
+            <p>சில பொதுவான உள்ளீட்டு கட்டுப்பாடுகளின் பட்டியல் இங்கே:</p>
+            
+            <div class="comparison-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>பண்புக்கூறு</th>
+                            <th>விளக்கம்</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>checked</td>
+                            <td>பக்கம் ஏற்றப்படும் போது ஒரு உள்ளீட்டுப் புலம் முன்-தேர்ந்தெடுக்கப்பட வேண்டும் என்பதைக் குறிப்பிடுகிறது (type="checkbox" அல்லது type="radio" க்கு)</td>
+                        </tr>
+                        <tr>
+                            <td>disabled</td>
+                            <td>ஒரு உள்ளீட்டுப் புலம் முடக்கப்பட வேண்டும் என்பதைக் குறிப்பிடுகிறது</td>
+                        </tr>
+                        <tr>
+                            <td>max</td>
+                            <td>ஒரு உள்ளீட்டுப் புலத்திற்கான அதிகபட்ச மதிப்பைக் குறிப்பிடுகிறது</td>
+                        </tr>
+                        <tr>
+                            <td>maxlength</td>
+                            <td>ஒரு உள்ளீட்டுப் புலத்திற்கான அதிகபட்ச எழுத்துகளின் எண்ணிக்கையைக் குறிப்பிடுகிறது</td>
+                        </tr>
+                        <tr>
+                            <td>min</td>
+                            <td>ஒரு உள்ளீட்டுப் புலத்திற்கான குறைந்தபட்ச மதிப்பைக் குறிப்பிடுகிறது</td>
+                        </tr>
+                        <tr>
+                            <td>pattern</td>
+                            <td>உள்ளீட்டு மதிப்பைச் சரிபார்க்க ஒரு வழக்கமான வெளிப்பாட்டைக் குறிப்பிடுகிறது</td>
+                        </tr>
+                        <tr>
+                            <td>readonly</td>
+                            <td>ஒரு உள்ளீட்டுப் புலம் படிக்க மட்டுமே (மாற்ற முடியாது) என்பதைக் குறிப்பிடுகிறது</td>
+                        </tr>
+                        <tr>
+                            <td>required</td>
+                            <td>ஒரு உள்ளீட்டுப் புலம் தேவைப்படுகிறது (நிரப்பப்பட வேண்டும்) என்பதைக் குறிப்பிடுகிறது</td>
+                        </tr>
+                        <tr>
+                            <td>size</td>
+                            <td>ஒரு உள்ளீட்டுப் புலத்தின் அகலத்தை (எழுத்துகளில்) குறிப்பிடுகிறது</td>
+                        </tr>
+                        <tr>
+                            <td>step</td>
+                            <td>ஒரு உள்ளீட்டுப் புலத்திற்கான சட்டப்பூர்வ எண் இடைவெளிகளைக் குறிப்பிடுகிறது</td>
+                        </tr>
+                        <tr>
+                            <td>value</td>
+                            <td>ஒரு உள்ளீட்டுப் புலத்திற்கான இயல்புநிலை மதிப்பைக் குறிப்பிடுகிறது</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <div class="tip-box">
+                <h4><span class="tip-icon">📚</span> கூடுதல் கற்றல்:</h4>
+                <p>நீங்கள் அடுத்த அத்தியாயத்தில் உள்ளீட்டு கட்டுப்பாடுகளைப் பற்றி மேலும் அறிவீர்கள்.</p>
+            </div>
+            
+            <h3>எடுத்துக்காட்டு</h3>
+            <p>பின்வரும் எடுத்துக்காட்டு 0 முதல் 100 வரையிலான மதிப்பை உள்ளிடலாம், 10 இன் படிகளில். இயல்புநிலை மதிப்பு 30:</p>
+            
+            <div class="code-example">
+                <pre><code><span class="command-input">&lt;form&gt;</span>
+  <span class="command-input">&lt;label for="quantity"&gt;Quantity:&lt;/label&gt;</span>
+  <span class="command-input">&lt;input type="number" id="quantity" name="quantity" min="0" max="100" step="10" value="30"&gt;</span>
+<span class="command-input">&lt;/form&gt;</span></code></pre>
+            </div>
+        </section>
+
+        <!-- Exercise Section -->
+        <section class="content-section" id="exercises">
+            <h2>अभ्यास</h2>
+            
+            <div class="exercise-box">
+                <h4><span class="exercise-icon">❓</span> INPUT உறுப்பின் type பண்புக்கூறின் இயல்புநிலை மதிப்பு என்ன?</h4>
+                
+                <div class="options-grid">
+                    <div class="option-card" data-correct="false">
+                        <div class="option-content">
+                            <div class="option-text">button</div>
+                            <div class="option-feedback incorrect">✗ தவறு! button என்பது type பண்புக்கூறின் இயல்புநிலை மதிப்பு அல்ல</div>
+                        </div>
+                    </div>
+                    
+                    <div class="option-card" data-correct="false">
+                        <div class="option-content">
+                            <div class="option-text">submit</div>
+                            <div class="option-feedback incorrect">✗ தவறு! submit பொத்தான்கள் படிவங்களைச் சமர்ப்பிக்க பயன்படுகின்றன, ஆனால் இது இயல்புநிலை அல்ல</div>
+                        </div>
+                    </div>
+                    
+                    <div class="option-card" data-correct="true">
+                        <div class="option-content">
+                            <div class="option-text">text</div>
+                            <div class="option-feedback correct">✓ சரி! type பண்புக்கூறின் இயல்புநிலை மதிப்பு "text" ஆகும்</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- HTML Input Type Attribute -->
+        <section class="content-section" id="type-attribute">
+            <h2>HTML உள்ளீட்டு வகை பண்புக்கூறு</h2>
+            
+            <div class="comparison-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>குறிச்சொல்</th>
+                            <th>விளக்கம்</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>&lt;input type=""&gt;</td>
+                            <td>காண்பிக்க வேண்டிய உள்ளீட்டு வகையைக் குறிப்பிடுகிறது</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <div class="tip-box">
+                <h4><span class="tip-icon">🎯</span> முக்கிய புள்ளிகள்:</h4>
+                <ul>
+                    <li>type பண்புக்கூறு உள்ளீட்டு கட்டுப்பாட்டின் வகையை தீர்மானிக்கிறது</li>
+                    <li>இயல்புநிலை மதிப்பு "text" ஆகும்</li>
+                    <li>வெவ்வேறு type மதிப்புகள் வெவ்வேறு உள்ளீட்டு கட்டுப்பாடுகளை உருவாக்குகின்றன</li>
+                    <li>ஒவ்வொரு type மதிப்பும் குறிப்பிட்ட பயன்பாட்டு வழக்குகளுக்கு ஏற்றது</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Bottom Navigation -->
+        <div class="bottom-nav">
+            <a href="HTML Form Elements.html" class="nav-tab prev">
+                <i class="fas fa-arrow-left"></i>
+                <span>पिछला</span>
+            </a>
+            <a href="HTML Input Attributes.html" class="nav-tab next">
+                <span>अगला</span>
+                <i class="fas fa-arrow-right"></i>
+            </a>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-column">
+                <h3>Jassif Team Institution</h3>
+                <p>Leading educational institution providing quality programming education in Hindi.</p>
+            </div>
+            <div class="footer-column">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#introduction">உள்ளீட்டு வகைகள்</a></li>
+                    <li><a href="#text-type">Text வகை</a></li>
+                    <li><a href="#password-type">Password வகை</a></li>
+                    <li><a href="#submit-type">Submit வகை</a></li>
+                    <li><a href="#reset-type">Reset வகை</a></li>
+                    <li><a href="#radio-type">Radio வகை</a></li>
+                    <li><a href="#checkbox-type">Checkbox வகை</a></li>
+                    <li><a href="#button-type">Button வகை</a></li>
+                    <li><a href="#other-types">பிற வகைகள்</a></li>
+                    <li><a href="#input-restrictions">கட்டுப்பாடுகள்</a></li>
+                    <li><a href="#exercises">अभ्यास</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Contact</h3>
+                <ul>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="#">Location & Hours</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Follow Us</h3>
+                <ul>
+                    <li><a href="#"><i class="fab fa-facebook"></i> Facebook</a></li>
+                    <li><a href="#"><i class="fab fa-instagram"></i> Instagram</a></li>
+                    <li><a href="#"><i class="fab fa-youtube"></i> YouTube</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2023 Jassif Team Institution. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Add smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Add scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animation = 'fadeInUp 0.8s ease-out forwards';
+                }
+            });
+        }, observerOptions);
+        
+        // Observe all content sections for animation
+        document.querySelectorAll('.content-section').forEach(section => {
+            observer.observe(section);
+        });
+
+        // Exercise interaction
+        document.querySelectorAll('.option-card').forEach(card => {
+            card.addEventListener('click', function() {
+                // Show feedback for all options
+                document.querySelectorAll('.option-card').forEach(c => {
+                    c.querySelector('.option-feedback').style.display = 'block';
+                });
+            });
+        });
+        
+        // Demo button functionality
+        document.querySelectorAll('input[type="button"]').forEach(button => {
+            button.addEventListener('click', function(e) {
+                if(this.getAttribute('onclick')) {
+                    // Let the onclick attribute handle it
+                    return;
+                }
+                alert('Button clicked! This is a demo button.');
+            });
+        });
+    </script>
+
+    <!-- Home Button -->
+    <a href="index.html" class="home-icon">
+        <i class="fas fa-home"></i>
+    </a>
+</body>
+</html>

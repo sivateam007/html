@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+
+<html lang="hi">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>HTML Audio - Jassif Team</title>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<link href="style.css" rel="stylesheet"/>
+<style>
+        .content-section p, 
+        .content-section li,
+        .content-section h3,
+        .content-section h4,
+        .comparison-card p {
+            color: #333 !important;
+        }
+        
+        .tip-box p,
+        .tip-box li,
+        .tip-box h4 {
+            color: white !important;
+        }
+        
+        .warning-box p,
+        .warning-box li,
+        .warning-box h4 {
+            color: white !important;
+        }
+        
+        .exercise-box p,
+        .exercise-box h4 {
+            color: white !important;
+        }
+        
+        /* Stable logo styling - NO ANIMATIONS */
+        .logo-icon {
+            animation: none !important; /* Remove pulse animation */
+        }
+        
+        .logo-image {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+            display: block;
+            border: 2px solid white;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            animation: none !important; /* Ensure no animations */
+        }
+        
+        .audio-icon {
+            font-size: 2rem;
+            color: var(--git-color);
+            margin-right: 10px;
+        }
+        
+        .browser-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        
+        .browser-table th {
+            background: var(--git-color);
+            color: white;
+            padding: 1rem;
+            text-align: center;
+        }
+        
+        .browser-table td {
+            padding: 0.8rem;
+            text-align: center;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        
+        .browser-table .yes {
+            color: #28a745;
+            font-weight: bold;
+        }
+        
+        .browser-table .no {
+            color: #dc3545;
+            font-weight: bold;
+        }
+        
+        .browser-table .version {
+            color: var(--git-color);
+            font-weight: bold;
+        }
+        
+        .format-badge {
+            display: inline-block;
+            padding: 4px 10px;
+            background: var(--git-color);
+            color: white;
+            border-radius: 4px;
+            font-family: monospace;
+            font-size: 0.9rem;
+            margin: 0 2px;
+        }
+    </style>
+</head>
+<body>
+<!-- Header -->
+<header>
+<div class="header-container">
+<div class="logo">
+<div class="logo-icon">
+<img alt="Jassif Team Logo" class="logo-image" src="logo.jpg"/>
+</div>
+<h1>Jassif Team <span>Institution</span></h1>
+</div>
+</div>
+</header>
+<!-- Top Navigation Tabs -->
+<div class="nav-tabs">
+<a class="nav-tab prev" href="HTML Video.html">
+<i class="fas fa-arrow-left"></i>
+<span>पिछला</span>
+</a>
+<a class="nav-tab next" href="HTML Plug-ins.html">
+<span>अगला</span>
+<i class="fas fa-arrow-right"></i>
+</a>
+</div>
+<!-- Hero Section -->
+<section class="hero" id="home">
+<div class="hero-content">
+<h2>HTML Audio</h2>
+<p>वेब पेजों पर ध्वनि फ़ाइलें चलाना</p>
+</div>
+</section>
+<!-- Main Content -->
+<main class="container">
+<!-- Introduction -->
+<section class="content-section" id="introduction">
+<h2><i class="fas fa-music audio-icon"></i>HTML Audio</h2>
+<p>HTML <code>&lt;audio&gt;</code>तत्व का उपयोग वेब पेज पर ध्वनि फ़ाइल चलाने के लिए किया जाता है।</p>
+<div class="tip-box">
+<h4><i class="fas fa-lightbulb tip-icon"></i>ध्वनि तत्व:</h4>
+<p>HTML में ध्वनि फ़ाइल चलाने के लिए,<code>&lt;audio&gt;</code>तत्व नियंत्रण के साथ प्रयोग किया जाता है। यह उपयोगकर्ताओं को प्ले, पॉज़ और वॉल्यूम जैसे नियंत्रण प्रदान करता है।</p>
+</div>
+</section>
+<!-- HTML Audio Element -->
+<section class="content-section" id="audio-element">
+<h2><i class="fas fa-volume-up audio-icon"></i>HTML <code>&lt;audio&gt;</code>अंग</h2>
+<p>HTML में ध्वनि फ़ाइल चलाने के लिए,<code>&lt;audio&gt;</code>तत्व का प्रयोग करें:</p>
+<div class="code-example">
+<h3>उदाहरण</h3>
+<pre><code>&lt;ऑडियो नियंत्रण&gt;
+  &lt;स्रोत src='घोड़ा.ओग' प्रकार='ऑडियो/ओग'&gt;
+  &lt;स्रोत src='घोड़ा.mp3' प्रकार='ऑडियो/mpeg'&gt;
+  आपका ब्राउज़र ध्वनि तत्व का समर्थन नहीं करता.
+&lt;/ऑडियो&gt;</code></pre>
+</div>
+<h3>HTML ध्वनि - यह कैसे काम करती है</h3>
+<p><code>controls</code>विशेषता नियंत्रण, ठहराव और वॉल्यूम जैसे ध्वनि नियंत्रण जोड़ता है।</p>
+<p><code>&lt;source&gt;</code>तत्व ब्राउज़र आपको वैकल्पिक ध्वनि फ़ाइलें निर्दिष्ट करने की अनुमति देता है जिन्हें चुना जा सकता है। ब्राउज़र पहले मान्यता प्राप्त प्रारूप का उपयोग करेगा.</p>
+<p><code>&lt;audio&gt;</code>और<code>&lt;/audio&gt;</code>टैग के बीच पाठ<code>&lt;audio&gt;</code>केवल उन ब्राउज़रों में प्रदर्शित होता है जो तत्व का समर्थन नहीं करते हैं।</p>
+</section>
+<!-- HTML Audio Autoplay -->
+<section class="content-section" id="autoplay">
+<h2><i class="fas fa-play audio-icon"></i>HTML <code>&lt;audio&gt;</code>स्वचालित गति</h2>
+<p>ऑडियो फ़ाइल को स्वचालित रूप से प्रारंभ करने के लिए,<code>autoplay</code>विशेषता का प्रयोग करें:</p>
+<div class="code-example">
+<h3>उदाहरण</h3>
+<pre><code>&lt;ऑडियो ऑटोप्ले को नियंत्रित करता है&gt;
+  &lt;स्रोत src='घोड़ा.ओग' प्रकार='ऑडियो/ओग'&gt;
+  &lt;स्रोत src='घोड़ा.mp3' प्रकार='ऑडियो/mpeg'&gt;
+  आपका ब्राउज़र ध्वनि तत्व का समर्थन नहीं करता.
+&lt;/ऑडियो&gt;</code></pre>
+</div>
+<div class="warning-box">
+<h4><i class="fas fa-exclamation-triangle warning-icon"></i>टिप्पणी:</h4>
+<p>क्रोमियम ब्राउज़र अधिकांश मामलों में स्वचालित सक्रियण की अनुमति नहीं देते हैं। हालाँकि, अक्षम स्वचालित संचालन की हमेशा अनुमति होती है।</p>
+</div>
+<p>अपनी ध्वनि फ़ाइल को स्वचालित रूप से चलाएं (लेकिन अक्षम)।<code>autoplay</code>बाद<code>muted</code>जोड़ना:</p>
+<div class="code-example">
+<h3>उदाहरण</h3>
+<pre><code>&lt;ऑडियो नियंत्रण ऑटोप्ले म्यूट किया गया&gt;
+  &lt;स्रोत src='घोड़ा.ओग' प्रकार='ऑडियो/ओग'&gt;
+  &lt;स्रोत src='घोड़ा.mp3' प्रकार='ऑडियो/mpeg'&gt;
+  आपका ब्राउज़र ध्वनि तत्व का समर्थन नहीं करता.
+&lt;/ऑडियो&gt;</code></pre>
+</div>
+</section>
+<!-- Browser Support -->
+<section class="content-section" id="browser-support">
+<h2><i class="fas fa-globe audio-icon"></i>ब्राउज़र समर्थन</h2>
+<p>तालिका में संख्याएँ<code>&lt;audio&gt;</code>तत्व का पूर्ण समर्थन करने वाला पहला ब्राउज़र संस्करण चिह्नित करता है।</p>
+<table class="browser-table">
+<thead>
+<tr>
+<th>अंग</th>
+<th>Chrome</th>
+<th>Edge</th>
+<th>Firefox</th>
+<th>Safari</th>
+<th>Opera</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>&lt;audio&gt;</code></td>
+<td class="version">4.0</td>
+<td class="version">9.0</td>
+<td class="version">3.5</td>
+<td class="version">4.0</td>
+<td class="version">10.5</td>
+</tr>
+</tbody>
+</table>
+</section>
+<!-- HTML Audio Formats -->
+<section class="content-section" id="audio-formats">
+<h2><i class="fas fa-file-audio audio-icon"></i>HTML ऑडियो प्रारूप</h2>
+<p>तीन समर्थित ऑडियो प्रारूप हैं: MP3, WAV, और OGG। विभिन्न प्रारूपों के लिए ब्राउज़र समर्थन:</p>
+<table class="browser-table">
+<thead>
+<tr>
+<th>ब्राउज़र</th>
+<th>MP3</th>
+<th>WAV</th>
+<th>OGG</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Chrome</td>
+<td class="yes">YES</td>
+<td class="yes">YES</td>
+<td class="yes">YES</td>
+</tr>
+<tr>
+<td>Edge</td>
+<td class="yes">YES</td>
+<td class="yes">YES*</td>
+<td class="yes">YES*</td>
+</tr>
+<tr>
+<td>Firefox</td>
+<td class="yes">YES</td>
+<td class="yes">YES</td>
+<td class="yes">YES</td>
+</tr>
+<tr>
+<td>Safari</td>
+<td class="yes">YES</td>
+<td class="yes">YES</td>
+<td class="no">NO</td>
+</tr>
+<tr>
+<td>Opera</td>
+<td class="yes">YES</td>
+<td class="yes">YES</td>
+<td class="yes">YES</td>
+</tr>
+</tbody>
+</table>
+<div class="tip-box">
+<h4><i class="fas fa-lightbulb tip-icon"></i>टिप्पणी:</h4>
+<p>*एज 79 से आगे</p>
+</div>
+</section>
+<!-- HTML Audio Media Types -->
+<section class="content-section" id="media-types">
+<h2><i class="fas fa-cogs audio-icon"></i>HTML ऑडियो - मीडिया प्रकार</h2>
+<table class="browser-table">
+<thead>
+<tr>
+<th>फ़ाइल फ़ारमैट</th>
+<th>मीडिया प्रकार</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="format-badge">MP3</span></td>
+<td><code>audio/mpeg</code></td>
+</tr>
+<tr>
+<td><span class="format-badge">OGG</span></td>
+<td><code>audio/ogg</code></td>
+</tr>
+<tr>
+<td><span class="format-badge">WAV</span></td>
+<td><code>audio/wav</code></td>
+</tr>
+</tbody>
+</table>
+</section>
+<!-- Methods, Properties, and Events -->
+<section class="content-section" id="methods">
+<h2><i class="fas fa-code audio-icon"></i>HTML ध्वनि - विधियाँ, गुण और घटनाएँ</h2>
+<p>HTML DOM <code>&lt;audio&gt;</code>तत्व के लिए तरीकों, गुणों और घटनाओं को परिभाषित करता है।</p>
+<p>यह आपको ध्वनियों को लोड करने, चलाने और रोकने और अवधि और वॉल्यूम निर्धारित करने की अनुमति देता है।</p>
+<p>ऐसे DOM ईवेंट भी हैं जो ध्वनि बजने, रुकने आदि पर आपको सूचित कर सकते हैं।</p>
+<div class="code-example">
+<h3>जावास्क्रिप्ट कोड उदाहरण:</h3>
+<pre><code>// ध्वनि तत्व प्राप्त करें
+var ऑडियो = document.getElementById('demoAudio');
+
+// ध्वनि बजाओ
+फ़ंक्शन प्लेऑडियो() {
+    ऑडियो.प्ले();
+}
+
+// ध्वनि रोकें
+फ़ंक्शन पॉज़ऑडियो() {
+    ऑडियो.रोकें();
+}
+
+// वॉल्यूम बढ़ाएँ
+फ़ंक्शन वॉल्यूमअप() {
+    यदि(ऑडियो.वॉल्यूम &lt;1.0) {
+        ऑडियो.वॉल्यूम += 0.1;
+    }
+}
+
+// वॉल्यूम कम करें
+फ़ंक्शन वॉल्यूमडाउन() {
+    यदि(ऑडियो.वॉल्यूम &gt; 0.0) {
+        ऑडियो.वॉल्यूम -= 0.1;
+    }
+}
+
+// ध्वनि फिर से शुरू करें
+फ़ंक्शन पुनरारंभऑडियो() {
+    ऑडियो.वर्तमान समय = 0;
+    ऑडियो.प्ले();
+}</code></pre>
+</div>
+<div class="tip-box">
+<h4><i class="fas fa-external-link-alt tip-icon"></i>पूर्ण DOM संदर्भ:</h4>
+<p>संपूर्ण HTML ऑडियो/वीडियो DOM विशिष्टता के लिए जैसिफ़ टीम की वेबसाइट पर जाएँ।</p>
+</div>
+</section>
+<!-- HTML Audio Tags -->
+<section class="content-section" id="audio-tags">
+<h2><i class="fas fa-tags audio-icon"></i>HTML ऑडियो टैग</h2>
+<table class="browser-table">
+<thead>
+<tr>
+<th>टैग</th>
+<th>स्पष्टीकरण</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>&lt;audio&gt;</code></td>
+<td>ऑडियो सामग्री को परिभाषित करता है</td>
+</tr>
+<tr>
+<td><code>&lt;source&gt;</code></td>
+<td><code>&lt;video&gt;</code>और<code>&lt;audio&gt;</code>जैसे मीडिया तत्वों के लिए एकाधिक मीडिया संसाधनों को परिभाषित करता है</td>
+</tr>
+</tbody>
+</table>
+</section>
+<!-- Exercise -->
+<section class="content-section" id="exercise">
+<h2><i class="fas fa-dumbbell audio-icon"></i>अभ्यास</h2>
+<div class="exercise-box">
+<h4><span class="exercise-icon">❓</span>निम्नलिखित में से कौन सा HTML कोड सही ध्वनि तत्व प्रदर्शित करता है?</h4>
+<div class="options-grid">
+<div class="option-card" data-correct="true">
+<div class="option-content">
+<div class="option-text">&lt;audio controls&gt;<br/>  &lt;source src="music.mp3" type="audio/mpeg"&gt;<br/>  &lt;source src="music.ogg" type="audio/ogg"&gt;<br/>&lt;/audio&gt;</div>
+<div class="option-feedback correct">✓ ठीक है! यह कोड ध्वनि तत्व को सही नियंत्रण के साथ दिखाता है</div>
+</div>
+</div>
+<div class="option-card" data-correct="false">
+<div class="option-content">
+<div class="option-text">&lt;audio&gt;<br/>  &lt;src="music.mp3"&gt;<br/>&lt;/audio&gt;</div>
+<div class="option-feedback incorrect">✗ ग़लत! &lt;src&gt; एक मान्य HTML टैग नहीं है. &lt;स्रोत&gt; का उपयोग किया जाना चाहिए</div>
+</div>
+</div>
+<div class="option-card" data-correct="false">
+<div class="option-content">
+<div class="option-text">&lt;sound controls&gt;<br/>  &lt;source src="music.mp3"&gt;<br/>&lt;/sound&gt;</div>
+<div class="option-feedback incorrect">✗ ग़लत! &lt;ध्वनि&gt; एक मान्य HTML टैग नहीं है. &lt;ऑडियो&gt; का उपयोग किया जाना चाहिए</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Bottom Navigation -->
+<div class="bottom-nav">
+<a class="nav-tab prev" href="HTML Video.html">
+<i class="fas fa-arrow-left"></i>
+<span>पिछला</span>
+</a>
+<a class="nav-tab next" href="HTML Plug-ins.html">
+<span>अगला</span>
+<i class="fas fa-arrow-right"></i>
+</a>
+</div>
+</main>
+<!-- Footer -->
+<footer>
+<div class="footer-content">
+<div class="footer-column">
+<h3>Jassif Team Institution</h3>
+<p>Leading educational institution providing quality programming education in Hindi.</p>
+</div>
+<div class="footer-column">
+<h3>Quick Links</h3>
+<ul>
+<li><a href="#introduction">HTML Audio</a></li>
+<li><a href="#audio-element">&lt;ऑडियो&gt; तत्व</a></li>
+<li><a href="#autoplay">स्वचालित गति</a></li>
+<li><a href="#browser-support">ब्राउज़र समर्थन</a></li>
+<li><a href="#audio-formats">ध्वनि पैटर्न</a></li>
+<li><a href="#methods">जावास्क्रिप्ट नियंत्रण</a></li>
+<li><a href="#exercise">अभ्यास</a></li>
+</ul>
+</div>
+<div class="footer-column">
+<h3>Contact</h3>
+<ul>
+<li><a href="#">About Us</a></li>
+<li><a href="#">Contact Us</a></li>
+<li><a href="#">Location &amp; Hours</a></li>
+</ul>
+</div>
+<div class="footer-column">
+<h3>Follow Us</h3>
+<ul>
+<li><a href="#"><i class="fab fa-facebook"></i> Facebook</a></li>
+<li><a href="#"><i class="fab fa-instagram"></i> Instagram</a></li>
+<li><a href="#"><i class="fab fa-youtube"></i> YouTube</a></li>
+</ul>
+</div>
+</div>
+<div class="copyright">
+<p>© 2023 Jassif Team Institution. All rights reserved.</p>
+</div>
+</footer>
+<script>
+        // Add smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Add scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animation = 'fadeInUp 0.8s ease-out forwards';
+                }
+            });
+        }, observerOptions);
+        
+        // Observe all content sections for animation
+        document.querySelectorAll('.content-section').forEach(section => {
+            observer.observe(section);
+        });
+
+        // Exercise interaction
+        document.querySelectorAll('.option-card').forEach(card => {
+            card.addEventListener('click', function() {
+                // Show feedback for all options
+                document.querySelectorAll('.option-card').forEach(c => {
+                    c.querySelector('.option-feedback').style.display = 'block';
+                });
+            });
+        });
+    </script>
+<!-- Home Button -->
+<a class="home-icon" href="index.html">
+<i class="fas fa-home"></i>
+</a>
+</body>
+</html>

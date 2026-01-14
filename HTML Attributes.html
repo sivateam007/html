@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+
+<html lang="hi">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>HTML Attributes - Jassif Team</title>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<link href="style.css" rel="stylesheet"/>
+<style>
+        .content-section p, 
+        .content-section li,
+        .content-section h3,
+        .content-section h4,
+        .comparison-card p {
+            color: #333 !important;
+        }
+        
+        .tip-box p,
+        .tip-box li,
+        .tip-box h4 {
+            color: white !important;
+        }
+        
+        .warning-box p,
+        .warning-box li,
+        .warning-box h4 {
+            color: white !important;
+        }
+        
+        .exercise-box p,
+        .exercise-box h4 {
+            color: white !important;
+        }
+        
+        /* Stable logo styling - NO ANIMATIONS */
+        .logo-icon {
+            animation: none !important; /* Remove pulse animation */
+        }
+        
+        .logo-image {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+            display: block;
+            border: 2px solid white;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            animation: none !important; /* Ensure no animations */
+        }
+    </style>
+</head>
+<body>
+<!-- Header -->
+<header>
+<div class="header-container">
+<div class="logo">
+<div class="logo-icon">
+<img alt="Jassif Team Logo" class="logo-image" src="logo.jpg"/>
+</div>
+<h1>Jassif Team <span>Institution</span></h1>
+</div>
+</div>
+</header>
+<!-- Top Navigation Tabs -->
+<div class="nav-tabs">
+<a class="nav-tab prev" href="HTML%20Elements.html">
+<i class="fas fa-arrow-left"></i>
+<span>पिछला</span>
+</a>
+<a class="nav-tab next" href="HTML%20Headings.html">
+<span>अगला</span>
+<i class="fas fa-arrow-right"></i>
+</a>
+</div>
+<!-- Hero Section -->
+<section class="hero" id="home">
+<div class="hero-content">
+<h2>HTML Attributes</h2>
+<p>HTML विशेषताएँ</p>
+</div>
+</section>
+<!-- Main Content -->
+<main class="container">
+<!-- HTML Attributes Introduction -->
+<section class="content-section" id="introduction">
+<h2>HTML विशेषताएँ</h2>
+<p>HTML विशेषताएँ HTML तत्वों के बारे में अतिरिक्त जानकारी प्रदान करती हैं।</p>
+</section>
+<!-- HTML Attributes Definition -->
+<section class="content-section" id="definition">
+<h2>HTML विशेषताएँ</h2>
+<ul>
+<li>सभी HTML तत्वों में विशेषताएँ हो सकती हैं</li>
+<li>विशेषताएँ तत्वों के बारे में अतिरिक्त जानकारी प्रदान करती हैं</li>
+<li>विशेषताएँ हमेशा प्रारंभिक टैग में निर्दिष्ट की जाती हैं</li>
+<li>विशेषताएँ आमतौर पर नाम/मान जोड़े में आती हैं: <code>name="value"</code></li>
+</ul>
+<div class="tip-box">
+<h4><span class="tip-icon">💡</span> मूल प्रारूप:</h4>
+<p><code>&lt;tagname attribute="value"&gt;सामग्री&lt;/tagname&gt;</code></p>
+</div>
+</section>
+<!-- The href Attribute -->
+<section class="content-section" id="href-attribute">
+<h2>href विशेषता</h2>
+<p><code>&lt;a&gt;</code> टैग एक हाइपरलिंक को परिभाषित करता है। <code>href</code> विशेषता उस पृष्ठ का URL निर्दिष्ट करती है जहां लिंक जाता है:</p>
+<h3>उदाहरण</h3>
+<div class="code-example">
+<pre><code>&lt;a href="https://www.jassifteam.com"&gt;Visit Jassif Team&lt;/a&gt;</code></pre>
+</div>
+<p>लिंक्स के बारे में और जानें हमारे HTML लिंक्स अध्याय में।</p>
+<div class="examples-grid">
+<div class="example-card">
+<div class="example-icon">
+<i class="fas fa-link"></i>
+</div>
+<h4>href विशेषता</h4>
+<p>लिंक का लक्ष्य निर्दिष्ट करता है</p>
+</div>
+<div class="example-card">
+<div class="example-icon">
+<i class="fas fa-external-link-alt"></i>
+</div>
+<h4>पूर्ण URL</h4>
+<p><code>href="https://www.example.com"</code></p>
+</div>
+</div>
+</section>
+<!-- The src Attribute -->
+<section class="content-section" id="src-attribute">
+<h2>src विशेषता</h2>
+<p><code>&lt;img&gt;</code> टैग का उपयोग HTML पृष्ठ में एक छवि एम्बेड करने के लिए किया जाता है। <code>src</code> विशेषता प्रदर्शित की जाने वाली छवि का पथ निर्दिष्ट करती है:</p>
+<h3>उदाहरण</h3>
+<div class="code-example">
+<pre><code>&lt;img src="girl_image.jpg"&gt;</code></pre>
+</div>
+<p><code>src</code> विशेषता में URL निर्दिष्ट करने के दो तरीके हैं:</p>
+<div class="comparison-grid">
+<div class="comparison-card">
+<div class="comparison-header">
+<i class="fas fa-globe"></i>
+<h4>1. पूर्ण URL</h4>
+</div>
+<p>दूसरे वेबसाइट पर होस्ट की गई बाहरी छवि के लिए लिंक।</p>
+<p><strong>उदाहरण:</strong> <code>src="https://www.jassifteam.com/images/girl_image.jpg"</code></p>
+<div class="warning-box" style="margin-top: 1rem;">
+<h4><span class="warning-icon">⚠️</span> नोट्स:</h4>
+<p>बाहरी छवियाँ कॉपीराइट के अधीन हो सकती हैं। यदि आपने इसका उपयोग करने की अनुमति नहीं ली है, तो आप कॉपीराइट कानूनों का उल्लंघन कर सकते हैं। इसके अलावा, आप बाहरी छवियों को नियंत्रित नहीं कर सकते; यह अचानक हटाया या बदला जा सकता है।</p>
+</div>
+</div>
+<div class="comparison-card">
+<div class="comparison-header">
+<i class="fas fa-folder"></i>
+<h4>2. संबंधित URL</h4>
+</div>
+<p>वेबसाइट के भीतर होस्ट की गई एक छवि के लिए लिंक।</p>
+<p>यहां, URL में डोमेन नाम शामिल नहीं किया गया है। यदि URL एक स्लैश के बिना शुरू होता है, तो यह वर्तमान पृष्ठ से संबंधित होगा।</p>
+<p><strong>उदाहरण:</strong> <code>src="images/girl_image.jpg"</code></p>
+<div class="tip-box" style="margin-top: 1rem;">
+<h4><span class="tip-icon">💡</span> सुझाव:</h4>
+<p>संबंधित URL का उपयोग करना लगभग हमेशा बेहतर होता है। यदि आप डोमेन बदलते हैं तो वे टूटेंगे नहीं।</p>
+</div>
+</div>
+</div>
+</section>
+<!-- The width and height Attributes -->
+<section class="content-section" id="width-height-attributes">
+<h2>width और height विशेषताएँ</h2>
+<p><code>&lt;img&gt;</code> टैग में <code>width</code> और <code>height</code> विशेषताएँ भी होनी चाहिए, जो छवि की चौड़ाई और ऊंचाई (पिक्सल में) निर्दिष्ट करती हैं:</p>
+<h3>उदाहरण</h3>
+<div class="code-example">
+<pre><code>&lt;img src="girl_image.jpg" width="500" height="600"&gt;</code></pre>
+</div>
+<div class="tip-box">
+<h4><span class="tip-icon">📐</span> सर्वोत्तम अभ्यास:</h4>
+<p>पेज लेआउट को पूर्व-आवंटित करने और पेज लोडिंग गति में सुधार करने के लिए हमेशा छवियों के लिए width और height विशेषताएँ जोड़ें।</p>
+</div>
+</section>
+<!-- The alt Attribute -->
+<section class="content-section" id="alt-attribute">
+<h2>alt विशेषता</h2>
+<p><code>&lt;img&gt;</code> टैग की आवश्यक <code>alt</code> विशेषता एक छवि के लिए वैकल्पिक टेक्स्ट निर्दिष्ट करती है, यदि छवि किसी कारण से प्रदर्शित नहीं हो सकती। यह धीमी कनेक्शन, या <code>src</code> विशेषता में त्रुटि, या यदि उपयोगकर्ता स्क्रीन रीडर का उपयोग कर रहा है तो कारण हो सकता है।</p>
+<h3>उदाहरण</h3>
+<div class="code-example">
+<pre><code>&lt;img src="girl_image.jpg" alt="Girl with a jacket"&gt;</code></pre>
+</div>
+<h3>उदाहरण</h3>
+<p>देखें कि एक गैर-मौजूद छवि को प्रदर्शित करने का प्रयास करने पर क्या होता है:</p>
+<div class="code-example">
+<pre><code>&lt;img src="image_typo.jpg" alt="Girl with a jacket"&gt;</code></pre>
+</div>
+<p>छवियों के बारे में और जानें हमारे HTML छवियाँ अध्याय में।</p>
+<div class="warning-box">
+<h4><span class="warning-icon">♿</span> पहुंच:</h4>
+<p><code>alt</code> विशेषता दृष्टिहीन उपयोगकर्ताओं और स्क्रीन रीडर उपयोगकर्ताओं के लिए आवश्यक है। हमेशा अपनी छवियों के लिए सार्थक alt टेक्स्ट प्रदान करें।</p>
+</div>
+</section>
+<!-- The style Attribute -->
+<section class="content-section" id="style-attribute">
+<h2>style विशेषता</h2>
+<p><code>style</code> विशेषता एक तत्व में रंग, फ़ॉन्ट, आकार और बहुत कुछ जोड़ने के लिए उपयोग की जाती है।</p>
+<h3>उदाहरण</h3>
+<div class="code-example">
+<pre><code>&lt;p style="color:red;"&gt;This is a red paragraph.&lt;/p&gt;</code></pre>
+</div>
+<p>हमारे HTML स्टाइल अध्याय में स्टाइल के बारे में और जानें।</p>
+<div class="examples-grid">
+<div class="example-card">
+<div class="example-icon">
+<i class="fas fa-paint-brush"></i>
+</div>
+<h4>रंग</h4>
+<p><code>style="color:red;"</code></p>
+</div>
+<div class="example-card">
+<div class="example-icon">
+<i class="fas fa-text-height"></i>
+</div>
+<h4>फ़ॉन्ट आकार</h4>
+<p><code>style="font-size:20px;"</code></p>
+</div>
+<div class="example-card">
+<div class="example-icon">
+<i class="fas fa-square"></i>
+</div>
+<h4>पृष्ठभूमि रंग</h4>
+<p><code>style="background-color:yellow;"</code></p>
+</div>
+</div>
+</section>
+<!-- The lang Attribute -->
+<section class="content-section" id="lang-attribute">
+<h2>लैंग विशेषता</h2>
+<p>वेब पेज की भाषा घोषित करने के लिए,<code>&lt;html&gt;</code>टैग के अंदर<code>lang</code>हमेशा विशेषता शामिल करें. यह खोज इंजनों और ब्राउज़रों की सहायता के लिए है।</p>
+<p>निम्नलिखित उदाहरण अंग्रेजी को भाषा के रूप में निर्दिष्ट करता है:</p>
+<div class="code-example">
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;body&gt;
+...
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+</div>
+<p>देश कोड भी<code>lang</code>आप विशेषता में भाषा कोड जोड़ सकते हैं. तो, पहले दो अक्षर HTML पृष्ठ की भाषा को परिभाषित करते हैं, और अंतिम दो अक्षर देश को परिभाषित करते हैं।</p>
+<p>निम्नलिखित उदाहरण अंग्रेजी को भाषा और संयुक्त राज्य अमेरिका को देश के रूप में निर्दिष्ट करता है:</p>
+<div class="code-example">
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="en-US"&gt;
+&lt;body&gt;
+...
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+</div>
+<p>आप हमारे HTML भाषा कोड संदर्भ में सभी भाषा कोड देख सकते हैं।</p>
+</section>
+<!-- The title Attribute -->
+<section class="content-section" id="title-attribute">
+<h2>शीर्षक विशेषता</h2>
+<p><code>title</code>एक विशेषता किसी तत्व के बारे में कुछ अतिरिक्त जानकारी को परिभाषित करती है।</p>
+<p><code>title</code>जब आप तत्व पर माउस ले जाते हैं तो विशेषता का मान टूलटिप के रूप में प्रदर्शित होता है:</p>
+<h3>उदाहरण</h3>
+<div class="code-example">
+<pre><code>&lt;p title="I'm a tooltip"&gt;This is a paragraph.&lt;/p&gt;</code></pre>
+</div>
+<div class="tip-box">
+<h4><span class="tip-icon">ℹ️</span>उपकरण सहायता:</h4>
+<p>शीर्षक विशेषता छिपी हुई जानकारी या अतिरिक्त स्पष्टीकरण प्रदान करने के लिए बहुत अच्छी है, लेकिन इसका उपयोग आवश्यक जानकारी के लिए नहीं किया जाना चाहिए।</p>
+</div>
+</section>
+<!-- Use Lowercase Attributes -->
+<section class="content-section" id="lowercase-attributes">
+<h2>हम लोअरकेस विशेषताओं का उपयोग करने की अनुशंसा करते हैं</h2>
+<p>HTML मानक को लोअरकेस विशेषता नामों की आवश्यकता नहीं है।</p>
+<p><code>title</code>विशेषता (और अन्य सभी विशेषताएँ)<code>title</code>या<code>TITLE</code>अपर केस या लोअर केस में लिखा जा सकता है।</p>
+<p>हालाँकि, W3C HTML में लोअरकेस विशेषताओं की अनुशंसा करता है, और XHTML जैसे सख्त दस्तावेज़ प्रकारों के लिए लोअरकेस विशेषताओं की आवश्यकता होती है।</p>
+<div class="tip-box">
+<h4><span class="tip-icon">📝</span>जसिफ़ टीम की सिफ़ारिश:</h4>
+<p>जैसिफ टीम में हम हमेशा लोअर केस विशेषता नामों का उपयोग करते हैं।</p>
+</div>
+</section>
+<!-- Quote Attribute Values -->
+<section class="content-section" id="quote-attributes">
+<h2>हम उद्धरण चिह्नों में विशेषता मान लिखने की अनुशंसा करते हैं</h2>
+<p>HTML मानक में विशेषता मानों के आसपास उद्धरण चिह्नों की आवश्यकता नहीं होती है।</p>
+<p>हालाँकि, W3C HTML में उद्धरण चिह्नों की अनुशंसा करता है, और XHTML जैसे सख्त दस्तावेज़ प्रकारों के लिए उद्धरण चिह्नों की आवश्यकता होती है।</p>
+<div class="comparison-grid">
+<div class="comparison-card" style="border-left: 4px solid #28a745;">
+<div class="comparison-header">
+<i class="fas fa-check-circle" style="color: #28a745;"></i>
+<h4>अच्छा:</h4>
+</div>
+<div class="code-example" style="margin: 1rem 0;">
+<pre><code>&lt;a href="https://www.jassifteam.com/html/"&gt;Visit our HTML tutorial&lt;/a&gt;</code></pre>
+</div>
+</div>
+<div class="comparison-card" style="border-left: 4px solid #dc3545;">
+<div class="comparison-header">
+<i class="fas fa-times-circle" style="color: #dc3545;"></i>
+<h4>सबसे ख़राब:</h4>
+</div>
+<div class="code-example" style="margin: 1rem 0;">
+<pre><code>&lt;a href=https://www.jassifteam.com/html/&gt;Visit our HTML tutorial&lt;/a&gt;</code></pre>
+</div>
+</div>
+</div>
+<p>कभी-कभी आपको उद्धरण चिह्नों का उपयोग करने की आवश्यकता होती है। यह उदाहरण<code>title</code>विशेषता सही ढंग से प्रदर्शित नहीं होती क्योंकि इसमें एक स्थान है:</p>
+<div class="code-example">
+<pre><code>&lt;p title=Description of Jassif Team&gt;</code></pre>
+</div>
+<div class="tip-box">
+<h4><span class="tip-icon">💡</span>जसिफ़ टीम की सिफ़ारिश:</h4>
+<p>जैसिफ़ टीम में हम हमेशा विशेषता मानों के आसपास उद्धरण चिह्नों का उपयोग करते हैं।</p>
+</div>
+</section>
+<!-- Single or Double Quotes -->
+<section class="content-section" id="quote-types">
+<h2>एकल या दोहरा उद्धरण चिह्न?</h2>
+<p>HTML में विशेषता मानों के आसपास दोहरे उद्धरण चिह्न सबसे आम हैं, लेकिन एकल उद्धरण चिह्नों का भी उपयोग किया जा सकता है।</p>
+<p>कुछ स्थितियों में, सिंगल कोट्स का उपयोग करना आवश्यक होता है जब विशेषता मान में स्वयं डबल कोट्स होते हैं:</p>
+<div class="code-example">
+<pre><code>&lt;p title='John "ShotGun" Nelson'&gt;</code></pre>
+</div>
+<p>या विपरीत:</p>
+<div class="code-example">
+<pre><code>&lt;p title="John 'ShotGun' Nelson"&gt;</code></pre>
+</div>
+<div class="tip-box">
+<h4><span class="tip-icon">🔤</span>स्थिरता:</h4>
+<p>समान उद्धरण चिह्नों का उपयोग करके अपने कोड में एकरूपता बनाए रखें। HTML में दोहरे उद्धरण चिह्न बहुत आम हैं।</p>
+</div>
+</section>
+<!-- Chapter Summary -->
+<section class="content-section" id="summary">
+<h2>अध्याय का सारांश</h2>
+<ul>
+<li>सभी HTML तत्वों में विशेषताएँ हो सकती हैं</li>
+<li><code>&lt;a&gt;</code>का<code>href</code>विशेषता उस पृष्ठ का URL निर्दिष्ट करती है जिस पर लिंक जाएगा</li>
+<li><code>&lt;img&gt;</code>का<code>src</code>विशेषता प्रदर्शित की जाने वाली छवि का पथ निर्दिष्ट करती है</li>
+<li><code>&lt;img&gt;</code>का<code>width</code>और<code>height</code>विशेषताएँ छवियों के लिए मात्रात्मक जानकारी प्रदान करती हैं</li>
+<li><code>&lt;img&gt;</code>का<code>alt</code>विशेषता किसी छवि के लिए वैकल्पिक पाठ प्रदान करती है</li>
+<li><code>style</code>किसी तत्व में रंग, फ़ॉन्ट, आकार और बहुत कुछ जोड़ने के लिए विशेषताओं का उपयोग किया जाता है</li>
+<li><code>&lt;html&gt;</code>टैग का<code>lang</code>विशेषता वेब पेज की भाषा घोषित करती है</li>
+<li><code>title</code>एक विशेषता किसी तत्व के बारे में कुछ अतिरिक्त जानकारी को परिभाषित करती है</li>
+</ul>
+</section>
+<!-- Learning by Exercises -->
+<section class="content-section" id="exercises">
+<h2>अभ्यास के माध्यम से सीखना</h2>
+<div class="exercise-box">
+<h4><span class="exercise-icon">❓</span>HTML विशेषता का उपयोग करने के लिए निम्नलिखित में से कौन सा सही सिंटैक्स है?</h4>
+<div class="options-grid">
+<div class="option-card" data-correct="true">
+<div class="option-content">
+<div class="option-text">&lt;img src='girl_image.jpg'&gt;</div>
+<div class="option-feedback correct">✓ ठीक है! यह HTML विशेषता के लिए सही सिंटैक्स है</div>
+</div>
+</div>
+<div class="option-card" data-correct="false">
+<div class="option-content">
+<div class="option-text">&lt;img src('girl_image.jpg')&gt;</div>
+<div class="option-feedback incorrect">✗ ग़लत! HTML विशेषताएँ कोष्ठक का उपयोग नहीं करती हैं</div>
+</div>
+</div>
+<div class="option-card" data-correct="false">
+<div class="option-content">
+<div class="option-text">&lt;img src:'girl_image.jpg'&gt;</div>
+<div class="option-feedback incorrect">✗ ग़लत! HTML विशेषताएँ कोलन का उपयोग नहीं करती हैं</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Bottom Navigation -->
+<div class="bottom-nav">
+<a class="nav-tab prev" href="HTML%20Elements.html">
+<i class="fas fa-arrow-left"></i>
+<span>पिछला</span>
+</a>
+<a class="nav-tab next" href="HTML%20Headings.html">
+<span>अगला</span>
+<i class="fas fa-arrow-right"></i>
+</a>
+</div>
+</main>
+<!-- Footer -->
+<footer>
+<div class="footer-content">
+<div class="footer-column">
+<h3>Jassif Team Institution</h3>
+<p>Leading educational institution providing quality programming education in Hindi.</p>
+</div>
+<div class="footer-column">
+<h3>Quick Links</h3>
+<ul>
+<li><a href="#introduction">HTML विशेषताएँ</a></li>
+<li><a href="#href-attribute">href विशेषता</a></li>
+<li><a href="#src-attribute">स्रोत विशेषता</a></li>
+<li><a href="#alt-attribute">वैकल्पिक विशेषता</a></li>
+<li><a href="#style-attribute">शैली विशेषता</a></li>
+<li><a href="#lang-attribute">लैंग विशेषता</a></li>
+<li><a href="#title-attribute">शीर्षक विशेषता</a></li>
+<li><a href="#exercises">अभ्यास</a></li>
+</ul>
+</div>
+<div class="footer-column">
+<h3>HTML Topics</h3>
+<ul>
+<li><a href="#">HTML तत्व</a></li>
+<li><a href="#">HTML हेडर</a></li>
+<li><a href="#">HTML कॉलम</a></li>
+<li><a href="#">HTML लिंक</a></li>
+</ul>
+</div>
+<div class="footer-column">
+<h3>Follow Us</h3>
+<ul>
+<li><a href="#"><i class="fab fa-facebook"></i> Facebook</a></li>
+<li><a href="#"><i class="fab fa-instagram"></i> Instagram</a></li>
+<li><a href="#"><i class="fab fa-youtube"></i> YouTube</a></li>
+</ul>
+</div>
+</div>
+<div class="copyright">
+<p>© 2023 Jassif Team Institution. All rights reserved.</p>
+</div>
+</footer>
+<script>
+        // Add smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Add scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animation = 'fadeInUp 0.8s ease-out forwards';
+                }
+            });
+        }, observerOptions);
+        
+        // Observe all content sections for animation
+        document.querySelectorAll('.content-section').forEach(section => {
+            observer.observe(section);
+        });
+
+        // Exercise interaction
+        document.querySelectorAll('.option-card').forEach(card => {
+            card.addEventListener('click', function() {
+                // Show feedback for all options
+                document.querySelectorAll('.option-card').forEach(c => {
+                    c.querySelector('.option-feedback').style.display = 'block';
+                });
+            });
+        });
+    </script>
+<!-- Home Button -->
+<a class="home-icon" href="index.html">
+<i class="fas fa-home"></i>
+</a>
+</body>
+</html>
